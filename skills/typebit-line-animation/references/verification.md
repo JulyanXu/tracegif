@@ -21,7 +21,7 @@ Run exports only against the current rendered project. A stale HTML is not a val
 
 - HTML: reopen the downloaded copy offline, confirm it starts idle with the selected speed, and check its own hash if it is delivered as a separately verified artifact.
 - PNG: inspect the intended frame, alpha channel, aspect ratio, and absence of toolbar controls. The browser button saves the current frame; the CLI defaults to the final frame.
-- GIF: inspect the beginning, drawing stage, and final frame; check playback speed and the chosen solid background. Palette quantization and frame timing are GIF limitations. Do not label a white GIF background transparent.
+- GIF: exercise the toolbar download offline, decode the downloaded GIF and check that cancellation restores the original playback state. Inspect the beginning, drawing stage, and final frame; check playback speed and the chosen solid background. Palette quantization and frame timing are GIF limitations. Do not label a white GIF background transparent.
 
 Changing only export width, matte, or format does not require redrawing source contours. A new rendered HTML, changed timing, or altered artwork requires new verification. Check [exports.md](exports.md) for the supported format settings.
 

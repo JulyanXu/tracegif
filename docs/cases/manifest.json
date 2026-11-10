@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "typebit_version": "0.3.0",
+  "license": "MIT",
+  "cases": [
+    {
+      "slug": "leaf-studio",
+      "title": "Leaf Studio",
+      "title_zh": "叶间工作室",
+      "kind": "svg",
+      "method": "Native SVG geometry; semantic stem, leaves, veins and identity accents.",
+      "limitations": "Original demonstration identity, not commissioned client work. No automatic tracing is involved.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F6F4EC",
+      "html_sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87",
+      "project_zip": "leaf-studio-project.zip",
+      "project_zip_sha256": "04d7f60ae388b0dd3ba5a8b736c10c984edb645d8a48bb92983679c308f7d981",
+      "automated_status": "passed",
+      "checks_passed": 15,
+      "visual_review": {
+        "status": "reviewed",
+        "html_sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87",
+        "notes": [
+          "Four leaf silhouettes, stem, pale veins and gold accents match original source scale, position and final colors. Sparse semantic contours preserve the intended botanical identity. No fonts or approximate tracing.",
+          "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
+          "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
+          "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+        ]
+      },
+      "assets": {
+        "animation.html": {
+          "file": "animation.html",
+          "sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87"
+        },
+        "animation.gif": {
+          "file": "animation.gif",
+          "sha256": "3f05c39c15f8481410abc43647e026bc081ddacdfc957d5c262c78357a08e22f"
+        },
+        "final.png": {
+          "file": "final.png",
+          "sha256": "ea2911ccafd3113cbeb10dabb2d8152657caeccb4fffa8f2f7388c16da3376a6"
+        },
+        "preview.png": {
+          "file": "preview.png",
+          "sha256": "32a417c2f8380e9f0d1892cb2ae481869f59380a5e44d7ed8684182517d9898c"
+        },
+        "report.json": {
+          "file": "report.json",
+          "sha256": "9a9da28d4f1705a3b7f961200fc8857ed1511a688809344cdfbde7fc300008b9"
+        }
+      }
+    },
+    {
+      "slug": "coffee-story",
+      "title": "Coffee Story",
+      "title_zh": "一杯咖啡的故事",
+      "kind": "svg",
+      "method": "Native SVG paths; cup and saucer, then drink and steam, then beans and emblem.",
+      "limitations": "Original editorial illustration with deliberate flat colors. This is not a photo-to-vector claim.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#FAF1E7",
+      "html_sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728",
+      "project_zip": "coffee-story-project.zip",
+      "project_zip_sha256": "b5c46335a4a12592c140e1a5dd6dd150766eab6e055ec0837b3373a5c405105e",
+      "automated_status": "passed",
+      "checks_passed": 15,
+      "visual_review": {
+        "status": "reviewed",
+        "html_sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728",
+        "notes": [
+          "Cup, handle, saucer, espresso, three steam strokes, beans and leaf emblem match original source shape, placement and final colors. Handle opening and surrounding negative space remain transparent. Native SVG paths; no photographic tracing.",
+          "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
+          "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
+          "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+        ]
+      },
+      "assets": {
+        "animation.html": {
+          "file": "animation.html",
+          "sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728"
+        },
+        "animation.gif": {
+          "file": "animation.gif",
+          "sha256": "ecb08b767340662f52a667ec21ab1211550235df29b0eaf7d92595cd7be04322"
+        },
+        "final.png": {
+          "file": "final.png",
+          "sha256": "1b6ea6de3d5d52ddc5dfbff8c738ee83e407b3e30699287d74341d850a83e105"
+        },
+        "preview.png": {
+          "file": "preview.png",
+          "sha256": "3f034565b11f6a458c059d36b3a3d5a4d8ae278e86ebe4ddb828382938394180"
+        },
+        "report.json": {
+          "file": "report.json",
+          "sha256": "41113abf3071be8d0e6d5828cbf3286bfca0a302debe39a40bcaed05ee5aaa95"
+        }
+      }
+    },
+    {
+      "slug": "white-letter-badge",
+      "title": "White Letter Badge",
+      "title_zh": "白字徽章保真",
+      "kind": "logo",
+      "method": "Transparent PNG rendered from the authored SVG; supplied source SVG contours plus original PNG pixel reveal. No background removal or automatic tracing.",
+      "limitations": "The source SVG is deliberately available for this controlled raster fixture. This does not demonstrate recovering exact contours from an arbitrary logo.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F4F0E8",
+      "html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+      "project_zip": "white-letter-badge-project.zip",
+      "project_zip_sha256": "8a6b7098d2bec5b419e7b0beb3057b9e213a9eecef924bde5a7afd0adc8f4d43",
+      "automated_status": "passed",
+      "checks_passed": 15,
+      "visual_review": {
+        "status": "reviewed",
+        "html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+        "notes": [
+          "Octagonal badge, original TB letter paths, enclosed counters and gold accents match the supplied PNG and authored SVG. White letter interiors remain opaque white and exterior alpha is zero. Final PNG bytes match the original PNG exactly; this controlled example uses supplied original SVG contours, not automatic tracing or background removal.",
+          "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
+          "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
+          "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+        ]
+      },
+      "assets": {
+        "animation.html": {
+          "file": "animation.html",
+          "sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01"
+        },
+        "animation.gif": {
+          "file": "animation.gif",
+          "sha256": "8eb12dcdff1ff5de0afb51932bc8fcb866ce1c159853439571b621254ee74999"
+        },
+        "final.png": {
+          "file": "final.png",
+          "sha256": "bc3334628b387ee2e1174a640d40e039b674739244814e15b0146cc702fa6427"
+        },
+        "preview.png": {
+          "file": "preview.png",
+          "sha256": "f5073521d0d4a94aa22841407b9334e2ec0b0a57a6cb6e75de63037a5818228f"
+        },
+        "report.json": {
+          "file": "report.json",
+          "sha256": "a42108220a5e7faa7a764edbe3563318e3962cd9549cf288657b4d9771b48acf"
+        }
+      },
+      "raster_checks": {
+        "original_rgba_preserved": true,
+        "transparent_corner_alpha": 0,
+        "white_letter_rgba": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "no_background_removal": true
+      }
+    }
+  ]
+}

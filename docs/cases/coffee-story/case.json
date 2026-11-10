@@ -1,0 +1,48 @@
+{
+  "slug": "coffee-story",
+  "title": "Coffee Story",
+  "title_zh": "一杯咖啡的故事",
+  "kind": "svg",
+  "method": "Native SVG paths; cup and saucer, then drink and steam, then beans and emblem.",
+  "limitations": "Original editorial illustration with deliberate flat colors. This is not a photo-to-vector claim.",
+  "duration": 6,
+  "playback_rate": 1.5,
+  "matte": "#FAF1E7",
+  "html_sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728",
+  "project_zip": "coffee-story-project.zip",
+  "project_zip_sha256": "b5c46335a4a12592c140e1a5dd6dd150766eab6e055ec0837b3373a5c405105e",
+  "automated_status": "passed",
+  "checks_passed": 15,
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728",
+    "notes": [
+      "Cup, handle, saucer, espresso, three steam strokes, beans and leaf emblem match original source shape, placement and final colors. Handle opening and surrounding negative space remain transparent. Native SVG paths; no photographic tracing.",
+      "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
+      "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
+      "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+    ]
+  },
+  "assets": {
+    "animation.html": {
+      "file": "animation.html",
+      "sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728"
+    },
+    "animation.gif": {
+      "file": "animation.gif",
+      "sha256": "ecb08b767340662f52a667ec21ab1211550235df29b0eaf7d92595cd7be04322"
+    },
+    "final.png": {
+      "file": "final.png",
+      "sha256": "1b6ea6de3d5d52ddc5dfbff8c738ee83e407b3e30699287d74341d850a83e105"
+    },
+    "preview.png": {
+      "file": "preview.png",
+      "sha256": "3f034565b11f6a458c059d36b3a3d5a4d8ae278e86ebe4ddb828382938394180"
+    },
+    "report.json": {
+      "file": "report.json",
+      "sha256": "41113abf3071be8d0e6d5828cbf3286bfca0a302debe39a40bcaed05ee5aaa95"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "leaf-studio",
+  "title": "Leaf Studio",
+  "title_zh": "叶间工作室",
+  "kind": "svg",
+  "method": "Native SVG geometry; semantic stem, leaves, veins and identity accents.",
+  "limitations": "Original demonstration identity, not commissioned client work. No automatic tracing is involved.",
+  "duration": 6,
+  "playback_rate": 1.5,
+  "matte": "#F6F4EC",
+  "html_sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87",
+  "project_zip": "leaf-studio-project.zip",
+  "project_zip_sha256": "04d7f60ae388b0dd3ba5a8b736c10c984edb645d8a48bb92983679c308f7d981",
+  "automated_status": "passed",
+  "checks_passed": 15,
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87",
+    "notes": [
+      "Four leaf silhouettes, stem, pale veins and gold accents match original source scale, position and final colors. Sparse semantic contours preserve the intended botanical identity. No fonts or approximate tracing.",
+      "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
+      "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
+      "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+    ]
+  },
+  "assets": {
+    "animation.html": {
+      "file": "animation.html",
+      "sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87"
+    },
+    "animation.gif": {
+      "file": "animation.gif",
+      "sha256": "3f05c39c15f8481410abc43647e026bc081ddacdfc957d5c262c78357a08e22f"
+    },
+    "final.png": {
+      "file": "final.png",
+      "sha256": "ea2911ccafd3113cbeb10dabb2d8152657caeccb4fffa8f2f7388c16da3376a6"
+    },
+    "preview.png": {
+      "file": "preview.png",
+      "sha256": "32a417c2f8380e9f0d1892cb2ae481869f59380a5e44d7ed8684182517d9898c"
+    },
+    "report.json": {
+      "file": "report.json",
+      "sha256": "9a9da28d4f1705a3b7f961200fc8857ed1511a688809344cdfbde7fc300008b9"
+    }
+  }
+}

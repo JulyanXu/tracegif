@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-10T10:02:39.725211+00:00",
+  "html_file": "animation.html",
+  "automated_status": "passed",
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "e8789c8e357a26d93668f7d545c36d530b58a0f877b695324e7bf10b74110d9e",
+    "notes": [
+      "Reviewed the actual source/drawing/final preview: rocket shape, proportions, window white and blue/gold colors match; no added doodle strokes. Transparent exterior is also checked by browser verification."
+    ]
+  },
+  "checks": [
+    {
+      "name": "embedded_resources",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "initial_wait",
+      "status": "passed",
+      "detail": {
+        "status": "idle",
+        "time": 0,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667,
+        "exporting": false
+      }
+    },
+    {
+      "name": "speed_changes_without_reset",
+      "status": "passed",
+      "detail": {
+        "playing": {
+          "status": "playing",
+          "time": 2.563799999982119,
+          "duration": 10,
+          "playbackRate": 2,
+          "effectiveDuration": 5,
+          "exporting": false
+        },
+        "paused": {
+          "status": "paused",
+          "time": 2.5720000000298024,
+          "duration": 10,
+          "playbackRate": 0.5,
+          "effectiveDuration": 20,
+          "exporting": false
+        }
+      }
+    },
+    {
+      "name": "scrubber_seeks_without_global_shortcuts",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 5.01,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_starts_without_reset",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.23630000001192092,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "space_pauses_and_resumes",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.38309999996423716,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_resumes_pause",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.4942999999523162,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "r_restarts",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.005700000047683716,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "held_key_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.00980000001192093,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "editable_shortcuts_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.00980000001192093,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "screen_button_toggle",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.05920000004768371,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "real_time_completion_and_hold",
+      "status": "passed",
+      "detail": {
+        "status": "completed",
+        "time": 10,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_replays_completed",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.005100000053644181,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667,
+        "exporting": false
+      }
+    },
+    {
+      "name": "no_network_requests",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "no_browser_errors",
+      "status": "passed",
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "light-start.png",
+      "background": "light",
+      "time": 0
+    },
+    {
+      "file": "light-middle.png",
+      "background": "light",
+      "time": 5.0
+    },
+    {
+      "file": "light-final.png",
+      "background": "light",
+      "time": 10.0
+    },
+    {
+      "file": "dark-start.png",
+      "background": "dark",
+      "time": 0
+    },
+    {
+      "file": "dark-middle.png",
+      "background": "dark",
+      "time": 5.0
+    },
+    {
+      "file": "dark-final.png",
+      "background": "dark",
+      "time": 10.0
+    },
+    {
+      "file": "checker-start.png",
+      "background": "checker",
+      "time": 0
+    },
+    {
+      "file": "checker-middle.png",
+      "background": "checker",
+      "time": 5.0
+    },
+    {
+      "file": "checker-final.png",
+      "background": "checker",
+      "time": 10.0
+    },
+    {
+      "file": "transparent-final.png",
+      "background": "transparent",
+      "time": 10.0
+    }
+  ],
+  "network_requests": [],
+  "console_errors": [],
+  "html_sha256": "e8789c8e357a26d93668f7d545c36d530b58a0f877b695324e7bf10b74110d9e",
+  "browser": {
+    "name": "chromium",
+    "version": "145.0.7632.6",
+    "offline": true,
+    "url_scheme": "file"
+  },
+  "transparency_observation": {
+    "status": "passed",
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "Margins only; requires visual mask review."
+  },
+  "report_path": "report.json"
+}

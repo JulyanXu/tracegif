@@ -11,8 +11,11 @@ TypeBit's own code and documentation are licensed under the [MIT License](LICENS
 | [greenlet](https://github.com/python-greenlet/greenlet) | Playwright dependency | [MIT and PSF-2.0](https://github.com/python-greenlet/greenlet/blob/master/LICENSE) |
 | [typing_extensions](https://github.com/python/typing_extensions) | Runtime typing dependency | [PSF-2.0](https://github.com/python/typing_extensions/blob/main/LICENSE) |
 | [Chromium](https://www.chromium.org/) | Browser installed by Playwright | [Chromium license](https://chromium.googlesource.com/chromium/src/+/main/LICENSE), plus its bundled third-party notices |
+| [gifenc 1.0.3](https://github.com/mattdesl/gifenc) | Offline GIF encoding in the exported HTML toolbar | [MIT](skills/typebit-line-animation/assets/vendor/gifenc.LICENSE.md) |
 
 Consult the notices shipped with the exact installed versions, including their transitive dependencies. Keep those notices if redistributing their files or browser binaries.
+
+The pinned `gifenc` JavaScript release is vendored and embedded in exported HTML, including its complete upstream copyright and MIT notice. Its npm package integrity, source checksum, wrapper changes and bundled checksum are recorded in [gifenc.provenance.json](skills/typebit-line-animation/assets/vendor/gifenc.provenance.json). Browser GIF exports require no CDN, network request, Node.js installation or external worker file. The Python GIF helper continues to use Pillow.
 
 The exported player uses TypeBit's native SVG/JavaScript runtime. It does not include GSAP or a model runtime. TypeBit does not distribute model weights, commercial fonts, or third-party brand artwork. User-provided images and fonts remain subject to their own rights; only embed fonts that may be redistributed with the artwork.
 

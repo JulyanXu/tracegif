@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <title>Leaf Studio — an original botanical identity</title>
+  <desc>Original TypeBit demonstration artwork, MIT licensed. Native SVG paths, no fonts or external assets.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path id="stem" data-phase="main" d="M313 382 C302 324 317 258 336 204 C347 169 346 128 333 94" fill="none" stroke="#214B3B" stroke-width="7"/>
+    <path id="left-leaf" data-phase="main" d="M318 278 C263 284 201 254 180 192 C224 171 282 195 307 235 C315 248 320 264 318 278Z" fill="#4F8663" stroke="#214B3B" stroke-width="3"/>
+    <path id="right-leaf" data-phase="main" d="M328 233 C328 181 370 133 436 127 C447 181 408 226 363 235 C351 238 339 238 328 233Z" fill="#285E47" stroke="#214B3B" stroke-width="3"/>
+    <path id="crown-leaf" data-phase="main" d="M339 162 C306 148 284 115 295 75 C336 70 368 111 339 162Z" fill="#83A579" stroke="#214B3B" stroke-width="3"/>
+    <path id="lower-leaf" data-phase="main" d="M309 337 C266 340 232 316 224 281 C261 270 297 294 309 337Z" fill="#8CAB7B" stroke="#214B3B" stroke-width="3"/>
+    <path id="left-vein" data-phase="secondary" d="M318 278 C279 255 238 221 193 197" fill="none" stroke="#DCE5C4" stroke-width="2.7"/>
+    <path id="left-vein-upper" data-phase="secondary" d="M266 239 C266 223 259 207 249 198 M289 257 C293 240 289 223 284 213" fill="none" stroke="#DCE5C4" stroke-width="2"/>
+    <path id="left-vein-lower" data-phase="secondary" d="M244 223 C234 230 223 231 213 229 M281 251 C269 259 252 259 241 255" fill="none" stroke="#DCE5C4" stroke-width="2"/>
+    <path id="right-vein" data-phase="secondary" d="M330 232 C364 204 394 172 427 136" fill="none" stroke="#C6D7A7" stroke-width="2.8"/>
+    <path id="right-vein-upper" data-phase="secondary" d="M355 211 C349 194 353 179 360 168 M382 183 C377 166 384 153 390 146" fill="none" stroke="#C6D7A7" stroke-width="2"/>
+    <path id="right-vein-lower" data-phase="secondary" d="M364 202 C383 208 398 201 408 194 M400 164 C413 167 425 160 432 153" fill="none" stroke="#C6D7A7" stroke-width="2"/>
+    <path id="crown-vein" data-phase="secondary" d="M339 160 C334 130 320 105 301 83 M328 125 L308 118 M333 141 L352 125" fill="none" stroke="#E1E8C9" stroke-width="2"/>
+    <path id="lower-vein" data-phase="secondary" d="M309 336 C283 320 256 302 233 287 M282 319 L278 294 M266 307 L248 313" fill="none" stroke="#EEF0D8" stroke-width="2"/>
+    <path id="identity-arc-left" data-phase="details" d="M229 110 C173 143 149 199 157 255 C165 312 205 359 254 381" fill="none" stroke="#BA9457" stroke-width="2"/>
+    <path id="identity-arc-right" data-phase="details" d="M402 369 C458 333 489 273 480 217" fill="none" stroke="#BA9457" stroke-width="2"/>
+    <path id="ground-line" data-phase="details" d="M275 395 C297 391 326 391 348 395" fill="none" stroke="#214B3B" stroke-width="3"/>
+    <path id="sun" data-phase="details" d="M464 104 A15 15 0 1 1 434 104 A15 15 0 1 1 464 104Z" fill="#D8AF65" stroke="#BA9457" stroke-width="2"/>
+    <path id="seed-left" data-phase="details" d="M178 327 C164 327 157 319 158 308 C172 307 180 315 178 327Z" fill="#D8AF65" stroke="#BA9457" stroke-width="1.5"/>
+    <path id="seed-right" data-phase="details" d="M448 313 C446 297 453 288 465 286 C469 300 462 311 448 313Z" fill="#D8AF65" stroke="#BA9457" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,0 +1,1576 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="TypeBit 0.3.0"><title>White Letter Badge</title><style>/* TypeBit 0.3.0 — MIT. Backgrounds are deliberately transparent. */
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: transparent;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+#typebit-stage {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  background: transparent;
+}
+
+#typebit-scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  isolation: isolate;
+}
+
+#typebit-art,
+#typebit-traces,
+#typebit-doodle {
+  pointer-events: none;
+}
+
+/* Prevent a flash of the completed artwork before the inline player runs. */
+#typebit-art,
+#typebit-traces,
+#typebit-doodle { opacity: 0; }
+
+#typebit-controls {
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: auto auto auto minmax(80px, 1fr) auto auto auto auto;
+  gap: 8px;
+  align-items: center;
+  width: min(900px, calc(100vw - 24px));
+  padding: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #172033;
+  font: 500 13px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.12);
+}
+
+#typebit-controls button,
+#typebit-controls select,
+body > #typebit-control {
+  min-height: 38px;
+  min-width: 0;
+  border: 1px solid #d6dce5;
+  border-radius: 9px;
+  padding: 7px 10px;
+  background: white;
+  color: #172033;
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#typebit-control { min-width: 80px; font-weight: 650; }
+#typebit-controls label { display: flex; align-items: center; gap: 6px; min-width: 0; white-space: nowrap; }
+#typebit-controls select { min-width: 68px; padding-right: 4px; }
+#typebit-progress { width: 100%; min-width: 0; margin: 0; accent-color: #475569; cursor: pointer; }
+#typebit-time { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+#typebit-export-status { grid-column: 1 / -1; color: #475569; font-size: 12px; overflow-wrap: anywhere; }
+#typebit-export-status:empty { display: none; }
+#typebit-cancel-export { grid-column: 1 / -1; justify-self: start; }
+#typebit-cancel-export[hidden] { display: none; }
+#typebit-controls button:hover,
+body > #typebit-control:hover { background: #f1f5f9; }
+#typebit-controls button:active { background: #e2e8f0; }
+#typebit-controls button:disabled { cursor: progress; opacity: .6; }
+#typebit-controls :focus-visible,
+body > #typebit-control:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+#typebit-controls[hidden], #typebit-control[hidden] { display: none; }
+
+/* Retain the basic control when an older document uses the current player. */
+body > #typebit-control { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); font: 600 14px/1.4 system-ui, sans-serif; }
+
+@media (max-width: 980px) {
+  #typebit-controls { grid-template-columns: auto auto minmax(0, 1fr) auto auto auto; }
+  #typebit-control { grid-column: 1; grid-row: 1; }
+  #typebit-replay { grid-column: 2; grid-row: 1; }
+  #typebit-controls label { grid-column: 3; grid-row: 1; justify-content: center; }
+  #typebit-download-html { grid-column: 4; grid-row: 1; }
+  #typebit-download-png { grid-column: 5; grid-row: 1; }
+  #typebit-download-gif { grid-column: 6; grid-row: 1; }
+  #typebit-progress { grid-column: 1 / 5; grid-row: 2; }
+  #typebit-time { grid-column: 5 / 7; grid-row: 2; }
+}
+
+@media (max-width: 700px) {
+  #typebit-controls { grid-template-columns: auto auto minmax(0, 1fr); }
+  #typebit-controls label { justify-content: end; }
+  #typebit-progress { grid-column: 1 / 3; }
+  #typebit-time { grid-column: 3; }
+  #typebit-download-html { grid-column: 1; grid-row: 3; }
+  #typebit-download-png { grid-column: 2; grid-row: 3; }
+  #typebit-download-gif { grid-column: 3; grid-row: 3; justify-self: end; }
+}
+
+@media (max-width: 360px) {
+  #typebit-controls label { font-size: 0; gap: 0; }
+  #typebit-controls select { font-size: 13px; }
+}
+
+@media print {
+  #typebit-controls, #typebit-control { display: none; }
+}
+</style></head>
+<body><main id="typebit-stage"><svg xmlns="http://www.w3.org/2000/svg" id="typebit-scene" viewBox="0 0 640 480" role="img" aria-label="White Letter Badge"><g id="typebit-doodle" /><g id="typebit-art"><svg viewBox="0 0 640 480" x="0" y="0" width="640" height="480"><image id="art-source-image" width="640" height="480" href="data:image/png;base64,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" /></svg></g><g id="typebit-traces"><svg width="640" height="480" viewBox="0 0 640 480" x="0" y="0">
+  <title>White Letter Badge — original TB path lettering</title>
+  <desc>Original TypeBit artwork, MIT licensed. This SVG is the reproducible source for a transparent PNG preservation case. TB letters are authored paths, not a font or third-party mark.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path id="trace-badge-body" data-phase="main" d="M214 86 H426 L474 134 V346 L426 394 H214 L166 346 V134Z" fill="#1F343A" stroke="#20373E" stroke-width="4" />
+    <path id="trace-badge-inset" data-phase="main" d="M222 103 H418 L457 142 V338 L418 377 H222 L183 338 V142Z" fill="none" stroke="#CFAB70" stroke-width="2.5" />
+    <path id="trace-top-divider" data-phase="secondary" d="M230 140 H294 M346 140 H410" fill="none" stroke="#CFAB70" stroke-width="2" />
+    <path id="trace-lower-divider" data-phase="secondary" d="M230 340 H289 M351 340 H410" fill="none" stroke="#CFAB70" stroke-width="2" />
+    <path id="trace-corner-top-left" data-phase="secondary" d="M197 159 V148 L228 117 H240" fill="none" stroke="#617A79" stroke-width="2" />
+    <path id="trace-corner-top-right" data-phase="secondary" d="M400 117 H412 L443 148 V159" fill="none" stroke="#617A79" stroke-width="2" />
+    <path id="trace-corner-low-left" data-phase="secondary" d="M197 321 V332 L228 363 H240" fill="none" stroke="#617A79" stroke-width="2" />
+    <path id="trace-corner-low-right" data-phase="secondary" d="M400 363 H412 L443 332 V321" fill="none" stroke="#617A79" stroke-width="2" />
+    <path id="trace-letter-t" data-phase="details" d="M224 177 H311 V202 H281 V307 H254 V202 H224Z" fill="#FFFFFF" stroke="#C1AD87" stroke-width="1.2" />
+    <path id="trace-letter-b" data-phase="details" fill-rule="evenodd" d="M329 177 H370 C398 177 414 188 414 210 C414 225 405 236 394 239 C411 243 420 253 420 270 C420 295 401 307 371 307 H329Z M356 201 V227 H370 C381 227 387 222 387 214 C387 205 381 201 370 201Z M356 251 V283 H371 C385 283 392 278 392 267 C392 256 384 251 371 251Z" fill="#FFFFFF" stroke="#C1AD87" stroke-width="1.2" />
+    <path id="trace-top-diamond" data-phase="details" d="M320 127 L331 140 L320 153 L309 140Z" fill="#CFAB70" stroke="#CFAB70" stroke-width="1.5" />
+    <path id="trace-bottom-diamond" data-phase="details" d="M320 329 L331 340 L320 351 L309 340Z" fill="none" stroke="#CFAB70" stroke-width="2" />
+    <path id="trace-left-dot" data-phase="details" d="M213 240 A3.5 3.5 0 1 1 206 240 A3.5 3.5 0 1 1 213 240Z" fill="#CFAB70" stroke="#CFAB70" stroke-width="1" />
+    <path id="trace-right-dot" data-phase="details" d="M437 240 A3.5 3.5 0 1 1 430 240 A3.5 3.5 0 1 1 437 240Z" fill="#CFAB70" stroke="#CFAB70" stroke-width="1" />
+  </g>
+</svg></g></svg></main>
+<div id="typebit-controls" role="group" aria-label="Animation controls">
+<button id="typebit-control" type="button" aria-label="Play animation">Play</button>
+<button id="typebit-replay" type="button" aria-label="Replay animation">Replay</button>
+<label for="typebit-speed">Speed <select id="typebit-speed" aria-label="Playback speed">
+<option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="0.75">0.75×</option>
+<option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option>
+<option value="3">3×</option><option value="4">4×</option></select></label>
+<input id="typebit-progress" type="range" min="0" max="6" step="0.01" value="0" aria-label="Animation progress">
+<output id="typebit-time" aria-live="off">0:00</output>
+<button id="typebit-download-html" type="button" title="Save offline HTML with the selected speed">Save HTML</button>
+<button id="typebit-download-png" type="button" title="Save the current frame with transparency">Save PNG</button>
+<button id="typebit-download-gif" type="button" title="Save the full animation as a white-background GIF at the selected speed">Save GIF</button>
+<button id="typebit-cancel-export" type="button" hidden>Cancel GIF</button>
+<output id="typebit-export-status" aria-live="polite"></output>
+</div>
+<script type="application/json" id="typebit-config">{"duration": 6.0, "fill_start": 5.1, "brand_color": "#2563EB", "layers": [{"id": "badge-body", "label": "badge-body", "phase": "main", "start": 0.0, "duration": 1.2}, {"id": "badge-inset", "label": "badge-inset", "phase": "main", "start": 1.2, "duration": 1.2}, {"id": "top-divider", "label": "top-divider", "phase": "secondary", "start": 2.4, "duration": 0.25}, {"id": "lower-divider", "label": "lower-divider", "phase": "secondary", "start": 2.65, "duration": 0.25}, {"id": "corner-top-left", "label": "corner-top-left", "phase": "secondary", "start": 2.9, "duration": 0.25}, {"id": "corner-top-right", "label": "corner-top-right", "phase": "secondary", "start": 3.15, "duration": 0.25}, {"id": "corner-low-left", "label": "corner-low-left", "phase": "secondary", "start": 3.4, "duration": 0.25}, {"id": "corner-low-right", "label": "corner-low-right", "phase": "secondary", "start": 3.65, "duration": 0.25}, {"id": "letter-t", "label": "letter-t", "phase": "details", "start": 3.9, "duration": 0.2}, {"id": "letter-b", "label": "letter-b", "phase": "details", "start": 4.1, "duration": 0.2}, {"id": "top-diamond", "label": "top-diamond", "phase": "details", "start": 4.3, "duration": 0.2}, {"id": "bottom-diamond", "label": "bottom-diamond", "phase": "details", "start": 4.5, "duration": 0.2}, {"id": "left-dot", "label": "left-dot", "phase": "details", "start": 4.7, "duration": 0.2}, {"id": "right-dot", "label": "right-dot", "phase": "details", "start": 4.9, "duration": 0.2}], "doodle": false, "playback_rate": 1.5}</script><script>/*
+ * gifenc 1.0.3 — vendored from the npm release.
+ * https://github.com/mattdesl/gifenc
+ *
+ * The MIT License (MIT)
+ * Copyright (c) 2017 Matt DesLauriers
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+ * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+ * OR OTHER DEALINGS IN THE SOFTWARE.
+ * 
+ */
+(function (global) {
+  "use strict";
+  var exports = {};
+var __defProp = Object.defineProperty;
+var __markAsModule = (target) => __defProp(target, "__esModule", {value: true});
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, {get: all[name], enumerable: true});
+};
+
+// src/index.js
+__markAsModule(exports);
+__export(exports, {
+  GIFEncoder: () => GIFEncoder,
+  applyPalette: () => applyPalette,
+  default: () => src_default,
+  nearestColor: () => nearestColor,
+  nearestColorIndex: () => nearestColorIndex,
+  nearestColorIndexWithDistance: () => nearestColorIndexWithDistance,
+  prequantize: () => prequantize,
+  quantize: () => quantize,
+  snapColorsToPalette: () => snapColorsToPalette
+});
+
+// src/constants.js
+var constants_default = {
+  signature: "GIF",
+  version: "89a",
+  trailer: 59,
+  extensionIntroducer: 33,
+  applicationExtensionLabel: 255,
+  graphicControlExtensionLabel: 249,
+  imageSeparator: 44,
+  signatureSize: 3,
+  versionSize: 3,
+  globalColorTableFlagMask: 128,
+  colorResolutionMask: 112,
+  sortFlagMask: 8,
+  globalColorTableSizeMask: 7,
+  applicationIdentifierSize: 8,
+  applicationAuthCodeSize: 3,
+  disposalMethodMask: 28,
+  userInputFlagMask: 2,
+  transparentColorFlagMask: 1,
+  localColorTableFlagMask: 128,
+  interlaceFlagMask: 64,
+  idSortFlagMask: 32,
+  localColorTableSizeMask: 7
+};
+
+// src/stream.js
+function createStream(initialCapacity = 256) {
+  let cursor = 0;
+  let contents = new Uint8Array(initialCapacity);
+  return {
+    get buffer() {
+      return contents.buffer;
+    },
+    reset() {
+      cursor = 0;
+    },
+    bytesView() {
+      return contents.subarray(0, cursor);
+    },
+    bytes() {
+      return contents.slice(0, cursor);
+    },
+    writeByte(byte) {
+      expand(cursor + 1);
+      contents[cursor] = byte;
+      cursor++;
+    },
+    writeBytes(data, offset = 0, byteLength = data.length) {
+      expand(cursor + byteLength);
+      for (let i = 0; i < byteLength; i++) {
+        contents[cursor++] = data[i + offset];
+      }
+    },
+    writeBytesView(data, offset = 0, byteLength = data.byteLength) {
+      expand(cursor + byteLength);
+      contents.set(data.subarray(offset, offset + byteLength), cursor);
+      cursor += byteLength;
+    }
+  };
+  function expand(newCapacity) {
+    var prevCapacity = contents.length;
+    if (prevCapacity >= newCapacity)
+      return;
+    var CAPACITY_DOUBLING_MAX = 1024 * 1024;
+    newCapacity = Math.max(newCapacity, prevCapacity * (prevCapacity < CAPACITY_DOUBLING_MAX ? 2 : 1.125) >>> 0);
+    if (prevCapacity != 0)
+      newCapacity = Math.max(newCapacity, 256);
+    const oldContents = contents;
+    contents = new Uint8Array(newCapacity);
+    if (cursor > 0)
+      contents.set(oldContents.subarray(0, cursor), 0);
+  }
+}
+
+// src/lzwEncode.js
+var BITS = 12;
+var DEFAULT_HSIZE = 5003;
+var MASKS = [
+  0,
+  1,
+  3,
+  7,
+  15,
+  31,
+  63,
+  127,
+  255,
+  511,
+  1023,
+  2047,
+  4095,
+  8191,
+  16383,
+  32767,
+  65535
+];
+function lzwEncode(width, height, pixels, colorDepth, outStream = createStream(512), accum = new Uint8Array(256), htab = new Int32Array(DEFAULT_HSIZE), codetab = new Int32Array(DEFAULT_HSIZE)) {
+  const hsize = htab.length;
+  const initCodeSize = Math.max(2, colorDepth);
+  accum.fill(0);
+  codetab.fill(0);
+  htab.fill(-1);
+  let cur_accum = 0;
+  let cur_bits = 0;
+  const init_bits = initCodeSize + 1;
+  const g_init_bits = init_bits;
+  let clear_flg = false;
+  let n_bits = g_init_bits;
+  let maxcode = (1 << n_bits) - 1;
+  const ClearCode = 1 << init_bits - 1;
+  const EOFCode = ClearCode + 1;
+  let free_ent = ClearCode + 2;
+  let a_count = 0;
+  let ent = pixels[0];
+  let hshift = 0;
+  for (let fcode = hsize; fcode < 65536; fcode *= 2) {
+    ++hshift;
+  }
+  hshift = 8 - hshift;
+  outStream.writeByte(initCodeSize);
+  output(ClearCode);
+  const length = pixels.length;
+  for (let idx = 1; idx < length; idx++) {
+    next_block: {
+      const c = pixels[idx];
+      const fcode = (c << BITS) + ent;
+      let i = c << hshift ^ ent;
+      if (htab[i] === fcode) {
+        ent = codetab[i];
+        break next_block;
+      }
+      const disp = i === 0 ? 1 : hsize - i;
+      while (htab[i] >= 0) {
+        i -= disp;
+        if (i < 0)
+          i += hsize;
+        if (htab[i] === fcode) {
+          ent = codetab[i];
+          break next_block;
+        }
+      }
+      output(ent);
+      ent = c;
+      if (free_ent < 1 << BITS) {
+        codetab[i] = free_ent++;
+        htab[i] = fcode;
+      } else {
+        htab.fill(-1);
+        free_ent = ClearCode + 2;
+        clear_flg = true;
+        output(ClearCode);
+      }
+    }
+  }
+  output(ent);
+  output(EOFCode);
+  outStream.writeByte(0);
+  return outStream.bytesView();
+  function output(code) {
+    cur_accum &= MASKS[cur_bits];
+    if (cur_bits > 0)
+      cur_accum |= code << cur_bits;
+    else
+      cur_accum = code;
+    cur_bits += n_bits;
+    while (cur_bits >= 8) {
+      accum[a_count++] = cur_accum & 255;
+      if (a_count >= 254) {
+        outStream.writeByte(a_count);
+        outStream.writeBytesView(accum, 0, a_count);
+        a_count = 0;
+      }
+      cur_accum >>= 8;
+      cur_bits -= 8;
+    }
+    if (free_ent > maxcode || clear_flg) {
+      if (clear_flg) {
+        n_bits = g_init_bits;
+        maxcode = (1 << n_bits) - 1;
+        clear_flg = false;
+      } else {
+        ++n_bits;
+        maxcode = n_bits === BITS ? 1 << n_bits : (1 << n_bits) - 1;
+      }
+    }
+    if (code == EOFCode) {
+      while (cur_bits > 0) {
+        accum[a_count++] = cur_accum & 255;
+        if (a_count >= 254) {
+          outStream.writeByte(a_count);
+          outStream.writeBytesView(accum, 0, a_count);
+          a_count = 0;
+        }
+        cur_accum >>= 8;
+        cur_bits -= 8;
+      }
+      if (a_count > 0) {
+        outStream.writeByte(a_count);
+        outStream.writeBytesView(accum, 0, a_count);
+        a_count = 0;
+      }
+    }
+  }
+}
+var lzwEncode_default = lzwEncode;
+
+// src/rgb-packing.js
+function rgb888_to_rgb565(r, g, b) {
+  return r << 8 & 63488 | g << 2 & 992 | b >> 3;
+}
+function rgba8888_to_rgba4444(r, g, b, a) {
+  return r >> 4 | g & 240 | (b & 240) << 4 | (a & 240) << 8;
+}
+function rgb888_to_rgb444(r, g, b) {
+  return r >> 4 << 8 | g & 240 | b >> 4;
+}
+
+// src/pnnquant2.js
+function clamp(value, min, max) {
+  return value < min ? min : value > max ? max : value;
+}
+function sqr(value) {
+  return value * value;
+}
+function find_nn(bins, idx, hasAlpha) {
+  var nn = 0;
+  var err = 1e100;
+  const bin1 = bins[idx];
+  const n1 = bin1.cnt;
+  const wa = bin1.ac;
+  const wr = bin1.rc;
+  const wg = bin1.gc;
+  const wb = bin1.bc;
+  for (var i = bin1.fw; i != 0; i = bins[i].fw) {
+    const bin = bins[i];
+    const n2 = bin.cnt;
+    const nerr2 = n1 * n2 / (n1 + n2);
+    if (nerr2 >= err)
+      continue;
+    var nerr = 0;
+    if (hasAlpha) {
+      nerr += nerr2 * sqr(bin.ac - wa);
+      if (nerr >= err)
+        continue;
+    }
+    nerr += nerr2 * sqr(bin.rc - wr);
+    if (nerr >= err)
+      continue;
+    nerr += nerr2 * sqr(bin.gc - wg);
+    if (nerr >= err)
+      continue;
+    nerr += nerr2 * sqr(bin.bc - wb);
+    if (nerr >= err)
+      continue;
+    err = nerr;
+    nn = i;
+  }
+  bin1.err = err;
+  bin1.nn = nn;
+}
+function create_bin() {
+  return {
+    ac: 0,
+    rc: 0,
+    gc: 0,
+    bc: 0,
+    cnt: 0,
+    nn: 0,
+    fw: 0,
+    bk: 0,
+    tm: 0,
+    mtm: 0,
+    err: 0
+  };
+}
+function create_bin_list(data, format) {
+  const bincount = format === "rgb444" ? 4096 : 65536;
+  const bins = new Array(bincount);
+  const size = data.length;
+  if (format === "rgba4444") {
+    for (let i = 0; i < size; ++i) {
+      const color = data[i];
+      const a = color >> 24 & 255;
+      const b = color >> 16 & 255;
+      const g = color >> 8 & 255;
+      const r = color & 255;
+      const index = rgba8888_to_rgba4444(r, g, b, a);
+      let bin = index in bins ? bins[index] : bins[index] = create_bin();
+      bin.rc += r;
+      bin.gc += g;
+      bin.bc += b;
+      bin.ac += a;
+      bin.cnt++;
+    }
+  } else if (format === "rgb444") {
+    for (let i = 0; i < size; ++i) {
+      const color = data[i];
+      const b = color >> 16 & 255;
+      const g = color >> 8 & 255;
+      const r = color & 255;
+      const index = rgb888_to_rgb444(r, g, b);
+      let bin = index in bins ? bins[index] : bins[index] = create_bin();
+      bin.rc += r;
+      bin.gc += g;
+      bin.bc += b;
+      bin.cnt++;
+    }
+  } else {
+    for (let i = 0; i < size; ++i) {
+      const color = data[i];
+      const b = color >> 16 & 255;
+      const g = color >> 8 & 255;
+      const r = color & 255;
+      const index = rgb888_to_rgb565(r, g, b);
+      let bin = index in bins ? bins[index] : bins[index] = create_bin();
+      bin.rc += r;
+      bin.gc += g;
+      bin.bc += b;
+      bin.cnt++;
+    }
+  }
+  return bins;
+}
+function quantize(rgba, maxColors, opts = {}) {
+  const {
+    format = "rgb565",
+    clearAlpha = true,
+    clearAlphaColor = 0,
+    clearAlphaThreshold = 0,
+    oneBitAlpha = false
+  } = opts;
+  if (!rgba || !rgba.buffer) {
+    throw new Error("quantize() expected RGBA Uint8Array data");
+  }
+  if (!(rgba instanceof Uint8Array) && !(rgba instanceof Uint8ClampedArray)) {
+    throw new Error("quantize() expected RGBA Uint8Array data");
+  }
+  const data = new Uint32Array(rgba.buffer);
+  let useSqrt = opts.useSqrt !== false;
+  const hasAlpha = format === "rgba4444";
+  const bins = create_bin_list(data, format);
+  const bincount = bins.length;
+  const bincountMinusOne = bincount - 1;
+  const heap = new Uint32Array(bincount + 1);
+  var maxbins = 0;
+  for (var i = 0; i < bincount; ++i) {
+    const bin = bins[i];
+    if (bin != null) {
+      var d = 1 / bin.cnt;
+      if (hasAlpha)
+        bin.ac *= d;
+      bin.rc *= d;
+      bin.gc *= d;
+      bin.bc *= d;
+      bins[maxbins++] = bin;
+    }
+  }
+  if (sqr(maxColors) / maxbins < 0.022) {
+    useSqrt = false;
+  }
+  var i = 0;
+  for (; i < maxbins - 1; ++i) {
+    bins[i].fw = i + 1;
+    bins[i + 1].bk = i;
+    if (useSqrt)
+      bins[i].cnt = Math.sqrt(bins[i].cnt);
+  }
+  if (useSqrt)
+    bins[i].cnt = Math.sqrt(bins[i].cnt);
+  var h, l, l2;
+  for (i = 0; i < maxbins; ++i) {
+    find_nn(bins, i, false);
+    var err = bins[i].err;
+    for (l = ++heap[0]; l > 1; l = l2) {
+      l2 = l >> 1;
+      if (bins[h = heap[l2]].err <= err)
+        break;
+      heap[l] = h;
+    }
+    heap[l] = i;
+  }
+  var extbins = maxbins - maxColors;
+  for (i = 0; i < extbins; ) {
+    var tb;
+    for (; ; ) {
+      var b1 = heap[1];
+      tb = bins[b1];
+      if (tb.tm >= tb.mtm && bins[tb.nn].mtm <= tb.tm)
+        break;
+      if (tb.mtm == bincountMinusOne)
+        b1 = heap[1] = heap[heap[0]--];
+      else {
+        find_nn(bins, b1, false);
+        tb.tm = i;
+      }
+      var err = bins[b1].err;
+      for (l = 1; (l2 = l + l) <= heap[0]; l = l2) {
+        if (l2 < heap[0] && bins[heap[l2]].err > bins[heap[l2 + 1]].err)
+          l2++;
+        if (err <= bins[h = heap[l2]].err)
+          break;
+        heap[l] = h;
+      }
+      heap[l] = b1;
+    }
+    var nb = bins[tb.nn];
+    var n1 = tb.cnt;
+    var n2 = nb.cnt;
+    var d = 1 / (n1 + n2);
+    if (hasAlpha)
+      tb.ac = d * (n1 * tb.ac + n2 * nb.ac);
+    tb.rc = d * (n1 * tb.rc + n2 * nb.rc);
+    tb.gc = d * (n1 * tb.gc + n2 * nb.gc);
+    tb.bc = d * (n1 * tb.bc + n2 * nb.bc);
+    tb.cnt += nb.cnt;
+    tb.mtm = ++i;
+    bins[nb.bk].fw = nb.fw;
+    bins[nb.fw].bk = nb.bk;
+    nb.mtm = bincountMinusOne;
+  }
+  let palette = [];
+  var k = 0;
+  for (i = 0; ; ++k) {
+    let r = clamp(Math.round(bins[i].rc), 0, 255);
+    let g = clamp(Math.round(bins[i].gc), 0, 255);
+    let b = clamp(Math.round(bins[i].bc), 0, 255);
+    let a = 255;
+    if (hasAlpha) {
+      a = clamp(Math.round(bins[i].ac), 0, 255);
+      if (oneBitAlpha) {
+        const threshold = typeof oneBitAlpha === "number" ? oneBitAlpha : 127;
+        a = a <= threshold ? 0 : 255;
+      }
+      if (clearAlpha && a <= clearAlphaThreshold) {
+        r = g = b = clearAlphaColor;
+        a = 0;
+      }
+    }
+    const color = hasAlpha ? [r, g, b, a] : [r, g, b];
+    const exists = existsInPalette(palette, color);
+    if (!exists)
+      palette.push(color);
+    if ((i = bins[i].fw) == 0)
+      break;
+  }
+  return palette;
+}
+function existsInPalette(palette, color) {
+  for (let i = 0; i < palette.length; i++) {
+    const p = palette[i];
+    let matchesRGB = p[0] === color[0] && p[1] === color[1] && p[2] === color[2];
+    let matchesAlpha = p.length >= 4 && color.length >= 4 ? p[3] === color[3] : true;
+    if (matchesRGB && matchesAlpha)
+      return true;
+  }
+  return false;
+}
+
+// src/color.js
+function euclideanDistanceSquared(a, b) {
+  var sum = 0;
+  var n;
+  for (n = 0; n < a.length; n++) {
+    const dx = a[n] - b[n];
+    sum += dx * dx;
+  }
+  return sum;
+}
+
+// src/palettize.js
+function roundStep(byte, step) {
+  return step > 1 ? Math.round(byte / step) * step : byte;
+}
+function prequantize(rgba, {roundRGB = 5, roundAlpha = 10, oneBitAlpha = null} = {}) {
+  const data = new Uint32Array(rgba.buffer);
+  for (let i = 0; i < data.length; i++) {
+    const color = data[i];
+    let a = color >> 24 & 255;
+    let b = color >> 16 & 255;
+    let g = color >> 8 & 255;
+    let r = color & 255;
+    a = roundStep(a, roundAlpha);
+    if (oneBitAlpha) {
+      const threshold = typeof oneBitAlpha === "number" ? oneBitAlpha : 127;
+      a = a <= threshold ? 0 : 255;
+    }
+    r = roundStep(r, roundRGB);
+    g = roundStep(g, roundRGB);
+    b = roundStep(b, roundRGB);
+    data[i] = a << 24 | b << 16 | g << 8 | r << 0;
+  }
+}
+function applyPalette(rgba, palette, format = "rgb565") {
+  if (!rgba || !rgba.buffer) {
+    throw new Error("quantize() expected RGBA Uint8Array data");
+  }
+  if (!(rgba instanceof Uint8Array) && !(rgba instanceof Uint8ClampedArray)) {
+    throw new Error("quantize() expected RGBA Uint8Array data");
+  }
+  if (palette.length > 256) {
+    throw new Error("applyPalette() only works with 256 colors or less");
+  }
+  const data = new Uint32Array(rgba.buffer);
+  const length = data.length;
+  const bincount = format === "rgb444" ? 4096 : 65536;
+  const index = new Uint8Array(length);
+  const cache = new Array(bincount);
+  const hasAlpha = format === "rgba4444";
+  if (format === "rgba4444") {
+    for (let i = 0; i < length; i++) {
+      const color = data[i];
+      const a = color >> 24 & 255;
+      const b = color >> 16 & 255;
+      const g = color >> 8 & 255;
+      const r = color & 255;
+      const key = rgba8888_to_rgba4444(r, g, b, a);
+      const idx = key in cache ? cache[key] : cache[key] = nearestColorIndexRGBA(r, g, b, a, palette);
+      index[i] = idx;
+    }
+  } else {
+    const rgb888_to_key = format === "rgb444" ? rgb888_to_rgb444 : rgb888_to_rgb565;
+    for (let i = 0; i < length; i++) {
+      const color = data[i];
+      const b = color >> 16 & 255;
+      const g = color >> 8 & 255;
+      const r = color & 255;
+      const key = rgb888_to_key(r, g, b);
+      const idx = key in cache ? cache[key] : cache[key] = nearestColorIndexRGB(r, g, b, palette);
+      index[i] = idx;
+    }
+  }
+  return index;
+}
+function nearestColorIndexRGBA(r, g, b, a, palette) {
+  let k = 0;
+  let mindist = 1e100;
+  for (let i = 0; i < palette.length; i++) {
+    const px2 = palette[i];
+    const a2 = px2[3];
+    let curdist = sqr2(a2 - a);
+    if (curdist > mindist)
+      continue;
+    const r2 = px2[0];
+    curdist += sqr2(r2 - r);
+    if (curdist > mindist)
+      continue;
+    const g2 = px2[1];
+    curdist += sqr2(g2 - g);
+    if (curdist > mindist)
+      continue;
+    const b2 = px2[2];
+    curdist += sqr2(b2 - b);
+    if (curdist > mindist)
+      continue;
+    mindist = curdist;
+    k = i;
+  }
+  return k;
+}
+function nearestColorIndexRGB(r, g, b, palette) {
+  let k = 0;
+  let mindist = 1e100;
+  for (let i = 0; i < palette.length; i++) {
+    const px2 = palette[i];
+    const r2 = px2[0];
+    let curdist = sqr2(r2 - r);
+    if (curdist > mindist)
+      continue;
+    const g2 = px2[1];
+    curdist += sqr2(g2 - g);
+    if (curdist > mindist)
+      continue;
+    const b2 = px2[2];
+    curdist += sqr2(b2 - b);
+    if (curdist > mindist)
+      continue;
+    mindist = curdist;
+    k = i;
+  }
+  return k;
+}
+function snapColorsToPalette(palette, knownColors, threshold = 5) {
+  if (!palette.length || !knownColors.length)
+    return;
+  const paletteRGB = palette.map((p) => p.slice(0, 3));
+  const thresholdSq = threshold * threshold;
+  const dim = palette[0].length;
+  for (let i = 0; i < knownColors.length; i++) {
+    let color = knownColors[i];
+    if (color.length < dim) {
+      color = [color[0], color[1], color[2], 255];
+    } else if (color.length > dim) {
+      color = color.slice(0, 3);
+    } else {
+      color = color.slice();
+    }
+    const r = nearestColorIndexWithDistance(paletteRGB, color.slice(0, 3), euclideanDistanceSquared);
+    const idx = r[0];
+    const distanceSq = r[1];
+    if (distanceSq > 0 && distanceSq <= thresholdSq) {
+      palette[idx] = color;
+    }
+  }
+}
+function sqr2(a) {
+  return a * a;
+}
+function nearestColorIndex(colors, pixel, distanceFn = euclideanDistanceSquared) {
+  let minDist = Infinity;
+  let minDistIndex = -1;
+  for (let j = 0; j < colors.length; j++) {
+    const paletteColor = colors[j];
+    const dist = distanceFn(pixel, paletteColor);
+    if (dist < minDist) {
+      minDist = dist;
+      minDistIndex = j;
+    }
+  }
+  return minDistIndex;
+}
+function nearestColorIndexWithDistance(colors, pixel, distanceFn = euclideanDistanceSquared) {
+  let minDist = Infinity;
+  let minDistIndex = -1;
+  for (let j = 0; j < colors.length; j++) {
+    const paletteColor = colors[j];
+    const dist = distanceFn(pixel, paletteColor);
+    if (dist < minDist) {
+      minDist = dist;
+      minDistIndex = j;
+    }
+  }
+  return [minDistIndex, minDist];
+}
+function nearestColor(colors, pixel, distanceFn = euclideanDistanceSquared) {
+  return colors[nearestColorIndex(colors, pixel, distanceFn)];
+}
+
+// src/index.js
+function GIFEncoder(opt = {}) {
+  const {initialCapacity = 4096, auto = true} = opt;
+  const stream = createStream(initialCapacity);
+  const HSIZE = 5003;
+  const accum = new Uint8Array(256);
+  const htab = new Int32Array(HSIZE);
+  const codetab = new Int32Array(HSIZE);
+  let hasInit = false;
+  return {
+    reset() {
+      stream.reset();
+      hasInit = false;
+    },
+    finish() {
+      stream.writeByte(constants_default.trailer);
+    },
+    bytes() {
+      return stream.bytes();
+    },
+    bytesView() {
+      return stream.bytesView();
+    },
+    get buffer() {
+      return stream.buffer;
+    },
+    get stream() {
+      return stream;
+    },
+    writeHeader,
+    writeFrame(index, width, height, opts = {}) {
+      const {
+        transparent = false,
+        transparentIndex = 0,
+        delay = 0,
+        palette = null,
+        repeat = 0,
+        colorDepth = 8,
+        dispose = -1
+      } = opts;
+      let first = false;
+      if (auto) {
+        if (!hasInit) {
+          first = true;
+          writeHeader();
+          hasInit = true;
+        }
+      } else {
+        first = Boolean(opts.first);
+      }
+      width = Math.max(0, Math.floor(width));
+      height = Math.max(0, Math.floor(height));
+      if (first) {
+        if (!palette) {
+          throw new Error("First frame must include a { palette } option");
+        }
+        encodeLogicalScreenDescriptor(stream, width, height, palette, colorDepth);
+        encodeColorTable(stream, palette);
+        if (repeat >= 0) {
+          encodeNetscapeExt(stream, repeat);
+        }
+      }
+      const delayTime = Math.round(delay / 10);
+      encodeGraphicControlExt(stream, dispose, delayTime, transparent, transparentIndex);
+      const useLocalColorTable = Boolean(palette) && !first;
+      encodeImageDescriptor(stream, width, height, useLocalColorTable ? palette : null);
+      if (useLocalColorTable)
+        encodeColorTable(stream, palette);
+      encodePixels(stream, index, width, height, colorDepth, accum, htab, codetab);
+    }
+  };
+  function writeHeader() {
+    writeUTFBytes(stream, "GIF89a");
+  }
+}
+function encodeGraphicControlExt(stream, dispose, delay, transparent, transparentIndex) {
+  stream.writeByte(33);
+  stream.writeByte(249);
+  stream.writeByte(4);
+  if (transparentIndex < 0) {
+    transparentIndex = 0;
+    transparent = false;
+  }
+  var transp, disp;
+  if (!transparent) {
+    transp = 0;
+    disp = 0;
+  } else {
+    transp = 1;
+    disp = 2;
+  }
+  if (dispose >= 0) {
+    disp = dispose & 7;
+  }
+  disp <<= 2;
+  const userInput = 0;
+  stream.writeByte(0 | disp | userInput | transp);
+  writeUInt16(stream, delay);
+  stream.writeByte(transparentIndex || 0);
+  stream.writeByte(0);
+}
+function encodeLogicalScreenDescriptor(stream, width, height, palette, colorDepth = 8) {
+  const globalColorTableFlag = 1;
+  const sortFlag = 0;
+  const globalColorTableSize = colorTableSize(palette.length) - 1;
+  const fields = globalColorTableFlag << 7 | colorDepth - 1 << 4 | sortFlag << 3 | globalColorTableSize;
+  const backgroundColorIndex = 0;
+  const pixelAspectRatio = 0;
+  writeUInt16(stream, width);
+  writeUInt16(stream, height);
+  stream.writeBytes([fields, backgroundColorIndex, pixelAspectRatio]);
+}
+function encodeNetscapeExt(stream, repeat) {
+  stream.writeByte(33);
+  stream.writeByte(255);
+  stream.writeByte(11);
+  writeUTFBytes(stream, "NETSCAPE2.0");
+  stream.writeByte(3);
+  stream.writeByte(1);
+  writeUInt16(stream, repeat);
+  stream.writeByte(0);
+}
+function encodeColorTable(stream, palette) {
+  const colorTableLength = 1 << colorTableSize(palette.length);
+  for (let i = 0; i < colorTableLength; i++) {
+    let color = [0, 0, 0];
+    if (i < palette.length) {
+      color = palette[i];
+    }
+    stream.writeByte(color[0]);
+    stream.writeByte(color[1]);
+    stream.writeByte(color[2]);
+  }
+}
+function encodeImageDescriptor(stream, width, height, localPalette) {
+  stream.writeByte(44);
+  writeUInt16(stream, 0);
+  writeUInt16(stream, 0);
+  writeUInt16(stream, width);
+  writeUInt16(stream, height);
+  if (localPalette) {
+    const interlace = 0;
+    const sorted = 0;
+    const palSize = colorTableSize(localPalette.length) - 1;
+    stream.writeByte(128 | interlace | sorted | 0 | palSize);
+  } else {
+    stream.writeByte(0);
+  }
+}
+function encodePixels(stream, index, width, height, colorDepth = 8, accum, htab, codetab) {
+  lzwEncode_default(width, height, index, colorDepth, stream, accum, htab, codetab);
+}
+function writeUInt16(stream, short) {
+  stream.writeByte(short & 255);
+  stream.writeByte(short >> 8 & 255);
+}
+function writeUTFBytes(stream, text) {
+  for (var i = 0; i < text.length; i++) {
+    stream.writeByte(text.charCodeAt(i));
+  }
+}
+function colorTableSize(length) {
+  return Math.max(Math.ceil(Math.log2(length)), 1);
+}
+var src_default = GIFEncoder;
+
+  global.gifenc = Object.freeze({ GIFEncoder: exports.GIFEncoder, quantize: exports.quantize, applyPalette: exports.applyPalette });
+})(window);
+</script><script>/* TypeBit 0.3.0 — MIT. Native, self-contained SVG playback. */
+(() => {
+  "use strict";
+
+  const svg = document.getElementById("typebit-scene");
+  const art = document.getElementById("typebit-art");
+  const traces = document.getElementById("typebit-traces");
+  const control = document.getElementById("typebit-control");
+  const controls = document.getElementById("typebit-controls");
+  const replayControl = document.getElementById("typebit-replay");
+  const speedControl = document.getElementById("typebit-speed");
+  const progressControl = document.getElementById("typebit-progress");
+  const timeLabel = document.getElementById("typebit-time");
+  const htmlControl = document.getElementById("typebit-download-html");
+  const pngControl = document.getElementById("typebit-download-png");
+  const gifControl = document.getElementById("typebit-download-gif");
+  const cancelExportControl = document.getElementById("typebit-cancel-export");
+  const exportStatus = document.getElementById("typebit-export-status");
+  const configNode = document.getElementById("typebit-config");
+  if (!svg || !art || !traces || !control || !configNode) {
+    throw new Error("TypeBit: the exported player is missing a required element.");
+  }
+  // Save source markup before runtime dash styles or resolved CSS URLs are added.
+  const pristineDocument = document.documentElement.cloneNode(true);
+  const config = JSON.parse(configNode.textContent);
+  const finite = (value, fallback) => Number.isFinite(Number(value)) ? Number(value) : fallback;
+  const duration = Math.max(0.1, finite(config.duration, 10));
+  const fillStart = Math.max(0, Math.min(duration - 0.001, finite(config.fill_start, duration * 0.85)));
+  const brand = typeof config.brand_color === "string" ? config.brand_color : "#2563EB";
+  // Decorations are additions to the source and require an explicit opt-in.
+  const doodleEnabled = config.doodle === true;
+  const clamp = (value, low = 0, high = 1) => Math.min(high, Math.max(low, value));
+  const ease = value => value * value * (3 - 2 * value);
+  const geometrySelector = "path,rect,circle,ellipse,line,polyline,polygon";
+  const definitionSelector = "defs,clipPath,mask,marker,pattern,symbol";
+  const layers = Array.isArray(config.layers) ? config.layers : [];
+  const viewBox = svg.viewBox.baseVal;
+  const unit = Math.max(viewBox.width, viewBox.height, 1);
+  let status = "idle";
+  let time = 0;
+  let baseline = 0;
+  let startedAt = 0;
+  let frame = null;
+  let playbackRate = clamp(finite(config.playback_rate, 1), 0.25, 4);
+  let exportJob = null;
+  let activeDownload = false;
+
+  // Definition geometry must stay intact: changing it can break a source mask.
+  traces.querySelectorAll("text,image,foreignObject").forEach(element => {
+    if (!element.closest(definitionSelector)) element.style.setProperty("display", "none", "important");
+  });
+  const shapes = Array.from(traces.querySelectorAll(geometrySelector))
+    .filter(element => !element.closest(definitionSelector));
+  const schedule = new Map();
+  for (const layer of layers) {
+    const target = document.getElementById(`trace-${layer.id}`);
+    if (!target || !traces.contains(target)) continue;
+    const members = target.matches(geometrySelector)
+      ? [target]
+      : Array.from(target.querySelectorAll(geometrySelector));
+    const start = clamp(finite(layer.start, 0), 0, fillStart);
+    const span = Math.max(0.001, Math.min(fillStart - start || 0.001, finite(layer.duration, 1)));
+    for (const shape of members) {
+      if (!shape.closest(definitionSelector)) schedule.set(shape, {start, duration: span});
+    }
+  }
+
+  const strokes = shapes.map((element, index) => {
+    const computed = getComputedStyle(element);
+    const stroke = computed.stroke && computed.stroke !== "none" ? computed.stroke : brand;
+    const originalWidth = Number.parseFloat(computed.strokeWidth);
+    const width = computed.stroke !== "none" && originalWidth > 0 ? originalWidth : unit / 350;
+    let length = 0;
+    try { length = element.getTotalLength(); } catch (_) { /* Degenerate source shape. */ }
+    if (!Number.isFinite(length) || length <= 0) {
+      element.style.setProperty("visibility", "hidden", "important");
+      return null;
+    }
+    // getTotalLength uses geometric units; a source pathLength changes dash units.
+    element.removeAttribute("pathLength");
+    element.style.setProperty("fill", "none", "important");
+    element.style.setProperty("stroke", stroke, "important");
+    element.style.setProperty("stroke-width", String(width), "important");
+    element.style.setProperty("stroke-linecap", "round", "important");
+    element.style.setProperty("stroke-linejoin", "round", "important");
+    element.style.setProperty("stroke-dasharray", `${length} ${length}`, "important");
+    element.style.setProperty("stroke-dashoffset", String(length), "important");
+    const fallbackSpan = fillStart / Math.max(shapes.length, 1);
+    return {element, length, ...(schedule.get(element) || {start: index * fallbackSpan, duration: fallbackSpan})};
+  }).filter(Boolean);
+
+  let doodle = document.getElementById("typebit-doodle");
+  if (!doodle) {
+    doodle = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    doodle.id = "typebit-doodle";
+  }
+  // The decoration always sits behind the subject, including imported scenes.
+  svg.insertBefore(doodle, art);
+  if (!doodle.hasChildNodes() && doodleEnabled) {
+    const x = viewBox.x;
+    const y = viewBox.y;
+    const w = viewBox.width || 640;
+    const h = viewBox.height || 480;
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", `M ${x + w * 0.17} ${y + h * 0.76} C ${x + w * 0.31} ${y + h * 0.7}, ${x + w * 0.65} ${y + h * 0.83}, ${x + w * 0.82} ${y + h * 0.74} M ${x + w * 0.23} ${y + h * 0.82} Q ${x + w * 0.48} ${y + h * 0.76}, ${x + w * 0.73} ${y + h * 0.84}`);
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", brand);
+    path.setAttribute("stroke-width", String(unit / 45));
+    path.setAttribute("stroke-linecap", "round");
+    path.setAttribute("stroke-linejoin", "round");
+    doodle.appendChild(path);
+  }
+  const doodleStrokes = Array.from(doodle.querySelectorAll(geometrySelector)).map(element => {
+    let length = 0;
+    try { length = element.getTotalLength(); } catch (_) { /* Ignore non-path decorations. */ }
+    if (!(length > 0)) return null;
+    element.style.strokeDasharray = `${length} ${length}`;
+    return {element, length};
+  }).filter(Boolean);
+
+  control.setAttribute("type", "button");
+  control.setAttribute("aria-keyshortcuts", "ArrowRight Space R");
+  control.title = "Right arrow: play or replay · Space: pause or continue · R: restart";
+  const labels = {idle: "Play", playing: "Pause", paused: "Continue", completed: "Replay"};
+  let lastLabel = "";
+  const clock = () => status === "playing" ? clamp(baseline + (performance.now() - startedAt) / 1000 * playbackRate, 0, duration) : time;
+  const formatTime = seconds => `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, "0")}`;
+  if (progressControl) {
+    progressControl.min = "0";
+    progressControl.max = String(duration);
+    progressControl.step = "0.01";
+  }
+
+  function syncSpeedControl() {
+    if (!speedControl) return;
+    const value = String(playbackRate);
+    if (!Array.from(speedControl.options).some(option => option.value === value)) {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = `${value}×`;
+      speedControl.appendChild(option);
+    }
+    speedControl.value = value;
+  }
+
+  function render() {
+    const fill = ease(clamp((time - fillStart) / (duration - fillStart)));
+    art.style.opacity = String(fill);
+    traces.style.opacity = String(1 - fill);
+    for (const stroke of strokes) {
+      const progress = clamp((time - stroke.start) / stroke.duration);
+      stroke.element.style.setProperty("visibility", progress > 0 ? "visible" : "hidden", "important");
+      stroke.element.style.setProperty("stroke-dashoffset", String(stroke.length * (1 - progress)), "important");
+    }
+    const doodleProgress = clamp(time / Math.min(1.4, duration * 0.2));
+    doodle.style.opacity = String(doodleEnabled ? 0.24 * doodleProgress : 0);
+    for (const stroke of doodleStrokes) {
+      stroke.element.style.strokeDashoffset = String(stroke.length * (1 - doodleProgress));
+    }
+    const label = labels[status];
+    if (label !== lastLabel) {
+      control.textContent = label;
+      control.setAttribute("aria-label", `${label} animation`);
+      lastLabel = label;
+    }
+    control.dataset.state = status;
+    svg.dataset.state = status;
+    svg.dataset.time = time.toFixed(6);
+    if (progressControl) {
+      progressControl.value = String(time);
+      progressControl.setAttribute("aria-valuetext", `${time.toFixed(1)} of ${duration.toFixed(1)} seconds`);
+    }
+    if (timeLabel) {
+      timeLabel.textContent = `${formatTime(time)} / ${formatTime(duration)}`;
+      timeLabel.title = `Timeline position · ${(duration / playbackRate).toFixed(1)} seconds at ${playbackRate}×`;
+    }
+  }
+
+  function cancelFrame() {
+    if (frame !== null) cancelAnimationFrame(frame);
+    frame = null;
+  }
+
+  function tick() {
+    frame = null;
+    if (status !== "playing") return;
+    time = clock();
+    if (time >= duration) {
+      time = duration;
+      status = "completed";
+    }
+    render();
+    if (status === "playing") frame = requestAnimationFrame(tick);
+  }
+
+  function play() {
+    if (exportJob) return;
+    if (status === "playing") return;
+    if (status === "completed" || time >= duration) time = 0;
+    baseline = time;
+    startedAt = performance.now();
+    status = "playing";
+    render();
+    cancelFrame();
+    frame = requestAnimationFrame(tick);
+  }
+
+  function pause() {
+    if (exportJob) return;
+    if (status !== "playing") return;
+    time = clock();
+    status = time >= duration ? "completed" : "paused";
+    cancelFrame();
+    render();
+  }
+
+  function restart() {
+    if (exportJob) return;
+    cancelFrame();
+    time = 0;
+    status = "idle";
+    play();
+  }
+
+  function seek(seconds) {
+    if (exportJob) return getState();
+    const value = Number(seconds);
+    if (!Number.isFinite(value)) throw new TypeError("TypeBit.seek expects a finite number of seconds.");
+    cancelFrame();
+    time = clamp(value, 0, duration);
+    status = time === 0 ? "idle" : time === duration ? "completed" : "paused";
+    render();
+    return getState();
+  }
+
+  function getState() {
+    const current = clock();
+    return {status: current >= duration ? "completed" : status, time: current, duration,
+      playbackRate, effectiveDuration: duration / playbackRate, exporting: Boolean(exportJob)};
+  }
+
+  function setPlaybackRate(value) {
+    if (exportJob) return getState();
+    const next = Number(value);
+    if (!Number.isFinite(next) || next < 0.25 || next > 4) {
+      throw new RangeError("Playback speed must be between 0.25 and 4.");
+    }
+    // Settle the old clock before changing its multiplier, so position never jumps.
+    time = clock();
+    playbackRate = next;
+    if (status === "playing") {
+      baseline = time;
+      startedAt = performance.now();
+      if (time >= duration) {
+        status = "completed";
+        cancelFrame();
+      }
+    }
+    syncSpeedControl();
+    render();
+    return getState();
+  }
+
+  function filename(extension) {
+    const stem = (document.title || "typebit-animation").replace(/[<>:"/\\|?*\u0000-\u001f]/g, "-").replace(/[. ]+$/g, "").slice(0, 100);
+    return `${stem || "typebit-animation"}.${extension}`;
+  }
+
+  function downloadBlob(blob, name) {
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = name;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  function downloadHtml() {
+    const copy = pristineDocument.cloneNode(true);
+    const savedConfig = {...config, playback_rate: playbackRate};
+    copy.querySelector("#typebit-config").textContent = JSON.stringify(savedConfig)
+      .replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026");
+    copy.querySelectorAll("#typebit-art,#typebit-traces,#typebit-doodle").forEach(node => { node.style.opacity = "0"; });
+    const copiedScene = copy.querySelector("#typebit-scene");
+    copiedScene.dataset.state = "idle";
+    copiedScene.dataset.time = "0";
+    const copiedControl = copy.querySelector("#typebit-control");
+    copiedControl.textContent = "Play";
+    copiedControl.setAttribute("aria-label", "Play animation");
+    copiedControl.dataset.state = "idle";
+    copiedControl.hidden = false;
+    const copiedControls = copy.querySelector("#typebit-controls");
+    if (copiedControls) copiedControls.hidden = false;
+    copy.querySelectorAll("#typebit-controls button").forEach(button => { button.disabled = false; });
+    const copiedStatus = copy.querySelector("#typebit-export-status");
+    if (copiedStatus) copiedStatus.textContent = "";
+    const copiedProgress = copy.querySelector("#typebit-progress");
+    if (copiedProgress) copiedProgress.setAttribute("value", "0");
+    const copiedTime = copy.querySelector("#typebit-time");
+    if (copiedTime) copiedTime.textContent = `0:00 / ${formatTime(duration)}`;
+    // Preview surfaces are never baked into the portable artwork.
+    [copy, copy.querySelector("body"), copy.querySelector("#typebit-stage"), copiedScene].forEach(node => {
+      node.style.background = "transparent";
+    });
+    downloadBlob(new Blob(["<!doctype html>\n", copy.outerHTML], {type: "text/html;charset=utf-8"}), filename("html"));
+  }
+
+  async function captureCanvas(width, height, matte = null) {
+    const copy = svg.cloneNode(true);
+    const originals = [svg, ...svg.querySelectorAll("*")];
+    const copies = [copy, ...copy.querySelectorAll("*")];
+    const properties = ["fill", "fill-opacity", "fill-rule", "stroke", "stroke-width", "stroke-opacity",
+      "stroke-linecap", "stroke-linejoin", "stroke-miterlimit", "stroke-dasharray", "stroke-dashoffset",
+      "opacity", "visibility", "display", "color", "font-family", "font-size", "font-weight", "font-style",
+      "font-variant", "text-anchor", "dominant-baseline", "alignment-baseline", "letter-spacing", "word-spacing",
+      "paint-order", "vector-effect", "clip-path", "mask", "filter", "stop-color", "stop-opacity",
+      "flood-color", "flood-opacity", "marker-start", "marker-mid", "marker-end"];
+    originals.forEach((node, index) => {
+      const computed = getComputedStyle(node);
+      for (const property of properties) {
+        let value = computed.getPropertyValue(property);
+        // CSSOM may expand local paint/clip references to the HTML's file URL.
+        value = value.replace(/url\(["']?([^)'"\s]+)["']?\)/g, (whole, ref) => {
+          try {
+            const resolved = new URL(ref, document.baseURI);
+            return resolved.hash && resolved.href.split("#")[0] === document.URL.split("#")[0]
+              ? `url(${resolved.hash})` : whole;
+          } catch (_) { return whole; }
+        });
+        if (value) copies[index].style.setProperty(property, value, "important");
+      }
+    });
+    copy.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    copy.setAttribute("width", String(width));
+    copy.setAttribute("height", String(height));
+    copy.style.width = `${width}px`;
+    copy.style.height = `${height}px`;
+    copy.style.background = "transparent";
+    const fontRules = [];
+    for (const sheet of document.styleSheets) {
+      try {
+        for (const rule of sheet.cssRules) {
+          if (rule.type === CSSRule.FONT_FACE_RULE) fontRules.push(rule.cssText);
+        }
+      } catch (_) { /* A portable TypeBit export has only inline styles. */ }
+    }
+    if (fontRules.length) {
+      const style = document.createElementNS("http://www.w3.org/2000/svg", "style");
+      style.textContent = fontRules.join("\n");
+      copy.insertBefore(style, copy.firstChild);
+    }
+    const url = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(copy)], {type: "image/svg+xml;charset=utf-8"}));
+    try {
+      const image = new Image();
+      image.src = url;
+      await image.decode();
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const context = canvas.getContext("2d", {willReadFrequently: Boolean(matte)});
+      if (!context) throw new Error("Image export is unavailable in this browser.");
+      if (matte) {
+        context.fillStyle = matte;
+        context.fillRect(0, 0, width, height);
+      }
+      context.drawImage(image, 0, 0, width, height);
+      return canvas;
+    } finally {
+      URL.revokeObjectURL(url);
+    }
+  }
+
+  async function downloadPng() {
+    if (document.fonts) await document.fonts.ready;
+    time = clock();
+    render();
+    const width = Math.max(1, Math.ceil(viewBox.width));
+    const height = Math.max(1, Math.ceil(viewBox.height));
+    if (width > 8192 || height > 8192 || width * height > 32000000) {
+      throw new Error("This image is too large for a browser PNG download. Ask your Agent for a smaller PNG.");
+    }
+    const canvas = await captureCanvas(width, height);
+    const png = await new Promise((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("PNG export failed.")), "image/png"));
+    downloadBlob(png, filename("png"));
+  }
+
+  function cancelGif() {
+    if (!exportJob) return;
+    exportJob.cancelled = true;
+    if (cancelExportControl) cancelExportControl.disabled = true;
+    if (exportStatus) exportStatus.textContent = "Canceling GIF…";
+  }
+
+  async function downloadGif() {
+    const encoder = window.gifenc;
+    if (!encoder || typeof encoder.GIFEncoder !== "function") {
+      throw new Error("This HTML is missing its GIF encoder. Ask your Agent to render it again.");
+    }
+    const rate = playbackRate;
+    const width = Math.max(1, Math.min(480, Math.ceil(viewBox.width)));
+    const height = Math.max(1, Math.round(width * viewBox.height / viewBox.width));
+    const steps = Math.max(1, Math.ceil(duration / rate * 10));
+    if (steps + 1 > 600 || width * height * (steps + 1) > 100000000 || height > 4096) {
+      throw new Error("GIF exceeds 600 frames or 100 million frame pixels (maximum height 4096). Increase playback speed, or ask your Agent for a smaller GIF.");
+    }
+    const saved = getState();
+    const focus = document.activeElement;
+    const disabled = Array.from(controls ? controls.querySelectorAll("button,input,select") : [control])
+      .map(element => [element, element === gifControl ? false : element.disabled]);
+    const oldBusy = controls && controls.getAttribute("aria-busy");
+    const job = {cancelled: false};
+    cancelFrame();
+    time = saved.time;
+    status = saved.status === "playing" ? "paused" : saved.status;
+    exportJob = job;
+    disabled.forEach(([element]) => { element.disabled = true; });
+    if (controls) controls.setAttribute("aria-busy", "true");
+    if (cancelExportControl) {
+      cancelExportControl.hidden = false;
+      cancelExportControl.disabled = false;
+      cancelExportControl.focus({preventScroll: true});
+    }
+    const assertActive = () => {
+      if (job.cancelled) throw new DOMException("GIF export canceled.", "AbortError");
+    };
+    try {
+      if (exportStatus) exportStatus.textContent = "Exporting GIF… 0% (white background)";
+      if (document.fonts) await document.fonts.ready;
+      assertActive();
+      const gif = encoder.GIFEncoder();
+      for (let index = 0; index <= steps; index++) {
+        // Give the browser time to paint progress and accept Cancel between frames.
+        await new Promise(resolve => setTimeout(resolve, 0));
+        assertActive();
+        time = duration * index / steps;
+        status = "paused";
+        render();
+        const canvas = await captureCanvas(width, height, "#FFFFFF");
+        assertActive();
+        const rgba = canvas.getContext("2d").getImageData(0, 0, width, height).data;
+        const palette = encoder.quantize(rgba, 256);
+        const pixels = encoder.applyPalette(rgba, palette);
+        const start = Math.round(index * duration / rate / steps * 100) * 10;
+        const end = Math.round((index + 1) * duration / rate / steps * 100) * 10;
+        gif.writeFrame(pixels, width, height, {palette, delay: index === steps ? 800 : end - start, repeat: 0, dispose: 2});
+        if (exportStatus) exportStatus.textContent = `Exporting GIF… ${Math.round((index + 1) / (steps + 1) * 100)}% (white background)`;
+      }
+      assertActive();
+      gif.finish();
+      downloadBlob(new Blob([gif.bytes()], {type: "image/gif"}), filename("gif"));
+      return `GIF saved at ${rate}× with a white background.`;
+    } finally {
+      exportJob = null;
+      disabled.forEach(([element, wasDisabled]) => { element.disabled = wasDisabled; });
+      if (cancelExportControl) {
+        cancelExportControl.hidden = true;
+        cancelExportControl.disabled = false;
+      }
+      if (controls) {
+        if (oldBusy === null) controls.removeAttribute("aria-busy");
+        else controls.setAttribute("aria-busy", oldBusy);
+      }
+      time = saved.time;
+      playbackRate = saved.playbackRate;
+      status = saved.status === "playing" ? "paused" : saved.status;
+      syncSpeedControl();
+      render();
+      if (saved.status === "playing") play();
+      if (focus instanceof HTMLElement && focus.isConnected && !focus.disabled) focus.focus({preventScroll: true});
+    }
+  }
+
+  function bindDownload(button, action, message) {
+    if (!button) return;
+    button.addEventListener("click", async () => {
+      if (activeDownload || exportJob) return;
+      activeDownload = true;
+      button.disabled = true;
+      if (exportStatus) exportStatus.textContent = "Preparing download…";
+      try {
+        const result = await action();
+        if (exportStatus) exportStatus.textContent = result || message;
+      } catch (error) {
+        if (exportStatus) exportStatus.textContent = error.message || "Download failed. Please try again.";
+      } finally {
+        button.disabled = false;
+        activeDownload = false;
+      }
+    });
+  }
+
+  function editableTarget(target) {
+    return target instanceof Element && (target.closest("input,textarea,select,[role=textbox]") || target.isContentEditable);
+  }
+
+  document.addEventListener("keydown", event => {
+    if (exportJob) {
+      if (event.key === "Escape") cancelGif();
+      if (["Escape", "ArrowRight", " ", "r", "R"].includes(event.key)) event.preventDefault();
+      return;
+    }
+    if (event.defaultPrevented || event.repeat || event.ctrlKey || event.metaKey || event.altKey || editableTarget(event.target)) return;
+    if ((event.code === "Space" || event.key === " ") && event.target instanceof Element && event.target.closest("button")) return;
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      play();
+    } else if (event.code === "Space" || event.key === " ") {
+      event.preventDefault();
+      if (status === "playing") pause();
+      else if (status === "paused") play();
+    } else if (event.key.toLowerCase() === "r") {
+      event.preventDefault();
+      restart();
+    }
+  });
+
+  control.addEventListener("click", () => status === "playing" ? pause() : play());
+  if (replayControl) replayControl.addEventListener("click", restart);
+  if (speedControl) speedControl.addEventListener("change", () => setPlaybackRate(Number(speedControl.value)));
+  if (progressControl) progressControl.addEventListener("input", () => seek(Number(progressControl.value)));
+  bindDownload(htmlControl, downloadHtml, "HTML saved with the selected speed. It waits for Play.");
+  bindDownload(pngControl, downloadPng, "Current frame saved as a transparent PNG.");
+  bindDownload(gifControl, downloadGif, "GIF saved with a white background.");
+  if (cancelExportControl) cancelExportControl.addEventListener("click", cancelGif);
+  window.typebit = Object.freeze({
+    play,
+    pause,
+    restart,
+    seek,
+    getState,
+    setPlaybackRate,
+    setControlsVisible(visible) {
+      control.hidden = !visible;
+      if (controls) controls.hidden = !visible;
+    }
+  });
+  syncSpeedControl();
+  render();
+})();
+</script></body></html>

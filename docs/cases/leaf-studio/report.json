@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-10T10:00:56.017140+00:00",
+  "html_file": "animation.html",
+  "automated_status": "passed",
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87",
+    "notes": [
+      "Four leaf silhouettes, stem, pale veins and gold accents match original source scale, position and final colors. Sparse semantic contours preserve the intended botanical identity. No fonts or approximate tracing.",
+      "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
+      "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
+      "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+    ]
+  },
+  "checks": [
+    {
+      "name": "embedded_resources",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "initial_wait",
+      "status": "passed",
+      "detail": {
+        "status": "idle",
+        "time": 0,
+        "duration": 6,
+        "playbackRate": 1.5,
+        "effectiveDuration": 4,
+        "exporting": false
+      }
+    },
+    {
+      "name": "speed_changes_without_reset",
+      "status": "passed",
+      "detail": {
+        "playing": {
+          "status": "playing",
+          "time": 1.581849999964237,
+          "duration": 6,
+          "playbackRate": 2,
+          "effectiveDuration": 3,
+          "exporting": false
+        },
+        "paused": {
+          "status": "paused",
+          "time": 1.5888499999642371,
+          "duration": 6,
+          "playbackRate": 0.5,
+          "effectiveDuration": 12,
+          "exporting": false
+        }
+      }
+    },
+    {
+      "name": "scrubber_seeks_without_global_shortcuts",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 3.01,
+        "duration": 6,
+        "playbackRate": 1,
+        "effectiveDuration": 6,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_starts_without_reset",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.1977000000476837,
+        "duration": 6,
+        "playbackRate": 1,
+        "effectiveDuration": 6,
+        "exporting": false
+      }
+    },
+    {
+      "name": "space_pauses_and_resumes",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.34330000007152556,
+        "duration": 6,
+        "playbackRate": 1,
+        "effectiveDuration": 6,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_resumes_pause",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.4460000000596046,
+        "duration": 6,
+        "playbackRate": 1,
+        "effectiveDuration": 6,
+        "exporting": false
+      }
+    },
+    {
+      "name": "r_restarts",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.0065,
+        "duration": 6,
+        "playbackRate": 1,
+        "effectiveDuration": 6,
+        "exporting": false
+      }
+    },
+    {
+      "name": "held_key_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.010600000023841857,
+        "duration": 6,
+        "playbackRate": 1,
+        "effectiveDuration": 6,
+        "exporting": false
+      }
+    },
+    {
+      "name": "editable_shortcuts_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.010600000023841857,
+        "duration": 6,
+        "playbackRate": 1,
+        "effectiveDuration": 6,
+        "exporting": false
+      }
+    },
+    {
+      "name": "screen_button_toggle",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.060200000047683715,
+        "duration": 6,
+        "playbackRate": 1,
+        "effectiveDuration": 6,
+        "exporting": false
+      }
+    },
+    {
+      "name": "real_time_completion_and_hold",
+      "status": "passed",
+      "detail": {
+        "status": "completed",
+        "time": 6,
+        "duration": 6,
+        "playbackRate": 1.5,
+        "effectiveDuration": 4,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_replays_completed",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.0032999999821186066,
+        "duration": 6,
+        "playbackRate": 1.5,
+        "effectiveDuration": 4,
+        "exporting": false
+      }
+    },
+    {
+      "name": "no_network_requests",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "no_browser_errors",
+      "status": "passed",
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "light-start.png",
+      "background": "light",
+      "time": 0
+    },
+    {
+      "file": "light-middle.png",
+      "background": "light",
+      "time": 3.0
+    },
+    {
+      "file": "light-final.png",
+      "background": "light",
+      "time": 6.0
+    },
+    {
+      "file": "dark-start.png",
+      "background": "dark",
+      "time": 0
+    },
+    {
+      "file": "dark-middle.png",
+      "background": "dark",
+      "time": 3.0
+    },
+    {
+      "file": "dark-final.png",
+      "background": "dark",
+      "time": 6.0
+    },
+    {
+      "file": "checker-start.png",
+      "background": "checker",
+      "time": 0
+    },
+    {
+      "file": "checker-middle.png",
+      "background": "checker",
+      "time": 3.0
+    },
+    {
+      "file": "checker-final.png",
+      "background": "checker",
+      "time": 6.0
+    },
+    {
+      "file": "transparent-final.png",
+      "background": "transparent",
+      "time": 6.0
+    }
+  ],
+  "network_requests": [],
+  "console_errors": [],
+  "html_sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87",
+  "browser": {
+    "name": "chromium",
+    "version": "145.0.7632.6",
+    "offline": true,
+    "url_scheme": "file"
+  },
+  "transparency_observation": {
+    "status": "passed",
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "Margins only; requires visual mask review."
+  },
+  "report_path": "report.json"
+}

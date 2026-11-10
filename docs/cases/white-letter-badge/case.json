@@ -1,0 +1,59 @@
+{
+  "slug": "white-letter-badge",
+  "title": "White Letter Badge",
+  "title_zh": "白字徽章保真",
+  "kind": "logo",
+  "method": "Transparent PNG rendered from the authored SVG; supplied source SVG contours plus original PNG pixel reveal. No background removal or automatic tracing.",
+  "limitations": "The source SVG is deliberately available for this controlled raster fixture. This does not demonstrate recovering exact contours from an arbitrary logo.",
+  "duration": 6,
+  "playback_rate": 1.5,
+  "matte": "#F4F0E8",
+  "html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+  "project_zip": "white-letter-badge-project.zip",
+  "project_zip_sha256": "8a6b7098d2bec5b419e7b0beb3057b9e213a9eecef924bde5a7afd0adc8f4d43",
+  "automated_status": "passed",
+  "checks_passed": 15,
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+    "notes": [
+      "Octagonal badge, original TB letter paths, enclosed counters and gold accents match the supplied PNG and authored SVG. White letter interiors remain opaque white and exterior alpha is zero. Final PNG bytes match the original PNG exactly; this controlled example uses supplied original SVG contours, not automatic tracing or background removal.",
+      "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
+      "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
+      "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+    ]
+  },
+  "assets": {
+    "animation.html": {
+      "file": "animation.html",
+      "sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01"
+    },
+    "animation.gif": {
+      "file": "animation.gif",
+      "sha256": "8eb12dcdff1ff5de0afb51932bc8fcb866ce1c159853439571b621254ee74999"
+    },
+    "final.png": {
+      "file": "final.png",
+      "sha256": "bc3334628b387ee2e1174a640d40e039b674739244814e15b0146cc702fa6427"
+    },
+    "preview.png": {
+      "file": "preview.png",
+      "sha256": "f5073521d0d4a94aa22841407b9334e2ec0b0a57a6cb6e75de63037a5818228f"
+    },
+    "report.json": {
+      "file": "report.json",
+      "sha256": "a42108220a5e7faa7a764edbe3563318e3962cd9549cf288657b4d9771b48acf"
+    }
+  },
+  "raster_checks": {
+    "original_rgba_preserved": true,
+    "transparent_corner_alpha": 0,
+    "white_letter_rgba": [
+      255,
+      255,
+      255,
+      255
+    ],
+    "no_background_removal": true
+  }
+}

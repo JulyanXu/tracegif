@@ -476,6 +476,7 @@ def render_project(project_path):
         raise TypeBitError("Every drawable contour needs a stable layer entry. Add missing layers or remove unwanted contour shapes.")
     css = (ASSETS / "player.css").read_text(encoding="utf-8")
     js = (ASSETS / "player.js").read_text(encoding="utf-8")
+    gif_encoder = (ASSETS / "vendor/gifenc.js").read_text(encoding="utf-8")
     if font_info:
         font_path = safe_path(project, font_info["path"])
         family = font_info.get("family", "TypeBitEmbedded")
@@ -514,9 +515,11 @@ def render_project(project_path):
 <output id="typebit-time" aria-live="off">0:00</output>
 <button id="typebit-download-html" type="button" title="Save offline HTML with the selected speed">Save HTML</button>
 <button id="typebit-download-png" type="button" title="Save the current frame with transparency">Save PNG</button>
+<button id="typebit-download-gif" type="button" title="Save the full animation as a white-background GIF at the selected speed">Save GIF</button>
+<button id="typebit-cancel-export" type="button" hidden>Cancel GIF</button>
 <output id="typebit-export-status" aria-live="polite"></output>
 </div>
-<script type="application/json" id="typebit-config">{config_json}</script><script>{js}</script></body></html>'''
+<script type="application/json" id="typebit-config">{config_json}</script><script>{gif_encoder}</script><script>{js}</script></body></html>'''
     previous = project / ".last-render.zip"
     old_revision = int(manifest.get("revision", 0))
     revisions = project / "revisions"

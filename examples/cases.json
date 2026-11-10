@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "license": "MIT",
+  "cases": [
+    {
+      "slug": "leaf-studio",
+      "title": "Leaf Studio",
+      "title_zh": "叶间工作室",
+      "use_case": "Botanical identity reveal for a presentation or brand introduction",
+      "use_case_zh": "用于品牌介绍与提案的植物标识描线",
+      "source": "source/leaf-studio.svg",
+      "kind": "svg",
+      "method": "Native SVG geometry; semantic stem, leaves, veins and identity accents.",
+      "limitations": "Original demonstration identity, not commissioned client work. No automatic tracing is involved.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F6F4EC",
+      "prompt": "Animate this botanical identity: grow the main stem and leaves first, then the veins and small accents. Keep all original shapes and colors. Deliver an offline HTML, GIF and transparent PNG.",
+      "revision_prompt": "Slow the animation to 1x and show the veins after the leaf silhouettes."
+    },
+    {
+      "slug": "coffee-story",
+      "title": "Coffee Story",
+      "title_zh": "一杯咖啡的故事",
+      "use_case": "Product illustration for a launch note, menu presentation or README",
+      "use_case_zh": "用于产品介绍、菜单提案与文档展示的咖啡插画",
+      "source": "source/coffee-story.svg",
+      "kind": "svg",
+      "method": "Native SVG paths; cup and saucer, then drink and steam, then beans and emblem.",
+      "limitations": "Original editorial illustration with deliberate flat colors. This is not a photo-to-vector claim.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#FAF1E7",
+      "prompt": "Draw this coffee illustration in a natural order: saucer and cup, then the drink and steam, then the beans and cup emblem. Keep the background transparent in HTML and PNG; use a warm cream matte for the GIF.",
+      "revision_prompt": "Make the steam appear later and export a 2x GIF for a compact announcement."
+    },
+    {
+      "slug": "white-letter-badge",
+      "title": "White Letter Badge",
+      "title_zh": "白字徽章保真",
+      "use_case": "Raster logo reveal that preserves white lettering and transparent margins",
+      "use_case_zh": "保留白色文字和透明边缘的位图标识动画",
+      "source": "source/white-letter-badge.png",
+      "source_svg": "source/white-letter-badge.svg",
+      "contours": "source/white-letter-badge.svg",
+      "kind": "logo",
+      "method": "Transparent PNG rendered from the authored SVG; supplied source SVG contours plus original PNG pixel reveal. No background removal or automatic tracing.",
+      "limitations": "The source SVG is deliberately available for this controlled raster fixture. This does not demonstrate recovering exact contours from an arbitrary logo.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F4F0E8",
+      "prompt": "Animate this transparent badge PNG and use the supplied aligned contours. Keep the white TB lettering opaque, draw it after the frame, and preserve the original PNG pixels at the end.",
+      "revision_prompt": "Keep all white letter pixels and export a transparent final PNG plus a cream-background GIF."
+    }
+  ]
+}

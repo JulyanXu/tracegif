@@ -1,4 +1,4 @@
-/* TypeBit 0.2.0 — MIT. Native, self-contained SVG playback. */
+/* TypeBit 0.3.0 — MIT. Native, self-contained SVG playback. */
 (() => {
   "use strict";
 
@@ -13,6 +13,8 @@
   const timeLabel = document.getElementById("typebit-time");
   const htmlControl = document.getElementById("typebit-download-html");
   const pngControl = document.getElementById("typebit-download-png");
+  const gifControl = document.getElementById("typebit-download-gif");
+  const cancelExportControl = document.getElementById("typebit-cancel-export");
   const exportStatus = document.getElementById("typebit-export-status");
   const configNode = document.getElementById("typebit-config");
   if (!svg || !art || !traces || !control || !configNode) {
@@ -40,6 +42,8 @@
   let startedAt = 0;
   let frame = null;
   let playbackRate = clamp(finite(config.playback_rate, 1), 0.25, 4);
+  let exportJob = null;
+  let activeDownload = false;
 
   // Definition geometry must stay intact: changing it can break a source mask.
   traces.querySelectorAll("text,image,foreignObject").forEach(element => {
@@ -190,6 +194,7 @@
   }
 
   function play() {
+    if (exportJob) return;
     if (status === "playing") return;
     if (status === "completed" || time >= duration) time = 0;
     baseline = time;
@@ -201,6 +206,7 @@
   }
 
   function pause() {
+    if (exportJob) return;
     if (status !== "playing") return;
     time = clock();
     status = time >= duration ? "completed" : "paused";
@@ -209,6 +215,7 @@
   }
 
   function restart() {
+    if (exportJob) return;
     cancelFrame();
     time = 0;
     status = "idle";
@@ -216,6 +223,7 @@
   }
 
   function seek(seconds) {
+    if (exportJob) return getState();
     const value = Number(seconds);
     if (!Number.isFinite(value)) throw new TypeError("TypeBit.seek expects a finite number of seconds.");
     cancelFrame();
@@ -228,10 +236,11 @@
   function getState() {
     const current = clock();
     return {status: current >= duration ? "completed" : status, time: current, duration,
-      playbackRate, effectiveDuration: duration / playbackRate};
+      playbackRate, effectiveDuration: duration / playbackRate, exporting: Boolean(exportJob)};
   }
 
   function setPlaybackRate(value) {
+    if (exportJob) return getState();
     const next = Number(value);
     if (!Number.isFinite(next) || next < 0.25 || next > 4) {
       throw new RangeError("Playback speed must be between 0.25 and 4.");
@@ -298,15 +307,7 @@
     downloadBlob(new Blob(["<!doctype html>\n", copy.outerHTML], {type: "text/html;charset=utf-8"}), filename("html"));
   }
 
-  async function downloadPng() {
-    if (document.fonts) await document.fonts.ready;
-    time = clock();
-    render();
-    const width = Math.max(1, Math.ceil(viewBox.width));
-    const height = Math.max(1, Math.ceil(viewBox.height));
-    if (width > 8192 || height > 8192 || width * height > 32000000) {
-      throw new Error("This image is too large for a browser PNG download. Ask your Agent for a smaller PNG.");
-    }
+  async function captureCanvas(width, height, matte = null) {
     const copy = svg.cloneNode(true);
     const originals = [svg, ...svg.querySelectorAll("*")];
     const copies = [copy, ...copy.querySelectorAll("*")];
@@ -358,28 +359,134 @@
       const canvas = document.createElement("canvas");
       canvas.width = width;
       canvas.height = height;
-      const context = canvas.getContext("2d");
-      if (!context) throw new Error("PNG export is unavailable in this browser.");
+      const context = canvas.getContext("2d", {willReadFrequently: Boolean(matte)});
+      if (!context) throw new Error("Image export is unavailable in this browser.");
+      if (matte) {
+        context.fillStyle = matte;
+        context.fillRect(0, 0, width, height);
+      }
       context.drawImage(image, 0, 0, width, height);
-      const png = await new Promise((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("PNG export failed.")), "image/png"));
-      downloadBlob(png, filename("png"));
+      return canvas;
     } finally {
       URL.revokeObjectURL(url);
+    }
+  }
+
+  async function downloadPng() {
+    if (document.fonts) await document.fonts.ready;
+    time = clock();
+    render();
+    const width = Math.max(1, Math.ceil(viewBox.width));
+    const height = Math.max(1, Math.ceil(viewBox.height));
+    if (width > 8192 || height > 8192 || width * height > 32000000) {
+      throw new Error("This image is too large for a browser PNG download. Ask your Agent for a smaller PNG.");
+    }
+    const canvas = await captureCanvas(width, height);
+    const png = await new Promise((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("PNG export failed.")), "image/png"));
+    downloadBlob(png, filename("png"));
+  }
+
+  function cancelGif() {
+    if (!exportJob) return;
+    exportJob.cancelled = true;
+    if (cancelExportControl) cancelExportControl.disabled = true;
+    if (exportStatus) exportStatus.textContent = "Canceling GIF…";
+  }
+
+  async function downloadGif() {
+    const encoder = window.gifenc;
+    if (!encoder || typeof encoder.GIFEncoder !== "function") {
+      throw new Error("This HTML is missing its GIF encoder. Ask your Agent to render it again.");
+    }
+    const rate = playbackRate;
+    const width = Math.max(1, Math.min(480, Math.ceil(viewBox.width)));
+    const height = Math.max(1, Math.round(width * viewBox.height / viewBox.width));
+    const steps = Math.max(1, Math.ceil(duration / rate * 10));
+    if (steps + 1 > 600 || width * height * (steps + 1) > 100000000 || height > 4096) {
+      throw new Error("GIF exceeds 600 frames or 100 million frame pixels (maximum height 4096). Increase playback speed, or ask your Agent for a smaller GIF.");
+    }
+    const saved = getState();
+    const focus = document.activeElement;
+    const disabled = Array.from(controls ? controls.querySelectorAll("button,input,select") : [control])
+      .map(element => [element, element === gifControl ? false : element.disabled]);
+    const oldBusy = controls && controls.getAttribute("aria-busy");
+    const job = {cancelled: false};
+    cancelFrame();
+    time = saved.time;
+    status = saved.status === "playing" ? "paused" : saved.status;
+    exportJob = job;
+    disabled.forEach(([element]) => { element.disabled = true; });
+    if (controls) controls.setAttribute("aria-busy", "true");
+    if (cancelExportControl) {
+      cancelExportControl.hidden = false;
+      cancelExportControl.disabled = false;
+      cancelExportControl.focus({preventScroll: true});
+    }
+    const assertActive = () => {
+      if (job.cancelled) throw new DOMException("GIF export canceled.", "AbortError");
+    };
+    try {
+      if (exportStatus) exportStatus.textContent = "Exporting GIF… 0% (white background)";
+      if (document.fonts) await document.fonts.ready;
+      assertActive();
+      const gif = encoder.GIFEncoder();
+      for (let index = 0; index <= steps; index++) {
+        // Give the browser time to paint progress and accept Cancel between frames.
+        await new Promise(resolve => setTimeout(resolve, 0));
+        assertActive();
+        time = duration * index / steps;
+        status = "paused";
+        render();
+        const canvas = await captureCanvas(width, height, "#FFFFFF");
+        assertActive();
+        const rgba = canvas.getContext("2d").getImageData(0, 0, width, height).data;
+        const palette = encoder.quantize(rgba, 256);
+        const pixels = encoder.applyPalette(rgba, palette);
+        const start = Math.round(index * duration / rate / steps * 100) * 10;
+        const end = Math.round((index + 1) * duration / rate / steps * 100) * 10;
+        gif.writeFrame(pixels, width, height, {palette, delay: index === steps ? 800 : end - start, repeat: 0, dispose: 2});
+        if (exportStatus) exportStatus.textContent = `Exporting GIF… ${Math.round((index + 1) / (steps + 1) * 100)}% (white background)`;
+      }
+      assertActive();
+      gif.finish();
+      downloadBlob(new Blob([gif.bytes()], {type: "image/gif"}), filename("gif"));
+      return `GIF saved at ${rate}× with a white background.`;
+    } finally {
+      exportJob = null;
+      disabled.forEach(([element, wasDisabled]) => { element.disabled = wasDisabled; });
+      if (cancelExportControl) {
+        cancelExportControl.hidden = true;
+        cancelExportControl.disabled = false;
+      }
+      if (controls) {
+        if (oldBusy === null) controls.removeAttribute("aria-busy");
+        else controls.setAttribute("aria-busy", oldBusy);
+      }
+      time = saved.time;
+      playbackRate = saved.playbackRate;
+      status = saved.status === "playing" ? "paused" : saved.status;
+      syncSpeedControl();
+      render();
+      if (saved.status === "playing") play();
+      if (focus instanceof HTMLElement && focus.isConnected && !focus.disabled) focus.focus({preventScroll: true});
     }
   }
 
   function bindDownload(button, action, message) {
     if (!button) return;
     button.addEventListener("click", async () => {
+      if (activeDownload || exportJob) return;
+      activeDownload = true;
       button.disabled = true;
       if (exportStatus) exportStatus.textContent = "Preparing download…";
       try {
-        await action();
-        if (exportStatus) exportStatus.textContent = message;
+        const result = await action();
+        if (exportStatus) exportStatus.textContent = result || message;
       } catch (error) {
         if (exportStatus) exportStatus.textContent = error.message || "Download failed. Please try again.";
       } finally {
         button.disabled = false;
+        activeDownload = false;
       }
     });
   }
@@ -389,6 +496,11 @@
   }
 
   document.addEventListener("keydown", event => {
+    if (exportJob) {
+      if (event.key === "Escape") cancelGif();
+      if (["Escape", "ArrowRight", " ", "r", "R"].includes(event.key)) event.preventDefault();
+      return;
+    }
     if (event.defaultPrevented || event.repeat || event.ctrlKey || event.metaKey || event.altKey || editableTarget(event.target)) return;
     if ((event.code === "Space" || event.key === " ") && event.target instanceof Element && event.target.closest("button")) return;
     if (event.key === "ArrowRight") {
@@ -410,6 +522,8 @@
   if (progressControl) progressControl.addEventListener("input", () => seek(Number(progressControl.value)));
   bindDownload(htmlControl, downloadHtml, "HTML saved with the selected speed. It waits for Play.");
   bindDownload(pngControl, downloadPng, "Current frame saved as a transparent PNG.");
+  bindDownload(gifControl, downloadGif, "GIF saved with a white background.");
+  if (cancelExportControl) cancelExportControl.addEventListener("click", cancelGif);
   window.typebit = Object.freeze({
     play,
     pause,

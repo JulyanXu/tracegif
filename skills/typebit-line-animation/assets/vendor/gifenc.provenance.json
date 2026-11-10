@@ -1,0 +1,20 @@
+{
+  "name": "gifenc",
+  "version": "1.0.3",
+  "repository": "https://github.com/mattdesl/gifenc",
+  "tarball": "https://registry.npmjs.org/gifenc/-/gifenc-1.0.3.tgz",
+  "npm_integrity": "sha512-xdr6AdrfGBcfzncONUOlXMBuc5wJDtOueE3c5rdG0oNgtINLD+f2iFZltrBRZYzACRbKr+mSVU/x98zv2u3jmw==",
+  "tarball_sha256": "29470c10132cd66ecac3b4da025b57ab9ec35df6e40215947f22eb2f14a128d4",
+  "source_file": "package/dist/gifenc.js",
+  "source_sha256": "ab1ff6a05a05ddb85f642ae4c3f96d9e69e56fcfc472982172b088344e0fdb59",
+  "license_file": "package/LICENSE.md",
+  "license_sha256": "47bc590c39d8ccccfc544875a9faebf44bafa828ef20315b396b5d0629f0cfd6",
+  "vendored_file": "gifenc.js",
+  "vendored_sha256": "93bf522ae57aa3157d3462068b8258416af5c3c0ce666aa36167b52aff96faaa",
+  "modifications": [
+    "Wrapped the CommonJS release with a local exports object and exposed GIFEncoder, quantize and applyPalette as window.gifenc.",
+    "Removed the development sourceMappingURL directive; the original implementation is otherwise unchanged.",
+    "Prepended the complete upstream MIT license so redistributed standalone HTML retains attribution."
+  ],
+  "runtime_requests": "None; the renderer embeds this file directly in each standalone HTML."
+}

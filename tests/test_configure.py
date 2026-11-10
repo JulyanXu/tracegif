@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'skills/typebit-line-animation/scripts'))
 from typebitlib.core import (TypeBitError, configure_project, prepare_project,
                              render_project, require_current_render, package_project)
+from typebitlib import __version__
 
 
 class ConfigurationTests(unittest.TestCase):
@@ -144,7 +145,7 @@ class ConfigurationTests(unittest.TestCase):
             require_current_render(self.project)
         render_project(self.project)
         current = require_current_render(self.project)
-        self.assertEqual(current['typebit_version'], '0.2.0')
+        self.assertEqual(current['typebit_version'], __version__)
 
 
 if __name__ == '__main__':

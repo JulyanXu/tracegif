@@ -1,5 +1,21 @@
 # Validation snapshots — 2026-11-10
 
+## v0.3.0
+
+All **83 local automated tests** passed in the reference environment.
+
+The offline HTML now contains its own licensed GIF encoder. Seven focused tests exercise real Chromium downloads, decode the GIF bytes, check colors and selected-speed timing, and confirm cancellation, encoder-error recovery, playback-state restoration and GIF export from a downloaded HTML copy. These run in offline browser contexts and reject external resource requests.
+
+Three [original public cases](cases/README.md) each passed **15 offline playback/resource checks**. An Agent inspected the source/drawing/final strips, the three validation backgrounds and decoded GIF phases; the review notes and HTML hashes are recorded in each case's report. The controlled raster badge retains its original RGBA pixels, including white letters and transparent margins. The 480 × 360 case GIFs last 4.8 seconds including the final hold.
+
+- [v0.3.0 SVG browser report](validation/v0.3.0-svg-verification.json)
+- [Public case records and exact artifact hashes](cases/manifest.json)
+- [Release and artifact checks](../tests/test_release.py)
+
+The reference environment remains Windows, Python 3.12.3, Playwright 1.58.0 and Chromium 145.0.7632.6. The [release workflow](https://github.com/JulyanXu/typebit/actions/workflows/release.yml) reruns the suite on Windows, macOS and Linux before publishing. Its fresh case build records automated checks separately from visual review; CI does not inherit or claim an Agent's visual inspection of another build.
+
+中文：v0.3.0 增加 7 项真实浏览器 GIF 下载检查，覆盖倍速、取消、恢复、错误处理与离线副本。三个原创案例各通过 15 项离线检查，并对原稿、描线、终帧、三种背景和 GIF 实际帧完成视觉复核。白字徽章保留原始 RGBA 像素。发布流程要求 Windows、macOS、Linux 检查全部通过；自动构建与 Agent 视觉判断分别记录。
+
 ## v0.2.0
 
 The updated local suite passed all **63 tests** on Windows with Python 3.12.3, Playwright 1.58.0 and Chromium 145.0.7632.6. New coverage includes speed continuity, native scrubber keys, downloaded HTML reopening idle at the chosen speed, PNG pixel/alpha preservation, GIF timing/matte, safe configuration updates and revision archive containment.

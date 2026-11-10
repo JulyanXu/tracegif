@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <title>Coffee Story — an original product illustration</title>
+  <desc>Original TypeBit demonstration artwork, MIT licensed. Native SVG paths, no fonts or external assets.</desc>
+  <g stroke="#593B30" stroke-linecap="round" stroke-linejoin="round">
+    <path id="saucer" data-phase="main" d="M184 349 C205 319 448 316 480 348 C504 374 434 401 338 402 C240 404 166 376 184 349Z" fill="#E7C9A4" stroke-width="3.2"/>
+    <path id="handle" data-phase="main" d="M425 215 C496 200 519 224 505 267 C495 299 470 312 436 308 L438 282 C459 284 477 269 480 251 C484 230 459 232 432 241Z" fill="#C27655" stroke-width="3.5"/>
+    <path id="cup" data-phase="main" d="M219 210 C225 264 226 315 254 344 C281 372 387 374 418 344 C443 321 445 260 447 210Z" fill="#B96547" stroke-width="4"/>
+    <path id="rim" data-phase="main" d="M219 210 C219 183 445 183 447 210 C448 236 220 238 219 210Z" fill="#F2E3C8" stroke-width="3.5"/>
+    <path id="espresso" data-phase="secondary" d="M239 211 C240 194 424 194 428 210 C431 227 240 229 239 211Z" fill="#4B3028" stroke-width="2"/>
+    <path id="crema" data-phase="secondary" d="M267 208 C294 202 354 200 387 207 C361 204 309 211 286 217" fill="none" stroke="#CA945E" stroke-width="3"/>
+    <path id="cup-highlight" data-phase="secondary" d="M239 243 C242 275 245 300 255 316" fill="none" stroke="#E8B48C" stroke-width="7"/>
+    <path id="cup-low-contour" data-phase="secondary" d="M272 343 C304 353 366 354 396 343" fill="none" stroke="#8A492F" stroke-width="2.5"/>
+    <path id="saucer-inset" data-phase="secondary" d="M214 357 C244 378 429 385 458 355" fill="none" stroke="#C39168" stroke-width="2.5"/>
+    <path id="steam-left" data-phase="secondary" d="M282 174 C254 151 306 136 286 108" fill="none" stroke="#9A7657" stroke-width="3"/>
+    <path id="steam-centre" data-phase="secondary" d="M331 164 C302 138 363 115 332 82" fill="none" stroke="#9A7657" stroke-width="3"/>
+    <path id="steam-right" data-phase="secondary" d="M381 175 C361 156 397 144 389 126" fill="none" stroke="#9A7657" stroke-width="3"/>
+    <path id="bean-front-left" data-phase="details" d="M123 351 C111 329 127 310 150 313 C172 316 178 337 160 353 C146 366 132 364 123 351Z" fill="#8F5437" stroke-width="2.5"/>
+    <path id="bean-front-seam" data-phase="details" d="M135 321 C152 331 131 343 149 354" fill="none" stroke="#D1A070" stroke-width="2.5"/>
+    <path id="bean-back-left" data-phase="details" d="M151 302 C133 292 132 272 149 261 C168 249 189 258 191 275 C193 294 169 309 151 302Z" fill="#A56543" stroke-width="2.5"/>
+    <path id="bean-back-seam" data-phase="details" d="M146 275 C164 274 171 289 181 283" fill="none" stroke="#DCB280" stroke-width="2.5"/>
+    <path id="bean-right" data-phase="details" d="M498 350 C516 337 535 345 538 361 C541 378 522 392 505 383 C491 377 487 360 498 350Z" fill="#8F5437" stroke-width="2.5"/>
+    <path id="bean-right-seam" data-phase="details" d="M506 350 C505 361 527 367 520 380" fill="none" stroke="#D1A070" stroke-width="2.5"/>
+    <path id="cup-mark-leaf" data-phase="details" d="M332 316 C304 299 310 269 336 261 C359 281 357 303 332 316Z" fill="#F4DCB3" stroke="#F4DCB3" stroke-width="1.5"/>
+    <path id="cup-mark-vein" data-phase="details" d="M332 310 L336 270 M334 290 L322 282 M333 299 L343 288" fill="none" stroke="#B96547" stroke-width="2"/>
+  </g>
+</svg>

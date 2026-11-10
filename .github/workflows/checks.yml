@@ -50,6 +50,9 @@ jobs:
         run: python skills/typebit-line-animation/scripts/typebit.py export build/example --format gif --width 480 --fps 8
       - name: Package editable source
         run: python skills/typebit-line-animation/scripts/typebit.py package build/example
+      - name: Build verified public cases
+        if: runner.os == 'Linux'
+        run: python tools/build_cases.py --build-root build/cases --media-root build/cases/media
       - name: Preserve verification evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -60,5 +63,6 @@ jobs:
             build/example/animation.html
             build/example/exports/
             build/example-project.zip
+            build/cases/
           if-no-files-found: warn
           retention-days: 14

@@ -22,6 +22,15 @@ The default sequence draws the main structure, secondary contours, and lettering
 
 ![Source, drawing, and final-frame preview](docs/media/preview.png)
 
+## Three ways to use it
+
+| Botanical identity | Product storytelling | White-letter preservation |
+| --- | --- | --- |
+| [![Leaf Studio animation](docs/cases/leaf-studio/animation.gif)](docs/cases/README.md) | [![Coffee Story animation](docs/cases/coffee-story/animation.gif)](docs/cases/README.md) | [![White Letter Badge animation](docs/cases/white-letter-badge/animation.gif)](docs/cases/README.md) |
+| Introduce a botanical mark, branch by branch. | Draw a cup, then its steam and details. | Keep white letterforms inside a transparent PNG badge. |
+
+These are original, editable demonstration artworks. Each GIF comes from the actual exported player. [Explore the source → drawing → final gallery](docs/cases/README.md), or [download all three HTML/GIF/PNG examples and editable projects](https://github.com/JulyanXu/typebit/releases/download/v0.3.0/typebit-cases-0.3.0.zip). The gallery includes reusable prompts, processing notes, and verification reports.
+
 ## What it handles
 
 | Input | How it is treated |
@@ -36,7 +45,7 @@ Photo results are **approximate contours with an original-image reveal**, not a 
 
 Download a release or clone this repository. Copy the **entire** `skills/typebit-line-animation` folder into your host's skill directory:
 
-Use **v0.2.0 or later** for speed controls, format exports, and decoration disabled by default. The `v0.1.0` ZIP retains its original behavior. To remove decoration from an older project, run `configure PROJECT --doodle off`, then render and verify again.
+Use **v0.3.0 or later** for GIF downloads directly from the offline player, speed controls, and the public case gallery. The `v0.1.0` ZIP retains its original behavior. To remove decoration from an older project, run `configure PROJECT --doodle off`, then render and verify again.
 
 | Host | Personal skill location | Invocation |
 | --- | --- | --- |
@@ -104,6 +113,7 @@ Open `build/example/animation.html`. This example has a 12-second timeline and p
 | Progress slider | Move to a frame and pause there. |
 | HTML download | Save a standalone copy that starts at the selected speed and waits for Play. |
 | PNG download | Save the currently displayed frame with transparency and no toolbar. |
+| GIF download | Save the complete animation at the selected speed, on white; progress and cancellation are available. |
 
 The displayed time is the animation's timeline position. Playback duration is timeline duration divided by speed. To save a different project default, ask the Agent or use `configure PROJECT --speed 0.5`; to stretch the drawing schedule itself, use `configure PROJECT --duration 20`. Render and verify after either saved change.
 
@@ -118,7 +128,7 @@ The displayed time is the animation's timeline position. Playback duration is ti
 | GIF | A preview in documents or GitHub | Animated browser captures, with a solid white background by default. Use `--background "#RRGGBB"` for another color. |
 | Project ZIP | Editing again with an Agent | Source, layers, timings, reports, and generated exports. |
 
-GIF export runs through the Agent/CLI, not the standalone HTML toolbar. It preserves the chosen playback speed, but GIF is a palette format and does not preserve smooth alpha edges; use HTML or PNG when transparency matters. See [speed and export options](skills/typebit-line-animation/references/exports.md) for examples and export reports.
+Click **Save GIF** in the offline HTML to download the complete animation at the selected speed. The browser export uses a white background, up to 480 px width and 10 fps, with a 0.8-second final hold. It shows progress and supports cancellation. The Agent/CLI offers larger sizes, other frame rates and matte colors. GIF is a palette format; use HTML or PNG when smooth transparency matters. See [speed and export options](skills/typebit-line-animation/references/exports.md) for examples and export reports.
 
 For host-prepared raster artwork, `prepare` accepts `--mask PATH`, `--contours SVG`, `--kind logo|lineart|photo`, and `--duration SECONDS`. `--remove-white-background` removes border-connected near-white pixels as a candidate mask; it still needs visual review. It does not remove every white region.
 

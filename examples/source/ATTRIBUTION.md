@@ -4,6 +4,16 @@
 
 `typebit-mark.svg` was created for this repository and is covered by the repository's MIT license.
 
+## Original marketing cases
+
+`leaf-studio.svg`, `coffee-story.svg` and `white-letter-badge.svg` were authored specifically for TypeBit and are covered by this repository's MIT license. They are fictional demonstration artwork, not customer work or third-party brands. No commercial fonts are included: the badge's TB lettering consists of original path geometry.
+
+`white-letter-badge.png` is a transparent Chromium rendering of the authored badge SVG. Its animation uses the same known SVG geometry as supplied contours, then reveals the original PNG pixels. This is a controlled demonstration of white-letter and alpha preservation, not a claim of automatic vector recovery or background removal. Regenerate the PNG with `python tools/build_cases.py --refresh-raster` and choose a fresh `--build-root` if the source changes.
+
+The reproducible cases are defined in `examples/cases.json`. Run `python tools/build_cases.py` to rebuild their offline HTML, browser verification, GIF/PNG exports and editable packages. Preview backgrounds are inspection mattes; the original SVG/PNG and HTML backgrounds remain transparent.
+
+新增的植物标识、咖啡插画与白字徽章均为 TypeBit 原创演示素材，采用 MIT 许可，不代表真实客户案例。白字徽章的 PNG 来自随附 SVG，动画使用已知原始路径；它展示白字和透明度保留，不宣称从任意图片自动恢复精确矢量。
+
 ## Apollo 17 Blue Marble
 
 - **File:** `blue-marble.jpg` (1041 × 1041 pixels).

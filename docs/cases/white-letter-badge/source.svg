@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <title>White Letter Badge — original TB path lettering</title>
+  <desc>Original TypeBit artwork, MIT licensed. This SVG is the reproducible source for a transparent PNG preservation case. TB letters are authored paths, not a font or third-party mark.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path id="badge-body" data-phase="main" d="M214 86 H426 L474 134 V346 L426 394 H214 L166 346 V134Z" fill="#1F343A" stroke="#20373E" stroke-width="4"/>
+    <path id="badge-inset" data-phase="main" d="M222 103 H418 L457 142 V338 L418 377 H222 L183 338 V142Z" fill="none" stroke="#CFAB70" stroke-width="2.5"/>
+    <path id="top-divider" data-phase="secondary" d="M230 140 H294 M346 140 H410" fill="none" stroke="#CFAB70" stroke-width="2"/>
+    <path id="lower-divider" data-phase="secondary" d="M230 340 H289 M351 340 H410" fill="none" stroke="#CFAB70" stroke-width="2"/>
+    <path id="corner-top-left" data-phase="secondary" d="M197 159 V148 L228 117 H240" fill="none" stroke="#617A79" stroke-width="2"/>
+    <path id="corner-top-right" data-phase="secondary" d="M400 117 H412 L443 148 V159" fill="none" stroke="#617A79" stroke-width="2"/>
+    <path id="corner-low-left" data-phase="secondary" d="M197 321 V332 L228 363 H240" fill="none" stroke="#617A79" stroke-width="2"/>
+    <path id="corner-low-right" data-phase="secondary" d="M400 363 H412 L443 332 V321" fill="none" stroke="#617A79" stroke-width="2"/>
+    <path id="letter-t" data-phase="details" d="M224 177 H311 V202 H281 V307 H254 V202 H224Z" fill="#FFFFFF" stroke="#C1AD87" stroke-width="1.2"/>
+    <path id="letter-b" data-phase="details" fill-rule="evenodd" d="M329 177 H370 C398 177 414 188 414 210 C414 225 405 236 394 239 C411 243 420 253 420 270 C420 295 401 307 371 307 H329Z M356 201 V227 H370 C381 227 387 222 387 214 C387 205 381 201 370 201Z M356 251 V283 H371 C385 283 392 278 392 267 C392 256 384 251 371 251Z" fill="#FFFFFF" stroke="#C1AD87" stroke-width="1.2"/>
+    <path id="top-diamond" data-phase="details" d="M320 127 L331 140 L320 153 L309 140Z" fill="#CFAB70" stroke="#CFAB70" stroke-width="1.5"/>
+    <path id="bottom-diamond" data-phase="details" d="M320 329 L331 340 L320 351 L309 340Z" fill="none" stroke="#CFAB70" stroke-width="2"/>
+    <path id="left-dot" data-phase="details" d="M213 240 A3.5 3.5 0 1 1 206 240 A3.5 3.5 0 1 1 213 240Z" fill="#CFAB70" stroke="#CFAB70" stroke-width="1"/>
+    <path id="right-dot" data-phase="details" d="M437 240 A3.5 3.5 0 1 1 430 240 A3.5 3.5 0 1 1 437 240Z" fill="#CFAB70" stroke="#CFAB70" stroke-width="1"/>
+  </g>
+</svg>

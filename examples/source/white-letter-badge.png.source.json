@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "method": "Chromium SVG render",
+  "browser": "145.0.7632.6",
+  "source_svg": {
+    "file": "white-letter-badge.svg",
+    "sha256": "a5160068e8c08884d36fe2ac43e59550cb95b503c337cb43c70b6a4c824c2470"
+  },
+  "output_png": {
+    "file": "white-letter-badge.png",
+    "sha256": "bc3334628b387ee2e1174a640d40e039b674739244814e15b0146cc702fa6427"
+  }
+}

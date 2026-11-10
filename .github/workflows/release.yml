@@ -34,4 +34,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ github.ref_name }}
-        run: gh release create "$RELEASE_TAG" dist/* --verify-tag --generate-notes --title "TypeBit $RELEASE_TAG"
+        run: |
+          NOTES="docs/releases/${RELEASE_TAG}.md"
+          if [ -f "$NOTES" ]; then
+            gh release create "$RELEASE_TAG" dist/* --verify-tag --notes-file "$NOTES" --title "TypeBit $RELEASE_TAG"
+          else
+            gh release create "$RELEASE_TAG" dist/* --verify-tag --generate-notes --title "TypeBit $RELEASE_TAG"
+          fi

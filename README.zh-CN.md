@@ -24,6 +24,15 @@ TypeBit 是一个 Agent Skill，用于把 SVG、Logo、线稿和照片制作成�
 
 ![原图、描线中间态与最终画面](docs/media/preview.png)
 
+## 三种应用案例
+
+| 植物品牌标识 | 咖啡产品插画 | 保留白色字形 |
+| --- | --- | --- |
+| [![Leaf Studio 动画](docs/cases/leaf-studio/animation.gif)](docs/cases/README.md) | [![Coffee Story 动画](docs/cases/coffee-story/animation.gif)](docs/cases/README.md) | [![白字徽章动画](docs/cases/white-letter-badge/animation.gif)](docs/cases/README.md) |
+| 让枝叶逐笔展开，引出品牌图形。 | 先画杯身，再呈现蒸汽与细节。 | 透明 PNG 中的白色字形完整保留。 |
+
+三个案例均为原创、可编辑的演示素材，GIF 来自实际导出的播放器。[查看「原图 → 描线 → 成品」案例库](docs/cases/README.md)，或[下载全部 HTML、GIF、PNG 和可编辑工程](https://github.com/JulyanXu/typebit/releases/download/v0.3.0/typebit-cases-0.3.0.zip)。案例页提供可复用提示词、处理说明和验证报告。
+
 ## 素材与处理方式
 
 | 输入 | 处理方式 |
@@ -38,7 +47,7 @@ TypeBit 是一个 Agent Skill，用于把 SVG、Logo、线稿和照片制作成�
 
 下载一个发布版本，或克隆本仓库。将 `skills/typebit-line-animation` **整个文件夹**复制到宿主的 Skill 目录：
 
-请使用 **v0.2.0 或更新版本**，以获得速度控制、多格式导出和默认关闭装饰的修复；`v0.1.0` 发布 ZIP 保持原有行为。旧工程需要移除装饰时，可执行 `configure PROJECT --doodle off`，再重新渲染和验证。
+请使用 **v0.3.0 或更新版本**，以获得页面内 GIF 下载、速度控制和公开案例库；`v0.1.0` 发布 ZIP 保持原有行为。旧工程需要移除装饰时，可执行 `configure PROJECT --doodle off`，再重新渲染和验证。
 
 | 宿主 | 个人 Skill 目录 | 调用方式 |
 | --- | --- | --- |
@@ -105,6 +114,7 @@ python skills/typebit-line-animation/scripts/typebit.py package build/example
 | 进度条 | 跳到指定画面并暂停。 |
 | 下载 HTML | 保存独立副本，记住当前倍速；重新打开仍等待点击播放。 |
 | 下载 PNG | 保存当前画面，保留透明度，不含工具栏。 |
+| 下载 GIF | 按当前倍速保存完整白底动画，可查看进度或取消。 |
 
 显示的时间是画面在时间线中的位置；实际播放时长＝时间线时长÷倍速。若要保存工程的默认倍速，可让 Agent 调整，或执行 `configure PROJECT --speed 0.5`。若要把各阶段整体拉长，则用 `configure PROJECT --duration 20`。保存后重新渲染和验证。
 
@@ -119,7 +129,7 @@ python skills/typebit-line-animation/scripts/typebit.py package build/example
 | GIF | 文档或 GitHub 动画预览 | 来自真实浏览器帧，默认使用白色底；可通过 `--background "#RRGGBB"` 指定底色。 |
 | 工程 ZIP | 继续交给 Agent 修改 | 包含素材、图层、时序、报告和已导出的文件。 |
 
-GIF 通过 Agent／命令行导出，独立 HTML 工具栏只负责 HTML 和 PNG 下载。GIF 会使用选定的播放速度，但调色板格式不能保留平滑的半透明边缘；需要透明背景时请选择 HTML 或 PNG。更多参数和导出记录见[速度与格式指南](skills/typebit-line-animation/references/exports.md)。
+现在可以直接点击离线 HTML 中的 **Save GIF**，按当前倍速保存完整动画。浏览器导出使用白底、最高 480 像素宽、10 帧/秒，终帧停留 0.8 秒，并提供进度和取消操作。更大的尺寸、其他帧率与底色仍可通过 Agent 调整。GIF 不能保留平滑半透明边缘；需要透明背景时请选择 HTML 或 PNG。更多参数和导出记录见[速度与格式指南](skills/typebit-line-animation/references/exports.md)。
 
 处理宿主准备好的位图时，`prepare` 支持 `--mask PATH`、`--contours SVG`、`--kind logo|lineart|photo` 和 `--duration SECONDS`。`--remove-white-background` 只尝试移除与画面边界相连的近白区域，生成的透明候选仍需视觉确认；它不会无差别删除所有白色。
 

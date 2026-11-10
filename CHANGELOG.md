@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 — 2026-11-10
+
+- Add **Save GIF** to standalone HTML: full animation at the selected speed, offline encoding, progress, cancellation and playback-state restoration.
+- Embed pinned gifenc 1.0.3 with its MIT notice; no CDN, server, worker download or new installation step is needed for playback/export.
+- Add three original, redistributable cases: Leaf Studio, Coffee Story and White Letter Badge, with browser-captured GIFs, source/drawing/final previews, editable projects and verification.
+- Publish a bilingual case gallery and a downloadable case bundle alongside the Skill release.
+- Check source provenance, export hashes and editable-package contents before rebuilding or publishing, so stale artwork and exports cannot silently enter a release.
+
 ## 0.2.0 — 2026-11-10
 
 - Add speed selection from 0.25× to 4×, timeline scrubbing, elapsed time, and HTML/current-frame PNG downloads to the offline player.
