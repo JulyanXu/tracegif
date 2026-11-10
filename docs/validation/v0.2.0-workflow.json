@@ -1,0 +1,157 @@
+{
+  "status": "passed",
+  "doctor": {
+    "status": "ready",
+    "typebit_version": "0.2.0",
+    "python": "3.12.3",
+    "browser": "Chromium 145.0.7632.6"
+  },
+  "command_results": [
+    {
+      "step": "prepare",
+      "exit_code": 0
+    },
+    {
+      "step": "configure-initial",
+      "exit_code": 0
+    },
+    {
+      "step": "render-initial",
+      "exit_code": 0
+    },
+    {
+      "step": "export-initial-html",
+      "exit_code": 0
+    },
+    {
+      "step": "export-initial-png",
+      "exit_code": 0
+    },
+    {
+      "step": "export-initial-gif",
+      "exit_code": 0
+    },
+    {
+      "step": "package-initial",
+      "exit_code": 0
+    },
+    {
+      "step": "configure-final",
+      "exit_code": 0
+    },
+    {
+      "step": "render-final",
+      "exit_code": 0
+    },
+    {
+      "step": "verify-final",
+      "exit_code": 0
+    },
+    {
+      "step": "export-final-html",
+      "exit_code": 0
+    },
+    {
+      "step": "export-final-png",
+      "exit_code": 0
+    },
+    {
+      "step": "export-final-gif",
+      "exit_code": 0
+    },
+    {
+      "step": "package-final",
+      "exit_code": 0
+    },
+    {
+      "step": "verify-initial",
+      "exit_code": 0
+    },
+    {
+      "step": "verify-final-export",
+      "exit_code": 0
+    }
+  ],
+  "timeline_seconds": 6,
+  "initial": {
+    "revision": 1,
+    "default_speed": 1.5,
+    "animation_seconds": 4,
+    "gif_loop_ms": 4800,
+    "html_sha256": "6cf8656347dd0ef87f5671bb70bb594a28113b98bc1b65168eca8d2337b81fd6"
+  },
+  "final": {
+    "revision": 2,
+    "default_speed": 2,
+    "animation_seconds": 3,
+    "gif_loop_ms": 3800,
+    "gif_final_hold_ms": 800,
+    "export_sha256": {
+      "html": "71761668c2d4f2bfe3b6bc6d5bf850807280d3314d1b1962b3a3851c18402f66",
+      "png": "755db8030a3292725849e70d27ab58e43c7526ff4509f72b0509866125d8cf87",
+      "gif": "3c18a0fa93a3d752fbf0eb80677e3ca487b9e799fbf10528ffc159c37aadef72"
+    }
+  },
+  "verification": {
+    "initial_automated": "passed",
+    "final_canonical_automated": "passed",
+    "final_exported_html_automated": "passed",
+    "file_protocol": true,
+    "offline": true,
+    "network_requests": [],
+    "browser_errors": [],
+    "checks_passed": 15,
+    "visual_review": "reviewed"
+  },
+  "artwork_unchanged": {
+    "source": true,
+    "scene": true,
+    "layer_schedule": true,
+    "final_png": true
+  },
+  "png_validation": {
+    "mode": "RGBA",
+    "size": [
+      720,
+      480
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "white_window_pixel": [
+      255,
+      255,
+      255,
+      255
+    ]
+  },
+  "original_svg_vs_final_png": "Pixel-identical RGBA at 720x480 using same Chromium renderer.",
+  "export_sidecars_all_match": true,
+  "revision_history": {
+    "snapshot_revision": 1,
+    "snapshot_speed": 1.5,
+    "snapshot_html_matches_initial": true,
+    "snapshot_scene_matches_initial": true,
+    "archived_exports_match_initial": true,
+    "archived_report_hash_matches_initial": true,
+    "archived_report_automated": "passed",
+    "archived_report_visual": "reviewed"
+  },
+  "final_package": {
+    "sha256": "45ff212b90c2b40ea4888f8bed2bec6b24b9e7a27e5a6f2966b4764e2a90934a",
+    "revision": 2,
+    "playback_rate": 2.0,
+    "visual_review": "reviewed",
+    "current_exports_match": true,
+    "report_matches_current": true,
+    "excludes_revision_history": true
+  },
+  "scope": "Independent Agent followed the v0.2.0 Skill in Windows/Chromium. Toolbar download behavior is separately covered by the repository browser tests."
+}

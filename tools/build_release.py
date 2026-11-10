@@ -66,6 +66,19 @@ def build_release(project: Path, output: Path, version: str) -> dict:
     for source, name in [(html, "typebit-example.html"), (project_zip, "typebit-example-project.zip")]:
         shutil.copyfile(source, output / name)
         names.append(name)
+    for extension in ("png", "gif"):
+        exported = project / "exports" / f"animation.{extension}"
+        sidecar = exported.with_name(exported.name + ".export.json")
+        if not exported.is_file() or not sidecar.is_file():
+            raise ValueError(f"Export the example as {extension.upper()} before building release attachments.")
+        export_report = json.loads(sidecar.read_text(encoding="utf-8"))
+        if export_report.get("source_html_sha256") != report["html_sha256"] or export_report.get("output_sha256") != sha256(exported):
+            raise ValueError(f"The {extension.upper()} example export is stale. Re-run export and package.")
+        name = f"typebit-example.{extension}"
+        shutil.copyfile(exported, output / name)
+        names.append(name)
+        shutil.copyfile(sidecar, output / (name + ".export.json"))
+        names.append(name + ".export.json")
     evidence_files = [(p, p.relative_to(evidence).as_posix()) for p in evidence.rglob("*") if p.is_file()]
     name = "typebit-example-verification.zip"
     zip_files(output / name, evidence_files)
@@ -87,7 +100,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project", type=Path, default=ROOT / "build" / "example")
     parser.add_argument("--output", type=Path, default=ROOT / "dist")
-    parser.add_argument("--version", default="0.1.0")
+    parser.add_argument("--version", default="0.2.0")
     args = parser.parse_args()
     try:
         print(json.dumps(build_release(args.project, args.output, args.version), indent=2))

@@ -324,7 +324,8 @@ def prepare_project(input_path: Path, project_path: Path, *, kind="auto", mask=N
             (project / "contours.svg").write_text(ET.tostring(trace_root, encoding="unicode"), encoding="utf-8")
     (project / "scene.svg").write_text(ET.tostring(root, encoding="unicode"), encoding="utf-8")
     manifest = {"schema_version": 1, "typebit_version": __version__, "revision": 0, "name": source.stem,
-                "duration": duration, "fill_start": duration * .85, "brand_color": "#2563EB", "doodle": True,
+                "duration": duration, "fill_start": duration * .85, "playback_rate": 1.0,
+                "brand_color": "#2563EB", "doodle": False,
                 "source": {"path": source_rel, "sha256": sha256(source), "kind": actual_kind},
                 "scene": "scene.svg", "view_box": view_box,
                 "layers": default_layers(trace_root, duration) if trace_root is not None else [],
@@ -337,6 +338,56 @@ def prepare_project(input_path: Path, project_path: Path, *, kind="auto", mask=N
     write_json(project / "project.json", manifest)
     return {"status": "needs_input" if needs else "prepared", "project": str(project), "kind": actual_kind,
             "method": method, "layer_count": len(manifest["layers"]), "warnings": warnings, "needs": needs}
+
+
+def configure_project(project_path, *, duration=None, playback_rate=None, doodle=None):
+    """Change timing/preferences without reinterpreting or replacing source artwork."""
+    project = Path(project_path).resolve()
+    path = project / "project.json"
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    if manifest.get("schema_version") != 1:
+        raise TypeBitError("Unsupported project schema.")
+    if all(value is None for value in (duration, playback_rate, doodle)):
+        raise TypeBitError("Choose --duration, --speed, or --doodle to configure the project.")
+    updated = copy.deepcopy(manifest)
+    if duration is not None:
+        previous = _finite_number(manifest.get("duration"), "duration", 1, 300)
+        target = _finite_number(duration, "duration", 1, 300)
+        ratio = target / previous
+        updated["duration"] = target
+        updated["fill_start"] = _finite_number(manifest.get("fill_start", previous * .85), "fill_start", 0, previous - .001) * ratio
+        for layer in updated.get("layers", []):
+            layer["start"] = _finite_number(layer.get("start"), "layer.start", 0, previous) * ratio
+            layer["duration"] = _finite_number(layer.get("duration"), "layer.duration", .001, previous) * ratio
+            if layer["duration"] < .001:
+                raise TypeBitError("Requested duration makes a layer shorter than 0.001 seconds.")
+    if playback_rate is not None:
+        updated["playback_rate"] = _finite_number(playback_rate, "playback_rate", .25, 4)
+    if doodle is not None:
+        if not isinstance(doodle, bool):
+            raise TypeBitError("doodle must be a boolean.")
+        updated["doodle"] = doodle
+    # Validate the complete result before persisting any setting, even when an
+    # unrelated existing field is invalid or proportional retiming hits a limit.
+    final_duration = _finite_number(updated.get("duration"), "duration", 1, 300)
+    final_fill = _finite_number(updated.get("fill_start", final_duration * .85), "fill_start", 0, final_duration - .001)
+    final_rate = _finite_number(updated.get("playback_rate", 1), "playback_rate", .25, 4)
+    if not isinstance(updated.get("doodle", False), bool):
+        raise TypeBitError("doodle must be a boolean.")
+    for layer in updated.get("layers", []):
+        start = _finite_number(layer.get("start"), "layer.start", 0, final_fill)
+        span = _finite_number(layer.get("duration"), "layer.duration", .001, final_duration)
+        if start + span > final_fill + .001:
+            raise TypeBitError("A layer ends after fill_start. Correct its timing before configuring.")
+    effective_duration = final_duration / final_rate
+    changed = updated != manifest
+    if changed:
+        updated["visual_review"] = {"status": "unverified", "notes": []}
+        write_json(path, updated)
+    return {"status": "configured", "project": str(project), "changed": changed,
+            "duration": updated["duration"], "playback_rate": updated.get("playback_rate", 1),
+            "effective_duration": effective_duration,
+            "next": "render, verify, export chosen formats, then package"}
 
 
 def _prefix_ids(root, prefix, scope):
@@ -370,7 +421,7 @@ def _project_zip(project, output, *, include_verification=True):
             relative = path.relative_to(project)
             if any(part.startswith(".") or part in {"revisions", "__pycache__"} for part in relative.parts):
                 continue
-            if not include_verification and relative.parts[0] == "verification":
+            if not include_verification and relative.parts[0] in {"verification", "preview", "exports"}:
                 continue
             archive.write(path, relative.as_posix())
 
@@ -382,10 +433,14 @@ def render_project(project_path):
     if manifest.get("schema_version") != 1:
         raise TypeBitError("Unsupported project schema. This release reads schema_version 1.")
     duration = _finite_number(manifest.get("duration"), "duration", 1, 300)
+    playback_rate = _finite_number(manifest.get("playback_rate", 1), "playback_rate", .25, 4)
     fill_start = _finite_number(manifest.get("fill_start", duration * .85), "fill_start", 0, duration - .001)
     color = manifest.get("brand_color", "#2563EB")
     if not re.fullmatch(r"#[0-9A-Fa-f]{6}", color):
         raise TypeBitError("brand_color must be a six-digit hex color.")
+    doodle = manifest.get("doodle", False)
+    if not isinstance(doodle, bool):
+        raise TypeBitError("doodle must be a boolean; set true only when decorative strokes are requested.")
     source_info = manifest.get("source", {})
     source = safe_path(project, source_info.get("path"))
     if sha256(source) != source_info.get("sha256"):
@@ -441,35 +496,57 @@ def render_project(project_path):
     ET.SubElement(outer, f"{{{SVG_NS}}}g", {"id": "typebit-art"}).append(art)
     ET.SubElement(outer, f"{{{SVG_NS}}}g", {"id": "typebit-traces"}).append(trace)
     config = {"duration": duration, "fill_start": fill_start, "brand_color": color,
-              "layers": layers, "doodle": bool(manifest.get("doodle", True))}
+              "layers": layers, "doodle": doodle, "playback_rate": playback_rate}
     config_json = json.dumps(config, ensure_ascii=True).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
     name = html.escape(str(manifest.get("name", "TypeBit animation")))
     markup = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="generator" content="TypeBit {__version__}"><title>{name}</title><style>{css}</style></head>
 <body><main id="typebit-stage">{ET.tostring(outer, encoding="unicode")}</main>
+<div id="typebit-controls" role="group" aria-label="Animation controls">
 <button id="typebit-control" type="button" aria-label="Play animation">Play</button>
+<button id="typebit-replay" type="button" aria-label="Replay animation">Replay</button>
+<label for="typebit-speed">Speed <select id="typebit-speed" aria-label="Playback speed">
+<option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="0.75">0.75×</option>
+<option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option>
+<option value="3">3×</option><option value="4">4×</option></select></label>
+<input id="typebit-progress" type="range" min="0" max="{duration:g}" step="0.01" value="0" aria-label="Animation progress">
+<output id="typebit-time" aria-live="off">0:00</output>
+<button id="typebit-download-html" type="button" title="Save offline HTML with the selected speed">Save HTML</button>
+<button id="typebit-download-png" type="button" title="Save the current frame with transparency">Save PNG</button>
+<output id="typebit-export-status" aria-live="polite"></output>
+</div>
 <script type="application/json" id="typebit-config">{config_json}</script><script>{js}</script></body></html>'''
     previous = project / ".last-render.zip"
     old_revision = int(manifest.get("revision", 0))
     revisions = project / "revisions"
+    if revisions.is_symlink() or revisions.is_junction() or not revisions.resolve().is_relative_to(project):
+        raise TypeBitError("The revisions folder must stay inside the project and cannot be a link.")
     if previous.exists():
-        revisions.mkdir(exist_ok=True)
-        destination = revisions / f"r{old_revision:04d}.zip"
+        destination = safe_path(project, f"revisions/r{old_revision:04d}.zip")
         if destination.exists():
             raise TypeBitError("Revision archive already exists. Restore the correct project revision before rendering.")
-        shutil.copyfile(previous, destination)
-    verification = project / "verification"
-    if verification.exists():
+    derived_archives = []
+    for folder in ("verification", "preview", "exports"):
+        current = project / folder
+        if current.exists():
+            if current.is_symlink() or current.is_junction() or not current.resolve().is_relative_to(project):
+                raise TypeBitError(f"The {folder} folder must stay inside the project and cannot be a link.")
+            destination = safe_path(project, f"revisions/r{old_revision:04d}-{folder}")
+            if destination.exists():
+                raise TypeBitError(f"Previous {folder} archive already exists.")
+            derived_archives.append((current, destination))
+    if previous.exists():
         revisions.mkdir(exist_ok=True)
-        destination = revisions / f"r{old_revision:04d}-verification"
-        if destination.exists():
-            raise TypeBitError("Previous verification archive already exists.")
+        shutil.copyfile(previous, revisions / f"r{old_revision:04d}.zip")
+    for current, destination in derived_archives:
+        revisions.mkdir(exist_ok=True)
         # Both paths are fixed descendants of the verified project directory.
-        verification.rename(destination)
+        current.rename(destination)
     output = project / "animation.html"
     output.write_text(markup, encoding="utf-8")
     manifest["revision"] = old_revision + 1
+    manifest["typebit_version"] = __version__
     manifest["view_box"] = view_box
     manifest["visual_review"] = {"status": "unverified", "notes": []}
     manifest["render"] = {"html": "animation.html", "html_sha256": sha256(output),
@@ -493,12 +570,15 @@ def _render_input_hash(project, manifest):
     return hashlib.sha256(json.dumps(payload, sort_keys=True, ensure_ascii=True).encode("utf-8")).hexdigest()
 
 
-def package_project(project_path, output_path=None):
+def require_current_render(project_path):
+    """Validate the source/HTML binding before either exporting or packaging."""
     project = Path(project_path).resolve()
     manifest = json.loads((project / "project.json").read_text(encoding="utf-8"))
+    if manifest.get("typebit_version") != __version__:
+        raise TypeBitError("Render this project with the current TypeBit version before exporting or packaging.")
     html_path = project / "animation.html"
     if not html_path.exists() or manifest.get("render", {}).get("html_sha256") != sha256(html_path):
-        raise TypeBitError("Render this project before packaging; the HTML is missing or changed.")
+        raise TypeBitError("Render this project before exporting or packaging; the HTML is missing or changed.")
     if manifest.get("render", {}).get("input_sha256") != _render_input_hash(project, manifest):
         raise TypeBitError("Project settings changed or assets changed since the last render. Render and verify again before packaging.")
     # Detect editable-source changes even when the previous HTML is still present.
@@ -506,7 +586,7 @@ def package_project(project_path, output_path=None):
     if snapshot.exists():
         with zipfile.ZipFile(snapshot) as archive:
             for member in archive.namelist():
-                if member in {"project.json", "animation.html"}:
+                if member in {"project.json", "animation.html"} or Path(member).parts[0] in {"verification", "preview", "exports"}:
                     continue
                 path = safe_path(project, member)
                 if not path.is_file() or hashlib.sha256(path.read_bytes()).digest() != hashlib.sha256(archive.read(member)).digest():
@@ -517,6 +597,13 @@ def package_project(project_path, output_path=None):
             current.pop("visual_review", None)
             if old != current:
                 raise TypeBitError("Project settings changed since the last render. Render and verify again before packaging.")
+    return manifest
+
+
+def package_project(project_path, output_path=None):
+    project = Path(project_path).resolve()
+    manifest = require_current_render(project)
+    html_path = project / "animation.html"
     report_path = project / "verification/report.json"
     verification_status = "unverified"
     review = manifest.get("visual_review", {})

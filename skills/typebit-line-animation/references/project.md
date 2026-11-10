@@ -8,8 +8,9 @@ The project is the editable source of truth. The HTML is a distributable renderi
 
 | Field | Meaning |
 | --- | --- |
-| `name`, `duration`, `brand_color` | Artwork name, total duration in seconds (1–300), and six-digit hex accent color. |
-| `fill_start`, `doodle` | Start of the final color reveal (default 85% of duration), and whether the blue decoration appears. |
+| `name`, `duration`, `brand_color` | Artwork name, total duration in seconds (1–300), and six-digit hex accent color. The color is also the fallback for contours without an explicit stroke; setting it does not enable decoration. |
+| `playback_rate` | Initial playback speed from 0.25 to 4, default 1 when omitted. Actual playback duration is `duration / playback_rate`; this does not change the source geometry or layer timings. |
+| `fill_start`, `doodle` | Start of the final color reveal (default 85% of duration), and optional decorative strokes. `doodle` defaults to `false`, including when omitted. Only the boolean `true` enables decoration; set it only when the user requests it. |
 | `source` | Original source path, SHA-256, and the selected image kind. |
 | `scene`, optional `contours` | Project-relative paths to the final SVG scene and a separate raster-contour SVG. |
 | `layers` | Stable layer IDs, human-readable labels, phase, start time, and duration. |
@@ -23,6 +24,22 @@ Layer phases are `main`, `secondary`, and `details`; the player subsequently rev
 `prepare` creates `scene.svg`, original/derived assets, and `project.json`. A raster source also needs `contours.svg`. Preparation can return `needs_input` while preserving a useful partial project. Resolve each actual `processing.needs` issue before removing its entry; deleting warnings or needs without producing the required artwork does not complete the work.
 
 Treat the generated file as authoritative for supported optional fields. Keep file references within the project so the package can move to another machine. Do not introduce external scripts, stylesheets, fonts, images, or network URLs into the scene.
+
+## Change duration or speed
+
+Use the helper to keep timing changes coherent:
+
+```text
+python <skill-directory>/scripts/typebit.py configure <project-directory> --duration 12 --speed 1.5
+python <skill-directory>/scripts/typebit.py render <project-directory>
+python <skill-directory>/scripts/typebit.py verify <project-directory>/animation.html
+```
+
+`--duration` scales every layer start, layer duration, and `fill_start` by the new/old duration ratio. `--speed` stores the initial playback multiplier without rescheduling layers. Either or both may be supplied. Use `--doodle off` to disable decoration or `--doodle on` only when requested. Changing saved settings makes the previous HTML stale; render and verify before exporting or packaging.
+
+The HTML speed selector is a playback control. It preserves the current timeline position and does not rewrite `project.json`. Its HTML download saves the selected speed in a standalone copy that opens idle. If the user wants that speed in future project revisions, also apply `configure --speed` to the project.
+
+See [exports.md](exports.md) for format options and reports. Generated `exports/` and `preview/` files are delivery products, not editable source dependencies. They can be regenerated after verification and are included in the delivery package; they do not invalidate a source snapshot merely because a preview was refreshed.
 
 After inspecting the final HTML's actual screenshots against the source, update only `visual_review` in `project.json`:
 
@@ -43,13 +60,16 @@ Use the actual `render.html_sha256`, not the example string above. `package` bin
 3. Map the request to the smallest relevant change: timing, layer order, contour geometry, mask, or accent color. Preserve all unrelated artwork.
 4. Reset visual-review status when a relevant visual change invalidates the previous review; retain useful notes as history, not as proof that the new version was checked.
 5. Render again, run verification against the new `animation.html`, inspect the resulting previews, and update visual-review notes accurately. Each render resets visual review and archives the previous verification directory.
-6. Package only after the final render and validation so the sources, HTML, and reports refer to the same revision. Default verification lives in `verification/report.json` and `report.md`; the default ZIP is the project directory's sibling `<project-name>-project.zip`. The ZIP contains the current project, not the hidden snapshot or `revisions` history; keep that history separately when needed.
+6. Export the requested formats from the verified current render, then package so sources, HTML, exports, and reports refer to the same revision. Default verification lives in `verification/report.json` and `report.md`; the default ZIP is the project directory's sibling `<project-name>-project.zip`. The ZIP contains the current project and generated exports, not the hidden snapshot or `revisions` history; keep that history separately when needed.
 
 Examples:
 
 - “Draw the lettering last”: identify the lettering layers, move them into the details phase, and adjust timings without changing their geometry.
 - “Keep these white highlights”: correct the alpha mask from original pixels, rather than painting guessed white patches over the result. Update the derived `assets/subject.png` and its embedded image data in `scene.svg` together; changing the PNG alone does not update the embedded final scene.
 - “Fewer lines on the right”: remove or simplify the relevant contours, while retaining original pixels in the final reveal.
-- “Make it 12 seconds”: adjust `duration`, `fill_start`, and layer timings coherently, then verify pause/resume and completion at the new duration.
+- “Remove the blue decoration”: set `doodle` to `false`, then render and verify. Preserve blue elements belonging to the source. Older projects may retain `doodle: true` from the previous default; the new default does not rewrite their stored preference.
+- “Make it 12 seconds”: run `configure --duration 12`, then render and verify. This stretches the timeline; it retains the saved playback multiplier unless `--speed` also changes.
+- “Play twice as fast”: run `configure --speed 2` for a persistent project default, then render and verify. The user can also choose 2× temporarily in the HTML toolbar.
+- “Give me a GIF and a transparent final image”: keep the existing artwork, verify its current HTML, then use `export --format gif` and `export --format png`. Explain that GIF uses a solid matte while PNG preserves alpha.
 
 Do not introduce an interactive editing application. The chat is the editing interface; the project is the durable, portable representation.

@@ -10,15 +10,15 @@ TypeBit 是一个 Agent Skill，用于把 SVG、Logo、线稿和照片制作成�
 
 ![TypeBit 线条动画示例](docs/media/demo.gif)
 
-*这里展示的是播放录制；导出的 HTML 打开后等待操作，不会自动播放。*
+*这里展示的是实际播放录制；导出的 HTML 打开后等待操作，可以调整速度和进度。*
 
 ## 从图片到可交付动画
 
 1. 给 Agent 一张图片，请它制作线条动画。
-2. 查看真实渲染结果，用自然语言反馈，例如“文字最后画”“保留白色高光”。
-3. 获取一个离线 HTML 文件、可编辑工程和浏览器验证报告。
+2. 查看真实预览、调整播放速度，或拖动进度检查某一帧；画面修改直接用自然语言反馈。
+3. 按用途选择独立 HTML、GIF 动画或 PNG 图片，并保留可编辑工程与验证报告。
 
-默认顺序是主要结构、次要轮廓、文字与细节，最后显露颜色。总时长约 10 秒，完成后定格。主体外部保持透明，少量品牌蓝涂鸦放在主体后方。
+默认顺序是主要结构、次要轮廓、文字与细节，最后显露颜色。总时长约 10 秒，完成后定格。主体外部保持透明，默认不添加原图以外的装饰；用户提出要求时，可以在主体后方加入蓝色涂鸦。
 
 **无需新账号、单独安装 AI 模型或配置推理 API。** TypeBit 使用宿主 Agent 已有的视觉和图像工具。它不包含独立网站、可视化编辑页或云端图片处理服务。播放器采用原生 SVG 与 JavaScript，不依赖 GSAP。
 
@@ -37,6 +37,8 @@ TypeBit 是一个 Agent Skill，用于把 SVG、Logo、线稿和照片制作成�
 ## 安装 Skill
 
 下载一个发布版本，或克隆本仓库。将 `skills/typebit-line-animation` **整个文件夹**复制到宿主的 Skill 目录：
+
+请使用 **v0.2.0 或更新版本**，以获得速度控制、多格式导出和默认关闭装饰的修复；`v0.1.0` 发布 ZIP 保持原有行为。旧工程需要移除装饰时，可执行 `configure PROJECT --doodle off`，再重新渲染和验证。
 
 | 宿主 | 个人 Skill 目录 | 调用方式 |
 | --- | --- | --- |
@@ -70,9 +72,13 @@ Claude Code 中使用 `/typebit-line-animation`；其他宿主可直接提及 Sk
 
 随后直接反馈：
 
-> 文字放到最后画，右边的细节线条少一些，保留白色高光，蓝色涂鸦再淡一点。
+> 文字放到最后画，右边的细节线条少一些，保留白色高光。
 
-Agent 会修改现有工程，并重新检查新导出的结果。无需学习另一个编辑页面。
+> 总时长改为 12 秒，默认用 1.5 倍速播放，再导出白底 GIF 和透明背景的最终 PNG。
+
+如果旧工程带有不需要的装饰，可以说“去掉蓝色装饰”。Agent 会关闭装饰，保留原图内容。
+
+Agent 会修改现有工程，并重新检查导出结果。调整速度、时长或格式会复用已有素材，无需重新描摹整张图片。HTML 工具栏负责播放和下载，画面内容仍通过对话修改。
 
 ## 运行内置 SVG 示例
 
@@ -80,18 +86,40 @@ Agent 会修改现有工程，并重新检查新导出的结果。无需学习�
 
 ```text
 python skills/typebit-line-animation/scripts/typebit.py prepare examples/source/typebit-mark.svg --project build/example --kind svg
+python skills/typebit-line-animation/scripts/typebit.py configure build/example --duration 12 --speed 1.5
 python skills/typebit-line-animation/scripts/typebit.py render build/example
 python skills/typebit-line-animation/scripts/typebit.py verify build/example/animation.html
+python skills/typebit-line-animation/scripts/typebit.py export build/example --format gif --width 640 --fps 15
+python skills/typebit-line-animation/scripts/typebit.py export build/example --format png
 python skills/typebit-line-animation/scripts/typebit.py package build/example
 ```
 
-打开 `build/example/animation.html`。工程压缩包位于 `build/example-project.zip`；浏览器验证结果位于 `build/example/verification/report.json`、`report.md` 及同目录截图中。这个示例检查脚本流程；处理新素材时，仍需要 Agent 进行理解和视觉复核。
+打开 `build/example/animation.html`。示例时间线为 12 秒，以 1.5 倍速播放时实际用时 8 秒。额外格式位于 `build/example/exports/`；工程压缩包位于 `build/example-project.zip`；浏览器验证结果位于 `build/example/verification/report.json`、`report.md` 及同目录截图中。`configure` 与额外格式的 `export` 步骤可选。处理新素材时，仍需 Agent 理解和复核画面。
 
 | 操作 | 行为 |
 | --- | --- |
 | 屏幕播放按钮／右方向键 | 开始播放；播放中重复按右方向键不会重置。结束后再次按键会重播。 |
 | 空格 | 暂停或继续。 |
 | R | 从头重播。 |
+| 速度选项 | 在 0.25～4 倍速之间调整，改变速度时画面进度连续。 |
+| 进度条 | 跳到指定画面并暂停。 |
+| 下载 HTML | 保存独立副本，记住当前倍速；重新打开仍等待点击播放。 |
+| 下载 PNG | 保存当前画面，保留透明度，不含工具栏。 |
+
+显示的时间是画面在时间线中的位置；实际播放时长＝时间线时长÷倍速。若要保存工程的默认倍速，可让 Agent 调整，或执行 `configure PROJECT --speed 0.5`。若要把各阶段整体拉长，则用 `configure PROJECT --duration 20`。保存后重新渲染和验证。
+
+## 选择导出格式
+
+![支持速度、进度和下载的离线播放器](docs/media/player-controls.png)
+
+| 格式 | 适合用途 | 透明度与播放方式 |
+| --- | --- | --- |
+| HTML | 离线演示、交互播放 | 保留透明背景，可调速度，支持键盘和屏幕操作。 |
+| PNG | 静态截图、最终成品图 | 默认保留完整透明度；命令行默认导出终帧，`--time` 可指定时间线位置。 |
+| GIF | 文档或 GitHub 动画预览 | 来自真实浏览器帧，默认使用白色底；可通过 `--background "#RRGGBB"` 指定底色。 |
+| 工程 ZIP | 继续交给 Agent 修改 | 包含素材、图层、时序、报告和已导出的文件。 |
+
+GIF 通过 Agent／命令行导出，独立 HTML 工具栏只负责 HTML 和 PNG 下载。GIF 会使用选定的播放速度，但调色板格式不能保留平滑的半透明边缘；需要透明背景时请选择 HTML 或 PNG。更多参数和导出记录见[速度与格式指南](skills/typebit-line-animation/references/exports.md)。
 
 处理宿主准备好的位图时，`prepare` 支持 `--mask PATH`、`--contours SVG`、`--kind logo|lineart|photo` 和 `--duration SECONDS`。`--remove-white-background` 只尝试移除与画面边界相连的近白区域，生成的透明候选仍需视觉确认；它不会无差别删除所有白色。
 
@@ -120,6 +148,7 @@ python skills/typebit-line-animation/scripts/typebit.py package build/photo-exam
 - **`animation.html`**：内嵌 SVG、图片、播放器代码及必要字体，运行时不依赖网络。
 - **工程目录与 ZIP**：保留原始素材、可编辑场景、图层／时序信息，以及工程使用的蒙版和字体。
 - **验证报告与截图**：记录这份导出文件在本次浏览器验证中的实际表现。
+- **`exports/`**：按需导出的 GIF、PNG 或 HTML 副本，以及导出参数和源文件／输出文件校验值。
 - **版本记录**：再次渲染时，在本地保留此前已渲染的工程快照。交付 ZIP 只包含当前工程；需要历史记录时应另行保留 `revisions/`。
 
 ## “已验证”代表什么

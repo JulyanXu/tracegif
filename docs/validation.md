@@ -1,4 +1,19 @@
-# Validation snapshot — 2026-11-10
+# Validation snapshots — 2026-11-10
+
+## v0.2.0
+
+The updated local suite passed all **63 tests** on Windows with Python 3.12.3, Playwright 1.58.0 and Chromium 145.0.7632.6. New coverage includes speed continuity, native scrubber keys, downloaded HTML reopening idle at the chosen speed, PNG pixel/alpha preservation, GIF timing/matte, safe configuration updates and revision archive containment.
+
+The public SVG example passed **15 offline playback/resource checks**. An independent Agent prepared a 6-second project at 1.5×, exported HTML/PNG/GIF, then changed it to 2× and repeated verification/export/package. Original source, SVG scene, layer schedule and final PNG were unchanged. The final GIF loop is 3.8 seconds, including its 0.8-second hold.
+
+- [v0.2.0 SVG browser report](validation/v0.2.0-svg-verification.json)
+- [v0.2.0 independent workflow evidence](validation/v0.2.0-workflow.json)
+
+These local reports are bound to their recorded HTML hashes. Release attachments carry their own fresh CI-generated reports; automated CI does not claim model visual review.
+
+中文：v0.2.0在本机通过63项测试、15项离线播放检查，并由独立Agent走通制作、调整速度、重新导出与归档流程。跨平台检查以GitHub Actions的实际结果为准。
+
+## v0.1.0 (historical)
 
 The local reference environment was Windows with Python 3.12.3, Playwright 1.58.0 and Chromium 145.0.7632.6. All 43 automated tests passed, including actual source-versus-export pixel comparisons, original photo pixel preservation, white-interior protection, revision/provenance checks, and Windows directory-junction archive containment.
 

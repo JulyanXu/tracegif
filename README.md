@@ -8,15 +8,15 @@ TypeBit is an Agent Skill for turning SVGs, logos, line art, and photos into sta
 
 ![TypeBit line-animation demo](docs/media/demo.gif)
 
-*Recorded example playback. Exported HTML waits for you to press Play.*
+*Recorded example playback. Exported HTML waits for you to press Play; speed and progress are adjustable.*
 
 ## From an image to a portable animation
 
 1. Give your Agent an image and ask for a line animation.
-2. Review the actual rendered result. Say “draw the lettering last” or “keep the white highlights.”
-3. Receive one offline HTML file, the editable project, and a browser-verification report.
+2. Preview the result, adjust playback speed, or scrub to a particular frame. Describe artwork changes in conversation.
+3. Choose a standalone HTML, animated GIF, or PNG frame. Keep the editable project and verification report for later revisions.
 
-The default sequence draws the main structure, secondary contours, and lettering/details before revealing color. It lasts about 10 seconds and holds the final frame. The subject's exterior stays transparent; restrained blue doodles sit behind it.
+The default sequence draws the main structure, secondary contours, and lettering/details before revealing color. It lasts about 10 seconds and holds the final frame. The subject's exterior stays transparent. Extra decoration is off by default; blue doodles can be added behind the subject when requested.
 
 **No account, separate model installation, or inference API configuration.** TypeBit uses the vision and image tools already available in your Agent host. It does not include a website, visual editor, or cloud processing service. The player uses native SVG and JavaScript rather than GSAP.
 
@@ -35,6 +35,8 @@ Photo results are **approximate contours with an original-image reveal**, not a 
 ## Install the skill
 
 Download a release or clone this repository. Copy the **entire** `skills/typebit-line-animation` folder into your host's skill directory:
+
+Use **v0.2.0 or later** for speed controls, format exports, and decoration disabled by default. The `v0.1.0` ZIP retains its original behavior. To remove decoration from an older project, run `configure PROJECT --doodle off`, then render and verify again.
 
 | Host | Personal skill location | Invocation |
 | --- | --- | --- |
@@ -69,9 +71,13 @@ In Claude Code, use `/typebit-line-animation`. In another host, name the skill o
 
 Then revise in plain language:
 
-> Draw the lettering last, simplify the lines on the right, and keep the white highlights. Make the blue strokes subtler.
+> Draw the lettering last, simplify the lines on the right, and keep the white highlights.
 
-The Agent updates the existing project and checks the new export. There is no separate editing page to learn.
+> Make it 12 seconds, start at 1.5× speed, and give me a GIF with a white background plus the transparent final PNG.
+
+If an earlier project includes unwanted decoration, say “remove the blue decoration.” The Agent disables it without changing the source artwork.
+
+The Agent updates the existing project and checks the new export. Changing timing or format reuses its artwork; it does not require tracing the image again. The HTML toolbar provides playback and downloads; artwork revisions stay in the conversation.
 
 ## Try the included SVG
 
@@ -79,18 +85,40 @@ After installing dependencies, run from the repository root:
 
 ```text
 python skills/typebit-line-animation/scripts/typebit.py prepare examples/source/typebit-mark.svg --project build/example --kind svg
+python skills/typebit-line-animation/scripts/typebit.py configure build/example --duration 12 --speed 1.5
 python skills/typebit-line-animation/scripts/typebit.py render build/example
 python skills/typebit-line-animation/scripts/typebit.py verify build/example/animation.html
+python skills/typebit-line-animation/scripts/typebit.py export build/example --format gif --width 640 --fps 15
+python skills/typebit-line-animation/scripts/typebit.py export build/example --format png
 python skills/typebit-line-animation/scripts/typebit.py package build/example
 ```
 
-Open `build/example/animation.html`. The project package is `build/example-project.zip`; browser results are in `build/example/verification/report.json` and `report.md` alongside screenshots. This example exercises the deterministic toolchain. For a new image, use the Agent to interpret and review the artwork.
+Open `build/example/animation.html`. This example has a 12-second timeline and plays it in 8 seconds at 1.5×. Format exports appear in `build/example/exports/`; the project package is `build/example-project.zip`. Browser results are in `build/example/verification/report.json` and `report.md` alongside screenshots. For a new image, use the Agent to interpret and review the artwork. The `configure` and extra-format `export` steps are optional.
 
 | Control | Behavior |
 | --- | --- |
 | Play button / Right Arrow | Start playback; Right Arrow does not restart an animation already playing. After completion it replays. |
 | Space | Pause or resume. |
 | R | Replay from the beginning. |
+| Speed selector | Change playback from 0.25× to 4× without jumping to another frame. |
+| Progress slider | Move to a frame and pause there. |
+| HTML download | Save a standalone copy that starts at the selected speed and waits for Play. |
+| PNG download | Save the currently displayed frame with transparency and no toolbar. |
+
+The displayed time is the animation's timeline position. Playback duration is timeline duration divided by speed. To save a different project default, ask the Agent or use `configure PROJECT --speed 0.5`; to stretch the drawing schedule itself, use `configure PROJECT --duration 20`. Render and verify after either saved change.
+
+## Choose an output format
+
+![Offline player with speed, progress and download controls](docs/media/player-controls.png)
+
+| Format | Best for | Transparency and playback |
+| --- | --- | --- |
+| HTML | Offline interactive presentation | Transparent artwork, adjustable speed, keyboard and screen controls. |
+| PNG | A still frame or final image | Full alpha transparency by default; CLI exports the final frame unless `--time` is supplied. |
+| GIF | A preview in documents or GitHub | Animated browser captures, with a solid white background by default. Use `--background "#RRGGBB"` for another color. |
+| Project ZIP | Editing again with an Agent | Source, layers, timings, reports, and generated exports. |
+
+GIF export runs through the Agent/CLI, not the standalone HTML toolbar. It preserves the chosen playback speed, but GIF is a palette format and does not preserve smooth alpha edges; use HTML or PNG when transparency matters. See [speed and export options](skills/typebit-line-animation/references/exports.md) for examples and export reports.
 
 For host-prepared raster artwork, `prepare` accepts `--mask PATH`, `--contours SVG`, `--kind logo|lineart|photo`, and `--duration SECONDS`. `--remove-white-background` removes border-connected near-white pixels as a candidate mask; it still needs visual review. It does not remove every white region.
 
@@ -119,6 +147,7 @@ The photo test compares every decoded RGB pixel with the source and checks the s
 - **`animation.html`** — embedded SVG, images, playback code, and required fonts; no runtime network dependency.
 - **Project directory and ZIP** — original source, editable scene, timing/layer metadata, masks and fonts used by the project.
 - **Verification report and screenshots** — evidence for the particular exported file and browser run.
+- **`exports/`** — requested GIFs, PNG frames, or HTML copies, with export settings and source/output checksums.
 - **Revision history** — earlier rendered project snapshots retained locally when rendering again. The delivery ZIP contains the current project; keep `revisions/` separately if needed.
 
 ## What “verified” means

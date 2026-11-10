@@ -1,4 +1,4 @@
-/* TypeBit 0.1.0 — MIT. Backgrounds are deliberately transparent. */
+/* TypeBit 0.2.0 — MIT. Backgrounds are deliberately transparent. */
 :root {
   color-scheme: light;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -51,35 +51,86 @@ body {
 #typebit-traces,
 #typebit-doodle { opacity: 0; }
 
-#typebit-control {
+#typebit-controls {
   position: fixed;
   z-index: 10;
   left: 50%;
-  bottom: max(20px, env(safe-area-inset-bottom));
+  bottom: max(16px, env(safe-area-inset-bottom));
   transform: translateX(-50%);
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: auto auto auto minmax(80px, 1fr) auto auto auto;
+  gap: 8px;
   align-items: center;
-  justify-content: center;
-  min-width: 108px;
-  min-height: 44px;
-  padding: 10px 22px;
+  width: min(760px, calc(100vw - 24px));
+  padding: 10px;
   border: 1px solid rgba(15, 23, 42, 0.16);
-  border-radius: 999px;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.95);
   color: #172033;
-  font: 600 14px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font: 500 13px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   letter-spacing: 0.01em;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.12);
+}
+
+#typebit-controls button,
+#typebit-controls select,
+body > #typebit-control {
+  min-height: 38px;
+  min-width: 0;
+  border: 1px solid #d6dce5;
+  border-radius: 9px;
+  padding: 7px 10px;
+  background: white;
+  color: #172033;
+  font: inherit;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
-#typebit-control:hover { background: #f1f5f9; }
-#typebit-control:active { background: #e2e8f0; }
-#typebit-control:focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
-#typebit-control[hidden] { display: none; }
+#typebit-control { min-width: 80px; font-weight: 650; }
+#typebit-controls label { display: flex; align-items: center; gap: 6px; min-width: 0; white-space: nowrap; }
+#typebit-controls select { min-width: 68px; padding-right: 4px; }
+#typebit-progress { width: 100%; min-width: 0; margin: 0; accent-color: #475569; cursor: pointer; }
+#typebit-time { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+#typebit-export-status { grid-column: 1 / -1; color: #475569; font-size: 12px; overflow-wrap: anywhere; }
+#typebit-export-status:empty { display: none; }
+#typebit-controls button:hover,
+body > #typebit-control:hover { background: #f1f5f9; }
+#typebit-controls button:active { background: #e2e8f0; }
+#typebit-controls button:disabled { cursor: progress; opacity: .6; }
+#typebit-controls :focus-visible,
+body > #typebit-control:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+#typebit-controls[hidden], #typebit-control[hidden] { display: none; }
+
+/* Retain the basic control when an older document uses the current player. */
+body > #typebit-control { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); font: 600 14px/1.4 system-ui, sans-serif; }
+
+@media (max-width: 800px) {
+  #typebit-controls { grid-template-columns: auto auto minmax(0, 1fr) auto auto; }
+  #typebit-control { grid-column: 1; grid-row: 1; }
+  #typebit-replay { grid-column: 2; grid-row: 1; }
+  #typebit-controls label { grid-column: 3; grid-row: 1; justify-content: center; }
+  #typebit-download-html { grid-column: 4; grid-row: 1; }
+  #typebit-download-png { grid-column: 5; grid-row: 1; }
+  #typebit-progress { grid-column: 1 / 4; grid-row: 2; }
+  #typebit-time { grid-column: 4 / 6; grid-row: 2; }
+}
+
+@media (max-width: 550px) {
+  #typebit-controls { grid-template-columns: auto auto minmax(0, 1fr); }
+  #typebit-controls label { justify-content: end; }
+  #typebit-progress { grid-column: 1 / 3; }
+  #typebit-time { grid-column: 3; }
+  #typebit-download-html { grid-column: 1; grid-row: 3; }
+  #typebit-download-png { grid-column: 2; grid-row: 3; }
+}
+
+@media (max-width: 360px) {
+  #typebit-controls label { font-size: 0; gap: 0; }
+  #typebit-controls select { font-size: 13px; }
+}
 
 @media print {
-  #typebit-control { display: none; }
+  #typebit-controls, #typebit-control { display: none; }
 }

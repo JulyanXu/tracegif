@@ -230,6 +230,16 @@ class CoreTests(unittest.TestCase):
         with self.assertRaisesRegex(TypeBitError, "Every drawable"):
             render_project(self.project)
 
+    def test_doodle_rejects_truthy_values_that_are_not_explicit_booleans(self):
+        self.prepare()
+        for value in ("false", "true", 0, 1, None, [], {}):
+            with self.subTest(value=value):
+                data = self.manifest()
+                data["doodle"] = value
+                self.update(data)
+                with self.assertRaisesRegex(TypeBitError, "doodle"):
+                    render_project(self.project)
+
 
 if __name__ == "__main__":
     unittest.main()

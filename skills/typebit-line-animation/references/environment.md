@@ -4,7 +4,7 @@
 
 - Python 3.12 is the supported reference environment. A default `python` pointing to Python 3.11 does not meet the `doctor` baseline; install/use 3.12 explicitly.
 - Install the packages in this skill's `requirements.txt` using the same Python interpreter used for its scripts.
-- Install Chromium through that interpreter's Playwright package for automated verification.
+- Install Chromium through that interpreter's Playwright package for automated verification and CLI PNG/GIF export.
 - The Agent needs source-image viewing and local file/command access. Photo isolation additionally needs a usable subject mask from the user or the host's existing image tools. Image generation is not automatically a faithful segmentation tool.
 
 Run the following from the copied `typebit-line-animation` skill directory (or from `skills/typebit-line-animation` inside a repository checkout). These commands use the virtual environment directly, so shell activation is unnecessary.
@@ -72,3 +72,5 @@ After copying the folder, resolve its installed absolute path before running hel
 | Image tool | Continue with supported SVG and deterministic raster operations. Do not claim a new image model was used. |
 | Browser | Save the HTML and source; report browser/offline playback as unverified. A static inspection is not an equivalent substitute. |
 | Local commands/files | Explain that this installation needs a host with these capabilities. Do not invent file links or verification reports. |
+
+The standalone HTML toolbar can change speed and save HTML/PNG without Python or a network connection. CLI GIF export needs the local Python dependencies and Chromium because it captures the actual player. A missing browser must produce an actionable export error, not a simulated GIF or a passing verification claim. See [export options](exports.md).

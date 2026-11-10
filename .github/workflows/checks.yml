@@ -38,10 +38,16 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Create sample project
         run: python skills/typebit-line-animation/scripts/typebit.py prepare examples/source/typebit-mark.svg --project build/example
+      - name: Configure playback speed
+        run: python skills/typebit-line-animation/scripts/typebit.py configure build/example --speed 1.5
       - name: Render portable HTML
         run: python skills/typebit-line-animation/scripts/typebit.py render build/example
       - name: Verify actual offline browser behavior
         run: python skills/typebit-line-animation/scripts/typebit.py verify build/example/animation.html
+      - name: Export transparent PNG
+        run: python skills/typebit-line-animation/scripts/typebit.py export build/example --format png --width 480
+      - name: Export animated GIF
+        run: python skills/typebit-line-animation/scripts/typebit.py export build/example --format gif --width 480 --fps 8
       - name: Package editable source
         run: python skills/typebit-line-animation/scripts/typebit.py package build/example
       - name: Preserve verification evidence
@@ -52,6 +58,7 @@ jobs:
           path: |
             build/example/verification/
             build/example/animation.html
+            build/example/exports/
             build/example-project.zip
           if-no-files-found: warn
           retention-days: 14

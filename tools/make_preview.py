@@ -25,6 +25,7 @@ def make_preview(html: Path, output: Path, frames: int = 40) -> None:
             page.wait_for_function("Boolean(window.typebit)")
             page.evaluate("window.typebit.setControlsVisible(false); document.body.style.background='#f7f8fa'; document.documentElement.style.background='#f7f8fa'")
             duration = float(page.evaluate("window.typebit.getState().duration"))
+            playback_rate = float(page.evaluate("window.typebit.getState().playbackRate || 1"))
             for index in range(frames + 1):
                 page.evaluate("time => window.typebit.seek(time)", duration * index / frames)
                 page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
@@ -40,7 +41,7 @@ def make_preview(html: Path, output: Path, frames: int = 40) -> None:
                 panels.append((label, page.locator("#typebit-stage").screenshot(animations="disabled")))
         finally:
             browser.close()
-    frame_duration = max(20, round(duration * 1000 / frames))
+    frame_duration = max(20, round(duration / playback_rate * 1000 / frames))
     durations = [frame_duration] * len(images)
     durations[0] = 500
     durations[-1] = 1500

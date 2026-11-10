@@ -9,6 +9,7 @@ from __future__ import annotations
 import io
 import json
 import os
+import re
 import sys
 import tempfile
 import unittest
@@ -178,6 +179,78 @@ class SvgBrowserPreservationTests(unittest.TestCase):
             "rgb(255, 255, 255)",
         )
         self.assert_final_pixels_match_source()
+
+    def doodle_export(self, name, setting="prepared"):
+        """Leave the lower third empty so any added decoration is observable."""
+        source = self.base / f"{name}.svg"
+        source.write_text(svg(
+            '<rect id="subject" x="120" y="20" width="80" height="60" fill="#333333"/>'
+        ), encoding="utf-8")
+        project = self.base / name
+        prepare_project(source, project, kind="svg")
+        manifest_path = project / "project.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if setting == "omitted":
+            manifest.pop("doodle", None)
+        elif setting != "prepared":
+            manifest["doodle"] = setting
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+        result = render_project(project)
+        return Path(result["html"])
+
+    def assert_no_added_doodle_pixels(self, html):
+        self.export_page.goto(html.as_uri())
+        self.export_page.evaluate("typebit.setControlsVisible(false)")
+        for time in (1, 5, 10):
+            with self.subTest(time=time):
+                self.export_page.evaluate("time => typebit.seek(time)", time)
+                frame = Image.open(io.BytesIO(self.export_page.screenshot(omit_background=True))).convert("RGBA")
+                # Source geometry ends at y=80. The lower third must stay truly clear.
+                self.assertIsNone(frame.getchannel("A").crop((0, 150, 320, 240)).getbbox())
+                self.assertEqual(self.export_page.locator("#typebit-doodle path").count(), 0)
+        self.assertEqual(self.errors, [])
+
+    def test_new_and_unspecified_projects_do_not_add_blue_strokes(self):
+        for setting in ("prepared", "omitted", False):
+            with self.subTest(setting=setting):
+                self.assert_no_added_doodle_pixels(self.doodle_export(f"case-{setting}", setting))
+
+    def test_requested_doodles_remain_visible_behind_artwork(self):
+        html = self.doodle_export("requested", True)
+        self.export_page.goto(html.as_uri())
+        self.export_page.evaluate("typebit.setControlsVisible(false)")
+        self.assertGreater(self.export_page.locator("#typebit-doodle path").count(), 0)
+        self.assertTrue(self.export_page.evaluate("""() => {
+            const doodle = document.getElementById('typebit-doodle');
+            const art = document.getElementById('typebit-art');
+            return doodle.parentElement === art.parentElement &&
+                Boolean(doodle.compareDocumentPosition(art) & Node.DOCUMENT_POSITION_FOLLOWING);
+        }"""))
+        for time in (1, 5, 10):
+            with self.subTest(time=time):
+                self.export_page.evaluate("time => typebit.seek(time)", time)
+                frame = Image.open(io.BytesIO(self.export_page.screenshot(omit_background=True))).convert("RGBA")
+                self.assertIsNotNone(frame.getchannel("A").crop((0, 150, 320, 240)).getbbox())
+        self.assertEqual(self.errors, [])
+
+    def test_player_does_not_infer_permission_from_absent_or_string_config(self):
+        html = self.doodle_export("player-config", False)
+        original = html.read_text(encoding="utf-8")
+        pattern = r'(<script type="application/json" id="typebit-config">)(.*?)(</script>)'
+        match = re.search(pattern, original, flags=re.S)
+        self.assertIsNotNone(match)
+        for setting in ("omitted", "false"):
+            with self.subTest(setting=setting):
+                config = json.loads(match.group(2))
+                if setting == "omitted":
+                    config.pop("doodle", None)
+                else:
+                    config["doodle"] = setting
+                # Exercise the standalone player itself as well as the Python renderer.
+                edited = original[:match.start(2)] + json.dumps(config) + original[match.end(2):]
+                variant = html.with_name(f"config-{setting}.html")
+                variant.write_text(edited, encoding="utf-8")
+                self.assert_no_added_doodle_pixels(variant)
 
 
 if __name__ == "__main__":

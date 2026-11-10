@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-10T09:19:11.798490+00:00",
+  "html_file": "animation.html",
+  "automated_status": "passed",
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "c2f0489df6872e2c21ae7578c9c96cffee559237659ddd4cf3307d72c8d91c56",
+    "notes": [
+      "Reviewed opening, middle and final actual Chromium captures on light, dark and checker backgrounds. No added decorative strokes.",
+      "Speed selection, seeking, real HTML/PNG toolbar downloads and narrow-screen layout are covered by actual Chromium regression tests. This HTML separately passed all 15 offline playback checks.",
+      "PNG retains alpha; GIF uses an explicitly opaque matte and an 800 ms final hold. Export sidecars bind each format to this HTML.",
+      "Native source SVG geometry, white window and final colors preserved; demo speed is 1.5x. No fonts required."
+    ]
+  },
+  "checks": [
+    {
+      "name": "embedded_resources",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "initial_wait",
+      "status": "passed",
+      "detail": {
+        "status": "idle",
+        "time": 0,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667
+      }
+    },
+    {
+      "name": "speed_changes_without_reset",
+      "status": "passed",
+      "detail": {
+        "playing": {
+          "status": "playing",
+          "time": 2.6202000000476837,
+          "duration": 10,
+          "playbackRate": 2,
+          "effectiveDuration": 5
+        },
+        "paused": {
+          "status": "paused",
+          "time": 2.6292000000476836,
+          "duration": 10,
+          "playbackRate": 0.5,
+          "effectiveDuration": 20
+        }
+      }
+    },
+    {
+      "name": "scrubber_seeks_without_global_shortcuts",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 5.01,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10
+      }
+    },
+    {
+      "name": "right_starts_without_reset",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.20039999997615815,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10
+      }
+    },
+    {
+      "name": "space_pauses_and_resumes",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.33809999996423723,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10
+      }
+    },
+    {
+      "name": "right_resumes_pause",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.42840000003576284,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10
+      }
+    },
+    {
+      "name": "r_restarts",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.0027000000476837156,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10
+      }
+    },
+    {
+      "name": "held_key_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.009600000023841858,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10
+      }
+    },
+    {
+      "name": "editable_shortcuts_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.009600000023841858,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10
+      }
+    },
+    {
+      "name": "screen_button_toggle",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.0615,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10
+      }
+    },
+    {
+      "name": "real_time_completion_and_hold",
+      "status": "passed",
+      "detail": {
+        "status": "completed",
+        "time": 10,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667
+      }
+    },
+    {
+      "name": "right_replays_completed",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.005549999982118607,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667
+      }
+    },
+    {
+      "name": "no_network_requests",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "no_browser_errors",
+      "status": "passed",
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "light-start.png",
+      "background": "light",
+      "time": 0
+    },
+    {
+      "file": "light-middle.png",
+      "background": "light",
+      "time": 5.0
+    },
+    {
+      "file": "light-final.png",
+      "background": "light",
+      "time": 10.0
+    },
+    {
+      "file": "dark-start.png",
+      "background": "dark",
+      "time": 0
+    },
+    {
+      "file": "dark-middle.png",
+      "background": "dark",
+      "time": 5.0
+    },
+    {
+      "file": "dark-final.png",
+      "background": "dark",
+      "time": 10.0
+    },
+    {
+      "file": "checker-start.png",
+      "background": "checker",
+      "time": 0
+    },
+    {
+      "file": "checker-middle.png",
+      "background": "checker",
+      "time": 5.0
+    },
+    {
+      "file": "checker-final.png",
+      "background": "checker",
+      "time": 10.0
+    },
+    {
+      "file": "transparent-final.png",
+      "background": "transparent",
+      "time": 10.0
+    }
+  ],
+  "network_requests": [],
+  "console_errors": [],
+  "html_sha256": "c2f0489df6872e2c21ae7578c9c96cffee559237659ddd4cf3307d72c8d91c56",
+  "browser": {
+    "name": "chromium",
+    "version": "145.0.7632.6",
+    "offline": true,
+    "url_scheme": "file"
+  },
+  "transparency_observation": {
+    "status": "passed",
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "Margins only; requires visual mask review."
+  },
+  "report_path": "report.json"
+}

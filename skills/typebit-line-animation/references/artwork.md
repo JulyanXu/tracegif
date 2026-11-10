@@ -35,4 +35,4 @@ Keep contour paths in the same coordinate space as the source and use stable ele
 
 Preserve existing text as paths or original raster pixels whenever possible. Live SVG text requires the correct redistributable font embedded with `--font PATH --font-family NAME`; the single supplied font applies to all live text. Live text appears during the final image reveal; outline it to animate the letter strokes. Outline mixed-font artwork instead of forcing it into one font. An unavailable font is an unresolved fidelity issue, not permission to choose a similar font. Do not OCR and retype logo lettering to claim exact letterform preservation.
 
-Brand-blue doodles belong behind the subject. Keep them sparse, preserve readability, and treat preview backgrounds as inspection surfaces rather than artwork fills.
+Do not add decorative strokes that are absent from the source unless the user requests them. Blue doodles are optional (`doodle: true` in `project.json`); when requested, keep them sparse and behind the subject without obscuring text. Treat preview backgrounds as inspection surfaces rather than artwork fills.

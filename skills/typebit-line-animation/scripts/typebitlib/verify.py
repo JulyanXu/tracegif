@@ -144,6 +144,7 @@ def verify_html(html_path: Path, output_dir: Path | None = None) -> dict:
             page.wait_for_function("window.typebit && typeof window.typebit.getState === 'function'", timeout=5000)
             state = lambda: page.evaluate("window.typebit.getState()")
             duration = float(state()["duration"])
+            initial_rate = float(state().get("playbackRate", 1))
             if not 0.1 <= duration <= 300:
                 raise ValueError("Duration must be between 0.1 and 300 seconds for validation.")
             report["browser"] = {"name": "chromium", "version": browser.version, "offline": True, "url_scheme": "file"}
@@ -161,6 +162,34 @@ def verify_html(html_path: Path, output_dir: Path | None = None) -> dict:
                 after = state()
                 return before["status"] == after["status"] == "idle" and abs(after["time"]) < 0.01, after
             check("initial_wait", initial_wait)
+
+            if page.evaluate("typeof window.typebit.setPlaybackRate === 'function'"):
+                def speed_continuity():
+                    page.evaluate("typebit.seek(typebit.getState().duration / 4); typebit.play()")
+                    before = state()
+                    page.locator("#typebit-speed").select_option("2")
+                    after = state()
+                    page.evaluate("typebit.pause()")
+                    paused = state()
+                    page.locator("#typebit-speed").select_option("0.5")
+                    stopped = state()
+                    result = (after["playbackRate"] == 2 and after["status"] == "playing"
+                              and before["time"] <= after["time"] < before["time"] + .5
+                              and stopped["status"] == "paused" and stopped["time"] == paused["time"])
+                    page.evaluate("typebit.setPlaybackRate(1); typebit.seek(0)")
+                    return result, {"playing": after, "paused": stopped}
+                check("speed_changes_without_reset", speed_continuity)
+
+                def scrubber():
+                    page.locator("#typebit-progress").evaluate("(element, value) => {element.value=value; element.dispatchEvent(new Event('input',{bubbles:true})); element.focus();}", duration / 2)
+                    middle = state()
+                    page.keyboard.press("ArrowRight")
+                    after = state()
+                    page.locator("#typebit-progress").evaluate("e => e.blur()")
+                    page.evaluate("typebit.seek(0)")
+                    return (middle["status"] == "paused" and abs(middle["time"] - duration / 2) < .02
+                            and after["status"] == "paused"), after
+                check("scrubber_seeks_without_global_shortcuts", scrubber)
 
             def right_no_reset():
                 page.keyboard.press("ArrowRight")
@@ -231,8 +260,10 @@ def verify_html(html_path: Path, output_dir: Path | None = None) -> dict:
             check("screen_button_toggle", button_toggle)
 
             def actual_completion():
+                if page.evaluate("typeof window.typebit.setPlaybackRate === 'function'"):
+                    page.evaluate("rate => typebit.setPlaybackRate(rate)", initial_rate)
                 page.evaluate("window.typebit.restart()")
-                page.wait_for_function("window.typebit.getState().status === 'completed'", timeout=int(duration * 1000) + 7000)
+                page.wait_for_function("window.typebit.getState().status === 'completed'", timeout=int(duration / initial_rate * 1000) + 7000)
                 end = state()
                 page.wait_for_timeout(180)
                 held = state()
