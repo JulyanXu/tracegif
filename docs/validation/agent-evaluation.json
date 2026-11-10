@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "environment": {
+    "os": "Windows",
+    "python": "3.12.3",
+    "playwright": "1.58.0",
+    "browser": "Chromium 145.0.7632.6"
+  },
+  "initial_request": {
+    "revision": 1,
+    "automated_checks_passed": 13,
+    "visual_review": "passed",
+    "package": "rocket-r1-project.zip"
+  },
+  "natural_language_followup": {
+    "revision": 2,
+    "automated_checks_passed": 13,
+    "visual_review": "passed",
+    "package": "rocket-r2-project.zip",
+    "notes": [
+      "Compared final screenshots on light, dark and checker backgrounds: white window, original rocket geometry and colors preserved; both right-hand stars removed.",
+      "Six opening/middle captures exactly match revision 1 pixels. Final pixel differences are confined to the two deleted star bounds.",
+      "Browser inspection confirms the window is hidden at 7.9s and partially drawn at 8.25s, after the other contour layers.",
+      "Original source hash remains unchanged. Revision 1 source snapshot and verification directory are archived; the revision-1 HTML hash matches the archive."
+    ]
+  },
+  "environment_observations": [
+    "Default python resolves to Python 3.11.7 without Playwright; doctor correctly reports unverified. Available Python 3.12 interpreter reports ready."
+  ],
+  "product_failures": [],
+  "outputs": {
+    "html": "rocket/animation.html",
+    "preview": "rocket/verification/checker-final.png",
+    "verification": "rocket/verification/report.json",
+    "history": "rocket/revisions/r0001.zip"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-10T06:59:00.388222+00:00",
+  "html_file": "animation.html",
+  "automated_status": "passed",
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "05cfb409b258c689e02525dcd51991690aed6a32741fad891b3ca79155e031de",
+    "notes": [
+      "Compared the actual NASA source against opening, middle and final browser captures on light, dark and checkerboard backgrounds; the final Earth retains its original placement, colors and white cloud detail.",
+      "Globe, Africa and Madagascar contours were authored by the host Agent after viewing the photograph and are deliberately sparse approximations; cloud and terrain textures are not vectorized.",
+      "The example-specific circular mask removes exterior space. Its soft circular boundary may trim the atmospheric edge slightly and retains a small dark source rim in places; it is not a precise general-purpose segmentation.",
+      "The real-photo unit test compared every decoded RGB pixel with the source and the full output alpha channel with the supplied mask; both matched exactly.",
+      "NASA / Apollo 17 crew credit and source guidance are retained in ATTRIBUTION.md; no NASA endorsement is implied."
+    ]
+  },
+  "checks": [
+    {
+      "name": "embedded_resources",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "initial_wait",
+      "status": "passed",
+      "detail": {
+        "status": "idle",
+        "time": 0,
+        "duration": 10
+      }
+    },
+    {
+      "name": "right_starts_without_reset",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.20389999997615815,
+        "duration": 10
+      }
+    },
+    {
+      "name": "space_pauses_and_resumes",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.34619999998807904,
+        "duration": 10
+      }
+    },
+    {
+      "name": "right_resumes_pause",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.43440000003576285,
+        "duration": 10
+      }
+    },
+    {
+      "name": "r_restarts",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.0025,
+        "duration": 10
+      }
+    },
+    {
+      "name": "held_key_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.004699999988079071,
+        "duration": 10
+      }
+    },
+    {
+      "name": "editable_shortcuts_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.004699999988079071,
+        "duration": 10
+      }
+    },
+    {
+      "name": "screen_button_toggle",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.054899999976158145,
+        "duration": 10
+      }
+    },
+    {
+      "name": "real_time_completion_and_hold",
+      "status": "passed",
+      "detail": {
+        "status": "completed",
+        "time": 10,
+        "duration": 10
+      }
+    },
+    {
+      "name": "right_replays_completed",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.004800000011920929,
+        "duration": 10
+      }
+    },
+    {
+      "name": "no_network_requests",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "no_browser_errors",
+      "status": "passed",
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "light-start.png",
+      "background": "light",
+      "time": 0
+    },
+    {
+      "file": "light-middle.png",
+      "background": "light",
+      "time": 5.0
+    },
+    {
+      "file": "light-final.png",
+      "background": "light",
+      "time": 10.0
+    },
+    {
+      "file": "dark-start.png",
+      "background": "dark",
+      "time": 0
+    },
+    {
+      "file": "dark-middle.png",
+      "background": "dark",
+      "time": 5.0
+    },
+    {
+      "file": "dark-final.png",
+      "background": "dark",
+      "time": 10.0
+    },
+    {
+      "file": "checker-start.png",
+      "background": "checker",
+      "time": 0
+    },
+    {
+      "file": "checker-middle.png",
+      "background": "checker",
+      "time": 5.0
+    },
+    {
+      "file": "checker-final.png",
+      "background": "checker",
+      "time": 10.0
+    },
+    {
+      "file": "transparent-final.png",
+      "background": "transparent",
+      "time": 10.0
+    }
+  ],
+  "network_requests": [],
+  "console_errors": [],
+  "html_sha256": "05cfb409b258c689e02525dcd51991690aed6a32741fad891b3ca79155e031de",
+  "browser": {
+    "name": "chromium",
+    "version": "145.0.7632.6",
+    "offline": true,
+    "url_scheme": "file"
+  },
+  "transparency_observation": {
+    "status": "passed",
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "Margins only; requires visual mask review."
+  },
+  "report_path": "report.json"
+}

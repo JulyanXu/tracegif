@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1041 1041" fill="none" stroke="#2563eb" stroke-linecap="round" stroke-linejoin="round">
+  <title>Approximate Blue Marble contours</title>
+  <desc>Hand-authored by the host Agent after viewing NASA's Apollo 17 photograph. The circular globe and simplified Africa and Madagascar outlines are illustrative approximations, not scientific coastline data or automatic segmentation.</desc>
+  <circle id="globe-outline" data-phase="main" cx="520" cy="520" r="491" stroke-width="3.4"/>
+  <path id="africa-approximate" data-phase="secondary" stroke-width="2.8" d="M367 76 C410 72 452 77 479 87 C494 100 505 125 525 144 L554 166 Q595 181 638 168 C631 204 594 244 558 269 Q540 290 537 323 L542 370 Q544 394 511 412 Q490 426 487 455 L480 499 Q475 535 452 559 L429 582 Q401 584 379 557 L350 519 Q316 485 296 447 Q274 419 280 391 L291 361 Q306 345 291 326 L258 287 Q230 267 210 241 L197 213 Q219 181 248 153 L282 121 Q321 91 367 76 Z"/>
+  <path id="madagascar-approximate" data-phase="details" stroke-width="2.8" d="M603 382 C619 394 631 413 623 437 L611 477 Q604 498 590 497 Q574 493 578 476 L583 449 Q578 425 588 406 Z"/>
+</svg>

@@ -1,0 +1,14 @@
+name: Feature request
+description: Suggest an improvement to the Agent workflow.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to make?
+      description: Describe the task and what currently gets in your way.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Desired result

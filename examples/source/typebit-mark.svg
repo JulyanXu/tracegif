@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640">
+  <title>TypeBit launch mark — original MIT-licensed example</title>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path id="rocket" data-phase="main" fill="#2563eb" stroke="#12316a" stroke-width="5" d="M360 365 C351 244 420 146 558 108 C590 244 548 353 445 411 Z"/>
+    <path id="left-fin" data-phase="secondary" fill="#93c5fd" stroke="#12316a" stroke-width="5" d="M361 270 C306 280 266 327 265 382 L361 354 Z"/>
+    <path id="right-fin" data-phase="secondary" fill="#93c5fd" stroke="#12316a" stroke-width="5" d="M488 372 C491 428 461 474 407 495 L406 395 Z"/>
+    <path id="window" data-phase="details" fill="#ffffff" stroke="#12316a" stroke-width="5" d="M492 205 A39 39 0 1 1 437 260 A39 39 0 1 1 492 205 Z"/>
+    <path id="highlight" data-phase="details" fill="none" stroke="#bfdbfe" stroke-width="9" d="M514 160 Q540 221 514 274"/>
+    <path id="exhaust" data-phase="main" fill="#fbbf24" stroke="#b45309" stroke-width="5" d="M349 387 Q281 396 247 487 Q338 477 381 413 Z"/>
+    <path id="spark-a" data-phase="details" fill="none" stroke="#2563eb" stroke-width="6" d="M643 205 L643 239 M626 222 L660 222"/>
+    <path id="spark-b" data-phase="details" fill="none" stroke="#f59e0b" stroke-width="5" d="M586 424 L586 448 M574 436 L598 436"/>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: ./.github/workflows/checks.yml
+  release:
+    needs: checks
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download the exact tested Linux build
+        uses: actions/download-artifact@v4
+        with:
+          name: evidence-ubuntu-24.04
+          path: build
+      - name: Build release attachments
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python tools/build_release.py --project build/example --version "${RELEASE_TAG#v}"
+      - name: Publish verified release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: gh release create "$RELEASE_TAG" dist/* --verify-tag --generate-notes --title "TypeBit $RELEASE_TAG"

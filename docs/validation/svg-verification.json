@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-10T06:57:51.276091+00:00",
+  "html_file": "animation.html",
+  "automated_status": "passed",
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "dd7411c80ab2c858cf779ac48c6030635e9e3f03aedfe6e9a60abb2c3dd73751",
+    "notes": [
+      "Compared original and actual rendered source/drawing/final contact sheet: silhouette, position, proportions and original colors preserved.",
+      "Reviewed all nine light/dark/checker screenshots and transparent final: idle frame clear; sequential contours; solid white window preserved; exterior transparent except intentional blue brush.",
+      "Original dark outline has reduced contrast on dark backgrounds; no unexpected background rectangle, clipping, letter substitution, or generated image replacement."
+    ]
+  },
+  "checks": [
+    {
+      "name": "embedded_resources",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "initial_wait",
+      "status": "passed",
+      "detail": {
+        "status": "idle",
+        "time": 0,
+        "duration": 10
+      }
+    },
+    {
+      "name": "right_starts_without_reset",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.196,
+        "duration": 10
+      }
+    },
+    {
+      "name": "space_pauses_and_resumes",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.3378000000119209,
+        "duration": 10
+      }
+    },
+    {
+      "name": "right_resumes_pause",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.4436999999880791,
+        "duration": 10
+      }
+    },
+    {
+      "name": "r_restarts",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.003,
+        "duration": 10
+      }
+    },
+    {
+      "name": "held_key_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.006,
+        "duration": 10
+      }
+    },
+    {
+      "name": "editable_shortcuts_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.006,
+        "duration": 10
+      }
+    },
+    {
+      "name": "screen_button_toggle",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.050300000071525575,
+        "duration": 10
+      }
+    },
+    {
+      "name": "real_time_completion_and_hold",
+      "status": "passed",
+      "detail": {
+        "status": "completed",
+        "time": 10,
+        "duration": 10
+      }
+    },
+    {
+      "name": "right_replays_completed",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.002800000011920929,
+        "duration": 10
+      }
+    },
+    {
+      "name": "no_network_requests",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "no_browser_errors",
+      "status": "passed",
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "light-start.png",
+      "background": "light",
+      "time": 0
+    },
+    {
+      "file": "light-middle.png",
+      "background": "light",
+      "time": 5.0
+    },
+    {
+      "file": "light-final.png",
+      "background": "light",
+      "time": 10.0
+    },
+    {
+      "file": "dark-start.png",
+      "background": "dark",
+      "time": 0
+    },
+    {
+      "file": "dark-middle.png",
+      "background": "dark",
+      "time": 5.0
+    },
+    {
+      "file": "dark-final.png",
+      "background": "dark",
+      "time": 10.0
+    },
+    {
+      "file": "checker-start.png",
+      "background": "checker",
+      "time": 0
+    },
+    {
+      "file": "checker-middle.png",
+      "background": "checker",
+      "time": 5.0
+    },
+    {
+      "file": "checker-final.png",
+      "background": "checker",
+      "time": 10.0
+    },
+    {
+      "file": "transparent-final.png",
+      "background": "transparent",
+      "time": 10.0
+    }
+  ],
+  "network_requests": [],
+  "console_errors": [],
+  "html_sha256": "dd7411c80ab2c858cf779ac48c6030635e9e3f03aedfe6e9a60abb2c3dd73751",
+  "browser": {
+    "name": "chromium",
+    "version": "145.0.7632.6",
+    "offline": true,
+    "url_scheme": "file"
+  },
+  "transparency_observation": {
+    "status": "passed",
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "Margins only; requires visual mask review."
+  },
+  "report_path": "report.json"
+}

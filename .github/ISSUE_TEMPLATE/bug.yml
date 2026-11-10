@@ -1,0 +1,25 @@
+name: Bug report
+description: Report a reproducible TypeBit problem.
+title: "[Bug] "
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, Agent, TypeBit version, and doctor output. Remove private paths.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and expected result
+      description: Include a minimal public sample when possible. Do not upload private customer images.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Paste relevant error text and verification checks.
+    validations:
+      required: true
