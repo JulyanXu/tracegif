@@ -1,0 +1,90 @@
+{
+  "slug": "camera-exploded",
+  "title": "Camera Exploded",
+  "title_zh": "相机拆解示意",
+  "kind": "svg",
+  "method": "Native SVG separated optical groups, aperture, sensor board and camera shell; then mechanical details and callout leaders.",
+  "limitations": "A fictional illustrative camera anatomy, not an engineered assembly, repair guide or representation of a real product.",
+  "duration": 10,
+  "playback_rate": 1.5,
+  "matte": "#F3F5EF",
+  "html_sha256": "7513dfb0cf3a4cc8431f88d2e7e330df61caa6555f71fb3b22aec4bfbb10b622",
+  "project_zip": "camera-exploded-project.zip",
+  "project_zip_sha256": "6cf3ca34d98c45ce82ef212b81d15d01f209d465f081f64a6ee798f3f0c8e73a",
+  "automated_status": "passed",
+  "checks_passed": 15,
+  "view_box": [
+    0.0,
+    0.0,
+    960.0,
+    640.0
+  ],
+  "preview_dimensions": {
+    "width": 480,
+    "height": 320
+  },
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "7513dfb0cf3a4cc8431f88d2e7e330df61caa6555f71fb3b22aec4bfbb10b622",
+    "notes": [
+      "Four separated optical groups, aperture, sensor board and camera body match the source proportions, arrangement and blue-green palette. Small contacts, lens highlights, grip texture, annotation leaders and screws remain visible. This is fictional product anatomy, not a mechanically accurate assembly.",
+      "Reviewed the actual browser source / drawing / final comparison and checkerboard final plus dark middle captures. Dark source strokes have lower contrast on the dark inspection matte; the light showcase matte is recommended. No geometry, original colors or fonts were substituted.",
+      "The 480 × 320 original and final comparison panels are pixel-identical.",
+      "All four corners of the transparent final browser capture have alpha values [0, 0, 0, 0]. No decorative blue strokes were added."
+    ]
+  },
+  "assets": {
+    "animation.html": {
+      "file": "animation.html",
+      "sha256": "7513dfb0cf3a4cc8431f88d2e7e330df61caa6555f71fb3b22aec4bfbb10b622"
+    },
+    "animation.gif": {
+      "file": "animation.gif",
+      "sha256": "422cd03aa857e27174a8e9ebb304849e521f9e5cd52e3586f71c90f6d6f747d4"
+    },
+    "final.png": {
+      "file": "final.png",
+      "sha256": "bb8555e2757bd5d12070dae494dd720bfff8ef2bf7d5ff1ce60fadd7a84b1933"
+    },
+    "preview.png": {
+      "file": "preview.png",
+      "sha256": "dddfbb152d40d6f5b45f71bae039ac26e264c1892736727af542a2f33e845fd2"
+    },
+    "report.json": {
+      "file": "report.json",
+      "sha256": "a848815ddc828835910492d3a7fdb93b32081a57620c3a18bc525a572aa000d6"
+    },
+    "project.zip": {
+      "file": "project.zip",
+      "sha256": "6cf3ca34d98c45ce82ef212b81d15d01f209d465f081f64a6ee798f3f0c8e73a"
+    },
+    "source.svg": {
+      "file": "source.svg",
+      "sha256": "78705f4a21271932432bd01a53fb820ccbda28f05411beb74c36340f846e91be"
+    }
+  },
+  "input_provenance": {
+    "schema_version": 1,
+    "authored_inputs": {
+      "source": {
+        "file": "source/camera-exploded.svg",
+        "sha256": "78705f4a21271932432bd01a53fb820ccbda28f05411beb74c36340f846e91be"
+      }
+    },
+    "prepared_inputs": {
+      "source": {
+        "file": "assets/source.svg",
+        "sha256": "78705f4a21271932432bd01a53fb820ccbda28f05411beb74c36340f846e91be"
+      },
+      "scene": {
+        "file": "scene.svg",
+        "sha256": "622ca98a9e5f08e28d38916ac3884505bc75c3b4aaba99adce6a4c439956c846"
+      }
+    }
+  },
+  "layer_count": 123,
+  "showcase": {
+    "url": "https://julyanxu.github.io/tracegif/?scene=camera-exploded",
+    "project_download": "project.zip"
+  }
+}

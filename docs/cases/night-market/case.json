@@ -1,0 +1,90 @@
+{
+  "slug": "night-market",
+  "title": "Night Market",
+  "title_zh": "城市夜市全景",
+  "kind": "svg",
+  "method": "Native SVG layered scene: skyline and shop structures, windows and awnings, then lanterns, market stalls, visitors and bicycle details.",
+  "limitations": "An original fictional city block, not a real destination, business listing or photo tracing.",
+  "duration": 10,
+  "playback_rate": 1.5,
+  "matte": "#F6F2E8",
+  "html_sha256": "d9326a708a5c12d443db8c514b0114c51dc737c411738d9d884fdcd712df1f84",
+  "project_zip": "night-market-project.zip",
+  "project_zip_sha256": "8d38dff8d8246209ec0acfe1fc6082529d94299d17d4438ca1468df2dc429356",
+  "automated_status": "passed",
+  "checks_passed": 15,
+  "view_box": [
+    0.0,
+    0.0,
+    960.0,
+    640.0
+  ],
+  "preview_dimensions": {
+    "width": 480,
+    "height": 320
+  },
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "d9326a708a5c12d443db8c514b0114c51dc737c411738d9d884fdcd712df1f84",
+    "notes": [
+      "Layered skyline, three shops, seven upper windows, striped awnings, ten lanterns, three stalls, four visitors and bicycle match the source geometry, placement and warm night palette. Sky fill is intentional original artwork; margins outside the scene remain transparent.",
+      "Reviewed the actual browser source / drawing / final comparison and checkerboard final plus dark middle captures. Dark source strokes have lower contrast on the dark inspection matte; the light showcase matte is recommended. No geometry, original colors or fonts were substituted.",
+      "The 480 × 320 original and final comparison panels are pixel-identical.",
+      "All four corners of the transparent final browser capture have alpha values [0, 0, 0, 0]. No decorative blue strokes were added."
+    ]
+  },
+  "assets": {
+    "animation.html": {
+      "file": "animation.html",
+      "sha256": "d9326a708a5c12d443db8c514b0114c51dc737c411738d9d884fdcd712df1f84"
+    },
+    "animation.gif": {
+      "file": "animation.gif",
+      "sha256": "9272ef228d090121c247ce3ca01e79dcd4f3517d7f7abe8ba286adf82573205b"
+    },
+    "final.png": {
+      "file": "final.png",
+      "sha256": "8591d5750f29256655a4fe901f7bf21c98b08b1b4be91241e5ba8c1f99ee50eb"
+    },
+    "preview.png": {
+      "file": "preview.png",
+      "sha256": "2f26d220d7e881497273fa9cfacef42e27c3296a000dc72ae01619b8fecf17fe"
+    },
+    "report.json": {
+      "file": "report.json",
+      "sha256": "6030e943a48963807666b755b6fea5046f9b8727452a50f0687188952d489591"
+    },
+    "project.zip": {
+      "file": "project.zip",
+      "sha256": "8d38dff8d8246209ec0acfe1fc6082529d94299d17d4438ca1468df2dc429356"
+    },
+    "source.svg": {
+      "file": "source.svg",
+      "sha256": "75166916534f4099e69695b81a3c9fa0049dbb218477535fe05a99072de04cf6"
+    }
+  },
+  "input_provenance": {
+    "schema_version": 1,
+    "authored_inputs": {
+      "source": {
+        "file": "source/night-market.svg",
+        "sha256": "75166916534f4099e69695b81a3c9fa0049dbb218477535fe05a99072de04cf6"
+      }
+    },
+    "prepared_inputs": {
+      "source": {
+        "file": "assets/source.svg",
+        "sha256": "75166916534f4099e69695b81a3c9fa0049dbb218477535fe05a99072de04cf6"
+      },
+      "scene": {
+        "file": "scene.svg",
+        "sha256": "7f44d83e278b09a74a889d5fb93e1b6a329d6488e6d6b4054d648a3b69c46e76"
+      }
+    }
+  },
+  "layer_count": 169,
+  "showcase": {
+    "url": "https://julyanxu.github.io/tracegif/?scene=night-market",
+    "project_download": "project.zip"
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-11T01:51:26.664774+00:00",
+  "html_file": "animation.html",
+  "automated_status": "passed",
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "f1014ca874d22b4af815d2c2c8804521a7fcd7856e4dffff2bac936b3ab5fb59",
+    "notes": [
+      "Curved glazing, structural ribs, four benches, sixteen plants, pots, watering can and irrigation retain the source geometry and green palette. Plants overlap shelves as authored; the glass fill and ground platform are part of the source, with transparent margins outside.",
+      "Reviewed the actual browser source / drawing / final comparison and checkerboard final plus dark middle captures. Dark source strokes have lower contrast on the dark inspection matte; the light showcase matte is recommended. No geometry, original colors or fonts were substituted.",
+      "The 480 × 320 original and final comparison panels are pixel-identical.",
+      "All four corners of the transparent final browser capture have alpha values [0, 0, 0, 0]. No decorative blue strokes were added."
+    ]
+  },
+  "checks": [
+    {
+      "name": "embedded_resources",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "initial_wait",
+      "status": "passed",
+      "detail": {
+        "status": "idle",
+        "time": 0,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667,
+        "exporting": false
+      }
+    },
+    {
+      "name": "speed_changes_without_reset",
+      "status": "passed",
+      "detail": {
+        "playing": {
+          "status": "playing",
+          "time": 2.556349999994039,
+          "duration": 10,
+          "playbackRate": 2,
+          "effectiveDuration": 5,
+          "exporting": false
+        },
+        "paused": {
+          "status": "paused",
+          "time": 2.560349999994039,
+          "duration": 10,
+          "playbackRate": 0.5,
+          "effectiveDuration": 20,
+          "exporting": false
+        }
+      }
+    },
+    {
+      "name": "scrubber_seeks_without_global_shortcuts",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 5.01,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_starts_without_reset",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.21419999998807907,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "space_pauses_and_resumes",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.3638000000119209,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_resumes_pause",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.48619999998807906,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "r_restarts",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.009899999976158142,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "held_key_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.020099999964237215,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "editable_shortcuts_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.020099999964237215,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "screen_button_toggle",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.07869999998807908,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "real_time_completion_and_hold",
+      "status": "passed",
+      "detail": {
+        "status": "completed",
+        "time": 10,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_replays_completed",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.006299999982118607,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667,
+        "exporting": false
+      }
+    },
+    {
+      "name": "no_network_requests",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "no_browser_errors",
+      "status": "passed",
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "light-start.png",
+      "background": "light",
+      "time": 0
+    },
+    {
+      "file": "light-middle.png",
+      "background": "light",
+      "time": 5.0
+    },
+    {
+      "file": "light-final.png",
+      "background": "light",
+      "time": 10.0
+    },
+    {
+      "file": "dark-start.png",
+      "background": "dark",
+      "time": 0
+    },
+    {
+      "file": "dark-middle.png",
+      "background": "dark",
+      "time": 5.0
+    },
+    {
+      "file": "dark-final.png",
+      "background": "dark",
+      "time": 10.0
+    },
+    {
+      "file": "checker-start.png",
+      "background": "checker",
+      "time": 0
+    },
+    {
+      "file": "checker-middle.png",
+      "background": "checker",
+      "time": 5.0
+    },
+    {
+      "file": "checker-final.png",
+      "background": "checker",
+      "time": 10.0
+    },
+    {
+      "file": "transparent-final.png",
+      "background": "transparent",
+      "time": 10.0
+    }
+  ],
+  "network_requests": [],
+  "console_errors": [],
+  "html_sha256": "f1014ca874d22b4af815d2c2c8804521a7fcd7856e4dffff2bac936b3ab5fb59",
+  "browser": {
+    "name": "chromium",
+    "version": "145.0.7632.6",
+    "offline": true,
+    "url_scheme": "file"
+  },
+  "transparency_observation": {
+    "status": "passed",
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "Margins only; requires visual mask review."
+  },
+  "report_path": "report.json"
+}

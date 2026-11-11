@@ -130,6 +130,54 @@
       "matte": "#F6EDF0",
       "prompt": "Reveal this portrait invitation: draw the arched card, then balloons and ribbon, then the JOIN US lettering and date. Preserve the portrait aspect ratio and the warm rose-and-gold palette. Deliver HTML, GIF and PNG.",
       "revision_prompt": "Show JOIN US after both balloons and use 0.75x playback for a slower invitation reveal."
+    },
+    {
+      "slug": "night-market",
+      "title": "Night Market",
+      "title_zh": "城市夜市全景",
+      "use_case": "Rich editorial streetscape for a travel story, event introduction or placemaking presentation",
+      "use_case_zh": "用于旅行故事、夜市活动与城市空间提案的多层街景",
+      "method": "Native SVG layered scene: skyline and shop structures, windows and awnings, then lanterns, market stalls, visitors and bicycle details.",
+      "limitations": "An original fictional city block, not a real destination, business listing or photo tracing.",
+      "matte": "#F6F2E8",
+      "prompt": "Draw this night market from its skyline and three storefronts to windows, awnings and stalls. Leave lantern ribs, visitors and small street details late, then reveal the original night palette. Export offline HTML, GIF and PNG.",
+      "revision_prompt": "Give the lanterns more drawing time, reveal the stalls before the visitors, and export at 1.5x.",
+      "source": "source/night-market.svg",
+      "kind": "svg",
+      "duration": 10,
+      "playback_rate": 1.5
+    },
+    {
+      "slug": "camera-exploded",
+      "title": "Camera Exploded",
+      "title_zh": "相机拆解示意",
+      "use_case": "Exploded product anatomy for an editorial launch story or educational presentation",
+      "use_case_zh": "用于产品叙事、科普展示与技术讲解的光学结构拆解",
+      "method": "Native SVG separated optical groups, aperture, sensor board and camera shell; then mechanical details and callout leaders.",
+      "limitations": "A fictional illustrative camera anatomy, not an engineered assembly, repair guide or representation of a real product.",
+      "matte": "#F3F5EF",
+      "prompt": "Introduce this fictional camera through an exploded illustration. Draw lens groups and the body first, then sensor and aperture, then fasteners, surface details and annotation leaders. Keep the original geometry and final colors.",
+      "revision_prompt": "Let the lens elements draw one by one before the body and slow the sensor reveal.",
+      "source": "source/camera-exploded.svg",
+      "kind": "svg",
+      "duration": 10,
+      "playback_rate": 1.5
+    },
+    {
+      "slug": "greenhouse-study",
+      "title": "Greenhouse Study",
+      "title_zh": "温室生态剖面",
+      "use_case": "Dense botanical environment for a garden concept, educational story or architecture portfolio",
+      "use_case_zh": "用于花园方案、自然教育与建筑作品集的密集植物温室",
+      "method": "Native SVG structural glazing, shelves, individually editable plant silhouettes, foreground specimens and irrigation details.",
+      "limitations": "A fictional greenhouse illustration, not a construction plan, botanical identification guide or engineering simulation.",
+      "matte": "#F6F3E7",
+      "prompt": "Draw the greenhouse envelope and glass ribs first, then its tiered benches and plants. Keep each specimen editable. Finish with pots, irrigation and garden tools before revealing the original greens.",
+      "revision_prompt": "Draw the foreground plants later, slow the glass ribs, and create a 720-pixel GIF on a cream background.",
+      "source": "source/greenhouse-study.svg",
+      "kind": "svg",
+      "duration": 10,
+      "playback_rate": 1.5
     }
   ]
 }

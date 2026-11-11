@@ -1,5 +1,12 @@
 # Changelog
 
+## Live showcase — 2026-11-11
+
+- Add a GitHub Pages homepage with the actual exported HTML player, scene switching, playback controls and direct format exports.
+- Expand the public gallery to ten scenes with an original night market, exploded camera illustration and greenhouse study, including editable project downloads.
+- Refresh the English and Chinese repository homepages with live demo links, clearer navigation and scene descriptions.
+- Check the public player and downloadable artifact hashes before deploying the exact commit that passed repository checks. The Skill runtime remains v0.4.0.
+
 ## 0.4.0 — 2026-11-11
 
 - Rename the project to **TraceGIF**, with a `tracegif` Skill, `tracegif.py` command, renamed release assets and migration notes. Preserve old project fields, command aliases and browser API compatibility.

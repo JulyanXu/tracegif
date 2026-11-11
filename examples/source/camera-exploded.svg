@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640">
+<title>Camera Exploded — an original product anatomy diagram</title><desc>Original TraceGIF artwork, MIT licensed. Fictional camera exploded illustration; not a service manual, engineered assembly or real product. No fonts.</desc>
+<g stroke-linecap="round" stroke-linejoin="round">
+<path id="assembly-axis" data-phase="main" d="M72 345H881" fill="none" stroke="#B1BDBC" stroke-width="1.4" stroke-dasharray="8 10"/>
+<path id="body-volume" data-phase="main" d="M632 197L820 220L857 260V448L819 477L625 449V239Z" fill="#7B969A" stroke="#304B59" stroke-width="3" />
+<path id="body-front" data-phase="main" d="M625 239L809 265V477L625 449Z" fill="#D3DDDA" stroke="#304B59" stroke-width="3" />
+<path id="body-side" data-phase="main" d="M809 265L857 260V448L819 477L809 477Z" fill="#526E7C" stroke="#304B59" stroke-width="2.5" />
+<path id="top-housing" data-phase="main" d="M632 197L665 168L745 178L777 214L820 220L809 265L625 239Z" fill="#B7C9C7" stroke="#304B59" stroke-width="3" />
+<path id="viewfinder-cap" data-phase="main" d="M672 168L683 146L735 153L745 178Z" fill="#415A68" stroke="#304B59" stroke-width="2.5" />
+<path id="grip" data-phase="secondary" d="M802 280L828 282L828 460L811 475L791 463V299Z" fill="#365460" stroke="#304B59" stroke-width="2.5" />
+<path id="sensor-board" data-phase="main" d="M549 256L590 262V416L549 410Z" fill="#88A78C" stroke="#304B59" stroke-width="3" />
+<path id="sensor-metal-frame" data-phase="secondary" d="M555 282L585 286V390L555 386Z" fill="#D6C49B" stroke="#304B59" stroke-width="2" />
+<path id="sensor-glass" data-phase="secondary" d="M560 294L581 297V377L560 374Z" fill="#456D8A" stroke="#304B59" stroke-width="2" />
+<path id="sensor-reflection" data-phase="details" d="M565 302L575 304V363L565 362Z" fill="#6E9BAC" stroke="#6E9BAC" stroke-width="1" />
+<path id="body-mount" data-phase="main" d="M638 350a62 82 0 1 0 124 0a62 82 0 1 0 -124 0Z" fill="#768F98" stroke="#304B59" stroke-width="3" />
+<path id="body-mount-inset" data-phase="secondary" d="M650 350a50 68 0 1 0 100 0a50 68 0 1 0 -100 0Z" fill="#2A4659" stroke="#304B59" stroke-width="2.5" />
+<path id="body-mount-throat" data-phase="secondary" d="M669 350a31 47 0 1 0 62 0a31 47 0 1 0 -62 0Z" fill="#112F46" stroke="#304B59" stroke-width="2" />
+<path id="barrel-side-0" data-phase="main" d="M123 271L141 274A32 74 0 0 1 141 422L123 419A32 74 0 0 0 123 271Z" fill="#A3B7B8" stroke="#304B59" stroke-width="2.5" />
+<path id="optical-ring-0" data-phase="main" d="M91 345a32 74 0 1 0 64 0a32 74 0 1 0 -64 0Z" fill="#A3B7B8" stroke="#304B59" stroke-width="3" />
+<path id="optical-glass-0" data-phase="secondary" d="M99 345a24 61 0 1 0 48 0a24 61 0 1 0 -48 0Z" fill="#547C8E" stroke="#304B59" stroke-width="2" />
+<path id="optical-edge-0" data-phase="details" d="M105 345a18 49 0 1 0 36 0a18 49 0 1 0 -36 0Z" fill="none" stroke="#D5EBE5" stroke-width="1.5" />
+<path id="optical-highlight-0" data-phase="details" d="M114 294Q102 326 113 363" fill="none" stroke="#EEF2E1" stroke-width="3" />
+<path id="barrel-knurl-0-0" data-phase="details" d="M158 286.0l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-0-1" data-phase="details" d="M158 309.6l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-0-2" data-phase="details" d="M158 333.2l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-0-3" data-phase="details" d="M158 356.8l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-0-4" data-phase="details" d="M158 380.4l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-0-5" data-phase="details" d="M158 404.0l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-side-1" data-phase="main" d="M231 263L249 266A29 82 0 0 1 249 430L231 427A29 82 0 0 0 231 263Z" fill="#7E999D" stroke="#304B59" stroke-width="2.5" />
+<path id="optical-ring-1" data-phase="main" d="M202 345a29 82 0 1 0 58 0a29 82 0 1 0 -58 0Z" fill="#7E999D" stroke="#304B59" stroke-width="3" />
+<path id="optical-glass-1" data-phase="secondary" d="M210 345a21 69 0 1 0 42 0a21 69 0 1 0 -42 0Z" fill="#ABCED0" stroke="#304B59" stroke-width="2" />
+<path id="optical-edge-1" data-phase="details" d="M216 345a15 57 0 1 0 30 0a15 57 0 1 0 -30 0Z" fill="none" stroke="#D5EBE5" stroke-width="1.5" />
+<path id="optical-highlight-1" data-phase="details" d="M222 286Q210 326 221 363" fill="none" stroke="#EEF2E1" stroke-width="3" />
+<path id="barrel-knurl-1-0" data-phase="details" d="M263 278.0l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-1-1" data-phase="details" d="M263 304.8l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-1-2" data-phase="details" d="M263 331.6l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-1-3" data-phase="details" d="M263 358.4l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-1-4" data-phase="details" d="M263 385.2l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-1-5" data-phase="details" d="M263 412.0l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-side-2" data-phase="main" d="M348 256L366 259A31 89 0 0 1 366 437L348 434A31 89 0 0 0 348 256Z" fill="#C6D8D5" stroke="#304B59" stroke-width="2.5" />
+<path id="optical-ring-2" data-phase="main" d="M317 345a31 89 0 1 0 62 0a31 89 0 1 0 -62 0Z" fill="#C6D8D5" stroke="#304B59" stroke-width="3" />
+<path id="optical-glass-2" data-phase="secondary" d="M325 345a23 76 0 1 0 46 0a23 76 0 1 0 -46 0Z" fill="#6B9EAE" stroke="#304B59" stroke-width="2" />
+<path id="optical-edge-2" data-phase="details" d="M331 345a17 64 0 1 0 34 0a17 64 0 1 0 -34 0Z" fill="none" stroke="#D5EBE5" stroke-width="1.5" />
+<path id="optical-highlight-2" data-phase="details" d="M339 279Q327 326 338 363" fill="none" stroke="#EEF2E1" stroke-width="3" />
+<path id="barrel-knurl-2-0" data-phase="details" d="M382 271.0l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-2-1" data-phase="details" d="M382 300.6l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-2-2" data-phase="details" d="M382 330.2l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-2-3" data-phase="details" d="M382 359.8l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-2-4" data-phase="details" d="M382 389.4l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-2-5" data-phase="details" d="M382 419.0l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-side-3" data-phase="main" d="M456 266L474 269A29 79 0 0 1 474 427L456 424A29 79 0 0 0 456 266Z" fill="#7E9DAB" stroke="#304B59" stroke-width="2.5" />
+<path id="optical-ring-3" data-phase="main" d="M427 345a29 79 0 1 0 58 0a29 79 0 1 0 -58 0Z" fill="#7E9DAB" stroke="#304B59" stroke-width="3" />
+<path id="optical-glass-3" data-phase="secondary" d="M435 345a21 66 0 1 0 42 0a21 66 0 1 0 -42 0Z" fill="#ABC4C9" stroke="#304B59" stroke-width="2" />
+<path id="optical-edge-3" data-phase="details" d="M441 345a15 54 0 1 0 30 0a15 54 0 1 0 -30 0Z" fill="none" stroke="#D5EBE5" stroke-width="1.5" />
+<path id="optical-highlight-3" data-phase="details" d="M447 289Q435 326 446 363" fill="none" stroke="#EEF2E1" stroke-width="3" />
+<path id="barrel-knurl-3-0" data-phase="details" d="M488 281.0l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-3-1" data-phase="details" d="M488 306.6l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-3-2" data-phase="details" d="M488 332.2l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-3-3" data-phase="details" d="M488 357.8l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-3-4" data-phase="details" d="M488 383.4l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="barrel-knurl-3-5" data-phase="details" d="M488 409.0l10 2" fill="none" stroke="#536F7C" stroke-width="1.4" />
+<path id="aperture-frame" data-phase="secondary" d="M484 345a20 62 0 1 0 40 0a20 62 0 1 0 -40 0Z" fill="#D2B986" stroke="#304B59" stroke-width="2.5" />
+<path id="aperture-dark" data-phase="secondary" d="M490 345a14 48 0 1 0 28 0a14 48 0 1 0 -28 0Z" fill="#25485A" stroke="#304B59" stroke-width="2" />
+<path id="aperture-blades" data-phase="details" d="M504 299L511 320L500 341L512 363L501 387M493 321L510 335L496 356L509 371" fill="none" stroke="#8FAAA8" stroke-width="1.7" />
+<path id="mount-screw-0" data-phase="details" d="M753.9 350.0a3.1 4.1 0 1 0 6.2 0a3.1 4.1 0 1 0 -6.2 0Z" fill="#E3C382" stroke="#304B59" stroke-width="1" />
+<path id="mount-screw-1" data-phase="details" d="M725.4 416.68a3.1 4.1 0 1 0 6.2 0a3.1 4.1 0 1 0 -6.2 0Z" fill="#E3C382" stroke="#304B59" stroke-width="1" />
+<path id="mount-screw-2" data-phase="details" d="M668.4 416.68a3.1 4.1 0 1 0 6.2 0a3.1 4.1 0 1 0 -6.2 0Z" fill="#E3C382" stroke="#304B59" stroke-width="1" />
+<path id="mount-screw-3" data-phase="details" d="M639.9 350.0a3.1 4.1 0 1 0 6.2 0a3.1 4.1 0 1 0 -6.2 0Z" fill="#E3C382" stroke="#304B59" stroke-width="1" />
+<path id="mount-screw-4" data-phase="details" d="M668.4 283.32a3.1 4.1 0 1 0 6.2 0a3.1 4.1 0 1 0 -6.2 0Z" fill="#E3C382" stroke="#304B59" stroke-width="1" />
+<path id="mount-screw-5" data-phase="details" d="M725.4 283.32a3.1 4.1 0 1 0 6.2 0a3.1 4.1 0 1 0 -6.2 0Z" fill="#E3C382" stroke="#304B59" stroke-width="1" />
+<path id="board-contact-0" data-phase="details" d="M545 291h8M588 295h7" fill="none" stroke="#C9A861" stroke-width="3" />
+<path id="board-contact-1" data-phase="details" d="M545 306h8M588 310h7" fill="none" stroke="#C9A861" stroke-width="3" />
+<path id="board-contact-2" data-phase="details" d="M545 321h8M588 325h7" fill="none" stroke="#C9A861" stroke-width="3" />
+<path id="board-contact-3" data-phase="details" d="M545 336h8M588 340h7" fill="none" stroke="#C9A861" stroke-width="3" />
+<path id="board-contact-4" data-phase="details" d="M545 351h8M588 355h7" fill="none" stroke="#C9A861" stroke-width="3" />
+<path id="board-contact-5" data-phase="details" d="M545 366h8M588 370h7" fill="none" stroke="#C9A861" stroke-width="3" />
+<path id="board-contact-6" data-phase="details" d="M545 381h8M588 385h7" fill="none" stroke="#C9A861" stroke-width="3" />
+<path id="shutter-button" data-phase="details" d="M783 230a12 7 0 1 0 24 0a12 7 0 1 0 -24 0Z" fill="#E3AA72" stroke="#304B59" stroke-width="1.5" />
+<path id="top-dial-volume" data-phase="details" d="M775 197V206Q793 219 811 209V201Z" fill="#355363" stroke="#304B59" stroke-width="2" />
+<path id="top-dial" data-phase="details" d="M775 198a18 10 0 1 0 36 0a18 10 0 1 0 -36 0Z" fill="#5D7E86" stroke="#304B59" stroke-width="2" />
+<path id="dial-mark-0" data-phase="details" d="M779 197v5" fill="none" stroke="#D1DCD2" stroke-width="1" />
+<path id="dial-mark-1" data-phase="details" d="M783 197v5" fill="none" stroke="#D1DCD2" stroke-width="1" />
+<path id="dial-mark-2" data-phase="details" d="M787 197v5" fill="none" stroke="#D1DCD2" stroke-width="1" />
+<path id="dial-mark-3" data-phase="details" d="M791 197v5" fill="none" stroke="#D1DCD2" stroke-width="1" />
+<path id="dial-mark-4" data-phase="details" d="M795 197v5" fill="none" stroke="#D1DCD2" stroke-width="1" />
+<path id="dial-mark-5" data-phase="details" d="M799 197v5" fill="none" stroke="#D1DCD2" stroke-width="1" />
+<path id="dial-mark-6" data-phase="details" d="M803 197v5" fill="none" stroke="#D1DCD2" stroke-width="1" />
+<path id="dial-mark-7" data-phase="details" d="M807 197v5" fill="none" stroke="#D1DCD2" stroke-width="1" />
+<path id="viewfinder-face" data-phase="details" d="M680 183h44v24h-44Z" fill="#335364" stroke="#304B59" stroke-width="2" />
+<path id="viewfinder-glint" data-phase="details" d="M685 188H717L708 199H685Z" fill="#88ADB2" stroke="#304B59" stroke-width="1" />
+<path id="shoulder-highlight" data-phase="details" d="M645 216L679 220M742 231L769 234" fill="none" stroke="#EDF0D9" stroke-width="4" />
+<path id="status-light" data-phase="details" d="M772 285a4 5 0 1 0 8 0a4 5 0 1 0 -8 0Z" fill="#D9B266" stroke="#304B59" stroke-width="1" />
+<path id="grip-texture-0" data-phase="details" d="M802 312l14 2" fill="none" stroke="#8FA5A6" stroke-width="1.5" />
+<path id="grip-texture-1" data-phase="details" d="M802 326l14 2" fill="none" stroke="#8FA5A6" stroke-width="1.5" />
+<path id="grip-texture-2" data-phase="details" d="M802 340l14 2" fill="none" stroke="#8FA5A6" stroke-width="1.5" />
+<path id="grip-texture-3" data-phase="details" d="M802 354l14 2" fill="none" stroke="#8FA5A6" stroke-width="1.5" />
+<path id="grip-texture-4" data-phase="details" d="M802 368l14 2" fill="none" stroke="#8FA5A6" stroke-width="1.5" />
+<path id="grip-texture-5" data-phase="details" d="M802 382l14 2" fill="none" stroke="#8FA5A6" stroke-width="1.5" />
+<path id="grip-texture-6" data-phase="details" d="M802 396l14 2" fill="none" stroke="#8FA5A6" stroke-width="1.5" />
+<path id="grip-texture-7" data-phase="details" d="M802 410l14 2" fill="none" stroke="#8FA5A6" stroke-width="1.5" />
+<path id="grip-texture-8" data-phase="details" d="M802 424l14 2" fill="none" stroke="#8FA5A6" stroke-width="1.5" />
+<path id="base-seam" data-phase="details" d="M639 427L787 448M638 435L783 457" fill="none" stroke="#839C9D" stroke-width="1.7" />
+<path id="fastener-0" data-phase="details" d="M593 218h18v7h-18Z M588 215h5v13h-5Z" fill="#B49162" stroke="#304B59" stroke-width="1.5" />
+<path id="fastener-thread-0" data-phase="details" d="M597 219v5M601 219v5M605 219v5" fill="none" stroke="#EBD4A4" stroke-width="1" />
+<path id="fastener-1" data-phase="details" d="M598 459h18v7h-18Z M593 456h5v13h-5Z" fill="#B49162" stroke="#304B59" stroke-width="1.5" />
+<path id="fastener-thread-1" data-phase="details" d="M602 460v5M606 460v5M610 460v5" fill="none" stroke="#EBD4A4" stroke-width="1" />
+<path id="fastener-2" data-phase="details" d="M838 179h18v7h-18Z M833 176h5v13h-5Z" fill="#B49162" stroke="#304B59" stroke-width="1.5" />
+<path id="fastener-thread-2" data-phase="details" d="M842 180v5M846 180v5M850 180v5" fill="none" stroke="#EBD4A4" stroke-width="1" />
+<path id="fastener-3" data-phase="details" d="M866 459h18v7h-18Z M861 456h5v13h-5Z" fill="#B49162" stroke="#304B59" stroke-width="1.5" />
+<path id="fastener-thread-3" data-phase="details" d="M870 460v5M874 460v5M878 460v5" fill="none" stroke="#EBD4A4" stroke-width="1" />
+<path id="annotation-leader-0" data-phase="details" d="M123 271L177 153h42" fill="none" stroke="#B08E61" stroke-width="1.5" />
+<path id="annotation-dot-0" data-phase="details" d="M120 271a3 3 0 1 0 6 0a3 3 0 1 0 -6 0Z" fill="#B08E61" stroke="#B08E61" stroke-width="1" />
+<path id="annotation-bars-0" data-phase="details" d="M185 144h22M185 138h15" fill="none" stroke="#789196" stroke-width="2" />
+<path id="annotation-leader-1" data-phase="details" d="M348 256L373 125h42" fill="none" stroke="#B08E61" stroke-width="1.5" />
+<path id="annotation-dot-1" data-phase="details" d="M345 256a3 3 0 1 0 6 0a3 3 0 1 0 -6 0Z" fill="#B08E61" stroke="#B08E61" stroke-width="1" />
+<path id="annotation-bars-1" data-phase="details" d="M381 116h22M381 110h15" fill="none" stroke="#789196" stroke-width="2" />
+<path id="annotation-leader-2" data-phase="details" d="M504 283L497 197h42" fill="none" stroke="#B08E61" stroke-width="1.5" />
+<path id="annotation-dot-2" data-phase="details" d="M501 283a3 3 0 1 0 6 0a3 3 0 1 0 -6 0Z" fill="#B08E61" stroke="#B08E61" stroke-width="1" />
+<path id="annotation-bars-2" data-phase="details" d="M505 188h22M505 182h15" fill="none" stroke="#789196" stroke-width="2" />
+<path id="annotation-leader-3" data-phase="details" d="M570 259L577 137h42" fill="none" stroke="#B08E61" stroke-width="1.5" />
+<path id="annotation-dot-3" data-phase="details" d="M567 259a3 3 0 1 0 6 0a3 3 0 1 0 -6 0Z" fill="#B08E61" stroke="#B08E61" stroke-width="1" />
+<path id="annotation-bars-3" data-phase="details" d="M585 128h22M585 122h15" fill="none" stroke="#789196" stroke-width="2" />
+<path id="annotation-leader-4" data-phase="details" d="M735 465L743 542h42" fill="none" stroke="#B08E61" stroke-width="1.5" />
+<path id="annotation-dot-4" data-phase="details" d="M732 465a3 3 0 1 0 6 0a3 3 0 1 0 -6 0Z" fill="#B08E61" stroke="#B08E61" stroke-width="1" />
+<path id="annotation-bars-4" data-phase="details" d="M751 533h22M751 527h15" fill="none" stroke="#789196" stroke-width="2" />
+<path id="baseline-bracket" data-phase="details" d="M89 483V501H590V481M105 510H579M110 506L103 510L110 514M573 506L580 510L573 514" fill="none" stroke="#A9B7B2" stroke-width="1.4" />
+</g>
+</svg>

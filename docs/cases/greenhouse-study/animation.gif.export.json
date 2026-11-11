@@ -1,0 +1,28 @@
+{
+  "status": "exported",
+  "format": "gif",
+  "output_file": "animation.gif",
+  "source_html_sha256": "f1014ca874d22b4af815d2c2c8804521a7fcd7856e4dffff2bac936b3ab5fb59",
+  "playback_rate": 1.5,
+  "timeline_duration": 10.0,
+  "effective_duration": 6.666666666666667,
+  "created_at": "2026-11-11T01:51:37.802694+00:00",
+  "validation": {
+    "embedded_resources": "passed",
+    "browser_capture": "passed",
+    "offline": true
+  },
+  "width": 480,
+  "height": 320,
+  "background": "#F6F3E7",
+  "fps": 10,
+  "captured_frame_count": 68,
+  "frame_count": 67,
+  "duration_ms": 7470,
+  "final_hold_ms": 800,
+  "loop": true,
+  "browser": "145.0.7632.6",
+  "transparency": "opaque_matte",
+  "output_sha256": "8e59bd95beba424364f0aa02b400c9f1a382fe5a24e211aac7e5f03022b5dcdf",
+  "bytes": 1059533
+}

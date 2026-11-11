@@ -43,3 +43,11 @@ The generated animation combines these contours with the original decoded RGB pi
 The orbital lesson is visibly labeled **NOT TO SCALE**. Its planet sizes, distances, arrangement and orbital shapes are illustrative, not a physical simulation, measured astronomical diagram or ephemeris. The same limitation travels with its editable project and case record.
 
 庭院住宅、城市路线、轨道课堂与庆典邀请卡均为 TraceGIF 原创 MIT 示例。房屋、地图与活动均为虚构，不代表客户案例、真实房源、导航信息或已安排的活动；字母与数字均为原生路径，不含外部字体。轨道课堂明确标注“不按比例”，仅用于示意，不构成天文数据或物理模拟。
+
+## Complex scene studies
+
+`night-market.svg`, `camera-exploded.svg` and `greenhouse-study.svg` are original TraceGIF artwork covered by the repository's MIT license. They contain 169, 123 and 147 visible, individually identified paths respectively. All three are native SVG illustrations with no external fonts, embedded stock artwork, real company branding or user-uploaded material.
+
+The night market is a fictional streetscape. Its signs use decorative original symbols rather than a real business name. The exploded camera is an illustrative product anatomy, not an engineered assembly, service manual or representation of an actual camera. The greenhouse is a conceptual botanical environment, not a construction plan, irrigation specification or plant identification guide. These limitations travel with their editable projects and case records.
+
+城市夜市、相机拆解与温室生态剖面均为 TraceGIF 原创 MIT 示例，分别包含 169、123、147 条可单独修改的可见路径，不包含外部字体、库存图片、真实品牌或用户上传素材。夜市地点与店铺均为虚构；相机拆解不是工程装配或维修指南；温室不是施工图、灌溉参数或植物识别指南。

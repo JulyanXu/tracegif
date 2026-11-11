@@ -1,44 +1,55 @@
-# TraceGIF
+<div align="center">
 
-[实测记录与独立 Agent 验收](docs/validation.md)
+# ✍️ TraceGIF · 描线 GIF
 
-**描出线条，制成 GIF，留下可编辑原稿。**
+### 描出线条，制成 GIF，留下可编辑原稿。
 
-TraceGIF（描线 GIF）是一个 Agent Skill，用于把图片制作成逐笔描线动画、GIF 和独立离线 HTML。宿主 Agent 理解图片并根据对话修改，工具保存可编辑图层、渲染原生 SVG，并在真实浏览器中验证导出结果。
+**一张图片 → 描线动画 → 离线 HTML · GIF · PNG**
 
-项目原名 **TypeBit**，现改名为 TraceGIF，让「线条动画」与「GIF 制作」两种用途更直接。已有工程仍可继续编辑，详见[改名迁移说明](docs/migration.md)。
+### [▶ 打开真实交互演示](https://julyanxu.github.io/tracegif/?lang=zh)
 
-[English](README.md) · [安装 Skill](#安装-skill) · [下载版本](https://github.com/JulyanXu/tracegif/releases) · [反馈问题](https://github.com/JulyanXu/tracegif/issues)
+[📦 安装 Skill](#安装-skill) · [English](README.md) · [下载版本](https://github.com/JulyanXu/tracegif/releases) · [💬 反馈问题](https://github.com/JulyanXu/tracegif/issues)
 
-![TraceGIF 线条动画示例](docs/media/demo.gif)
+</div>
 
-*这里展示的是实际播放录制；导出的 HTML 打开后等待操作，可以调整速度和进度。*
+把图片变成逐笔描线动画与 GIF。Agent 理解画面、接收自然语言修改，TraceGIF 保存可编辑图层、生成独立文件，并在真实浏览器中验证播放。
 
-## 从图片到可交付动画
+> **直接操作真正的播放器：**切换案例、播放／暂停、调整速度、拖动进度，导出 HTML、GIF 或 PNG。[宣传首页](https://julyanxu.github.io/tracegif/?lang=zh)直接运行导出的 HTML。GitHub README 本身不能执行 JavaScript 播放器，因此这里提供可播放页面的入口。
 
-1. 给 Agent 一张图片，请它制作线条动画。
-2. 查看真实预览、调整播放速度，或拖动进度检查某一帧；画面修改直接用自然语言反馈。
-3. 按用途选择独立 HTML、GIF 动画或 PNG 图片，并保留可编辑工程与验证报告。
-
-默认顺序是主要结构、次要轮廓、文字与细节，最后显露颜色。总时长约 10 秒，完成后定格。主体外部保持透明，默认不添加原图以外的装饰；用户提出要求时，可以在主体后方加入蓝色涂鸦。
-
-**无需新账号、单独安装 AI 模型或配置推理 API。** TraceGIF 使用宿主 Agent 已有的视觉和图像工具。它不包含独立网站、可视化编辑页或云端图片处理服务。播放器采用原生 SVG 与 JavaScript，不依赖 GSAP。
-
-![原图、描线中间态与最终画面](docs/media/preview.png)
-
-## 七种场景，同一套可编辑流程
-
-| 植物品牌标识 | 咖啡产品插画 | 保留白色字形 |
+| ✍️ 让线条出现 | 🎞️ 让画面变成 GIF | 🧳 把作品带走 |
 | --- | --- | --- |
-| [![Leaf Studio 动画](docs/cases/leaf-studio/animation.gif)](docs/cases/README.md) | [![Coffee Story 动画](docs/cases/coffee-story/animation.gif)](docs/cases/README.md) | [![白字徽章动画](docs/cases/white-letter-badge/animation.gif)](docs/cases/README.md) |
-| 让枝叶逐笔展开，引出品牌图形。 | 先画杯身，再呈现蒸汽与细节。 | 透明 PNG 中的白色字形完整保留。 |
+| 主要结构 → 轮廓 → 细节 → 颜色。 | 调整倍速、尺寸、帧率与背景。 | 保留独立 HTML、可编辑原稿和验证记录。 |
 
-| 建筑展示 | 旅行路线 | 教学示意 | 活动邀请 |
-| --- | --- | --- | --- |
-| [![庭院住宅](docs/cases/courtyard-house/animation.gif)](docs/cases/README.md) | [![城市路线](docs/cases/city-route/animation.gif)](docs/cases/README.md) | [![轨道课堂](docs/cases/orbit-lesson/animation.gif)](docs/cases/README.md) | [![庆祝邀请卡](docs/cases/celebration-card/animation.gif)](docs/cases/README.md) |
-| 从建筑结构到立面细节。 | 逐步展示路线与停靠点。 | 逐笔绘制轨道教学示意。 | 从边框到信息，完成竖版邀请。 |
+## ✨ 从图片到可交付动画
 
-七个案例均为原创、可编辑的演示素材，GIF 来自实际导出的播放器。[查看「原图 → 描线 → 成品」案例库](docs/cases/README.md)，或[下载全部 HTML、GIF、PNG 和可编辑工程](https://github.com/JulyanXu/tracegif/releases/download/v0.4.0/tracegif-cases-0.4.0.zip)。案例页提供可复用提示词、处理说明和验证报告。
+1. **交给 Agent 一张图。**描述需要保留的形状、文字和细节。
+2. **播放，再修改。**播放器里调速；画面内容用自然语言修改。
+3. **选择格式，带走作品。**保存 HTML、GIF 或 PNG，留下可编辑工程。
+
+默认约 10 秒，结束后定格，打开页面等待播放。主体外部保持透明；默认不添加蓝色涂鸦等额外装饰。
+
+**无需新账号、单独安装模型或配置推理 API。**工具使用宿主 Agent 已有的视觉与图像能力。GitHub Pages 首页提供公开体验，素材制作与修改在 Agent 中完成。播放器采用原生 SVG 与 JavaScript。
+
+## 🎬 十种场景，每一个都能实际操作
+
+新增复杂场景覆盖密集街景、产品拆解与植物建筑。下面的链接打开真实播放器；[案例库](docs/cases/README.md)提供原稿、处理说明和验证记录。
+
+| 场景 | 观看重点 | 实际播放 |
+| --- | --- | --- |
+| 🌃 **城市夜市全景** | 层叠建筑、店铺、灯笼与街道细节。 | [▶ 体验](https://julyanxu.github.io/tracegif/?lang=zh&scene=night-market) |
+| 📷 **相机拆解示意** | 机身、分离镜组与机械细节逐层展开。 | [▶ 体验](https://julyanxu.github.io/tracegif/?lang=zh&scene=camera-exploded) |
+| 🌿 **温室生态剖面** | 建筑骨架与密集植物层次共同呈现。 | [▶ 体验](https://julyanxu.github.io/tracegif/?lang=zh&scene=greenhouse-study) |
+| 🏡 **庭院住宅** | 从建筑结构到窗户和庭院细节。 | [▶ 体验](https://julyanxu.github.io/tracegif/?lang=zh&scene=courtyard-house) |
+| 🗺️ **城市路线** | 虚构地图、地标与连贯的旅行停靠点。 | [▶ 体验](https://julyanxu.github.io/tracegif/?lang=zh&scene=city-route) |
+| 🪐 **轨道课堂** | 逐步绘制教学示意，不作为物理模拟。 | [▶ 体验](https://julyanxu.github.io/tracegif/?lang=zh&scene=orbit-lesson) |
+| 🎈 **庆祝邀请卡** | 从边框到信息，完成竖版邀请。 | [▶ 体验](https://julyanxu.github.io/tracegif/?lang=zh&scene=celebration-card) |
+| 🍃 **叶间工作室** | 让枝叶逐笔展开，引出品牌图形。 | [▶ 体验](https://julyanxu.github.io/tracegif/?lang=zh&scene=leaf-studio) |
+| ☕ **一杯咖啡的故事** | 杯身、蒸汽和产品插画细节。 | [▶ 体验](https://julyanxu.github.io/tracegif/?lang=zh&scene=coffee-story) |
+| 🔤 **白字徽章** | 保留透明 PNG 徽章内部的白色字形。 | [▶ 体验](https://julyanxu.github.io/tracegif/?lang=zh&scene=white-letter-badge) |
+
+十个案例均为 MIT 许可的原创演示素材。HTML／GIF／PNG 可从真实播放器导出；三个复杂场景还在案例库提供可编辑工程 ZIP。[v0.4.0 发布包](https://github.com/JulyanXu/tracegif/releases/download/v0.4.0/tracegif-cases-0.4.0.zip)包含此前的七个案例。
+
+项目原名 **TypeBit**，已有工程仍可编辑，详见[迁移说明](docs/migration.md)。
 
 ## 素材与处理方式
 
@@ -127,7 +138,7 @@ python skills/tracegif/scripts/tracegif.py package build/example
 
 ## 选择导出格式
 
-![支持速度、进度和下载的离线播放器](docs/media/player-controls.png)
+[▶ 在真实播放器中体验这些操作](https://julyanxu.github.io/tracegif/?lang=zh)
 
 | 格式 | 适合用途 | 透明度与播放方式 |
 | --- | --- | --- |

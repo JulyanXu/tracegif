@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-11-11T01:58:59.359903+00:00",
+  "url": "local docs directory served over loopback HTTP",
+  "status": "passed",
+  "tests_run": 8,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "artifacts": [
+    "desktop-chinese.png",
+    "desktop-drawing.png",
+    "desktop-final.png",
+    "desktop-first-viewport.png",
+    "desktop-idle.png",
+    "embedded-player.gif",
+    "embedded-player.png",
+    "mobile-player.png"
+  ],
+  "scope": "Real iframe playback, speed, scrubbing, scene/language links, unobscured artwork, mobile controls, actual PNG/GIF downloads, saved HTML reopening offline, retry after missing metadata/player, and source/output checksums.",
+  "source_sha256": {
+    "index.html": "8b25344cd7c46daa034a4f6f79d397c959f14b15bb0183c867a2f3ec7713cd97",
+    "site.css": "9efac19bca818b1c43b9a0a443f811584ed98834134994f60dd46f1e09b5a70e",
+    "site.js": "ec22ee2570dfb6cb10d89a79cc0bdaf3609293139598f96e3af95a5e0f24cacf",
+    "cases/manifest.json": "c33e9b4eda8973bafe8f8c64d1f8f36bb4c53949cd8ba0b653ce5a310359ed7e"
+  },
+  "environment": {
+    "os": "Windows",
+    "python": "3.12.3",
+    "playwright": "1.58.0",
+    "chromium": "145.0.7632.6"
+  },
+  "artifact_note": "Screenshot and download filenames identify local verification evidence; public scene reports and player files are in docs/cases."
+}

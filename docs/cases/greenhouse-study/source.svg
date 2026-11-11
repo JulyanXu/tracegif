@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640">
+<title>Greenhouse Study — an original botanical section</title><desc>Original TraceGIF artwork, MIT licensed. Fictional botanical greenhouse section with tiered benches, many plant species, irrigation and glazing. Illustration only; not a construction or botanical identification plan.</desc>
+<g stroke-linecap="round" stroke-linejoin="round">
+<path id="base-platform" data-phase="main" d="M86 539L175 581H827L897 540L805 504H177Z" fill="#C8C8A7" stroke="#35594F" stroke-width="3" />
+<path id="greenhouse-envelope" data-phase="main" d="M122 518V249Q122 79 477 79Q832 79 832 249V518Z" fill="#DCE8D5" stroke="#487A70" stroke-width="3" />
+<path id="left-glazing" data-phase="main" d="M122 249Q122 79 477 79V518H122Z" fill="#C8DDCC" stroke="#487A70" stroke-width="2.5" />
+<path id="right-glazing" data-phase="main" d="M477 79Q832 79 832 249V518H477Z" fill="#E1E9CF" stroke="#487A70" stroke-width="2.5" />
+<path id="curved-glass-ribs" data-phase="main" d="M218 518V236Q218 110 477 79M347 518V207Q347 117 477 79M605 518V207Q605 117 477 79M735 518V236Q735 110 477 79" fill="none" stroke="#80A396" stroke-width="3" />
+<path id="roof-crossbars" data-phase="main" d="M131 221Q477 136 823 221M161 159Q477 99 793 159M122 293H832M122 394H832" fill="none" stroke="#89AA9B" stroke-width="2.5" />
+<path id="central-door-frame" data-phase="main" d="M426 518V292Q426 260 477 260Q528 260 528 292V518Z" fill="#B4CBB8" stroke="#35594F" stroke-width="3" />
+<path id="door-glass" data-phase="secondary" d="M438 506V298Q438 277 477 277Q516 277 516 298V506Z" fill="#D8E4C7" stroke="#35594F" stroke-width="2" />
+<path id="door-mullion" data-phase="secondary" d="M477 278V505M439 354H515M440 432H514" fill="none" stroke="#7C9F8D" stroke-width="2.5" />
+<path id="door-handle" data-phase="details" d="M492 385V409" fill="none" stroke="#B38D50" stroke-width="5" />
+<path id="bench-0" data-phase="secondary" d="M153 311h231l8 12H146Z" fill="#B39F73" stroke="#35594F" stroke-width="2.2" />
+<path id="bench-legs-0" data-phase="secondary" d="M162 323v70M375 323v70" fill="none" stroke="#7C8464" stroke-width="4" />
+<path id="bench-planks-0" data-phase="details" d="M158 316h221" fill="none" stroke="#D9C397" stroke-width="1.7" />
+<path id="bench-1" data-phase="secondary" d="M153 416h231l8 12H146Z" fill="#B39F73" stroke="#35594F" stroke-width="2.2" />
+<path id="bench-legs-1" data-phase="secondary" d="M162 428v98M375 428v98" fill="none" stroke="#7C8464" stroke-width="4" />
+<path id="bench-planks-1" data-phase="details" d="M158 421h221" fill="none" stroke="#D9C397" stroke-width="1.7" />
+<path id="bench-2" data-phase="secondary" d="M570 311h227l8 12H563Z" fill="#B39F73" stroke="#35594F" stroke-width="2.2" />
+<path id="bench-legs-2" data-phase="secondary" d="M579 323v70M788 323v70" fill="none" stroke="#7C8464" stroke-width="4" />
+<path id="bench-planks-2" data-phase="details" d="M575 316h217" fill="none" stroke="#D9C397" stroke-width="1.7" />
+<path id="bench-3" data-phase="secondary" d="M570 416h227l8 12H563Z" fill="#B39F73" stroke="#35594F" stroke-width="2.2" />
+<path id="bench-legs-3" data-phase="secondary" d="M579 428v98M788 428v98" fill="none" stroke="#7C8464" stroke-width="4" />
+<path id="bench-planks-3" data-phase="details" d="M575 421h217" fill="none" stroke="#D9C397" stroke-width="1.7" />
+<path id="specimen-0-stem" data-phase="secondary" d="M191 275V210" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-0-leaf-0" data-phase="secondary" d="M191 242.0Q217 231.0 222 214.0Q199 217.0 191 242.0Z" fill="#699362" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-0-leaf-1" data-phase="secondary" d="M191 253.8Q159 242.8 154 225.8Q183 228.8 191 253.8Z" fill="#699362" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-0-leaf-2" data-phase="secondary" d="M191 265.5Q229 254.5 234 237.5Q199 240.5 191 265.5Z" fill="#699362" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-0-leaf-3" data-phase="secondary" d="M191 277.2Q147 266.2 142 249.2Q183 252.2 191 277.2Z" fill="#699362" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-0-pot" data-phase="secondary" d="M171 272h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-0-pot-rim" data-phase="details" d="M169 270h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-1-stem" data-phase="secondary" d="M269 275V197" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-1-frond-0" data-phase="secondary" d="M269 276Q262.7 254.4 227.1 245.5Q235.5 272.1 269 276Z" fill="#79A374" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-1-frond-1" data-phase="secondary" d="M269 276Q265.5 226.4 245.9 208.3Q250.5 262.8 269 276Z" fill="#79A374" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-1-frond-2" data-phase="secondary" d="M269 276Q269.5 218.2 272.2 197.2Q271.6 260.1 269 276Z" fill="#79A374" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-1-frond-3" data-phase="secondary" d="M269 276Q273.0 229.4 295.5 212.2Q290.2 263.8 269 276Z" fill="#79A374" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-1-frond-4" data-phase="secondary" d="M269 276Q275.4 257.4 311.8 249.5Q303.3 273.1 269 276Z" fill="#79A374" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-1-pot" data-phase="secondary" d="M249 272h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-1-pot-rim" data-phase="details" d="M247 270h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-2-stem" data-phase="secondary" d="M346 275V213" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-2-succulent-0" data-phase="secondary" d="M346 244Q318 235 320 220Q339 216 346 244Q371 233 373 221Q353 216 346 244Z" fill="#8FAF76" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-2-succulent-1" data-phase="secondary" d="M346 262Q321 253 324 238Q339 234 346 262Q369 251 370 239Q353 234 346 262Z" fill="#8FAF76" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-2-succulent-2" data-phase="secondary" d="M346 280Q324 271 328 256Q339 252 346 280Q367 269 367 257Q353 252 346 280Z" fill="#8FAF76" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-2-pot" data-phase="secondary" d="M326 272h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-2-pot-rim" data-phase="details" d="M324 270h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-3-stem" data-phase="secondary" d="M609 275V198" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-3-frond-0" data-phase="secondary" d="M609 276Q602.8 254.7 567.6 245.9Q575.9 272.2 609 276Z" fill="#698E62" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-3-frond-1" data-phase="secondary" d="M609 276Q605.6 227.1 586.2 209.1Q590.7 263.0 609 276Z" fill="#698E62" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-3-frond-2" data-phase="secondary" d="M609 276Q609.5 218.9 612.2 198.2Q611.5 260.3 609 276Z" fill="#698E62" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-3-frond-3" data-phase="secondary" d="M609 276Q612.9 230.0 635.2 213.0Q629.9 264.0 609 276Z" fill="#698E62" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-3-frond-4" data-phase="secondary" d="M609 276Q615.3 257.7 651.3 249.9Q642.9 273.2 609 276Z" fill="#698E62" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-3-pot" data-phase="secondary" d="M589 272h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-3-pot-rim" data-phase="details" d="M587 270h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-4-stem" data-phase="secondary" d="M688 275V211" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-4-leaf-0" data-phase="secondary" d="M688 243.0Q714 232.0 719 215.0Q696 218.0 688 243.0Z" fill="#8FAA64" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-4-leaf-1" data-phase="secondary" d="M688 254.5Q656 243.5 651 226.5Q680 229.5 688 254.5Z" fill="#8FAA64" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-4-leaf-2" data-phase="secondary" d="M688 266.0Q726 255.0 731 238.0Q696 241.0 688 266.0Z" fill="#8FAA64" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-4-leaf-3" data-phase="secondary" d="M688 277.5Q644 266.5 639 249.5Q680 252.5 688 277.5Z" fill="#8FAA64" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-4-pot" data-phase="secondary" d="M668 272h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-4-pot-rim" data-phase="details" d="M666 270h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-5-stem" data-phase="secondary" d="M763 275V204" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-5-succulent-0" data-phase="secondary" d="M763 235Q735 226 737 211Q756 207 763 235Q788 224 790 212Q770 207 763 235Z" fill="#5D9074" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-5-succulent-1" data-phase="secondary" d="M763 253Q738 244 741 229Q756 225 763 253Q786 242 787 230Q770 225 763 253Z" fill="#5D9074" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-5-succulent-2" data-phase="secondary" d="M763 271Q741 262 745 247Q756 243 763 271Q784 260 784 248Q770 243 763 271Z" fill="#5D9074" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-5-pot" data-phase="secondary" d="M743 272h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-5-pot-rim" data-phase="details" d="M741 270h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-6-stem" data-phase="secondary" d="M191 380V321" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-6-succulent-0" data-phase="secondary" d="M191 352Q163 343 165 328Q184 324 191 352Q216 341 218 329Q198 324 191 352Z" fill="#A1B47A" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-6-succulent-1" data-phase="secondary" d="M191 370Q166 361 169 346Q184 342 191 370Q214 359 215 347Q198 342 191 370Z" fill="#A1B47A" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-6-succulent-2" data-phase="secondary" d="M191 388Q169 379 173 364Q184 360 191 388Q212 377 212 365Q198 360 191 388Z" fill="#A1B47A" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-6-pot" data-phase="secondary" d="M171 377h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-6-pot-rim" data-phase="details" d="M169 375h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-7-stem" data-phase="secondary" d="M269 380V304" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-7-leaf-0" data-phase="secondary" d="M269 336.0Q295 325.0 300 308.0Q277 311.0 269 336.0Z" fill="#668E65" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-7-leaf-1" data-phase="secondary" d="M269 350.5Q237 339.5 232 322.5Q261 325.5 269 350.5Z" fill="#668E65" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-7-leaf-2" data-phase="secondary" d="M269 365.0Q307 354.0 312 337.0Q277 340.0 269 365.0Z" fill="#668E65" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-7-leaf-3" data-phase="secondary" d="M269 379.5Q225 368.5 220 351.5Q261 354.5 269 379.5Z" fill="#668E65" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-7-pot" data-phase="secondary" d="M249 377h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-7-pot-rim" data-phase="details" d="M247 375h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-8-stem" data-phase="secondary" d="M346 380V316" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-8-frond-0" data-phase="secondary" d="M346 381Q340.8 363.8 311.1 356.4Q318.1 378.6 346 381Z" fill="#83A566" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-8-frond-1" data-phase="secondary" d="M346 381Q343.1 340.5 326.8 325.4Q330.6 370.8 346 381Z" fill="#83A566" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-8-frond-2" data-phase="secondary" d="M346 381Q346.4 333.6 348.7 316.2Q348.1 368.5 346 381Z" fill="#83A566" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-8-frond-3" data-phase="secondary" d="M346 381Q349.3 343.0 368.1 328.7Q363.7 371.7 346 381Z" fill="#83A566" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-8-frond-4" data-phase="secondary" d="M346 381Q351.4 366.3 381.7 359.8Q374.6 379.4 346 381Z" fill="#83A566" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-8-pot" data-phase="secondary" d="M326 377h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-8-pot-rim" data-phase="details" d="M324 375h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-9-stem" data-phase="secondary" d="M610 380V318" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-9-succulent-0" data-phase="secondary" d="M610 349Q582 340 584 325Q603 321 610 349Q635 338 637 326Q617 321 610 349Z" fill="#86A478" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-9-succulent-1" data-phase="secondary" d="M610 367Q585 358 588 343Q603 339 610 367Q633 356 634 344Q617 339 610 367Z" fill="#86A478" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-9-succulent-2" data-phase="secondary" d="M610 385Q588 376 592 361Q603 357 610 385Q631 374 631 362Q617 357 610 385Z" fill="#86A478" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-9-pot" data-phase="secondary" d="M590 377h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-9-pot-rim" data-phase="details" d="M588 375h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-10-stem" data-phase="secondary" d="M688 380V304" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-10-frond-0" data-phase="secondary" d="M688 381Q681.9 360.0 647.1 351.3Q655.3 377.3 688 381Z" fill="#769A5F" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-10-frond-1" data-phase="secondary" d="M688 381Q684.6 332.7 665.5 315.0Q670.0 368.2 688 381Z" fill="#769A5F" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-10-frond-2" data-phase="secondary" d="M688 381Q688.5 324.6 691.1 304.2Q690.5 365.5 688 381Z" fill="#769A5F" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-10-frond-3" data-phase="secondary" d="M688 381Q691.9 335.6 713.9 318.8Q708.7 369.2 688 381Z" fill="#769A5F" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-10-frond-4" data-phase="secondary" d="M688 381Q694.3 363.0 729.8 355.3Q721.5 378.3 688 381Z" fill="#769A5F" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-10-pot" data-phase="secondary" d="M668 377h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-10-pot-rim" data-phase="details" d="M666 375h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="specimen-11-stem" data-phase="secondary" d="M764 380V313" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="specimen-11-leaf-0" data-phase="secondary" d="M764 345.0Q790 334.0 795 317.0Q772 320.0 764 345.0Z" fill="#4F846B" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-11-leaf-1" data-phase="secondary" d="M764 357.2Q732 346.2 727 329.2Q756 332.2 764 357.2Z" fill="#4F846B" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-11-leaf-2" data-phase="secondary" d="M764 369.5Q802 358.5 807 341.5Q772 344.5 764 369.5Z" fill="#4F846B" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-11-leaf-3" data-phase="secondary" d="M764 381.8Q720 370.8 715 353.8Q756 356.8 764 381.8Z" fill="#4F846B" stroke="#426A49" stroke-width="1.5" />
+<path id="specimen-11-pot" data-phase="secondary" d="M744 377h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="specimen-11-pot-rim" data-phase="details" d="M742 375h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="foreground-0-stem" data-phase="secondary" d="M180 495V409" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="foreground-0-frond-0" data-phase="secondary" d="M180 496Q173.1 471.8 134.1 462.1Q143.3 491.3 180 496Z" fill="#4F8263" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-0-frond-1" data-phase="secondary" d="M180 496Q176.2 441.2 154.7 421.3Q159.8 481.1 180 496Z" fill="#4F8263" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-0-frond-2" data-phase="secondary" d="M180 496Q180.5 432.2 183.5 409.2Q182.8 478.1 180 496Z" fill="#4F8263" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-0-frond-3" data-phase="secondary" d="M180 496Q184.4 444.5 209.0 425.6Q203.2 482.2 180 496Z" fill="#4F8263" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-0-frond-4" data-phase="secondary" d="M180 496Q187.0 475.2 226.9 466.5Q217.5 492.4 180 496Z" fill="#4F8263" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-0-pot" data-phase="secondary" d="M160 492h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="foreground-0-pot-rim" data-phase="details" d="M158 490h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="foreground-1-stem" data-phase="secondary" d="M319 495V394" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="foreground-1-leaf-0" data-phase="secondary" d="M319 426.0Q345 415.0 350 398.0Q327 401.0 319 426.0Z" fill="#65885B" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-1-leaf-1" data-phase="secondary" d="M319 446.8Q287 435.8 282 418.8Q311 421.8 319 446.8Z" fill="#65885B" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-1-leaf-2" data-phase="secondary" d="M319 467.5Q357 456.5 362 439.5Q327 442.5 319 467.5Z" fill="#65885B" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-1-leaf-3" data-phase="secondary" d="M319 488.2Q275 477.2 270 460.2Q311 463.2 319 488.2Z" fill="#65885B" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-1-pot" data-phase="secondary" d="M299 492h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="foreground-1-pot-rim" data-phase="details" d="M297 490h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="foreground-2-stem" data-phase="secondary" d="M643 495V401" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="foreground-2-leaf-0" data-phase="secondary" d="M643 433.0Q669 422.0 674 405.0Q651 408.0 643 433.0Z" fill="#78935B" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-2-leaf-1" data-phase="secondary" d="M643 452.0Q611 441.0 606 424.0Q635 427.0 643 452.0Z" fill="#78935B" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-2-leaf-2" data-phase="secondary" d="M643 471.0Q681 460.0 686 443.0Q651 446.0 643 471.0Z" fill="#78935B" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-2-leaf-3" data-phase="secondary" d="M643 490.0Q599 479.0 594 462.0Q635 465.0 643 490.0Z" fill="#78935B" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-2-pot" data-phase="secondary" d="M623 492h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="foreground-2-pot-rim" data-phase="details" d="M621 490h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="foreground-3-stem" data-phase="secondary" d="M779 495V407" fill="none" stroke="#54764B" stroke-width="2.5" />
+<path id="foreground-3-frond-0" data-phase="secondary" d="M779 496Q772.0 471.2 732.1 461.3Q741.5 491.1 779 496Z" fill="#4C7C64" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-3-frond-1" data-phase="secondary" d="M779 496Q775.1 439.9 753.1 419.6Q758.3 480.6 779 496Z" fill="#4C7C64" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-3-frond-2" data-phase="secondary" d="M779 496Q779.5 430.7 782.6 407.2Q781.9 477.6 779 496Z" fill="#4C7C64" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-3-frond-3" data-phase="secondary" d="M779 496Q783.4 443.2 808.7 424.0Q802.7 481.7 779 496Z" fill="#4C7C64" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-3-frond-4" data-phase="secondary" d="M779 496Q786.2 474.6 826.9 465.8Q817.3 492.2 779 496Z" fill="#4C7C64" stroke="#426A49" stroke-width="1.5" />
+<path id="foreground-3-pot" data-phase="secondary" d="M759 492h40l-6 31h-28Z" fill="#BF805A" stroke="#35594F" stroke-width="1.8" />
+<path id="foreground-3-pot-rim" data-phase="details" d="M757 490h44v8h-44Z" fill="#DDA377" stroke="#35594F" stroke-width="1.5" />
+<path id="irrigation-pipe" data-phase="details" d="M136 425V478H404V534H554V478H816V425" fill="none" stroke="#4C8D97" stroke-width="3" />
+<path id="irrigation-nozzle-0" data-phase="details" d="M230 478v-12h8" fill="none" stroke="#4C8D97" stroke-width="2" />
+<path id="irrigation-nozzle-1" data-phase="details" d="M368 478v-12h8" fill="none" stroke="#4C8D97" stroke-width="2" />
+<path id="irrigation-nozzle-2" data-phase="details" d="M590 478v-12h8" fill="none" stroke="#4C8D97" stroke-width="2" />
+<path id="irrigation-nozzle-3" data-phase="details" d="M735 478v-12h8" fill="none" stroke="#4C8D97" stroke-width="2" />
+<path id="path-steps" data-phase="details" d="M435 534H521L540 548H416Z M416 554H541L558 568H398Z" fill="#E7D4AA" stroke="#35594F" stroke-width="2" />
+<path id="watering-can" data-phase="details" d="M71 490H104V518Q86 529 69 518Z M104 495Q128 481 126 506Q125 517 104 512 M71 497L53 484L49 491L69 513" fill="#D7AE61" stroke="#35594F" stroke-width="2.2" />
+<path id="watering-handle" data-phase="details" d="M76 488Q77 470 96 481L101 489" fill="none" stroke="#35594F" stroke-width="2" />
+<path id="garden-tools" data-phase="details" d="M863 452L849 524M875 456L863 527M858 453L868 455M870 448L880 451L877 459L869 456Z" fill="none" stroke="#9A7652" stroke-width="4" />
+<path id="vent-window" data-phase="details" d="M441 107H513V136H441Z M477 108V135" fill="#F0E7BE" stroke="#35594F" stroke-width="2" />
+<path id="vent-bars" data-phase="details" d="M447 115H508M447 121H508M447 127H508" fill="none" stroke="#8BA193" stroke-width="1.5" />
+</g>
+</svg>

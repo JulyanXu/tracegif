@@ -1,0 +1,90 @@
+{
+  "slug": "greenhouse-study",
+  "title": "Greenhouse Study",
+  "title_zh": "温室生态剖面",
+  "kind": "svg",
+  "method": "Native SVG structural glazing, shelves, individually editable plant silhouettes, foreground specimens and irrigation details.",
+  "limitations": "A fictional greenhouse illustration, not a construction plan, botanical identification guide or engineering simulation.",
+  "duration": 10,
+  "playback_rate": 1.5,
+  "matte": "#F6F3E7",
+  "html_sha256": "f1014ca874d22b4af815d2c2c8804521a7fcd7856e4dffff2bac936b3ab5fb59",
+  "project_zip": "greenhouse-study-project.zip",
+  "project_zip_sha256": "e6b589db0dfb2c4d9c71dd82db85427b04b6ae1a1c46b235bfa811a679140977",
+  "automated_status": "passed",
+  "checks_passed": 15,
+  "view_box": [
+    0.0,
+    0.0,
+    960.0,
+    640.0
+  ],
+  "preview_dimensions": {
+    "width": 480,
+    "height": 320
+  },
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "f1014ca874d22b4af815d2c2c8804521a7fcd7856e4dffff2bac936b3ab5fb59",
+    "notes": [
+      "Curved glazing, structural ribs, four benches, sixteen plants, pots, watering can and irrigation retain the source geometry and green palette. Plants overlap shelves as authored; the glass fill and ground platform are part of the source, with transparent margins outside.",
+      "Reviewed the actual browser source / drawing / final comparison and checkerboard final plus dark middle captures. Dark source strokes have lower contrast on the dark inspection matte; the light showcase matte is recommended. No geometry, original colors or fonts were substituted.",
+      "The 480 × 320 original and final comparison panels are pixel-identical.",
+      "All four corners of the transparent final browser capture have alpha values [0, 0, 0, 0]. No decorative blue strokes were added."
+    ]
+  },
+  "assets": {
+    "animation.html": {
+      "file": "animation.html",
+      "sha256": "f1014ca874d22b4af815d2c2c8804521a7fcd7856e4dffff2bac936b3ab5fb59"
+    },
+    "animation.gif": {
+      "file": "animation.gif",
+      "sha256": "8e59bd95beba424364f0aa02b400c9f1a382fe5a24e211aac7e5f03022b5dcdf"
+    },
+    "final.png": {
+      "file": "final.png",
+      "sha256": "4ae973b53c1a793e1342931b2a4dfa1d3e6c5035f29778d2118d391181a63cfe"
+    },
+    "preview.png": {
+      "file": "preview.png",
+      "sha256": "855fa8fe2c370f5b9b53fa43d73eb0b1bf1b23f72f35153cc9a792367c9f539d"
+    },
+    "report.json": {
+      "file": "report.json",
+      "sha256": "43dcdb0ca1b200d546969c67f7449193e06d7ee7172213fa719586a44cc18cef"
+    },
+    "project.zip": {
+      "file": "project.zip",
+      "sha256": "e6b589db0dfb2c4d9c71dd82db85427b04b6ae1a1c46b235bfa811a679140977"
+    },
+    "source.svg": {
+      "file": "source.svg",
+      "sha256": "f4da55057223eb90ef1d746c2d8723c8d5279afda68164fe1ed5b4581ddbc9bb"
+    }
+  },
+  "input_provenance": {
+    "schema_version": 1,
+    "authored_inputs": {
+      "source": {
+        "file": "source/greenhouse-study.svg",
+        "sha256": "f4da55057223eb90ef1d746c2d8723c8d5279afda68164fe1ed5b4581ddbc9bb"
+      }
+    },
+    "prepared_inputs": {
+      "source": {
+        "file": "assets/source.svg",
+        "sha256": "f4da55057223eb90ef1d746c2d8723c8d5279afda68164fe1ed5b4581ddbc9bb"
+      },
+      "scene": {
+        "file": "scene.svg",
+        "sha256": "de45c6f136d043fe47561bc07a6a540b6182b60341aef09a2e422cec8334153c"
+      }
+    }
+  },
+  "layer_count": 147,
+  "showcase": {
+    "url": "https://julyanxu.github.io/tracegif/?scene=greenhouse-study",
+    "project_download": "project.zip"
+  }
+}

@@ -1,0 +1,79 @@
+name: Live showcase
+
+on:
+  workflow_run:
+    workflows: [Checks]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
+    permissions:
+      contents: read
+      pages: read
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      publish: ${{ steps.current.outputs.publish }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - name: Skip a superseded commit
+        id: current
+        shell: bash
+        run: |
+          REMOTE_MAIN="$(git ls-remote origin refs/heads/main | cut -f1)"
+          CHECKED_COMMIT="$(git rev-parse HEAD)"
+          if [ "$REMOTE_MAIN" = "$CHECKED_COMMIT" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "A newer main commit exists; its own successful checks will publish it."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.current.outputs.publish == 'true'
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: skills/tracegif/requirements.txt
+      - name: Install browser test dependencies
+        if: steps.current.outputs.publish == 'true'
+        run: |
+          python -m pip install -r skills/tracegif/requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Check live player and published artifact integrity
+        if: steps.current.outputs.publish == 'true'
+        run: python -m unittest discover -s tests -p test_site.py -v
+      - name: Configure Pages
+        if: steps.current.outputs.publish == 'true'
+        uses: actions/configure-pages@v5
+      - name: Upload the checked static site
+        if: steps.current.outputs.publish == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+
+  deploy:
+    needs: validate
+    if: needs.validate.outputs.publish == 'true'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Publish interactive showcase
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "night-market",
+    "layers": 169,
+    "checks_passed": 15,
+    "html_sha256": "d9326a708a5c12d443db8c514b0114c51dc737c411738d9d884fdcd712df1f84",
+    "source_final_pixel_equal": true,
+    "transparent_corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gif_frames": 68,
+    "gif_duration_ms": 7470,
+    "project_zip_bytes": 1189161
+  },
+  {
+    "slug": "camera-exploded",
+    "layers": 123,
+    "checks_passed": 15,
+    "html_sha256": "7513dfb0cf3a4cc8431f88d2e7e330df61caa6555f71fb3b22aec4bfbb10b622",
+    "source_final_pixel_equal": true,
+    "transparent_corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gif_frames": 68,
+    "gif_duration_ms": 7470,
+    "project_zip_bytes": 1353974
+  },
+  {
+    "slug": "greenhouse-study",
+    "layers": 147,
+    "checks_passed": 15,
+    "html_sha256": "f1014ca874d22b4af815d2c2c8804521a7fcd7856e4dffff2bac936b3ab5fb59",
+    "source_final_pixel_equal": true,
+    "transparent_corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gif_frames": 67,
+    "gif_duration_ms": 7470,
+    "project_zip_bytes": 1781328
+  }
+]

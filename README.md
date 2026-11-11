@@ -1,42 +1,55 @@
-# TraceGIF
+<div align="center">
 
-**Draw the lines. Make the GIF. Keep the source.**
+# ✍️ TraceGIF
 
-TraceGIF turns images into line-drawing animations, animated GIFs and offline HTML. Your Agent interprets the artwork and makes revisions from conversation; the Skill preserves editable layers, renders native SVG and checks the exported file in a real browser.
+### Draw the lines. Make the GIF. Keep the source.
 
-Previously **TypeBit**. The project is now TraceGIF to make its two main uses clear: traced line animation and GIF creation. Existing projects remain editable; see the [migration notes](docs/migration.md).
+**Image → line animation → offline HTML · GIF · PNG**
 
-[中文文档](README.zh-CN.md) · [Install the skill](#install-the-skill) · [Releases](https://github.com/JulyanXu/tracegif/releases) · [Report a problem](https://github.com/JulyanXu/tracegif/issues)
+### [▶ Open the live playground](https://julyanxu.github.io/tracegif/)
 
-![TraceGIF line-animation demo](docs/media/demo.gif)
+[📦 Install the Skill](#install-the-skill) · [中文文档](README.zh-CN.md) · [GitHub Releases](https://github.com/JulyanXu/tracegif/releases) · [💬 Feedback](https://github.com/JulyanXu/tracegif/issues)
 
-*Recorded example playback. Exported HTML waits for you to press Play; speed and progress are adjustable.*
+</div>
 
-## From an image to a portable animation
+TraceGIF turns images into line-drawing animations and GIFs. Your Agent understands the artwork and your revisions; the Skill keeps editable layers, produces portable files and checks playback in a real browser.
 
-1. Give your Agent an image and ask for a line animation.
-2. Preview the result, adjust playback speed, or scrub to a particular frame. Describe artwork changes in conversation.
-3. Choose a standalone HTML, animated GIF, or PNG frame. Keep the editable project and verification report for later revisions.
+> **Try the real player:** choose a scene, press Play, change speed, scrub the timeline and export HTML, GIF or PNG. The [live homepage](https://julyanxu.github.io/tracegif/) runs the actual exported HTML. GitHub README pages cannot execute JavaScript players, so this repository links directly to the playable experience.
 
-The default sequence draws the main structure, secondary contours, and lettering/details before revealing color. It lasts about 10 seconds and holds the final frame. The subject's exterior stays transparent. Extra decoration is off by default; blue doodles can be added behind the subject when requested.
-
-**No account, separate model installation, or inference API configuration.** TraceGIF uses the vision and image tools already available in your Agent host. It does not include a website, visual editor, or cloud processing service. The player uses native SVG and JavaScript rather than GSAP.
-
-![Source, drawing, and final-frame preview](docs/media/preview.png)
-
-## Seven scenarios, one editable workflow
-
-| Botanical identity | Product storytelling | White-letter preservation |
+| ✍️ Make it draw | 🎞️ Make it a GIF | 🧳 Keep it portable |
 | --- | --- | --- |
-| [![Leaf Studio animation](docs/cases/leaf-studio/animation.gif)](docs/cases/README.md) | [![Coffee Story animation](docs/cases/coffee-story/animation.gif)](docs/cases/README.md) | [![White Letter Badge animation](docs/cases/white-letter-badge/animation.gif)](docs/cases/README.md) |
-| Introduce a botanical mark, branch by branch. | Draw a cup, then its steam and details. | Keep white letterforms inside a transparent PNG badge. |
+| Structure → contours → details → color. | Choose speed, width, frame rate and background. | Standalone HTML, editable source and verification evidence. |
 
-| Architecture | Travel itinerary | Education | Event invitation |
-| --- | --- | --- | --- |
-| [![Courtyard House](docs/cases/courtyard-house/animation.gif)](docs/cases/README.md) | [![City Route](docs/cases/city-route/animation.gif)](docs/cases/README.md) | [![Orbit Lesson](docs/cases/orbit-lesson/animation.gif)](docs/cases/README.md) | [![Celebration Card](docs/cases/celebration-card/animation.gif)](docs/cases/README.md) |
-| Present a facade, from structure to small details. | Introduce route stops and a journey. | Draw an illustrative orbital diagram step by step. | Build a portrait invitation from its frame to its message. |
+## ✨ From an image to a portable animation
 
-These are original, editable demonstration artworks. Each GIF comes from the actual exported player. [Explore the source → drawing → final gallery](docs/cases/README.md), or [download all seven HTML/GIF/PNG examples and editable projects](https://github.com/JulyanXu/tracegif/releases/download/v0.4.0/tracegif-cases-0.4.0.zip). The gallery includes reusable prompts, processing notes, and verification reports.
+1. **Give your Agent an image.** Ask for a line animation and describe what should stay intact.
+2. **Play it, then refine it.** Change speed in the player; request artwork changes in conversation.
+3. **Take the result with you.** Save HTML, a GIF or a PNG frame, and keep the editable project.
+
+The default animation lasts about 10 seconds and holds the final frame. It waits for Play. The subject's exterior stays transparent; extra doodles are off unless requested.
+
+**No new account, separate model installation or inference API key.** TraceGIF uses your Agent host's existing vision and image tools. The GitHub Pages homepage is a public demo; artwork creation and revision happen with your Agent. The player uses native SVG and JavaScript.
+
+## 🎬 Ten scenes. Real controls. Try them yourself.
+
+The new detailed scenes explore dense city illustration, product breakdowns and botanical architecture. Every link below opens an actual interactive player, with source artwork and processing notes available in the [case library](docs/cases/README.md).
+
+| Scene | What to watch | Play |
+| --- | --- | --- |
+| 🌃 **Night Market** | Layered buildings, shopfronts, lanterns and street life. | [▶ Play](https://julyanxu.github.io/tracegif/?scene=night-market) |
+| 📷 **Camera Exploded** | A camera body, separated optics and mechanical details. | [▶ Play](https://julyanxu.github.io/tracegif/?scene=camera-exploded) |
+| 🌿 **Greenhouse Study** | An architectural frame with dense botanical layers. | [▶ Play](https://julyanxu.github.io/tracegif/?scene=greenhouse-study) |
+| 🏡 **Courtyard House** | Facade structure, windows and garden details. | [▶ Play](https://julyanxu.github.io/tracegif/?scene=courtyard-house) |
+| 🗺️ **City Route** | A fictional map, landmarks and connected stops. | [▶ Play](https://julyanxu.github.io/tracegif/?scene=city-route) |
+| 🪐 **Orbit Lesson** | An illustrative orbital lesson, drawn step by step. | [▶ Play](https://julyanxu.github.io/tracegif/?scene=orbit-lesson) |
+| 🎈 **Celebration Card** | A portrait invitation from frame to final message. | [▶ Play](https://julyanxu.github.io/tracegif/?scene=celebration-card) |
+| 🍃 **Leaf Studio** | A botanical identity, branch by branch. | [▶ Play](https://julyanxu.github.io/tracegif/?scene=leaf-studio) |
+| ☕ **Coffee Story** | Cup, steam and small editorial details. | [▶ Play](https://julyanxu.github.io/tracegif/?scene=coffee-story) |
+| 🔤 **White Letter Badge** | White letterforms preserved inside a transparent PNG. | [▶ Play](https://julyanxu.github.io/tracegif/?scene=white-letter-badge) |
+
+All ten scenes use original, MIT-licensed demonstration artwork. Download HTML/GIF/PNG from the live player; the three detailed scenes also include editable project ZIPs in the case library. The [v0.4.0 release bundle](https://github.com/JulyanXu/tracegif/releases/download/v0.4.0/tracegif-cases-0.4.0.zip) contains the earlier seven cases.
+
+Previously **TypeBit**; existing projects remain editable. See the [migration notes](docs/migration.md).
 
 ## What it handles
 
@@ -126,7 +139,7 @@ The displayed time is the animation's timeline position. Playback duration is ti
 
 ## Choose an output format
 
-![Offline player with speed, progress and download controls](docs/media/player-controls.png)
+[▶ Try these controls in the live player](https://julyanxu.github.io/tracegif/)
 
 | Format | Best for | Transparency and playback |
 | --- | --- | --- |

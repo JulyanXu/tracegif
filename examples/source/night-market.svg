@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640">
+<title>Night Market — a layered original city scene</title><desc>Original TraceGIF artwork, MIT licensed. Fictional streetscape with 3 shops, roof details, lanterns, food stalls, visitors and bicycles. No real place, business or font.</desc>
+<g stroke-linecap="round" stroke-linejoin="round">
+<path id="night-sky" data-phase="main" d="M60 86Q60 60 88 60H872Q900 60 900 88V542H60Z" fill="#20374E" stroke="#627D8C" stroke-width="2.5" />
+<path id="street-platform" data-phase="main" d="M38 536H922L896 586H64Z" fill="#BBC7BF" stroke="#283F51" stroke-width="3" />
+<path id="far-roofs" data-phase="main" d="M62 277V207H106V155H155V214H198V179H242V216H290V154H335V199H389V164H436V224H489V191H537V146H586V196H637V155H681V192H721V139H775V204H834V174H899V325Z" fill="#385267" stroke="#577382" stroke-width="1.7" />
+<path id="moon" data-phase="main" d="M770 121a32 32 0 1 0 64 0a32 32 0 1 0 -64 0Z" fill="#F7D695" stroke="#F6E4B7" stroke-width="2" />
+<path id="star-0" data-phase="details" d="M93 103h6m-3 -3v6" fill="none" stroke="#DECCA2" stroke-width="1.5" />
+<path id="star-1" data-phase="details" d="M177 126h6m-3 -3v6" fill="none" stroke="#DECCA2" stroke-width="1.5" />
+<path id="star-2" data-phase="details" d="M261 95h6m-3 -3v6" fill="none" stroke="#DECCA2" stroke-width="1.5" />
+<path id="star-3" data-phase="details" d="M388 112h6m-3 -3v6" fill="none" stroke="#DECCA2" stroke-width="1.5" />
+<path id="star-4" data-phase="details" d="M471 85h6m-3 -3v6" fill="none" stroke="#DECCA2" stroke-width="1.5" />
+<path id="star-5" data-phase="details" d="M577 111h6m-3 -3v6" fill="none" stroke="#DECCA2" stroke-width="1.5" />
+<path id="star-6" data-phase="details" d="M685 94h6m-3 -3v6" fill="none" stroke="#DECCA2" stroke-width="1.5" />
+<path id="star-7" data-phase="details" d="M847 175h6m-3 -3v6" fill="none" stroke="#DECCA2" stroke-width="1.5" />
+<path id="left-building" data-phase="main" d="M94 218h219v291h-219Z" fill="#D4966E" stroke="#283F51" stroke-width="3" />
+<path id="left-roof" data-phase="main" d="M78 220L116 182H282L328 220Z" fill="#986B62" stroke="#283F51" stroke-width="3" />
+<path id="left-cornice" data-phase="main" d="M86 215h234v15h-234Z" fill="#ECC092" stroke="#283F51" stroke-width="2" />
+<path id="middle-building" data-phase="main" d="M329 164h279v345h-279Z" fill="#D8C49B" stroke="#283F51" stroke-width="3" />
+<path id="middle-parapet" data-phase="main" d="M319 165V147H382V135H555V147H620V165Z" fill="#EED5AB" stroke="#283F51" stroke-width="3" />
+<path id="right-building" data-phase="main" d="M624 230h242v279h-242Z" fill="#9CAEA5" stroke="#283F51" stroke-width="3" />
+<path id="right-roof" data-phase="main" d="M609 230L635 209H849L882 230Z" fill="#6C8E8B" stroke="#283F51" stroke-width="3" />
+<path id="upper-window-0" data-phase="secondary" d="M121 254h61v72h-61Z" fill="#F3C67B" stroke="#283F51" stroke-width="2" />
+<path id="window-mullions-0" data-phase="secondary" d="M151.5 254v72M121 290.0h61" fill="none" stroke="#735B51" stroke-width="2.5" />
+<path id="window-shutter-0" data-phase="secondary" d="M113 250v80M190 250v80" fill="none" stroke="#735B51" stroke-width="4" />
+<path id="window-sill-0" data-phase="details" d="M113 332h77" fill="none" stroke="#EDC496" stroke-width="6" />
+<path id="upper-window-1" data-phase="secondary" d="M226 254h61v72h-61Z" fill="#F3C67B" stroke="#283F51" stroke-width="2" />
+<path id="window-mullions-1" data-phase="secondary" d="M256.5 254v72M226 290.0h61" fill="none" stroke="#735B51" stroke-width="2.5" />
+<path id="window-shutter-1" data-phase="secondary" d="M218 250v80M295 250v80" fill="none" stroke="#735B51" stroke-width="4" />
+<path id="window-sill-1" data-phase="details" d="M218 332h77" fill="none" stroke="#EDC496" stroke-width="6" />
+<path id="upper-window-2" data-phase="secondary" d="M357 189h52v75h-52Z" fill="#F3C67B" stroke="#283F51" stroke-width="2" />
+<path id="window-mullions-2" data-phase="secondary" d="M383.0 189v75M357 226.5h52" fill="none" stroke="#735B51" stroke-width="2.5" />
+<path id="window-shutter-2" data-phase="secondary" d="M349 185v83M417 185v83" fill="none" stroke="#735B51" stroke-width="4" />
+<path id="window-sill-2" data-phase="details" d="M349 270h68" fill="none" stroke="#EDC496" stroke-width="6" />
+<path id="upper-window-3" data-phase="secondary" d="M442 189h52v75h-52Z" fill="#F3C67B" stroke="#283F51" stroke-width="2" />
+<path id="window-mullions-3" data-phase="secondary" d="M468.0 189v75M442 226.5h52" fill="none" stroke="#735B51" stroke-width="2.5" />
+<path id="window-shutter-3" data-phase="secondary" d="M434 185v83M502 185v83" fill="none" stroke="#735B51" stroke-width="4" />
+<path id="window-sill-3" data-phase="details" d="M434 270h68" fill="none" stroke="#EDC496" stroke-width="6" />
+<path id="upper-window-4" data-phase="secondary" d="M528 189h52v75h-52Z" fill="#F3C67B" stroke="#283F51" stroke-width="2" />
+<path id="window-mullions-4" data-phase="secondary" d="M554.0 189v75M528 226.5h52" fill="none" stroke="#735B51" stroke-width="2.5" />
+<path id="window-shutter-4" data-phase="secondary" d="M520 185v83M588 185v83" fill="none" stroke="#735B51" stroke-width="4" />
+<path id="window-sill-4" data-phase="details" d="M520 270h68" fill="none" stroke="#EDC496" stroke-width="6" />
+<path id="upper-window-5" data-phase="secondary" d="M652 258h66v71h-66Z" fill="#F3C67B" stroke="#283F51" stroke-width="2" />
+<path id="window-mullions-5" data-phase="secondary" d="M685.0 258v71M652 293.5h66" fill="none" stroke="#735B51" stroke-width="2.5" />
+<path id="window-shutter-5" data-phase="secondary" d="M644 254v79M726 254v79" fill="none" stroke="#735B51" stroke-width="4" />
+<path id="window-sill-5" data-phase="details" d="M644 335h82" fill="none" stroke="#EDC496" stroke-width="6" />
+<path id="upper-window-6" data-phase="secondary" d="M768 258h66v71h-66Z" fill="#F3C67B" stroke="#283F51" stroke-width="2" />
+<path id="window-mullions-6" data-phase="secondary" d="M801.0 258v71M768 293.5h66" fill="none" stroke="#735B51" stroke-width="2.5" />
+<path id="window-shutter-6" data-phase="secondary" d="M760 254v79M842 254v79" fill="none" stroke="#735B51" stroke-width="4" />
+<path id="window-sill-6" data-phase="details" d="M760 335h82" fill="none" stroke="#EDC496" stroke-width="6" />
+<path id="middle-balcony" data-phase="secondary" d="M347 280H593V300H347Z M354 280V269M372 280V269M390 280V269M408 280V269M426 280V269M444 280V269M462 280V269M480 280V269M498 280V269M516 280V269M534 280V269M552 280V269M570 280V269M588 280V269" fill="#9F9B80" stroke="#283F51" stroke-width="2" />
+<path id="left-storefront" data-phase="secondary" d="M115 370h180v136h-180Z" fill="#42595C" stroke="#283F51" stroke-width="2" />
+<path id="middle-storefront" data-phase="secondary" d="M350 365h235v141h-235Z" fill="#48696A" stroke="#283F51" stroke-width="2" />
+<path id="right-storefront" data-phase="secondary" d="M644 372h198v134h-198Z" fill="#36585F" stroke="#283F51" stroke-width="2" />
+<path id="shop-sign-0" data-phase="secondary" d="M121 333h168v26h-168Z" fill="#E7BD70" stroke="#283F51" stroke-width="2" />
+<path id="sign-glyph-0-0" data-phase="details" d="M167.0 341h14M168.0 348h12M174.0 338v17" fill="none" stroke="#6A523F" stroke-width="2.5" />
+<path id="sign-glyph-0-1" data-phase="details" d="M198.0 341h14M199.0 348h12M205.0 338v17" fill="none" stroke="#6A523F" stroke-width="2.5" />
+<path id="sign-glyph-0-2" data-phase="details" d="M229.0 341h14M230.0 348h12M236.0 338v17" fill="none" stroke="#6A523F" stroke-width="2.5" />
+<path id="shop-doors-0" data-phase="secondary" d="M205.0 375v126M128 397h154" fill="none" stroke="#C4BA98" stroke-width="3" />
+<path id="shop-curtains-0" data-phase="secondary" d="M130 380q25 35 34 104M280 380q-25 35 -34 104" fill="none" stroke="#BA956F" stroke-width="2.5" />
+<path id="shop-sign-1" data-phase="secondary" d="M355 333h225v26h-225Z" fill="#B55F54" stroke="#283F51" stroke-width="2" />
+<path id="sign-glyph-1-0" data-phase="details" d="M429.5 341h14M430.5 348h12M436.5 338v17" fill="none" stroke="#FAE4BF" stroke-width="2.5" />
+<path id="sign-glyph-1-1" data-phase="details" d="M460.5 341h14M461.5 348h12M467.5 338v17" fill="none" stroke="#FAE4BF" stroke-width="2.5" />
+<path id="sign-glyph-1-2" data-phase="details" d="M491.5 341h14M492.5 348h12M498.5 338v17" fill="none" stroke="#FAE4BF" stroke-width="2.5" />
+<path id="shop-doors-1" data-phase="secondary" d="M467.5 375v126M362 397h211" fill="none" stroke="#C4BA98" stroke-width="3" />
+<path id="shop-curtains-1" data-phase="secondary" d="M364 380q25 35 34 104M571 380q-25 35 -34 104" fill="none" stroke="#BA956F" stroke-width="2.5" />
+<path id="shop-sign-2" data-phase="secondary" d="M650 333h185v26h-185Z" fill="#E3C998" stroke="#283F51" stroke-width="2" />
+<path id="sign-glyph-2-0" data-phase="details" d="M704.5 341h14M705.5 348h12M711.5 338v17" fill="none" stroke="#4C6966" stroke-width="2.5" />
+<path id="sign-glyph-2-1" data-phase="details" d="M735.5 341h14M736.5 348h12M742.5 338v17" fill="none" stroke="#4C6966" stroke-width="2.5" />
+<path id="sign-glyph-2-2" data-phase="details" d="M766.5 341h14M767.5 348h12M773.5 338v17" fill="none" stroke="#4C6966" stroke-width="2.5" />
+<path id="shop-doors-2" data-phase="secondary" d="M742.5 375v126M657 397h171" fill="none" stroke="#C4BA98" stroke-width="3" />
+<path id="shop-curtains-2" data-phase="secondary" d="M659 380q25 35 34 104M826 380q-25 35 -34 104" fill="none" stroke="#BA956F" stroke-width="2.5" />
+<path id="awning-0" data-phase="secondary" d="M116 359H290L300 389H106Z" fill="#D36F58" stroke="#283F51" stroke-width="2" />
+<path id="awning-stripe-0-0" data-phase="secondary" d="M115.0 360L106.0 389H123.0L131.0 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-0-1" data-phase="secondary" d="M153.8 360L144.8 389H161.8L169.8 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-0-2" data-phase="secondary" d="M192.6 360L183.6 389H200.6L208.6 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-0-3" data-phase="secondary" d="M231.4 360L222.4 389H239.4L247.4 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-0-4" data-phase="secondary" d="M270.2 360L261.2 389H278.2L286.2 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-1" data-phase="secondary" d="M350 359H587L597 389H340Z" fill="#DAA156" stroke="#283F51" stroke-width="2" />
+<path id="awning-stripe-1-0" data-phase="secondary" d="M349.0 360L340.0 389H357.0L365.0 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-1-1" data-phase="secondary" d="M400.4 360L391.4 389H408.4L416.4 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-1-2" data-phase="secondary" d="M451.8 360L442.8 389H459.8L467.8 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-1-3" data-phase="secondary" d="M503.2 360L494.2 389H511.2L519.2 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-1-4" data-phase="secondary" d="M554.6 360L545.6 389H562.6L570.6 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-2" data-phase="secondary" d="M646 359H844L854 389H636Z" fill="#568C87" stroke="#283F51" stroke-width="2" />
+<path id="awning-stripe-2-0" data-phase="secondary" d="M645.0 360L636.0 389H653.0L661.0 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-2-1" data-phase="secondary" d="M688.6 360L679.6 389H696.6L704.6 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-2-2" data-phase="secondary" d="M732.2 360L723.2 389H740.2L748.2 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-2-3" data-phase="secondary" d="M775.8 360L766.8 389H783.8L791.8 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="awning-stripe-2-4" data-phase="secondary" d="M819.4 360L810.4 389H827.4L835.4 360Z" fill="#F3D8AC" stroke="#F3D8AC" stroke-width="0.5" />
+<path id="lantern-cable" data-phase="secondary" d="M68 240Q480 355 891 237" fill="none" stroke="#DFB77E" stroke-width="2" />
+<path id="lantern-hanger-0" data-phase="secondary" d="M106 251.0v13" fill="none" stroke="#EAC28A" stroke-width="1.7" />
+<path id="lantern-0" data-phase="secondary" d="M94 276.0a12 16 0 1 0 24 0a12 16 0 1 0 -24 0Z" fill="#E48957" stroke="#FCC17A" stroke-width="1.8" />
+<path id="lantern-ribs-0" data-phase="details" d="M106 261.0v30M98 265.0q-6 10 0 22M114 265.0q6 10 0 22" fill="none" stroke="#F9C77B" stroke-width="1" />
+<path id="lantern-hanger-1" data-phase="secondary" d="M188 266.0v13" fill="none" stroke="#EAC28A" stroke-width="1.7" />
+<path id="lantern-1" data-phase="secondary" d="M176 291.04888630632945a12 16 0 1 0 24 0a12 16 0 1 0 -24 0Z" fill="#E48957" stroke="#FCC17A" stroke-width="1.8" />
+<path id="lantern-ribs-1" data-phase="details" d="M188 276.0v30M180 280.0q-6 10 0 22M196 280.0q6 10 0 22" fill="none" stroke="#F9C77B" stroke-width="1" />
+<path id="lantern-hanger-2" data-phase="secondary" d="M270 279.3v13" fill="none" stroke="#EAC28A" stroke-width="1.7" />
+<path id="lantern-2" data-phase="secondary" d="M258 304.2826548262077a12 16 0 1 0 24 0a12 16 0 1 0 -24 0Z" fill="#E48957" stroke="#FCC17A" stroke-width="1.8" />
+<path id="lantern-ribs-2" data-phase="details" d="M270 289.3v30M262 293.3q-6 10 0 22M278 293.3q6 10 0 22" fill="none" stroke="#F9C77B" stroke-width="1" />
+<path id="lantern-hanger-3" data-phase="secondary" d="M352 289.1v13" fill="none" stroke="#EAC28A" stroke-width="1.7" />
+<path id="lantern-3" data-phase="secondary" d="M340 314.1051177665153a12 16 0 1 0 24 0a12 16 0 1 0 -24 0Z" fill="#E48957" stroke="#FCC17A" stroke-width="1.8" />
+<path id="lantern-ribs-3" data-phase="details" d="M352 299.1v30M344 303.1q-6 10 0 22M360 303.1q6 10 0 22" fill="none" stroke="#F9C77B" stroke-width="1" />
+<path id="lantern-hanger-4" data-phase="secondary" d="M434 294.3v13" fill="none" stroke="#EAC28A" stroke-width="1.7" />
+<path id="lantern-4" data-phase="secondary" d="M422 319.33154113253715a12 16 0 1 0 24 0a12 16 0 1 0 -24 0Z" fill="#E48957" stroke="#FCC17A" stroke-width="1.8" />
+<path id="lantern-ribs-4" data-phase="details" d="M434 304.3v30M426 308.3q-6 10 0 22M442 308.3q6 10 0 22" fill="none" stroke="#F9C77B" stroke-width="1" />
+<path id="lantern-hanger-5" data-phase="secondary" d="M516 294.3v13" fill="none" stroke="#EAC28A" stroke-width="1.7" />
+<path id="lantern-5" data-phase="secondary" d="M504 319.33154113253715a12 16 0 1 0 24 0a12 16 0 1 0 -24 0Z" fill="#E48957" stroke="#FCC17A" stroke-width="1.8" />
+<path id="lantern-ribs-5" data-phase="details" d="M516 304.3v30M508 308.3q-6 10 0 22M524 308.3q6 10 0 22" fill="none" stroke="#F9C77B" stroke-width="1" />
+<path id="lantern-hanger-6" data-phase="secondary" d="M598 289.1v13" fill="none" stroke="#EAC28A" stroke-width="1.7" />
+<path id="lantern-6" data-phase="secondary" d="M586 314.1051177665153a12 16 0 1 0 24 0a12 16 0 1 0 -24 0Z" fill="#E48957" stroke="#FCC17A" stroke-width="1.8" />
+<path id="lantern-ribs-6" data-phase="details" d="M598 299.1v30M590 303.1q-6 10 0 22M606 303.1q6 10 0 22" fill="none" stroke="#F9C77B" stroke-width="1" />
+<path id="lantern-hanger-7" data-phase="secondary" d="M680 279.3v13" fill="none" stroke="#EAC28A" stroke-width="1.7" />
+<path id="lantern-7" data-phase="secondary" d="M668 304.28265482620776a12 16 0 1 0 24 0a12 16 0 1 0 -24 0Z" fill="#E48957" stroke="#FCC17A" stroke-width="1.8" />
+<path id="lantern-ribs-7" data-phase="details" d="M680 289.3v30M672 293.3q-6 10 0 22M688 293.3q6 10 0 22" fill="none" stroke="#F9C77B" stroke-width="1" />
+<path id="lantern-hanger-8" data-phase="secondary" d="M762 266.0v13" fill="none" stroke="#EAC28A" stroke-width="1.7" />
+<path id="lantern-8" data-phase="secondary" d="M750 291.04888630632945a12 16 0 1 0 24 0a12 16 0 1 0 -24 0Z" fill="#E48957" stroke="#FCC17A" stroke-width="1.8" />
+<path id="lantern-ribs-8" data-phase="details" d="M762 276.0v30M754 280.0q-6 10 0 22M770 280.0q6 10 0 22" fill="none" stroke="#F9C77B" stroke-width="1" />
+<path id="lantern-hanger-9" data-phase="secondary" d="M844 251.0v13" fill="none" stroke="#EAC28A" stroke-width="1.7" />
+<path id="lantern-9" data-phase="secondary" d="M832 276.0a12 16 0 1 0 24 0a12 16 0 1 0 -24 0Z" fill="#E48957" stroke="#FCC17A" stroke-width="1.8" />
+<path id="lantern-ribs-9" data-phase="details" d="M844 261.0v30M836 265.0q-6 10 0 22M852 265.0q6 10 0 22" fill="none" stroke="#F9C77B" stroke-width="1" />
+<path id="stall-canopy-0" data-phase="secondary" d="M157 431Q234.5 403 312 431L307 443H161Z" fill="#D68254" stroke="#283F51" stroke-width="2" />
+<path id="stall-posts-0" data-phase="secondary" d="M172 437v89M297 437v89" fill="none" stroke="#D8B38A" stroke-width="5" />
+<path id="stall-counter-0" data-phase="secondary" d="M165 478h139v48h-139Z" fill="#D68254" stroke="#283F51" stroke-width="2" />
+<path id="stall-counter-rim-0" data-phase="secondary" d="M160 473h149v9h-149Z" fill="#E9C69D" stroke="#283F51" stroke-width="2" />
+<path id="food-bowl-0-0" data-phase="details" d="M178 464H204Q202 475 191 475Q180 475 178 464Z" fill="#E4DBBD" stroke="#283F51" stroke-width="2" />
+<path id="food-steam-0-0" data-phase="details" d="M191 458q-5 -5 0 -10q5 -5 0 -10" fill="none" stroke="#ECD4AD" stroke-width="1.5" />
+<path id="food-bowl-0-1" data-phase="details" d="M218 464H244Q242 475 231 475Q220 475 218 464Z" fill="#E4DBBD" stroke="#283F51" stroke-width="2" />
+<path id="food-steam-0-1" data-phase="details" d="M231 458q-5 -5 0 -10q5 -5 0 -10" fill="none" stroke="#ECD4AD" stroke-width="1.5" />
+<path id="food-bowl-0-2" data-phase="details" d="M258 464H284Q282 475 271 475Q260 475 258 464Z" fill="#E4DBBD" stroke="#283F51" stroke-width="2" />
+<path id="food-steam-0-2" data-phase="details" d="M271 458q-5 -5 0 -10q5 -5 0 -10" fill="none" stroke="#ECD4AD" stroke-width="1.5" />
+<path id="stall-canopy-1" data-phase="secondary" d="M400 431Q474.0 403 548 431L543 443H404Z" fill="#B78C61" stroke="#283F51" stroke-width="2" />
+<path id="stall-posts-1" data-phase="secondary" d="M415 437v89M533 437v89" fill="none" stroke="#D8B38A" stroke-width="5" />
+<path id="stall-counter-1" data-phase="secondary" d="M408 478h132v48h-132Z" fill="#B78C61" stroke="#283F51" stroke-width="2" />
+<path id="stall-counter-rim-1" data-phase="secondary" d="M403 473h142v9h-142Z" fill="#E9C69D" stroke="#283F51" stroke-width="2" />
+<path id="food-bowl-1-0" data-phase="details" d="M421 464H447Q445 475 434 475Q423 475 421 464Z" fill="#E4DBBD" stroke="#283F51" stroke-width="2" />
+<path id="food-steam-1-0" data-phase="details" d="M434 458q-5 -5 0 -10q5 -5 0 -10" fill="none" stroke="#ECD4AD" stroke-width="1.5" />
+<path id="food-bowl-1-1" data-phase="details" d="M461 464H487Q485 475 474 475Q463 475 461 464Z" fill="#E4DBBD" stroke="#283F51" stroke-width="2" />
+<path id="food-steam-1-1" data-phase="details" d="M474 458q-5 -5 0 -10q5 -5 0 -10" fill="none" stroke="#ECD4AD" stroke-width="1.5" />
+<path id="food-bowl-1-2" data-phase="details" d="M501 464H527Q525 475 514 475Q503 475 501 464Z" fill="#E4DBBD" stroke="#283F51" stroke-width="2" />
+<path id="food-steam-1-2" data-phase="details" d="M514 458q-5 -5 0 -10q5 -5 0 -10" fill="none" stroke="#ECD4AD" stroke-width="1.5" />
+<path id="stall-canopy-2" data-phase="secondary" d="M635 431Q709.5 403 784 431L779 443H639Z" fill="#B96458" stroke="#283F51" stroke-width="2" />
+<path id="stall-posts-2" data-phase="secondary" d="M650 437v89M769 437v89" fill="none" stroke="#D8B38A" stroke-width="5" />
+<path id="stall-counter-2" data-phase="secondary" d="M643 478h133v48h-133Z" fill="#B96458" stroke="#283F51" stroke-width="2" />
+<path id="stall-counter-rim-2" data-phase="secondary" d="M638 473h143v9h-143Z" fill="#E9C69D" stroke="#283F51" stroke-width="2" />
+<path id="food-bowl-2-0" data-phase="details" d="M656 464H682Q680 475 669 475Q658 475 656 464Z" fill="#E4DBBD" stroke="#283F51" stroke-width="2" />
+<path id="food-steam-2-0" data-phase="details" d="M669 458q-5 -5 0 -10q5 -5 0 -10" fill="none" stroke="#ECD4AD" stroke-width="1.5" />
+<path id="food-bowl-2-1" data-phase="details" d="M696 464H722Q720 475 709 475Q698 475 696 464Z" fill="#E4DBBD" stroke="#283F51" stroke-width="2" />
+<path id="food-steam-2-1" data-phase="details" d="M709 458q-5 -5 0 -10q5 -5 0 -10" fill="none" stroke="#ECD4AD" stroke-width="1.5" />
+<path id="food-bowl-2-2" data-phase="details" d="M736 464H762Q760 475 749 475Q738 475 736 464Z" fill="#E4DBBD" stroke="#283F51" stroke-width="2" />
+<path id="food-steam-2-2" data-phase="details" d="M749 458q-5 -5 0 -10q5 -5 0 -10" fill="none" stroke="#ECD4AD" stroke-width="1.5" />
+<path id="visitor-head-0" data-phase="details" d="M88 472a9 10 0 1 0 18 0a9 10 0 1 0 -18 0Z" fill="#DCAD7F" stroke="#283F51" stroke-width="2" />
+<path id="visitor-coat-0" data-phase="details" d="M85 486Q97 479 109 486L112 517H82Z" fill="#CDA76C" stroke="#283F51" stroke-width="2" />
+<path id="visitor-legs-0" data-phase="details" d="M91 517v20M104 517l4 20" fill="none" stroke="#283F51" stroke-width="4" />
+<path id="visitor-head-1" data-phase="details" d="M329 465a9 10 0 1 0 18 0a9 10 0 1 0 -18 0Z" fill="#DCAD7F" stroke="#283F51" stroke-width="2" />
+<path id="visitor-coat-1" data-phase="details" d="M326 479Q338 472 350 479L353 510H323Z" fill="#758D9C" stroke="#283F51" stroke-width="2" />
+<path id="visitor-legs-1" data-phase="details" d="M332 510v20M345 510l4 20" fill="none" stroke="#283F51" stroke-width="4" />
+<path id="visitor-head-2" data-phase="details" d="M568 474a9 10 0 1 0 18 0a9 10 0 1 0 -18 0Z" fill="#DCAD7F" stroke="#283F51" stroke-width="2" />
+<path id="visitor-coat-2" data-phase="details" d="M565 488Q577 481 589 488L592 519H562Z" fill="#B85D4B" stroke="#283F51" stroke-width="2" />
+<path id="visitor-legs-2" data-phase="details" d="M571 519v20M584 519l4 20" fill="none" stroke="#283F51" stroke-width="4" />
+<path id="visitor-head-3" data-phase="details" d="M812 464a9 10 0 1 0 18 0a9 10 0 1 0 -18 0Z" fill="#DCAD7F" stroke="#283F51" stroke-width="2" />
+<path id="visitor-coat-3" data-phase="details" d="M809 478Q821 471 833 478L836 509H806Z" fill="#E0BB78" stroke="#283F51" stroke-width="2" />
+<path id="visitor-legs-3" data-phase="details" d="M815 509v20M828 509l4 20" fill="none" stroke="#283F51" stroke-width="4" />
+<path id="bicycle-wheel-a" data-phase="details" d="M344 548a18 18 0 1 0 36 0a18 18 0 1 0 -36 0Z" fill="none" stroke="#283F51" stroke-width="2.3" />
+<path id="bicycle-wheel-b" data-phase="details" d="M402 548a18 18 0 1 0 36 0a18 18 0 1 0 -36 0Z" fill="none" stroke="#283F51" stroke-width="2.3" />
+<path id="bicycle-frame" data-phase="details" d="M362 548L382 520L400 548H362L385 531H410L420 548M382 520H393M410 531L406 514H418" fill="none" stroke="#566B67" stroke-width="2.8" />
+<path id="paving-0" data-phase="details" d="M90 556h50m-38 7h35" fill="none" stroke="#7F938C" stroke-width="1.5" />
+<path id="paving-1" data-phase="details" d="M217 568h50m-38 7h35" fill="none" stroke="#7F938C" stroke-width="1.5" />
+<path id="paving-2" data-phase="details" d="M456 553h50m-38 7h35" fill="none" stroke="#7F938C" stroke-width="1.5" />
+<path id="paving-3" data-phase="details" d="M554 568h50m-38 7h35" fill="none" stroke="#7F938C" stroke-width="1.5" />
+<path id="paving-4" data-phase="details" d="M713 550h50m-38 7h35" fill="none" stroke="#7F938C" stroke-width="1.5" />
+<path id="paving-5" data-phase="details" d="M839 560h50m-38 7h35" fill="none" stroke="#7F938C" stroke-width="1.5" />
+</g>
+</svg>

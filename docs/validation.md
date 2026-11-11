@@ -1,5 +1,22 @@
 # Validation snapshots
 
+## Live showcase — 2026-11-11
+
+The live homepage uses the actual standalone player in an iframe. **109 local tests passed** on Windows, including eight new site and artifact-integrity checks. The browser scenarios cover playback, pause, speed, scrubbing, English/Chinese scene links, mobile controls, real PNG/GIF downloads, downloadable HTML reopened offline, and recovery when the gallery or a scene fails to load.
+
+The embedded layout reserves room for the native toolbar so it does not obscure the artwork. This layout stays on the homepage; the downloaded HTML is captured from the player's original document and remains self-contained. A real download test checks that separation.
+
+The three new scenes — Night Market (169 paths), Camera Exploded (123), and Greenhouse Study (147) — each passed 15 offline checks. Source and final comparison panels match pixel for pixel at 480 × 320. Their visual reviews and editable ZIPs are bound to the current HTML and asset checksums. The earlier seven case files remain unchanged.
+
+- [Homepage browser report and source hashes](validation/live-showcase.json)
+- [Complex-scene visual and GIF measurements](validation/complex-scenes.json)
+- [Actual interactive homepage](https://julyanxu.github.io/tracegif/)
+- [Deployment and maintenance](showcase.md)
+
+The **Live showcase** workflow waits for repository checks on Windows, macOS and Linux before automatic publication, checks the exact passed commit again, and skips superseded commits. Local evidence identifies what was tested here; workflow results record the hosted checks separately.
+
+中文：本机通过 109 项测试，包含 8 项首页与资源一致性检查。宣传页使用真实播放器，支持中英文、场景直达、倍速与实际格式下载；已修复工具栏遮挡画面，并验证下载的 HTML 可以独立离线播放。三个复杂案例各通过 15 项离线检查，原稿与终帧一致，可编辑 ZIP 与报告均绑定具体文件校验值。自动发布等待跨平台检查通过。
+
 ## v0.4.0 — 2026-11-11
 
 The renamed TraceGIF runtime passed **101 local automated tests** in Windows, Python 3.12.3, Playwright 1.58.0 and Chromium 145.0.7632.6. These include real browser GIF downloads at selected sizes, frame rates and matte colors; exact white/black/matte retention; settings persistence in saved HTML; short-screen controls; and new/legacy command portability.
