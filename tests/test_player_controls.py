@@ -13,7 +13,7 @@ from pathlib import Path
 from PIL import Image, ImageChops
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "skills/typebit-line-animation/scripts"))
+sys.path.insert(0, str(ROOT / "skills/tracegif/scripts"))
 from typebitlib.core import prepare_project, render_project
 from typebitlib.verify import external_resources
 
@@ -185,15 +185,39 @@ class PlayerControlsTests(unittest.TestCase):
                 self.assertGreaterEqual(bounds["x"], 0)
                 self.assertLessEqual(bounds["x"] + bounds["width"], width)
                 for identity in ("typebit-control", "typebit-replay", "typebit-speed", "typebit-progress",
-                                 "typebit-time", "typebit-download-html", "typebit-download-png"):
+                                 "typebit-time", "typebit-download-html", "typebit-download-png", "typebit-download-gif"):
                     box = self.page.locator(f"#{identity}").bounding_box()
                     self.assertGreaterEqual(box["x"], bounds["x"])
                     self.assertLessEqual(box["x"] + box["width"], bounds["x"] + bounds["width"])
-                self.assertTrue(self.page.locator("#typebit-controls label").evaluate("e => e.scrollWidth <= e.clientWidth + 1"))
+                self.assertTrue(self.page.locator("#typebit-controls > label").evaluate("e => e.scrollWidth <= e.clientWidth + 1"))
         self.page.evaluate("typebit.setControlsVisible(false)")
         self.assertFalse(self.page.locator("#typebit-controls").is_visible())
         self.page.evaluate("typebit.setControlsVisible(true)")
         self.assertTrue(self.page.locator("#typebit-controls").is_visible())
+
+    def test_gif_settings_and_status_fit_narrow_and_short_viewports(self):
+        self.page.evaluate("typebit.seek(4)")
+        summary = self.page.locator("#typebit-gif-options summary")
+        summary.focus()
+        self.page.keyboard.press("Space")
+        self.assertTrue(self.page.locator("#typebit-gif-options").evaluate("element => element.open"))
+        self.assertEqual(self.page.evaluate("typebit.getState().status"), "paused")
+        self.assertEqual(self.page.evaluate("typebit.getState().time"), 4)
+        self.page.locator("#typebit-gif-options").evaluate("element => element.open = true")
+        self.page.locator("#typebit-export-status").evaluate("element => element.textContent = 'GIF exceeds 600 frames or 100 million frame pixels. Reduce width or frames per second, or increase playback speed.'")
+        for width, height in ((320, 700), (450, 700), (600, 700), (790, 700), (960, 700), (320, 180), (790, 240)):
+            with self.subTest(width=width, height=height):
+                self.page.set_viewport_size({"width": width, "height": height})
+                bounds = self.page.locator("#typebit-controls").bounding_box()
+                self.assertGreaterEqual(bounds["y"], 7)
+                self.assertLessEqual(bounds["y"] + bounds["height"], height)
+                self.assertTrue(self.page.locator("#typebit-controls").evaluate("element => element.scrollWidth <= element.clientWidth + 1"))
+                for identity in ("typebit-gif-width", "typebit-gif-fps", "typebit-gif-background", "typebit-gif-estimate"):
+                    box = self.page.locator(f"#{identity}").bounding_box()
+                    self.assertGreaterEqual(box["x"], bounds["x"])
+                    self.assertLessEqual(box["x"] + box["width"], bounds["x"] + bounds["width"])
+                if height < 300:
+                    self.assertTrue(self.page.locator("#typebit-controls").evaluate("element => element.scrollHeight > element.clientHeight"))
 
 
 if __name__ == "__main__":

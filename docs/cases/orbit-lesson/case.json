@@ -1,0 +1,77 @@
+{
+  "slug": "orbit-lesson",
+  "title": "Orbit Lesson",
+  "title_zh": "轨道课堂示意",
+  "kind": "svg",
+  "method": "Native SVG schematic: orbital paths and central star, then stylized planets, arrows and hand-authored path labels.",
+  "limitations": "Illustrative only and visibly labeled NOT TO SCALE. Planet sizes, distances and positions are invented; this is not a physical simulation or astronomical ephemeris.",
+  "duration": 6,
+  "playback_rate": 1.5,
+  "matte": "#F6F7FB",
+  "html_sha256": "0de7df08d25b7d51bd4f5e84c1b1402cc364dfa552da193bc573109457d3476b",
+  "project_zip": "orbit-lesson-project.zip",
+  "project_zip_sha256": "4ffc45767780ae49590d05830d6ce813dc9f9f3e43d9fbe9712c4dd26ff6eba6",
+  "automated_status": "passed",
+  "checks_passed": 15,
+  "view_box": [
+    0.0,
+    0.0,
+    840.0,
+    520.0
+  ],
+  "preview_dimensions": {
+    "width": 480,
+    "height": 297
+  },
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "0de7df08d25b7d51bd4f5e84c1b1402cc364dfa552da193bc573109457d3476b",
+    "notes": [
+      "Orbital guides, stylized planets, rings, direction arrows and native-path labels match the original schematic. The NOT TO SCALE caption remains visible. Preview edge differences at 480x297 are below 0.13/255 mean absolute channel error. The illustration is not a physical simulation or astronomical ephemeris.",
+      "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+      "Inspected decoded GIF opening, drawing and final frames: 480x297, 41 stored frames, 4800 ms including final hold. The declared #F6F7FB GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+      "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
+    ]
+  },
+  "assets": {
+    "animation.html": {
+      "file": "animation.html",
+      "sha256": "0de7df08d25b7d51bd4f5e84c1b1402cc364dfa552da193bc573109457d3476b"
+    },
+    "animation.gif": {
+      "file": "animation.gif",
+      "sha256": "6117c6371ac0304709ec38346cde1aa222b0f6cfd6acdeb2d16ffa2122efc377"
+    },
+    "final.png": {
+      "file": "final.png",
+      "sha256": "70d80339091308e8603468d559e88ab714a75c0a58edb9bf6945e56bbe9a6015"
+    },
+    "preview.png": {
+      "file": "preview.png",
+      "sha256": "4c75fa7d5148d36f6f4a00142476a605d2422b63dd3f475054e40c599e0314f7"
+    },
+    "report.json": {
+      "file": "report.json",
+      "sha256": "bbb3cc254aa6da84415b99b290e1e6d4299300e4d9a7f3c752e8bc42f05eac0c"
+    }
+  },
+  "input_provenance": {
+    "schema_version": 1,
+    "authored_inputs": {
+      "source": {
+        "file": "source/orbit-lesson.svg",
+        "sha256": "3371021cbc60838821ab2590116fc7fe460e52a35013a7a87300a3caaa61cf1c"
+      }
+    },
+    "prepared_inputs": {
+      "source": {
+        "file": "assets/source.svg",
+        "sha256": "3371021cbc60838821ab2590116fc7fe460e52a35013a7a87300a3caaa61cf1c"
+      },
+      "scene": {
+        "file": "scene.svg",
+        "sha256": "2f73b2696bc8a6c3d529c4c8a1a93b08fb76f858e10ab6fcd7069584eea30ba4"
+      }
+    }
+  }
+}

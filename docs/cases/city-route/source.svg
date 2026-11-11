@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="560" viewBox="0 0 720 560">
+  <title>City Route — an original fictional itinerary map</title>
+  <desc>Original TraceGIF demonstration artwork, MIT licensed. A fictional day-trip route, not navigation or geographic data. Native paths, no fonts.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path id="map-land" data-phase="main" d="M88 100 L275 72 L457 107 L624 78 L652 455 L471 486 L279 451 L93 482Z" fill="#F0E8D1" stroke="#60786D" stroke-width="2.8"/>
+    <path id="fold-guides" data-phase="main" d="M275 72 L279 451 M457 107 L471 486" fill="none" stroke="#D4CCB4" stroke-width="2"/>
+    <path id="river" data-phase="main" d="M528 95 C476 171 554 216 520 286 C492 347 534 382 504 480 L570 469 C601 385 559 350 588 291 C621 221 547 178 591 84Z" fill="#86B8BC" stroke="#5A999E" stroke-width="2.5"/>
+    <path id="avenue-east-west" data-phase="main" d="M97 282 L239 263 L382 288 L521 264 M125 407 L273 384 L458 405" fill="none" stroke="#D0BCA0" stroke-width="17"/>
+    <path id="avenue-north-south" data-phase="main" d="M181 91 L194 212 L205 468 M379 93 L386 234 L400 472" fill="none" stroke="#D0BCA0" stroke-width="13"/>
+    <path id="park" data-phase="secondary" d="M211 143 L316 133 L323 231 L219 243Z" fill="#A4BA8D" stroke="#77946B" stroke-width="2.3"/>
+    <path id="park-path" data-phase="secondary" d="M229 217 C282 210 245 157 303 153" fill="none" stroke="#EDE5C7" stroke-width="7"/>
+    <path id="residential-blocks" data-phase="secondary" d="M111 130 L155 123 L161 181 L117 187Z M119 207 L164 201 L168 247 L123 252Z M230 313 L285 319 L285 353 L234 345Z M312 324 L356 331 L356 368 L312 359Z" fill="#DDBB98" stroke="#B89070" stroke-width="2"/>
+    <path id="museum-body" data-phase="secondary" d="M329 164 H445 V223 H329Z" fill="#EFE0BE" stroke="#57736D" stroke-width="2.6"/>
+    <path id="museum-roof" data-phase="secondary" d="M320 164 L387 126 L454 164Z" fill="#CA8A6A" stroke="#57736D" stroke-width="2.8"/>
+    <path id="museum-columns" data-phase="secondary" d="M343 178 V212 M365 178 V212 M387 178 V212 M409 178 V212 M431 178 V212 M322 226 H452" fill="none" stroke="#57736D" stroke-width="4"/>
+    <path id="station" data-phase="secondary" d="M118 345 H173 V393 H118Z M111 345 L145 320 L180 345Z" fill="#C88D6A" stroke="#5C7069" stroke-width="2.5"/>
+    <path id="station-windows" data-phase="details" d="M129 356 H141 V370 H129Z M150 356 H162 V370 H150Z M139 393 V379 H154 V393" fill="#F5EACC" stroke="#5C7069" stroke-width="2"/>
+    <path id="bridge" data-phase="secondary" d="M509 358 L591 346 L595 367 L514 380Z M511 351 L589 339 M516 387 L598 374" fill="#EBD8AD" stroke="#7F8975" stroke-width="3"/>
+    <path id="waterfront-pier" data-phase="secondary" d="M594 397 L629 393 L632 425 L598 430Z M604 396 L608 427 M617 394 L621 426" fill="#CCA57A" stroke="#697C70" stroke-width="2.5"/>
+    <path id="walking-route" data-phase="secondary" d="M149 413 C173 413 184 396 191 370 L197 285 C201 263 232 270 248 248 L261 224 C274 204 307 240 338 244 L378 250 C422 255 432 289 433 325 C435 361 468 376 505 370 L567 361 C591 357 601 377 612 393" fill="none" stroke="#B65342" stroke-width="5.5"/>
+    <path id="stop-one" data-phase="details" d="M162 413 A13 13 0 1 1 136 413 A13 13 0 1 1 162 413Z M147 406 L151 403 V422" fill="#FFF8E6" stroke="#B65342" stroke-width="2.5"/>
+    <path id="stop-two" data-phase="details" d="M274 222 A13 13 0 1 1 248 222 A13 13 0 1 1 274 222Z M256 217 C256 211 266 211 266 217 L256 229 H267" fill="#FFF8E6" stroke="#B65342" stroke-width="2.3"/>
+    <path id="stop-three" data-phase="details" d="M391 250 A13 13 0 1 1 365 250 A13 13 0 1 1 391 250Z M373 243 C382 239 386 247 378 250 C387 252 383 260 373 257" fill="#FFF8E6" stroke="#B65342" stroke-width="2.3"/>
+    <path id="stop-four" data-phase="details" d="M625 397 A13 13 0 1 1 599 397 A13 13 0 1 1 625 397Z M613 389 L606 399 H618 M615 389 V406" fill="#FFF8E6" stroke="#B65342" stroke-width="2.3"/>
+    <path id="park-trees" data-phase="details" d="M241 163 L229 183 H253Z M239 199 V210 M302 181 L290 201 H314Z M302 201 V212" fill="#537F66" stroke="#537F66" stroke-width="2"/>
+    <path id="river-ripples" data-phase="details" d="M543 155 L559 152 M558 224 L577 221 M546 303 L566 300 M544 435 L563 432" fill="none" stroke="#D8EFEB" stroke-width="3"/>
+    <path id="route-arrows" data-phase="details" d="M192 326 L197 318 L202 326 M432 303 L437 311 L442 303 M469 365 L478 371 L469 377" fill="none" stroke="#B65342" stroke-width="2.5"/>
+    <path id="compass" data-phase="details" d="M607 137 L616 158 L607 151 L598 158Z M607 151 V177 M588 159 H626" fill="#C78B57" stroke="#536D65" stroke-width="2"/>
+    <path id="compass-n" data-phase="details" d="M601 127 V112 L614 127 V112" fill="none" stroke="#536D65" stroke-width="2.2"/>
+  </g>
+</svg>

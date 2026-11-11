@@ -37,7 +37,7 @@ jobs:
         run: |
           NOTES="docs/releases/${RELEASE_TAG}.md"
           if [ -f "$NOTES" ]; then
-            gh release create "$RELEASE_TAG" dist/* --verify-tag --notes-file "$NOTES" --title "TypeBit $RELEASE_TAG"
+            gh release create "$RELEASE_TAG" dist/* --verify-tag --notes-file "$NOTES" --title "TraceGIF $RELEASE_TAG"
           else
-            gh release create "$RELEASE_TAG" dist/* --verify-tag --generate-notes --title "TypeBit $RELEASE_TAG"
+            gh release create "$RELEASE_TAG" dist/* --verify-tag --generate-notes --title "TraceGIF $RELEASE_TAG"
           fi

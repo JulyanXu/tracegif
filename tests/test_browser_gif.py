@@ -12,7 +12,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "skills/typebit-line-animation/scripts"))
+sys.path.insert(0, str(ROOT / "skills/tracegif/scripts"))
 from typebitlib.core import configure_project, prepare_project, render_project
 from typebitlib.verify import external_resources
 
@@ -117,6 +117,59 @@ class BrowserGifTests(unittest.TestCase):
                 self.assertEqual(self.page.evaluate("typebit.getState()"), before)
                 self.assert_project_unchanged()
 
+    def test_custom_gif_settings_change_real_pixels_dimensions_and_frame_timing(self):
+        self.page.locator("#typebit-gif-options").evaluate("element => element.open = true")
+        self.page.select_option("#typebit-gif-width", "240")
+        self.page.select_option("#typebit-gif-fps", "15")
+        self.page.locator("#typebit-gif-background").fill("#10243a")
+        self.page.evaluate("typebit.seek(.7)")
+        before = self.page.evaluate("typebit.getState()")
+        estimate = self.page.locator("#typebit-gif-estimate").inner_text()
+        self.assertIn("240 × 180", estimate)
+        self.assertIn("15 fps", estimate)
+        self.assertIn("2.8 seconds", estimate)
+        saved = self.download_gif("custom.gif")
+        with Image.open(saved) as image:
+            self.assertEqual(image.size, (240, 180))
+            self.assertEqual(image.n_frames, 31)
+            delays = []
+            for index in range(image.n_frames):
+                image.seek(index)
+                delays.append(image.info["duration"])
+            self.assertEqual(sum(delays), 2800)
+            self.assertEqual(delays[-1], 800)
+            self.assertEqual(set(delays[:-1]), {60, 70})
+            final = image.convert("RGB")
+            for actual, expected in zip(final.getpixel((0, 0)), (16, 36, 58)):
+                self.assertLessEqual(abs(actual - expected), 2)
+            self.assertEqual(final.getpixel((120, 90)), (255, 255, 255))
+        self.assertEqual(self.page.evaluate("typebit.getState()"), before)
+        self.assert_project_unchanged()
+
+    def test_saved_html_retains_gif_preferences_and_the_new_public_api(self):
+        self.assertTrue(self.page.evaluate("window.tracegif === window.typebit"))
+        self.page.locator("#typebit-gif-options").evaluate("element => element.open = true")
+        self.page.select_option("#typebit-gif-width", "240")
+        self.page.select_option("#typebit-gif-fps", "5")
+        self.page.locator("#typebit-gif-background").fill("#10243a")
+        self.page.evaluate("tracegif.setPlaybackRate(2)")
+        with self.page.expect_download() as pending:
+            self.page.click("#typebit-download-html")
+        saved = self.base / "custom-settings.html"
+        pending.value.save_as(saved)
+        self.page.goto(saved.as_uri())
+        self.assertEqual(self.page.locator("#typebit-gif-width").input_value(), "240")
+        self.assertEqual(self.page.locator("#typebit-gif-fps").input_value(), "5")
+        self.assertEqual(self.page.locator("#typebit-gif-background").input_value(), "#10243a")
+        self.assertEqual(self.page.evaluate("tracegif.getState().status"), "idle")
+        self.assertEqual(self.page.evaluate("tracegif.getState().playbackRate"), 2)
+        gif = self.download_gif("saved-settings.gif")
+        with Image.open(gif) as image:
+            self.assertEqual(image.size, (240, 180))
+            self.assertEqual(image.n_frames, 6)
+            self.assertEqual(image.convert("RGB").getpixel((0, 0)), (16, 36, 58))
+        self.assert_project_unchanged()
+
     def test_cancel_restores_frame_and_does_not_download(self):
         for method in ("button", "escape"):
             with self.subTest(method=method):
@@ -124,6 +177,8 @@ class BrowserGifTests(unittest.TestCase):
                 before = self.page.evaluate("typebit.getState()")
                 self.page.click("#typebit-download-gif")
                 self.page.wait_for_function("typebit.getState().exporting")
+                for identity in ("typebit-gif-width", "typebit-gif-fps", "typebit-gif-background"):
+                    self.assertTrue(self.page.locator(f"#{identity}").is_disabled())
                 if method == "button":
                     self.page.click("#typebit-cancel-export")
                 else:
@@ -134,7 +189,25 @@ class BrowserGifTests(unittest.TestCase):
                 self.assertEqual(self.downloads, [])
                 self.assertFalse(self.page.locator("#typebit-cancel-export").is_visible())
                 self.assertTrue(self.page.locator("#typebit-download-gif").is_enabled())
+                for identity in ("typebit-gif-width", "typebit-gif-fps", "typebit-gif-background"):
+                    self.assertTrue(self.page.locator(f"#{identity}").is_enabled())
                 self.assert_project_unchanged()
+
+    def test_cancel_and_progress_remain_visible_in_a_short_window(self):
+        self.page.set_viewport_size({"width": 790, "height": 240})
+        self.page.locator("#typebit-gif-options").evaluate("element => element.open = true")
+        self.page.evaluate("typebit.seek(.6);typebit.setPlaybackRate(.25)")
+        before = self.page.evaluate("typebit.getState()")
+        self.page.click("#typebit-download-gif")
+        self.page.wait_for_function("typebit.getState().exporting")
+        for identity in ("typebit-cancel-export", "typebit-export-status"):
+            box = self.page.locator(f"#{identity}").bounding_box()
+            self.assertGreaterEqual(box["y"], 0)
+            self.assertLessEqual(box["y"] + box["height"], 240)
+        self.page.click("#typebit-cancel-export")
+        self.wait_finished()
+        self.assertEqual(self.page.evaluate("typebit.getState()"), before)
+        self.assertEqual(self.downloads, [])
 
     def test_export_resumes_prior_playing_position_instead_of_final_frame(self):
         self.page.evaluate("typebit.seek(.6);typebit.setPlaybackRate(1);typebit.play()")
@@ -197,10 +270,31 @@ class BrowserGifTests(unittest.TestCase):
         self.assertEqual(self.page.evaluate("typebit.getState()"), before)
         self.assertEqual(self.downloads, [])
 
+    def test_lowering_fps_resolves_frame_limit_before_a_real_download(self):
+        configure_project(self.project, duration=60, playback_rate=1)
+        self.html = Path(render_project(self.project)["html"])
+        self.page.goto(self.html.as_uri())
+        self.page.locator("#typebit-gif-options").evaluate("element => element.open = true")
+        estimate = self.page.locator("#typebit-gif-estimate")
+        self.assertEqual(estimate.get_attribute("data-error"), "true")
+        self.assertIn("600 frames", estimate.inner_text())
+        self.page.select_option("#typebit-gif-fps", "5")
+        self.assertEqual(estimate.get_attribute("data-error"), "false")
+        self.assertIn("60.8 seconds", estimate.inner_text())
+        saved = self.download_gif("lower-fps.gif")
+        with Image.open(saved) as image:
+            self.assertEqual(image.n_frames, 301)
+            duration = 0
+            for index in range(image.n_frames):
+                image.seek(index)
+                duration += image.info["duration"]
+            self.assertEqual(duration, 60800)
+        self.assertEqual(self.page.evaluate("typebit.getState().status"), "idle")
+
 
 class VendoredGifIntegrityTests(unittest.TestCase):
     def test_release_checksums_and_inline_license_are_preserved(self):
-        vendor = ROOT / "skills/typebit-line-animation/assets/vendor"
+        vendor = ROOT / "skills/tracegif/assets/vendor"
         provenance = json.loads((vendor / "gifenc.provenance.json").read_text(encoding="utf-8"))
         bundle = (vendor / "gifenc.js").read_bytes()
         license = (vendor / "gifenc.LICENSE.md").read_bytes()

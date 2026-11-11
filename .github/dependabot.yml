@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: pip
-    directory: /skills/typebit-line-animation
+    directory: /skills/tracegif
     schedule:
       interval: monthly
     open-pull-requests-limit: 3

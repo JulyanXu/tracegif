@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "typebit_version": "0.3.0",
+  "typebit_version": "0.4.0",
   "license": "MIT",
   "cases": [
     {
@@ -13,25 +13,35 @@
       "duration": 6,
       "playback_rate": 1.5,
       "matte": "#F6F4EC",
-      "html_sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87",
+      "html_sha256": "7ee220c8166f27df1d33bced752538fcab0887b6140c17d429794a82002c28d3",
       "project_zip": "leaf-studio-project.zip",
-      "project_zip_sha256": "04d7f60ae388b0dd3ba5a8b736c10c984edb645d8a48bb92983679c308f7d981",
+      "project_zip_sha256": "71e3e213f985514fbcea1908ffcdab89c92895f1c836c64494bd104ee3d7b5de",
       "automated_status": "passed",
       "checks_passed": 15,
+      "view_box": [
+        0.0,
+        0.0,
+        640.0,
+        480.0
+      ],
+      "preview_dimensions": {
+        "width": 480,
+        "height": 360
+      },
       "visual_review": {
         "status": "reviewed",
-        "html_sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87",
+        "html_sha256": "7ee220c8166f27df1d33bced752538fcab0887b6140c17d429794a82002c28d3",
         "notes": [
-          "Four leaf silhouettes, stem, pale veins and gold accents match original source scale, position and final colors. Sparse semantic contours preserve the intended botanical identity. No fonts or approximate tracing.",
-          "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
-          "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
-          "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+          "Four leaf silhouettes, stem, pale veins and gold accents match the original SVG in shape, scale, placement and final colors. The source and final comparison panels are pixel-identical.",
+          "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+          "Inspected decoded GIF opening, drawing and final frames: 480x360, 41 stored frames, 4800 ms including final hold. The declared #F6F4EC GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+          "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
         ]
       },
       "assets": {
         "animation.html": {
           "file": "animation.html",
-          "sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87"
+          "sha256": "7ee220c8166f27df1d33bced752538fcab0887b6140c17d429794a82002c28d3"
         },
         "animation.gif": {
           "file": "animation.gif",
@@ -43,11 +53,30 @@
         },
         "preview.png": {
           "file": "preview.png",
-          "sha256": "32a417c2f8380e9f0d1892cb2ae481869f59380a5e44d7ed8684182517d9898c"
+          "sha256": "25b6d90222bd7ec3811d10818acb3ca82d476759f9dbf9aac915d5c32e76c0f0"
         },
         "report.json": {
           "file": "report.json",
-          "sha256": "9a9da28d4f1705a3b7f961200fc8857ed1511a688809344cdfbde7fc300008b9"
+          "sha256": "b3360241d227e9fff98cd7c8893e79ebd4c9a72dea493054464d6ea247e1a159"
+        }
+      },
+      "input_provenance": {
+        "schema_version": 1,
+        "authored_inputs": {
+          "source": {
+            "file": "source/leaf-studio.svg",
+            "sha256": "096795f9852672414b6c4808a99024d2665bfaa3fcf9a5f3653ba807af1a1d1b"
+          }
+        },
+        "prepared_inputs": {
+          "source": {
+            "file": "assets/source.svg",
+            "sha256": "096795f9852672414b6c4808a99024d2665bfaa3fcf9a5f3653ba807af1a1d1b"
+          },
+          "scene": {
+            "file": "scene.svg",
+            "sha256": "fc91dd714058d74fb43793d96531524ea3f51ba02b316d24df5205aad1edd7fb"
+          }
         }
       }
     },
@@ -61,25 +90,35 @@
       "duration": 6,
       "playback_rate": 1.5,
       "matte": "#FAF1E7",
-      "html_sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728",
+      "html_sha256": "0504d54ad46daba9b0bb44036b38e4144e83dd5b9c6c59da8f90df6cb6b4bb42",
       "project_zip": "coffee-story-project.zip",
-      "project_zip_sha256": "b5c46335a4a12592c140e1a5dd6dd150766eab6e055ec0837b3373a5c405105e",
+      "project_zip_sha256": "5ce5433e5977741b38bcca52621ca4449f44041c95dfaf26da07b2170e21cd33",
       "automated_status": "passed",
       "checks_passed": 15,
+      "view_box": [
+        0.0,
+        0.0,
+        640.0,
+        480.0
+      ],
+      "preview_dimensions": {
+        "width": 480,
+        "height": 360
+      },
       "visual_review": {
         "status": "reviewed",
-        "html_sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728",
+        "html_sha256": "0504d54ad46daba9b0bb44036b38e4144e83dd5b9c6c59da8f90df6cb6b4bb42",
         "notes": [
-          "Cup, handle, saucer, espresso, three steam strokes, beans and leaf emblem match original source shape, placement and final colors. Handle opening and surrounding negative space remain transparent. Native SVG paths; no photographic tracing.",
-          "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
-          "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
-          "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+          "Cup, handle, saucer, steam, beans and leaf emblem match original SVG geometry and palette. Handle opening and exterior remain transparent; source and final comparison panels are pixel-identical.",
+          "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+          "Inspected decoded GIF opening, drawing and final frames: 480x360, 41 stored frames, 4800 ms including final hold. The declared #FAF1E7 GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+          "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
         ]
       },
       "assets": {
         "animation.html": {
           "file": "animation.html",
-          "sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728"
+          "sha256": "0504d54ad46daba9b0bb44036b38e4144e83dd5b9c6c59da8f90df6cb6b4bb42"
         },
         "animation.gif": {
           "file": "animation.gif",
@@ -95,7 +134,26 @@
         },
         "report.json": {
           "file": "report.json",
-          "sha256": "41113abf3071be8d0e6d5828cbf3286bfca0a302debe39a40bcaed05ee5aaa95"
+          "sha256": "f6a27f584330845d9a9e886c622d4fbe53b0f2f16ac3488af7f7b489ff9e9d56"
+        }
+      },
+      "input_provenance": {
+        "schema_version": 1,
+        "authored_inputs": {
+          "source": {
+            "file": "source/coffee-story.svg",
+            "sha256": "ed8b55d9b18bbb36a53add55f0efd1f29a5c0982defe7e6631daa89293eb5213"
+          }
+        },
+        "prepared_inputs": {
+          "source": {
+            "file": "assets/source.svg",
+            "sha256": "ed8b55d9b18bbb36a53add55f0efd1f29a5c0982defe7e6631daa89293eb5213"
+          },
+          "scene": {
+            "file": "scene.svg",
+            "sha256": "538d20a198572c70be9cc829f26495489140aaee224dc10ba36fae6a2f18a8a4"
+          }
         }
       }
     },
@@ -109,25 +167,35 @@
       "duration": 6,
       "playback_rate": 1.5,
       "matte": "#F4F0E8",
-      "html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+      "html_sha256": "f3c63b7eb3450dbdad32b4fb7801e19ac8317b0ab2b40c14e2a5d80e5cef0976",
       "project_zip": "white-letter-badge-project.zip",
-      "project_zip_sha256": "8a6b7098d2bec5b419e7b0beb3057b9e213a9eecef924bde5a7afd0adc8f4d43",
+      "project_zip_sha256": "37f7f12fccbe95d33512be716a45c42bab0877974ce48a65f4aade56b5f51770",
       "automated_status": "passed",
       "checks_passed": 15,
+      "view_box": [
+        0.0,
+        0.0,
+        640.0,
+        480.0
+      ],
+      "preview_dimensions": {
+        "width": 480,
+        "height": 360
+      },
       "visual_review": {
         "status": "reviewed",
-        "html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+        "html_sha256": "f3c63b7eb3450dbdad32b4fb7801e19ac8317b0ab2b40c14e2a5d80e5cef0976",
         "notes": [
-          "Octagonal badge, original TB letter paths, enclosed counters and gold accents match the supplied PNG and authored SVG. White letter interiors remain opaque white and exterior alpha is zero. Final PNG bytes match the original PNG exactly; this controlled example uses supplied original SVG contours, not automatic tracing or background removal.",
-          "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
-          "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
-          "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+          "TB lettering, enclosed counters and gold accents match the original PNG and supplied contours. Opaque white letter interiors and exterior alpha are preserved; source and final comparison panels are pixel-identical. This controlled fixture uses known authored contours, not automatic tracing or background removal.",
+          "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+          "Inspected decoded GIF opening, drawing and final frames: 480x360, 41 stored frames, 4800 ms including final hold. The declared #F4F0E8 GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+          "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
         ]
       },
       "assets": {
         "animation.html": {
           "file": "animation.html",
-          "sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01"
+          "sha256": "f3c63b7eb3450dbdad32b4fb7801e19ac8317b0ab2b40c14e2a5d80e5cef0976"
         },
         "animation.gif": {
           "file": "animation.gif",
@@ -143,19 +211,390 @@
         },
         "report.json": {
           "file": "report.json",
-          "sha256": "a42108220a5e7faa7a764edbe3563318e3962cd9549cf288657b4d9771b48acf"
+          "sha256": "ea847f8412e0d2c24d370d7ab184566baf0dac8ee9292f76b5641eaf203589f1"
+        }
+      },
+      "input_provenance": {
+        "schema_version": 1,
+        "authored_inputs": {
+          "source": {
+            "file": "source/white-letter-badge.png",
+            "sha256": "bc3334628b387ee2e1174a640d40e039b674739244814e15b0146cc702fa6427"
+          },
+          "contours": {
+            "file": "source/white-letter-badge.svg",
+            "sha256": "a5160068e8c08884d36fe2ac43e59550cb95b503c337cb43c70b6a4c824c2470"
+          },
+          "source_svg": {
+            "file": "source/white-letter-badge.svg",
+            "sha256": "a5160068e8c08884d36fe2ac43e59550cb95b503c337cb43c70b6a4c824c2470"
+          }
+        },
+        "prepared_inputs": {
+          "source": {
+            "file": "assets/source.png",
+            "sha256": "bc3334628b387ee2e1174a640d40e039b674739244814e15b0146cc702fa6427"
+          },
+          "scene": {
+            "file": "scene.svg",
+            "sha256": "065647f0fa8bee71c3c7953bdc74de00d7e8177b973270fb6704946d576007d8"
+          },
+          "contours": {
+            "file": "contours.svg",
+            "sha256": "0b5db5617fb7007dccda1883f66956199573fc61040bc91571e4f8b4a2daee9a"
+          }
+        },
+        "raster_provenance": {
+          "schema_version": 1,
+          "method": "Chromium SVG render",
+          "browser": "145.0.7632.6",
+          "source_svg": {
+            "file": "white-letter-badge.svg",
+            "sha256": "a5160068e8c08884d36fe2ac43e59550cb95b503c337cb43c70b6a4c824c2470"
+          },
+          "output_png": {
+            "file": "white-letter-badge.png",
+            "sha256": "bc3334628b387ee2e1174a640d40e039b674739244814e15b0146cc702fa6427"
+          }
         }
       },
       "raster_checks": {
         "original_rgba_preserved": true,
-        "transparent_corner_alpha": 0,
-        "white_letter_rgba": [
-          255,
-          255,
-          255,
-          255
+        "source_dimensions": [
+          640,
+          480
         ],
-        "no_background_removal": true
+        "transparent_corner_alpha": 0,
+        "pixel_probes": [
+          {
+            "name": "white-letter-interior",
+            "xy": [
+              267,
+              245
+            ],
+            "rgba": [
+              255,
+              255,
+              255,
+              255
+            ],
+            "observed_rgba": [
+              255,
+              255,
+              255,
+              255
+            ],
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "slug": "courtyard-house",
+      "title": "Courtyard House",
+      "title_zh": "庭院住宅展示",
+      "kind": "svg",
+      "method": "Native SVG facade geometry: building volumes and roof, then openings and landscaping, then material details.",
+      "limitations": "A fictional original house illustration; not a construction drawing, measured plan or real property listing.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F8F5EB",
+      "html_sha256": "92e3cebfe681bc0bc610e70a85537b769ea08e5f218980b873f4bf7f1075003e",
+      "project_zip": "courtyard-house-project.zip",
+      "project_zip_sha256": "e394a9c632d9308814ba4e50b7c5d84c87198f7f987ec52b524feee1acdda25b",
+      "automated_status": "passed",
+      "checks_passed": 15,
+      "view_box": [
+        0.0,
+        0.0,
+        800.0,
+        520.0
+      ],
+      "preview_dimensions": {
+        "width": 480,
+        "height": 312
+      },
+      "visual_review": {
+        "status": "reviewed",
+        "html_sha256": "92e3cebfe681bc0bc610e70a85537b769ea08e5f218980b873f4bf7f1075003e",
+        "notes": [
+          "Roof, house volumes, arched openings, garden wall and vegetation match source geometry, order and warm palette. Source and final comparison panels are pixel-identical. The house is a fictional architectural illustration, not a measured plan or real property listing.",
+          "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+          "Inspected decoded GIF opening, drawing and final frames: 480x312, 41 stored frames, 4800 ms including final hold. The declared #F8F5EB GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+          "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
+        ]
+      },
+      "assets": {
+        "animation.html": {
+          "file": "animation.html",
+          "sha256": "92e3cebfe681bc0bc610e70a85537b769ea08e5f218980b873f4bf7f1075003e"
+        },
+        "animation.gif": {
+          "file": "animation.gif",
+          "sha256": "9d968961e157b99fac54f91c6efa699577a3e14eb2850be09d7fadf775db05c9"
+        },
+        "final.png": {
+          "file": "final.png",
+          "sha256": "678818602997dabc05b379907f0951c1a0ed499da1aaff26f2216278f6d316fe"
+        },
+        "preview.png": {
+          "file": "preview.png",
+          "sha256": "06e652909dad02d4d8fb294f8204479a4f3c80cdf8fe78f934a68e6a93d29ca3"
+        },
+        "report.json": {
+          "file": "report.json",
+          "sha256": "367e9c65d258f45dddc964d736cf28a8ed6a1e6596b39663df36152c2321aafc"
+        }
+      },
+      "input_provenance": {
+        "schema_version": 1,
+        "authored_inputs": {
+          "source": {
+            "file": "source/courtyard-house.svg",
+            "sha256": "9549730828a3d11bc29715338f4f5a1f2d521d51b6946646d4261562158f06d7"
+          }
+        },
+        "prepared_inputs": {
+          "source": {
+            "file": "assets/source.svg",
+            "sha256": "9549730828a3d11bc29715338f4f5a1f2d521d51b6946646d4261562158f06d7"
+          },
+          "scene": {
+            "file": "scene.svg",
+            "sha256": "c8ca00c85b8cf42feea8826c8c1d4c446d1e7bd02ead708944c52bbebb6cc013"
+          }
+        }
+      }
+    },
+    {
+      "slug": "city-route",
+      "title": "City Route",
+      "title_zh": "城市漫游路线",
+      "kind": "svg",
+      "method": "Native SVG folded-map illustration: map and river, streets and landmarks, itinerary route, then numbered stops and compass.",
+      "limitations": "A fictional illustrative map with invented landmarks; not geographic or turn-by-turn navigation data.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F8F6ED",
+      "html_sha256": "3bf8fcc7de48ec7ce31b1a5c301b2f5270cf4229831a9309ce30c705bceca20f",
+      "project_zip": "city-route-project.zip",
+      "project_zip_sha256": "e8ac37e2fdbd0c1b1c81205730d617c7137893ed2c7e0c76089328e01a8c989a",
+      "automated_status": "passed",
+      "checks_passed": 15,
+      "view_box": [
+        0.0,
+        0.0,
+        720.0,
+        560.0
+      ],
+      "preview_dimensions": {
+        "width": 480,
+        "height": 373
+      },
+      "visual_review": {
+        "status": "reviewed",
+        "html_sha256": "3bf8fcc7de48ec7ce31b1a5c301b2f5270cf4229831a9309ce30c705bceca20f",
+        "notes": [
+          "Folded-map shape, river, landmarks, red walking route, four numbered stops and compass match the authored source. Comparison panels show only tiny subpixel edge differences at the rounded 480x373 preview size (mean absolute channel error below 0.35/255). This is a fictional itinerary, not navigation data.",
+          "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+          "Inspected decoded GIF opening, drawing and final frames: 480x373, 40 stored frames, 4800 ms including final hold. The declared #F8F6ED GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+          "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
+        ]
+      },
+      "assets": {
+        "animation.html": {
+          "file": "animation.html",
+          "sha256": "3bf8fcc7de48ec7ce31b1a5c301b2f5270cf4229831a9309ce30c705bceca20f"
+        },
+        "animation.gif": {
+          "file": "animation.gif",
+          "sha256": "e890d9da6bd245748db4543fc34ad9789189eec1504603e311fa66e74eca73f6"
+        },
+        "final.png": {
+          "file": "final.png",
+          "sha256": "7fce736a531e6b9314d740d49164e0a854bf981c021f182e82a7220d1c863854"
+        },
+        "preview.png": {
+          "file": "preview.png",
+          "sha256": "3bc8debc78591a4b5e7342bc4964b811070f8f53b27803b1b77d4ce9d56d8f34"
+        },
+        "report.json": {
+          "file": "report.json",
+          "sha256": "c29b8355192872c3fbd03ef5c3bb73b624a3c9476d16ccadc1f938485de73b71"
+        }
+      },
+      "input_provenance": {
+        "schema_version": 1,
+        "authored_inputs": {
+          "source": {
+            "file": "source/city-route.svg",
+            "sha256": "e838cd2074a48035bab11188b8ae871f82354513d9be7e298f7fe5ac5cf1075d"
+          }
+        },
+        "prepared_inputs": {
+          "source": {
+            "file": "assets/source.svg",
+            "sha256": "e838cd2074a48035bab11188b8ae871f82354513d9be7e298f7fe5ac5cf1075d"
+          },
+          "scene": {
+            "file": "scene.svg",
+            "sha256": "6bea1cd52b8820fe1b957cf53fe66627527eacd749889186fd6b15b669c968de"
+          }
+        }
+      }
+    },
+    {
+      "slug": "orbit-lesson",
+      "title": "Orbit Lesson",
+      "title_zh": "轨道课堂示意",
+      "kind": "svg",
+      "method": "Native SVG schematic: orbital paths and central star, then stylized planets, arrows and hand-authored path labels.",
+      "limitations": "Illustrative only and visibly labeled NOT TO SCALE. Planet sizes, distances and positions are invented; this is not a physical simulation or astronomical ephemeris.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F6F7FB",
+      "html_sha256": "0de7df08d25b7d51bd4f5e84c1b1402cc364dfa552da193bc573109457d3476b",
+      "project_zip": "orbit-lesson-project.zip",
+      "project_zip_sha256": "4ffc45767780ae49590d05830d6ce813dc9f9f3e43d9fbe9712c4dd26ff6eba6",
+      "automated_status": "passed",
+      "checks_passed": 15,
+      "view_box": [
+        0.0,
+        0.0,
+        840.0,
+        520.0
+      ],
+      "preview_dimensions": {
+        "width": 480,
+        "height": 297
+      },
+      "visual_review": {
+        "status": "reviewed",
+        "html_sha256": "0de7df08d25b7d51bd4f5e84c1b1402cc364dfa552da193bc573109457d3476b",
+        "notes": [
+          "Orbital guides, stylized planets, rings, direction arrows and native-path labels match the original schematic. The NOT TO SCALE caption remains visible. Preview edge differences at 480x297 are below 0.13/255 mean absolute channel error. The illustration is not a physical simulation or astronomical ephemeris.",
+          "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+          "Inspected decoded GIF opening, drawing and final frames: 480x297, 41 stored frames, 4800 ms including final hold. The declared #F6F7FB GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+          "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
+        ]
+      },
+      "assets": {
+        "animation.html": {
+          "file": "animation.html",
+          "sha256": "0de7df08d25b7d51bd4f5e84c1b1402cc364dfa552da193bc573109457d3476b"
+        },
+        "animation.gif": {
+          "file": "animation.gif",
+          "sha256": "6117c6371ac0304709ec38346cde1aa222b0f6cfd6acdeb2d16ffa2122efc377"
+        },
+        "final.png": {
+          "file": "final.png",
+          "sha256": "70d80339091308e8603468d559e88ab714a75c0a58edb9bf6945e56bbe9a6015"
+        },
+        "preview.png": {
+          "file": "preview.png",
+          "sha256": "4c75fa7d5148d36f6f4a00142476a605d2422b63dd3f475054e40c599e0314f7"
+        },
+        "report.json": {
+          "file": "report.json",
+          "sha256": "bbb3cc254aa6da84415b99b290e1e6d4299300e4d9a7f3c752e8bc42f05eac0c"
+        }
+      },
+      "input_provenance": {
+        "schema_version": 1,
+        "authored_inputs": {
+          "source": {
+            "file": "source/orbit-lesson.svg",
+            "sha256": "3371021cbc60838821ab2590116fc7fe460e52a35013a7a87300a3caaa61cf1c"
+          }
+        },
+        "prepared_inputs": {
+          "source": {
+            "file": "assets/source.svg",
+            "sha256": "3371021cbc60838821ab2590116fc7fe460e52a35013a7a87300a3caaa61cf1c"
+          },
+          "scene": {
+            "file": "scene.svg",
+            "sha256": "2f73b2696bc8a6c3d529c4c8a1a93b08fb76f858e10ab6fcd7069584eea30ba4"
+          }
+        }
+      }
+    },
+    {
+      "slug": "celebration-card",
+      "title": "Celebration Card",
+      "title_zh": "庆典邀请卡",
+      "kind": "svg",
+      "method": "Native SVG invitation: arched card and ribbon, balloons and decorative strokes, then original JOIN US lettering and date paths.",
+      "limitations": "A fictional invitation with a demonstration date. All lettering is original monoline path geometry, not an external typeface.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F6EDF0",
+      "html_sha256": "692aa106071788a2de02091d692fc001e41366deca4cac66b0ce56135c2b10d9",
+      "project_zip": "celebration-card-project.zip",
+      "project_zip_sha256": "66985d23ab9ab0e6f9047445865ef2b333b1f671af7781f3431d787c73bac8fc",
+      "automated_status": "passed",
+      "checks_passed": 15,
+      "view_box": [
+        0.0,
+        0.0,
+        600.0,
+        760.0
+      ],
+      "preview_dimensions": {
+        "width": 480,
+        "height": 608
+      },
+      "visual_review": {
+        "status": "reviewed",
+        "html_sha256": "692aa106071788a2de02091d692fc001e41366deca4cac66b0ce56135c2b10d9",
+        "notes": [
+          "Portrait proportions, arched paper, balloons, ribbon and original JOIN US and 08.24 path lettering are preserved. The complete date sits inside the ribbon. Source and final comparison panels are pixel-identical; no external font is used.",
+          "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+          "Inspected decoded GIF opening, drawing and final frames: 480x608, 41 stored frames, 4800 ms including final hold. The declared #F6EDF0 GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+          "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
+        ]
+      },
+      "assets": {
+        "animation.html": {
+          "file": "animation.html",
+          "sha256": "692aa106071788a2de02091d692fc001e41366deca4cac66b0ce56135c2b10d9"
+        },
+        "animation.gif": {
+          "file": "animation.gif",
+          "sha256": "f5fd089c29ac3f74871076d4791d37712f4afb064168725758dce00857d0c2a2"
+        },
+        "final.png": {
+          "file": "final.png",
+          "sha256": "15a560684ac19f585c46fb8fe1c82a1e48084bc482c5d80d8881d61ee7b60f9a"
+        },
+        "preview.png": {
+          "file": "preview.png",
+          "sha256": "29fc6315a8a21f58940c0fd852c3d5bc39241052525ba240c22c62fa3e2b3e6e"
+        },
+        "report.json": {
+          "file": "report.json",
+          "sha256": "79ebf34bff4866d54bb1ebbd49ba37d83d6224bc074712772e2adf49f91a7dd4"
+        }
+      },
+      "input_provenance": {
+        "schema_version": 1,
+        "authored_inputs": {
+          "source": {
+            "file": "source/celebration-card.svg",
+            "sha256": "e652e13f78d41c181d11ee96617c8ec4649fa8ca7b5f6aeb6f5a7d9dd586df40"
+          }
+        },
+        "prepared_inputs": {
+          "source": {
+            "file": "assets/source.svg",
+            "sha256": "e652e13f78d41c181d11ee96617c8ec4649fa8ca7b5f6aeb6f5a7d9dd586df40"
+          },
+          "scene": {
+            "file": "scene.svg",
+            "sha256": "46beb03cfc999bd870de4a900b85df94db24fcc28459d343be58cae9ca1658dc"
+          }
+        }
       }
     }
   ]

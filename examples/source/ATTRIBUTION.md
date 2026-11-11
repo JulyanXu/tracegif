@@ -35,3 +35,11 @@ The generated animation combines these contours with the original decoded RGB pi
 `blue-marble.jpg` 来自 NASA 的阿波罗 17 号“蓝色弹珠”照片，署名 **NASA / Apollo 17 crew**。依据上述 NASA 媒体使用指南，用于展示保留原图像素的处理方式；照片不改用本仓库 MIT 许可，也不表示 NASA 或宇航员为 TypeBit 背书。
 
 轮廓由宿主 Agent 实际看图后编写，仅近似表现地球外缘、非洲与马达加斯加。圆形蒙版只适用于这张照片，可能略微裁掉大气边缘；它不是通用自动抠图。动画描线阶段省略大多数云层和地表细节，最后显露蒙版下的原图。分发照片或示例工程时请保留本说明。
+
+## TraceGIF scenario illustrations
+
+`courtyard-house.svg`, `city-route.svg`, `orbit-lesson.svg` and `celebration-card.svg` are original artwork authored for TraceGIF and covered by this repository's MIT license. The house, itinerary and invitation are fictional demonstrations, not client work, a real property listing, navigation data or a scheduled event. Every visible letter and numeral is native path geometry; no external font is included.
+
+The orbital lesson is visibly labeled **NOT TO SCALE**. Its planet sizes, distances, arrangement and orbital shapes are illustrative, not a physical simulation, measured astronomical diagram or ephemeris. The same limitation travels with its editable project and case record.
+
+庭院住宅、城市路线、轨道课堂与庆典邀请卡均为 TraceGIF 原创 MIT 示例。房屋、地图与活动均为虚构，不代表客户案例、真实房源、导航信息或已安排的活动；字母与数字均为原生路径，不含外部字体。轨道课堂明确标注“不按比例”，仅用于示意，不构成天文数据或物理模拟。

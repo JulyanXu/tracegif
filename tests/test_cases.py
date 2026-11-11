@@ -2,13 +2,14 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from PIL import Image
+from PIL import Image, ImageChops
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -85,6 +86,83 @@ class CaseInputTests(unittest.TestCase):
         Image.new("RGBA", (16, 16), (255, 255, 255, 255)).save(self.examples / "source.png")
         with self.assertRaisesRegex(ValueError, "--refresh-raster"):
             cases.raster_provenance(self.examples / "source.png", self.examples / "authored.svg")
+
+
+class CaseDimensionTests(unittest.TestCase):
+    def test_landscape_square_and_portrait_frames_keep_source_aspect(self):
+        for box, expected in [([0, 0, 800, 520], (480, 312)),
+                              ([0, 0, 600, 600], (480, 480)),
+                              ([0, 0, 600, 760], (480, 608)),
+                              ([10, 20, 840, 520], (480, 297))]:
+            with self.subTest(box=box):
+                dimensions = cases.frame_dimensions(box)
+                self.assertEqual((dimensions["width"], dimensions["height"]), expected)
+
+    def test_invalid_or_extreme_aspect_ratios_fail_explicitly(self):
+        for box in ([0, 0, 0, 760], [0, 0, 600, -1], [0, 0, float("nan"), 1], [0, 0, 1, 9000]):
+            with self.subTest(box=box), self.assertRaises(ValueError):
+                cases.frame_dimensions(box)
+
+    def test_raster_checks_accept_small_fixtures_without_badge_coordinates(self):
+        with tempfile.TemporaryDirectory(prefix="tracegif-small-case-") as temporary:
+            project = Path(temporary)
+            (project / "assets").mkdir()
+            image = Image.new("RGBA", (8, 12), (0, 0, 0, 0))
+            image.putpixel((4, 6), (255, 255, 255, 255))
+            image.save(project / "assets/source.png")
+            image.save(project / "assets/subject.png")
+            manifest = {"source": {"path": "assets/source.png"}}
+            result = cases.raster_preservation_checks(project, manifest, {})
+            self.assertTrue(result["original_rgba_preserved"])
+            self.assertEqual(result["pixel_probes"], [])
+            result = cases.raster_preservation_checks(project, manifest, {
+                "pixel_probes": [{"name": "white", "xy": [4, 6], "rgba": [255, 255, 255, 255]}]})
+            self.assertTrue(result["pixel_probes"][0]["passed"])
+
+
+class CasePreviewBrowserTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.runtime = cases.sync_playwright().start()
+        try:
+            cls.browser = cls.runtime.chromium.launch(headless=True)
+        except Exception as exc:
+            cls.runtime.stop()
+            if os.environ.get("CI"):
+                raise RuntimeError("CI must provide Chromium for case aspect-ratio checks.") from exc
+            raise unittest.SkipTest(f"Chromium is unavailable: {exc}") from exc
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.browser.close()
+        cls.runtime.stop()
+
+    def test_actual_source_and_final_panels_match_for_three_aspect_ratios(self):
+        with tempfile.TemporaryDirectory(prefix="tracegif-case-aspect-") as temporary:
+            root = Path(temporary)
+            for width, height in [(300, 180), (240, 240), (180, 270)]:
+                with self.subTest(size=(width, height)):
+                    source = root / f"source-{width}-{height}.svg"
+                    source.write_text(
+                        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">'
+                        f'<path id="shape" fill="#9a4533" d="M10 10H{width-10}V{height-10}H10Z"/></svg>', encoding="utf-8")
+                    raster = source.with_suffix(".png")
+                    cases.make_raster_source(self.browser, source, raster)
+                    with Image.open(raster) as image:
+                        self.assertEqual(image.size, (width, height))
+                        self.assertEqual(image.convert("RGBA").getpixel((0, 0))[3], 0)
+                    project = root / f"project-{width}-{height}"
+                    media = root / f"media-{width}-{height}"
+                    media.mkdir()
+                    cases.prepare_project(source, project, kind="svg", duration=6)
+                    cases.render_project(project)
+                    cases.capture_preview(self.browser, source, project, media, {"duration": 6, "matte": "#FAF5EA"})
+                    panel_height = round(480 * height / width)
+                    with Image.open(media / "preview.png") as preview:
+                        self.assertEqual(preview.size, (1488, panel_height + 66))
+                        first = preview.crop((12, 54, 492, 54 + panel_height))
+                        final = preview.crop((996, 54, 1476, 54 + panel_height))
+                        self.assertIsNone(ImageChops.difference(first, final).getbbox())
 
 
 if __name__ == "__main__":

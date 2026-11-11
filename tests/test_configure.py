@@ -9,7 +9,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'skills/typebit-line-animation/scripts'))
+sys.path.insert(0, str(ROOT / 'skills/tracegif/scripts'))
 from typebitlib.core import (TypeBitError, configure_project, prepare_project,
                              render_project, require_current_render, package_project)
 from typebitlib import __version__
@@ -141,7 +141,7 @@ class ConfigurationTests(unittest.TestCase):
         old['typebit_version'] = '0.1.0'
         old.pop('playback_rate', None)
         path.write_text(json.dumps(old), encoding='utf-8')
-        with self.assertRaisesRegex(TypeBitError, 'current TypeBit'):
+        with self.assertRaisesRegex(TypeBitError, 'current TraceGIF'):
             require_current_render(self.project)
         render_project(self.project)
         current = require_current_render(self.project)

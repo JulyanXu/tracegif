@@ -1,14 +1,16 @@
-# TypeBit
+# TraceGIF
 
 [实测记录与独立 Agent 验收](docs/validation.md)
 
-**让静态图片，以描线动画的方式出现。**
+**描出线条，制成 GIF，留下可编辑原稿。**
 
-TypeBit 是一个 Agent Skill，用于把 SVG、Logo、线稿和照片制作成独立 HTML 线条动画。宿主 Agent 负责理解图片和根据对话修改，TypeBit 负责保存工程、使用原生 SVG 播放，并在真实浏览器中检查导出的文件。
+TraceGIF（描线 GIF）是一个 Agent Skill，用于把图片制作成逐笔描线动画、GIF 和独立离线 HTML。宿主 Agent 理解图片并根据对话修改，工具保存可编辑图层、渲染原生 SVG，并在真实浏览器中验证导出结果。
 
-[English](README.md) · [安装 Skill](#安装-skill) · [下载版本](https://github.com/JulyanXu/typebit/releases) · [反馈问题](https://github.com/JulyanXu/typebit/issues)
+项目原名 **TypeBit**，现改名为 TraceGIF，让「线条动画」与「GIF 制作」两种用途更直接。已有工程仍可继续编辑，详见[改名迁移说明](docs/migration.md)。
 
-![TypeBit 线条动画示例](docs/media/demo.gif)
+[English](README.md) · [安装 Skill](#安装-skill) · [下载版本](https://github.com/JulyanXu/tracegif/releases) · [反馈问题](https://github.com/JulyanXu/tracegif/issues)
+
+![TraceGIF 线条动画示例](docs/media/demo.gif)
 
 *这里展示的是实际播放录制；导出的 HTML 打开后等待操作，可以调整速度和进度。*
 
@@ -20,18 +22,23 @@ TypeBit 是一个 Agent Skill，用于把 SVG、Logo、线稿和照片制作成�
 
 默认顺序是主要结构、次要轮廓、文字与细节，最后显露颜色。总时长约 10 秒，完成后定格。主体外部保持透明，默认不添加原图以外的装饰；用户提出要求时，可以在主体后方加入蓝色涂鸦。
 
-**无需新账号、单独安装 AI 模型或配置推理 API。** TypeBit 使用宿主 Agent 已有的视觉和图像工具。它不包含独立网站、可视化编辑页或云端图片处理服务。播放器采用原生 SVG 与 JavaScript，不依赖 GSAP。
+**无需新账号、单独安装 AI 模型或配置推理 API。** TraceGIF 使用宿主 Agent 已有的视觉和图像工具。它不包含独立网站、可视化编辑页或云端图片处理服务。播放器采用原生 SVG 与 JavaScript，不依赖 GSAP。
 
 ![原图、描线中间态与最终画面](docs/media/preview.png)
 
-## 三种应用案例
+## 七种场景，同一套可编辑流程
 
 | 植物品牌标识 | 咖啡产品插画 | 保留白色字形 |
 | --- | --- | --- |
 | [![Leaf Studio 动画](docs/cases/leaf-studio/animation.gif)](docs/cases/README.md) | [![Coffee Story 动画](docs/cases/coffee-story/animation.gif)](docs/cases/README.md) | [![白字徽章动画](docs/cases/white-letter-badge/animation.gif)](docs/cases/README.md) |
 | 让枝叶逐笔展开，引出品牌图形。 | 先画杯身，再呈现蒸汽与细节。 | 透明 PNG 中的白色字形完整保留。 |
 
-三个案例均为原创、可编辑的演示素材，GIF 来自实际导出的播放器。[查看「原图 → 描线 → 成品」案例库](docs/cases/README.md)，或[下载全部 HTML、GIF、PNG 和可编辑工程](https://github.com/JulyanXu/typebit/releases/download/v0.3.0/typebit-cases-0.3.0.zip)。案例页提供可复用提示词、处理说明和验证报告。
+| 建筑展示 | 旅行路线 | 教学示意 | 活动邀请 |
+| --- | --- | --- | --- |
+| [![庭院住宅](docs/cases/courtyard-house/animation.gif)](docs/cases/README.md) | [![城市路线](docs/cases/city-route/animation.gif)](docs/cases/README.md) | [![轨道课堂](docs/cases/orbit-lesson/animation.gif)](docs/cases/README.md) | [![庆祝邀请卡](docs/cases/celebration-card/animation.gif)](docs/cases/README.md) |
+| 从建筑结构到立面细节。 | 逐步展示路线与停靠点。 | 逐笔绘制轨道教学示意。 | 从边框到信息，完成竖版邀请。 |
+
+七个案例均为原创、可编辑的演示素材，GIF 来自实际导出的播放器。[查看「原图 → 描线 → 成品」案例库](docs/cases/README.md)，或[下载全部 HTML、GIF、PNG 和可编辑工程](https://github.com/JulyanXu/tracegif/releases/download/v0.4.0/tracegif-cases-0.4.0.zip)。案例页提供可复用提示词、处理说明和验证报告。
 
 ## 素材与处理方式
 
@@ -45,14 +52,14 @@ TypeBit 是一个 Agent Skill，用于把 SVG、Logo、线稿和照片制作成�
 
 ## 安装 Skill
 
-下载一个发布版本，或克隆本仓库。将 `skills/typebit-line-animation` **整个文件夹**复制到宿主的 Skill 目录：
+下载一个发布版本，或克隆本仓库。将 `skills/tracegif` **整个文件夹**复制到宿主的 Skill 目录：
 
-请使用 **v0.3.0 或更新版本**，以获得页面内 GIF 下载、速度控制和公开案例库；`v0.1.0` 发布 ZIP 保持原有行为。旧工程需要移除装饰时，可执行 `configure PROJECT --doodle off`，再重新渲染和验证。
+请使用 **v0.4.0 或更新版本**，以获得 TraceGIF 新名称、可调参数的 GIF 导出和七个公开案例。安装发布 ZIP 中完整的 `tracegif` 文件夹。历史版本保留原名称和行为。旧工程需要移除装饰时，可执行 `configure PROJECT --doodle off`，再重新渲染和验证。
 
 | 宿主 | 个人 Skill 目录 | 调用方式 |
 | --- | --- | --- |
-| Codex | `~/.agents/skills/typebit-line-animation/` | `$typebit-line-animation` |
-| Claude Code | `~/.claude/skills/typebit-line-animation/` | `/typebit-line-animation` |
+| Codex | `~/.agents/skills/tracegif/` | `$tracegif` |
+| Claude Code | `~/.claude/skills/tracegif/` | `/tracegif` |
 | 其他 Agent | 宿主支持的 Skill 位置；也可以让 Agent 直接读取复制后的 `SKILL.md` | 依宿主而定 |
 
 只在某个项目中使用时，Codex 可放在项目的 `.agents/skills/`，Claude Code 可放在 `.claude/skills/`。目录依据宿主的 [Codex 文档](https://learn.chatgpt.com/docs/build-skills)和 [Claude Code 文档](https://code.claude.com/docs/en/skills)。图片、文件与浏览器工具取决于实际宿主；安装 Skill 不会自动赋予这些能力。
@@ -60,24 +67,24 @@ TypeBit 是一个 Agent Skill，用于把 SVG、Logo、线稿和照片制作成�
 参考运行环境为 **Python 3.12**。在仓库根目录、使用选定的 Python 环境执行：
 
 ```text
-python -m pip install -r skills/typebit-line-animation/requirements.txt
+python -m pip install -r skills/tracegif/requirements.txt
 python -m playwright install chromium
-python skills/typebit-line-animation/scripts/typebit.py doctor
+python skills/tracegif/scripts/tracegif.py doctor
 ```
 
-若已将 Skill 单独复制出去，在复制后的目录执行同样步骤，将路径改为 `requirements.txt` 和 `scripts/typebit.py`。系统命令为 `python3` 时，所有步骤统一使用它。建议使用独立虚拟环境。详细说明见[环境与宿主指南](skills/typebit-line-animation/references/environment.md)。
+若已将 Skill 单独复制出去，在复制后的目录执行同样步骤，将路径改为 `requirements.txt` 和 `scripts/tracegif.py`。系统命令为 `python3` 时，所有步骤统一使用它。建议使用独立虚拟环境。详细说明见[环境与宿主指南](skills/tracegif/references/environment.md)。
 
-安装依赖和 Chromium 需要下载文件。**导出后的 HTML 可以离线播放**，不再依赖 Python、TypeBit 或原工程目录。素材处理依赖 Pillow 和 defusedxml；浏览器验证还需要 Playwright 及其安装的 Chromium。Linux 可能需要额外安装 [Playwright 系统依赖](https://playwright.dev/python/docs/intro)。
+安装依赖和 Chromium 需要下载文件。**导出后的 HTML 可以离线播放**，不再依赖 Python、TraceGIF 或原工程目录。素材处理依赖 Pillow 和 defusedxml；浏览器验证还需要 Playwright 及其安装的 Chromium。Linux 可能需要额外安装 [Playwright 系统依赖](https://playwright.dev/python/docs/intro)。
 
 ## 向 Agent 发出请求
 
 ```text
-使用 $typebit-line-animation 处理我上传的图片。保留主体形状、文字字形和颜色，
+使用 $tracegif 处理我上传的图片。保留主体形状、文字字形和颜色，
 制作透明背景、约 10 秒的线条动画。给我真实预览，验证离线播放，
 最后交付独立 HTML、可编辑工程和验证报告。
 ```
 
-Claude Code 中使用 `/typebit-line-animation`；其他宿主可直接提及 Skill，或提供其 `SKILL.md` 路径。
+Claude Code 中使用 `/tracegif`；其他宿主可直接提及 Skill，或提供其 `SKILL.md` 路径。
 
 随后直接反馈：
 
@@ -94,13 +101,13 @@ Agent 会修改现有工程，并重新检查导出结果。调整速度、时�
 完成依赖安装后，在仓库根目录执行：
 
 ```text
-python skills/typebit-line-animation/scripts/typebit.py prepare examples/source/typebit-mark.svg --project build/example --kind svg
-python skills/typebit-line-animation/scripts/typebit.py configure build/example --duration 12 --speed 1.5
-python skills/typebit-line-animation/scripts/typebit.py render build/example
-python skills/typebit-line-animation/scripts/typebit.py verify build/example/animation.html
-python skills/typebit-line-animation/scripts/typebit.py export build/example --format gif --width 640 --fps 15
-python skills/typebit-line-animation/scripts/typebit.py export build/example --format png
-python skills/typebit-line-animation/scripts/typebit.py package build/example
+python skills/tracegif/scripts/tracegif.py prepare examples/source/typebit-mark.svg --project build/example --kind svg
+python skills/tracegif/scripts/tracegif.py configure build/example --duration 12 --speed 1.5
+python skills/tracegif/scripts/tracegif.py render build/example
+python skills/tracegif/scripts/tracegif.py verify build/example/animation.html
+python skills/tracegif/scripts/tracegif.py export build/example --format gif --width 640 --fps 15
+python skills/tracegif/scripts/tracegif.py export build/example --format png
+python skills/tracegif/scripts/tracegif.py package build/example
 ```
 
 打开 `build/example/animation.html`。示例时间线为 12 秒，以 1.5 倍速播放时实际用时 8 秒。额外格式位于 `build/example/exports/`；工程压缩包位于 `build/example-project.zip`；浏览器验证结果位于 `build/example/verification/report.json`、`report.md` 及同目录截图中。`configure` 与额外格式的 `export` 步骤可选。处理新素材时，仍需 Agent 理解和复核画面。
@@ -114,7 +121,7 @@ python skills/typebit-line-animation/scripts/typebit.py package build/example
 | 进度条 | 跳到指定画面并暂停。 |
 | 下载 HTML | 保存独立副本，记住当前倍速；重新打开仍等待点击播放。 |
 | 下载 PNG | 保存当前画面，保留透明度，不含工具栏。 |
-| 下载 GIF | 按当前倍速保存完整白底动画，可查看进度或取消。 |
+| GIF 设置与下载 | 选择尺寸、帧率和背景色，再按当前倍速保存完整动画；支持进度与取消。 |
 
 显示的时间是画面在时间线中的位置；实际播放时长＝时间线时长÷倍速。若要保存工程的默认倍速，可让 Agent 调整，或执行 `configure PROJECT --speed 0.5`。若要把各阶段整体拉长，则用 `configure PROJECT --duration 20`。保存后重新渲染和验证。
 
@@ -129,26 +136,26 @@ python skills/typebit-line-animation/scripts/typebit.py package build/example
 | GIF | 文档或 GitHub 动画预览 | 来自真实浏览器帧，默认使用白色底；可通过 `--background "#RRGGBB"` 指定底色。 |
 | 工程 ZIP | 继续交给 Agent 修改 | 包含素材、图层、时序、报告和已导出的文件。 |
 
-现在可以直接点击离线 HTML 中的 **Save GIF**，按当前倍速保存完整动画。浏览器导出使用白底、最高 480 像素宽、10 帧/秒，终帧停留 0.8 秒，并提供进度和取消操作。更大的尺寸、其他帧率与底色仍可通过 Agent 调整。GIF 不能保留平滑半透明边缘；需要透明背景时请选择 HTML 或 PNG。更多参数和导出记录见[速度与格式指南](skills/typebit-line-animation/references/exports.md)。
+展开 **GIF settings**，可选宽度（自动、240、480、720、960 像素）、帧率（5、10、15、20 帧/秒）和背景颜色。默认仍是自动宽度、不超过 480 像素、10 帧/秒、白底。点击 **Save GIF** 后按当前倍速导出完整动画，终帧停留 0.8 秒，并支持查看进度和取消；保存 HTML 时也会保存这些 GIF 偏好。超出浏览器资源限制时会提示如何调整。GIF 不能保留平滑半透明边缘；需要透明背景时请选择 HTML 或 PNG。更多参数和导出记录见[速度与格式指南](skills/tracegif/references/exports.md)。
 
 处理宿主准备好的位图时，`prepare` 支持 `--mask PATH`、`--contours SVG`、`--kind logo|lineart|photo` 和 `--duration SECONDS`。`--remove-white-background` 只尝试移除与画面边界相连的近白区域，生成的透明候选仍需视觉确认；它不会无差别删除所有白色。
 
-SVG 中保留文字对象时，使用 `--font PATH --font-family NAME` 提供正确且允许分发的字体。该字体会应用到所有文字，文字对象在最终显色阶段出现。若要逐步描绘文字笔画，或保留多种字体，应先将文字转为路径。不受支持的外部资源会被拒绝，不会在播放时联网补取。详见[工程与修改约定](skills/typebit-line-animation/references/project.md)。
+SVG 中保留文字对象时，使用 `--font PATH --font-family NAME` 提供正确且允许分发的字体。该字体会应用到所有文字，文字对象在最终显色阶段出现。若要逐步描绘文字笔画，或保留多种字体，应先将文字转为路径。不受支持的外部资源会被拒绝，不会在播放时联网补取。详见[工程与修改约定](skills/tracegif/references/project.md)。
 
 ## 运行真实照片示例
 
-内置阿波罗 17 号 **“蓝色弹珠”** 照片，署名 **NASA / Apollo 17 crew**。三个示意轮廓由宿主 Agent 看图后编写，圆形蒙版只针对这张照片。这是近似处理示例，不是通用自动抠图。请保留[来源与使用说明](examples/source/ATTRIBUTION.md)；NASA 不为 TypeBit 背书。
+内置阿波罗 17 号 **“蓝色弹珠”** 照片，署名 **NASA / Apollo 17 crew**。三个示意轮廓由宿主 Agent 看图后编写，圆形蒙版只针对这张照片。这是近似处理示例，不是通用自动抠图。请保留[来源与使用说明](examples/source/ATTRIBUTION.md)；NASA 不为 TraceGIF 背书。
 
 | 近似轮廓 | 显露原始照片 |
 | --- | --- |
 | ![宿主编写的地球及陆地轮廓](docs/media/photo-contours.png) | ![棋盘格上的蓝色弹珠原图](docs/media/photo-preview.png) |
 
 ```text
-python skills/typebit-line-animation/scripts/typebit.py prepare examples/source/blue-marble.jpg --project build/photo-example --kind photo --mask examples/source/blue-marble-mask.png --contours examples/source/blue-marble-contours.svg
+python skills/tracegif/scripts/tracegif.py prepare examples/source/blue-marble.jpg --project build/photo-example --kind photo --mask examples/source/blue-marble-mask.png --contours examples/source/blue-marble-contours.svg
 python -c "from shutil import copyfile; copyfile('examples/source/ATTRIBUTION.md', 'build/photo-example/ATTRIBUTION.md')"
-python skills/typebit-line-animation/scripts/typebit.py render build/photo-example
-python skills/typebit-line-animation/scripts/typebit.py verify build/photo-example/animation.html
-python skills/typebit-line-animation/scripts/typebit.py package build/photo-example
+python skills/tracegif/scripts/tracegif.py render build/photo-example
+python skills/tracegif/scripts/tracegif.py verify build/photo-example/animation.html
+python skills/tracegif/scripts/tracegif.py package build/photo-example
 ```
 
 照片测试会逐个比较解码后的全部 RGB 像素，并检查输出是否使用了提供的透明蒙版。圆形边缘可能略微裁掉大气边缘；云层和地表细节通过最后显露原图保留，不会被重新构造成大量路径。
@@ -169,11 +176,11 @@ python skills/typebit-line-animation/scripts/typebit.py package build/photo-exam
 
 ## 开发、发布与维护
 
-运行脚本、Skill 指令和参考文档统一放在 `skills/typebit-line-animation/`。GitHub 仓库承担文档、展示和分发职责。发布附件提供可安装 Skill 与示例；用户作品不会自动上传或公开。
+运行脚本、Skill 指令和参考文档统一放在 `skills/tracegif/`。GitHub 仓库承担文档、展示和分发职责。发布附件提供可安装 Skill 与示例；用户作品不会自动上传或公开。
 
-修改时应保留原图像素、稳定的离线输出、播放操作约定和真实验证记录。可查看[版本记录](CHANGELOG.md)、[Skill 工作流程](skills/typebit-line-animation/SKILL.md)和[验证指南](skills/typebit-line-animation/references/verification.md)。反馈问题时请提供 TypeBit 版本、`doctor` 输出及验证报告；只有确实准备公开分享时才附上原图。
+修改时应保留原图像素、稳定的离线输出、播放操作约定和真实验证记录。可查看[版本记录](CHANGELOG.md)、[Skill 工作流程](skills/tracegif/SKILL.md)和[验证指南](skills/tracegif/references/verification.md)。反馈问题时请提供 TraceGIF 版本、`doctor` 输出及验证报告；只有确实准备公开分享时才附上原图。
 
-维护者可先运行 `python tools/validate_skill.py` 与 `python -m unittest discover -s tests -v`，再执行上面的示例流程。[检查工作流](.github/workflows/checks.yml)为 Ubuntu、Windows、macOS 配置了 Python 3.12 检查，并保留浏览器验证证据。已配置工作流不代表已通过，应以 [Actions 实际结果](https://github.com/JulyanXu/typebit/actions)为准。
+维护者可先运行 `python tools/validate_skill.py` 与 `python -m unittest discover -s tests -v`，再执行上面的示例流程。[检查工作流](.github/workflows/checks.yml)为 Ubuntu、Windows、macOS 配置了 Python 3.12 检查，并保留浏览器验证证据。已配置工作流不代表已通过，应以 [Actions 实际结果](https://github.com/JulyanXu/tracegif/actions)为准。
 
 发布时更新运行时版本与版本记录，再推送对应的 `vX.Y.Z` 标签。[发布工作流](.github/workflows/release.yml)完成检查后，发布经过测试的 Linux 示例、Skill ZIP、验证证据和校验值。CI 没有 Agent 看图，因此视觉复核仍标为未验证。本地 Agent 进行的视觉复核绑定其对应 HTML 的哈希，不会自动沿用到另一次构建的文件。
 

@@ -10,10 +10,12 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "skills/typebit-line-animation/scripts"))
+sys.path.insert(0, str(ROOT / "skills/tracegif/scripts"))
 from typebitlib.core import TypeBitError, _project_zip, package_project, prepare_project, render_project
+from typebitlib.export import export_project
 
 SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"><path id="outline" d="M20 20H80V60H20Z" fill="#2563eb"/></svg>'
 
@@ -81,6 +83,56 @@ class ArchiveTests(unittest.TestCase):
             self.assertIn("scene.svg", names)
             self.assertNotIn("bundle.zip", names)
             self.assertFalse(any(name.startswith((".", "revisions/", "__pycache__/")) for name in names))
+
+    def test_package_checks_export_hashes_current_html_and_required_sidecars(self):
+        result = export_project(self.project, format="html")
+        output, evidence = Path(result["output"]), Path(result["report"])
+        original_output, original_evidence = output.read_bytes(), evidence.read_bytes()
+        package_project(self.project)
+        for problem in ("changed_file", "stale_html", "missing_report"):
+            with self.subTest(problem=problem):
+                output.write_bytes(original_output)
+                evidence.write_bytes(original_evidence)
+                if problem == "changed_file":
+                    output.write_bytes(b"corrupt export")
+                elif problem == "stale_html":
+                    report = json.loads(original_evidence)
+                    report["source_html_sha256"] = "0" * 64
+                    evidence.write_text(json.dumps(report), encoding="utf-8")
+                else:
+                    evidence.unlink()
+                with self.assertRaisesRegex(TypeBitError, "export evidence|Export evidence"):
+                    package_project(self.project)
+
+    def test_package_protects_private_snapshot_and_unrelated_archive(self):
+        snapshot = self.project / ".last-render.zip"
+        before = snapshot.read_bytes()
+        with self.assertRaisesRegex(TypeBitError, "private snapshots"):
+            package_project(self.project, snapshot)
+        self.assertEqual(snapshot.read_bytes(), before)
+        unrelated = self.base / "unrelated.zip"
+        unrelated.write_bytes(b"keep this existing file")
+        with self.assertRaisesRegex(TypeBitError, "unrelated archive"):
+            package_project(self.project, unrelated)
+        self.assertEqual(unrelated.read_bytes(), b"keep this existing file")
+
+    def test_replacing_package_is_atomic_and_does_not_include_prior_self(self):
+        output = self.project / "exports/project.zip"
+        package_project(self.project, output)
+        before = output.read_bytes()
+
+        def failed_archive(project, temporary, **options):
+            temporary.write_bytes(b"unfinished")
+            raise OSError("Synthetic interrupted archive")
+
+        with patch("typebitlib.core._project_zip", side_effect=failed_archive), self.assertRaises(OSError):
+            package_project(self.project, output)
+        self.assertEqual(output.read_bytes(), before)
+        self.assertEqual(list(output.parent.glob(".typebit-package-*")), [])
+        package_project(self.project, output)
+        with zipfile.ZipFile(output) as archive:
+            self.assertNotIn("exports/project.zip", archive.namelist())
+            self.assertIn("animation.html", archive.namelist())
 
     @unittest.skipUnless(os.name == "nt", "NTFS junction behavior applies to Windows")
     def test_archive_does_not_follow_junction_outside_project(self):

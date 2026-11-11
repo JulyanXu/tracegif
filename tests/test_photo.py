@@ -10,7 +10,7 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "skills/typebit-line-animation/scripts"))
+sys.path.insert(0, str(ROOT / "skills/tracegif/scripts"))
 from typebitlib.core import TypeBitError, package_project, prepare_project, render_project
 from typebitlib.verify import external_resources
 
@@ -70,6 +70,21 @@ class RealPhotoTests(unittest.TestCase):
         self.assertTrue(any("mask" in message for message in result["needs"]))
         with self.assertRaisesRegex(TypeBitError, "needs"):
             render_project(self.project)
+
+    def test_uniform_masks_do_not_bypass_subject_visibility_or_transparency(self):
+        with Image.open(PHOTO) as original:
+            size = ImageOps.exif_transpose(original).size
+        for value in (0, 255):
+            with self.subTest(mask_value=value):
+                mask = self.project.parent / f"uniform-{value}.png"
+                Image.new("L", size, value).save(mask)
+                project = self.project.parent / f"uniform-project-{value}"
+                result = prepare_project(PHOTO, project, kind="photo", mask=mask, contours=CONTOURS)
+                self.assertEqual(result["status"], "needs_input")
+                self.assertTrue(result["needs"])
+                with self.assertRaisesRegex(TypeBitError, "needs"):
+                    render_project(project)
+                self.assertEqual((project / "assets/source.jpg").read_bytes(), PHOTO.read_bytes())
 
 
 if __name__ == "__main__":

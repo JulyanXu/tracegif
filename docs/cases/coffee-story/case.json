@@ -8,25 +8,35 @@
   "duration": 6,
   "playback_rate": 1.5,
   "matte": "#FAF1E7",
-  "html_sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728",
+  "html_sha256": "0504d54ad46daba9b0bb44036b38e4144e83dd5b9c6c59da8f90df6cb6b4bb42",
   "project_zip": "coffee-story-project.zip",
-  "project_zip_sha256": "b5c46335a4a12592c140e1a5dd6dd150766eab6e055ec0837b3373a5c405105e",
+  "project_zip_sha256": "5ce5433e5977741b38bcca52621ca4449f44041c95dfaf26da07b2170e21cd33",
   "automated_status": "passed",
   "checks_passed": 15,
+  "view_box": [
+    0.0,
+    0.0,
+    640.0,
+    480.0
+  ],
+  "preview_dimensions": {
+    "width": 480,
+    "height": 360
+  },
   "visual_review": {
     "status": "reviewed",
-    "html_sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728",
+    "html_sha256": "0504d54ad46daba9b0bb44036b38e4144e83dd5b9c6c59da8f90df6cb6b4bb42",
     "notes": [
-      "Cup, handle, saucer, espresso, three steam strokes, beans and leaf emblem match original source shape, placement and final colors. Handle opening and surrounding negative space remain transparent. Native SVG paths; no photographic tracing.",
-      "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
-      "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
-      "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+      "Cup, handle, saucer, steam, beans and leaf emblem match original SVG geometry and palette. Handle opening and exterior remain transparent; source and final comparison panels are pixel-identical.",
+      "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+      "Inspected decoded GIF opening, drawing and final frames: 480x360, 41 stored frames, 4800 ms including final hold. The declared #FAF1E7 GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+      "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
     ]
   },
   "assets": {
     "animation.html": {
       "file": "animation.html",
-      "sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728"
+      "sha256": "0504d54ad46daba9b0bb44036b38e4144e83dd5b9c6c59da8f90df6cb6b4bb42"
     },
     "animation.gif": {
       "file": "animation.gif",
@@ -42,7 +52,26 @@
     },
     "report.json": {
       "file": "report.json",
-      "sha256": "41113abf3071be8d0e6d5828cbf3286bfca0a302debe39a40bcaed05ee5aaa95"
+      "sha256": "f6a27f584330845d9a9e886c622d4fbe53b0f2f16ac3488af7f7b489ff9e9d56"
+    }
+  },
+  "input_provenance": {
+    "schema_version": 1,
+    "authored_inputs": {
+      "source": {
+        "file": "source/coffee-story.svg",
+        "sha256": "ed8b55d9b18bbb36a53add55f0efd1f29a5c0982defe7e6631daa89293eb5213"
+      }
+    },
+    "prepared_inputs": {
+      "source": {
+        "file": "assets/source.svg",
+        "sha256": "ed8b55d9b18bbb36a53add55f0efd1f29a5c0982defe7e6631daa89293eb5213"
+      },
+      "scene": {
+        "file": "scene.svg",
+        "sha256": "538d20a198572c70be9cc829f26495489140aaee224dc10ba36fae6a2f18a8a4"
+      }
     }
   }
 }

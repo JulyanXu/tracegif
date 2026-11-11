@@ -1,0 +1,77 @@
+{
+  "slug": "celebration-card",
+  "title": "Celebration Card",
+  "title_zh": "庆典邀请卡",
+  "kind": "svg",
+  "method": "Native SVG invitation: arched card and ribbon, balloons and decorative strokes, then original JOIN US lettering and date paths.",
+  "limitations": "A fictional invitation with a demonstration date. All lettering is original monoline path geometry, not an external typeface.",
+  "duration": 6,
+  "playback_rate": 1.5,
+  "matte": "#F6EDF0",
+  "html_sha256": "692aa106071788a2de02091d692fc001e41366deca4cac66b0ce56135c2b10d9",
+  "project_zip": "celebration-card-project.zip",
+  "project_zip_sha256": "66985d23ab9ab0e6f9047445865ef2b333b1f671af7781f3431d787c73bac8fc",
+  "automated_status": "passed",
+  "checks_passed": 15,
+  "view_box": [
+    0.0,
+    0.0,
+    600.0,
+    760.0
+  ],
+  "preview_dimensions": {
+    "width": 480,
+    "height": 608
+  },
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "692aa106071788a2de02091d692fc001e41366deca4cac66b0ce56135c2b10d9",
+    "notes": [
+      "Portrait proportions, arched paper, balloons, ribbon and original JOIN US and 08.24 path lettering are preserved. The complete date sits inside the ribbon. Source and final comparison panels are pixel-identical; no external font is used.",
+      "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+      "Inspected decoded GIF opening, drawing and final frames: 480x608, 41 stored frames, 4800 ms including final hold. The declared #F6EDF0 GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+      "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
+    ]
+  },
+  "assets": {
+    "animation.html": {
+      "file": "animation.html",
+      "sha256": "692aa106071788a2de02091d692fc001e41366deca4cac66b0ce56135c2b10d9"
+    },
+    "animation.gif": {
+      "file": "animation.gif",
+      "sha256": "f5fd089c29ac3f74871076d4791d37712f4afb064168725758dce00857d0c2a2"
+    },
+    "final.png": {
+      "file": "final.png",
+      "sha256": "15a560684ac19f585c46fb8fe1c82a1e48084bc482c5d80d8881d61ee7b60f9a"
+    },
+    "preview.png": {
+      "file": "preview.png",
+      "sha256": "29fc6315a8a21f58940c0fd852c3d5bc39241052525ba240c22c62fa3e2b3e6e"
+    },
+    "report.json": {
+      "file": "report.json",
+      "sha256": "79ebf34bff4866d54bb1ebbd49ba37d83d6224bc074712772e2adf49f91a7dd4"
+    }
+  },
+  "input_provenance": {
+    "schema_version": 1,
+    "authored_inputs": {
+      "source": {
+        "file": "source/celebration-card.svg",
+        "sha256": "e652e13f78d41c181d11ee96617c8ec4649fa8ca7b5f6aeb6f5a7d9dd586df40"
+      }
+    },
+    "prepared_inputs": {
+      "source": {
+        "file": "assets/source.svg",
+        "sha256": "e652e13f78d41c181d11ee96617c8ec4649fa8ca7b5f6aeb6f5a7d9dd586df40"
+      },
+      "scene": {
+        "file": "scene.svg",
+        "sha256": "46beb03cfc999bd870de4a900b85df94db24fcc28459d343be58cae9ca1658dc"
+      }
+    }
+  }
+}

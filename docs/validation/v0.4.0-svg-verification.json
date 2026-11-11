@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-11T01:15:01.824848+00:00",
+  "html_file": "animation.html",
+  "automated_status": "passed",
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "eda043bf9fae89421737eca2e1124178376a1946f5460aabb913d0f0f7a06d0f",
+    "notes": [
+      "Reviewed actual source/drawing/final captures: rocket geometry, scale, white window, and blue/gold colors match the original. No extra doodle strokes.",
+      "Reviewed actual 1040x900 controls capture with GIF settings open: all settings and output dimensions are readable; the underlying artwork is retained."
+    ]
+  },
+  "checks": [
+    {
+      "name": "embedded_resources",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "initial_wait",
+      "status": "passed",
+      "detail": {
+        "status": "idle",
+        "time": 0,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667,
+        "exporting": false
+      }
+    },
+    {
+      "name": "speed_changes_without_reset",
+      "status": "passed",
+      "detail": {
+        "playing": {
+          "status": "playing",
+          "time": 2.5504500000178814,
+          "duration": 10,
+          "playbackRate": 2,
+          "effectiveDuration": 5,
+          "exporting": false
+        },
+        "paused": {
+          "status": "paused",
+          "time": 2.5542499999701977,
+          "duration": 10,
+          "playbackRate": 0.5,
+          "effectiveDuration": 20,
+          "exporting": false
+        }
+      }
+    },
+    {
+      "name": "scrubber_seeks_without_global_shortcuts",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 5.01,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_starts_without_reset",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.19089999997615814,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "space_pauses_and_resumes",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.3415,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_resumes_pause",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.4539999999403954,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "r_restarts",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.002199999988079071,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "held_key_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.004899999976158142,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "editable_shortcuts_ignored",
+      "status": "passed",
+      "detail": {
+        "status": "paused",
+        "time": 0.004899999976158142,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "screen_button_toggle",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.04269999998807907,
+        "duration": 10,
+        "playbackRate": 1,
+        "effectiveDuration": 10,
+        "exporting": false
+      }
+    },
+    {
+      "name": "real_time_completion_and_hold",
+      "status": "passed",
+      "detail": {
+        "status": "completed",
+        "time": 10,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667,
+        "exporting": false
+      }
+    },
+    {
+      "name": "right_replays_completed",
+      "status": "passed",
+      "detail": {
+        "status": "playing",
+        "time": 0.007800000071525574,
+        "duration": 10,
+        "playbackRate": 1.5,
+        "effectiveDuration": 6.666666666666667,
+        "exporting": false
+      }
+    },
+    {
+      "name": "no_network_requests",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "no_browser_errors",
+      "status": "passed",
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "light-start.png",
+      "background": "light",
+      "time": 0
+    },
+    {
+      "file": "light-middle.png",
+      "background": "light",
+      "time": 5.0
+    },
+    {
+      "file": "light-final.png",
+      "background": "light",
+      "time": 10.0
+    },
+    {
+      "file": "dark-start.png",
+      "background": "dark",
+      "time": 0
+    },
+    {
+      "file": "dark-middle.png",
+      "background": "dark",
+      "time": 5.0
+    },
+    {
+      "file": "dark-final.png",
+      "background": "dark",
+      "time": 10.0
+    },
+    {
+      "file": "checker-start.png",
+      "background": "checker",
+      "time": 0
+    },
+    {
+      "file": "checker-middle.png",
+      "background": "checker",
+      "time": 5.0
+    },
+    {
+      "file": "checker-final.png",
+      "background": "checker",
+      "time": 10.0
+    },
+    {
+      "file": "transparent-final.png",
+      "background": "transparent",
+      "time": 10.0
+    }
+  ],
+  "network_requests": [],
+  "console_errors": [],
+  "html_sha256": "eda043bf9fae89421737eca2e1124178376a1946f5460aabb913d0f0f7a06d0f",
+  "browser": {
+    "name": "chromium",
+    "version": "145.0.7632.6",
+    "offline": true,
+    "url_scheme": "file"
+  },
+  "transparency_observation": {
+    "status": "passed",
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "Margins only; requires visual mask review."
+  },
+  "report_path": "report.json"
+}

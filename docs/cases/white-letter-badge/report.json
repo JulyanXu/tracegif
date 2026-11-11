@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "created_at": "2026-11-10T10:01:26.392909+00:00",
+  "created_at": "2026-11-11T01:12:58.425732+00:00",
   "html_file": "animation.html",
   "automated_status": "passed",
   "visual_review": {
     "status": "reviewed",
-    "html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+    "html_sha256": "f3c63b7eb3450dbdad32b4fb7801e19ac8317b0ab2b40c14e2a5d80e5cef0976",
     "notes": [
-      "Octagonal badge, original TB letter paths, enclosed counters and gold accents match the supplied PNG and authored SVG. White letter interiors remain opaque white and exterior alpha is zero. Final PNG bytes match the original PNG exactly; this controlled example uses supplied original SVG contours, not automatic tracing or background removal.",
-      "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
-      "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
-      "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+      "TB lettering, enclosed counters and gold accents match the original PNG and supplied contours. Opaque white letter interiors and exterior alpha are preserved; source and final comparison panels are pixel-identical. This controlled fixture uses known authored contours, not automatic tracing or background removal.",
+      "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+      "Inspected decoded GIF opening, drawing and final frames: 480x360, 41 stored frames, 4800 ms including final hold. The declared #F4F0E8 GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+      "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
     ]
   },
   "checks": [
@@ -37,7 +37,7 @@
       "detail": {
         "playing": {
           "status": "playing",
-          "time": 1.5486999999582767,
+          "time": 1.555099999934435,
           "duration": 6,
           "playbackRate": 2,
           "effectiveDuration": 3,
@@ -45,7 +45,7 @@
         },
         "paused": {
           "status": "paused",
-          "time": 1.5542999999821185,
+          "time": 1.560499999910593,
           "duration": 6,
           "playbackRate": 0.5,
           "effectiveDuration": 12,
@@ -70,7 +70,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.18969999998807907,
+        "time": 0.2169000000357628,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -82,7 +82,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.3274000000357628,
+        "time": 0.3618000000119209,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -94,7 +94,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.4256000000238418,
+        "time": 0.47130000001192096,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -106,7 +106,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.002,
+        "time": 0.0019000000357627868,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -118,7 +118,7 @@
       "status": "passed",
       "detail": {
         "status": "paused",
-        "time": 0.003600000023841858,
+        "time": 0.0035,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -130,7 +130,7 @@
       "status": "passed",
       "detail": {
         "status": "paused",
-        "time": 0.003600000023841858,
+        "time": 0.0035,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -142,7 +142,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.059500000059604645,
+        "time": 0.05909999996423722,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -166,7 +166,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.03690000003576279,
+        "time": 0.018750000000000003,
         "duration": 6,
         "playbackRate": 1.5,
         "effectiveDuration": 4,
@@ -238,7 +238,7 @@
   ],
   "network_requests": [],
   "console_errors": [],
-  "html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+  "html_sha256": "f3c63b7eb3450dbdad32b4fb7801e19ac8317b0ab2b40c14e2a5d80e5cef0976",
   "browser": {
     "name": "chromium",
     "version": "145.0.7632.6",

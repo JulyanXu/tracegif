@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "created_at": "2026-11-10T10:01:10.937794+00:00",
+  "created_at": "2026-11-11T01:12:45.401135+00:00",
   "html_file": "animation.html",
   "automated_status": "passed",
   "visual_review": {
     "status": "reviewed",
-    "html_sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728",
+    "html_sha256": "0504d54ad46daba9b0bb44036b38e4144e83dd5b9c6c59da8f90df6cb6b4bb42",
     "notes": [
-      "Cup, handle, saucer, espresso, three steam strokes, beans and leaf emblem match original source shape, placement and final colors. Handle opening and surrounding negative space remain transparent. Native SVG paths; no photographic tracing.",
-      "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
-      "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
-      "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+      "Cup, handle, saucer, steam, beans and leaf emblem match original SVG geometry and palette. Handle opening and exterior remain transparent; source and final comparison panels are pixel-identical.",
+      "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+      "Inspected decoded GIF opening, drawing and final frames: 480x360, 41 stored frames, 4800 ms including final hold. The declared #FAF1E7 GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+      "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
     ]
   },
   "checks": [
@@ -37,7 +37,7 @@
       "detail": {
         "playing": {
           "status": "playing",
-          "time": 1.5747499999105932,
+          "time": 1.583800000011921,
           "duration": 6,
           "playbackRate": 2,
           "effectiveDuration": 3,
@@ -45,7 +45,7 @@
         },
         "paused": {
           "status": "paused",
-          "time": 1.5891500000059604,
+          "time": 1.5921999999880792,
           "duration": 6,
           "playbackRate": 0.5,
           "effectiveDuration": 12,
@@ -70,7 +70,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.2032000000476837,
+        "time": 0.21319999998807906,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -82,7 +82,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.34340000003576276,
+        "time": 0.3523999999761581,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -94,7 +94,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.44189999997615814,
+        "time": 0.45619999998807903,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -106,7 +106,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.006600000023841858,
+        "time": 0.006199999988079071,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -118,7 +118,7 @@
       "status": "passed",
       "detail": {
         "status": "paused",
-        "time": 0.011400000035762787,
+        "time": 0.010699999988079072,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -130,7 +130,7 @@
       "status": "passed",
       "detail": {
         "status": "paused",
-        "time": 0.011400000035762787,
+        "time": 0.010699999988079072,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -142,7 +142,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.059200000047683714,
+        "time": 0.057,
         "duration": 6,
         "playbackRate": 1,
         "effectiveDuration": 6,
@@ -166,7 +166,7 @@
       "status": "passed",
       "detail": {
         "status": "playing",
-        "time": 0.008549999982118606,
+        "time": 0.02204999998211861,
         "duration": 6,
         "playbackRate": 1.5,
         "effectiveDuration": 4,
@@ -238,7 +238,7 @@
   ],
   "network_requests": [],
   "console_errors": [],
-  "html_sha256": "9ab8b27c6cafe6fbbfb6054f7ffdb50ea30462ce2d892a379d69fb19fecfd728",
+  "html_sha256": "0504d54ad46daba9b0bb44036b38e4144e83dd5b9c6c59da8f90df6cb6b4bb42",
   "browser": {
     "name": "chromium",
     "version": "145.0.7632.6",

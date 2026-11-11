@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="520" viewBox="0 0 840 520">
+  <title>Orbit Lesson — an illustrative solar-orbit schematic</title>
+  <desc>Original TraceGIF demonstration artwork, MIT licensed. Stylized orbit geometry for a classroom slide; distances, sizes and positions are illustrative and not to scale. Native paths, no fonts.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path id="outer-orbit" data-phase="main" d="M644 262 A280 188 0 1 1 84 262 A280 188 0 1 1 644 262Z" fill="none" stroke="#A6ABB8" stroke-width="2"/>
+    <path id="middle-orbit" data-phase="main" d="M571 262 A207 140 0 1 1 157 262 A207 140 0 1 1 571 262Z" fill="none" stroke="#929CAD" stroke-width="2"/>
+    <path id="inner-orbit" data-phase="main" d="M502 262 A138 94 0 1 1 226 262 A138 94 0 1 1 502 262Z" fill="none" stroke="#7B8D9E" stroke-width="2"/>
+    <path id="close-orbit" data-phase="main" d="M443 262 A79 56 0 1 1 285 262 A79 56 0 1 1 443 262Z" fill="none" stroke="#8D9EAE" stroke-width="1.8"/>
+    <path id="sun-disc" data-phase="main" d="M408 262 A44 44 0 1 1 320 262 A44 44 0 1 1 408 262Z" fill="#E9B65D" stroke="#BC7B3E" stroke-width="3"/>
+    <path id="sun-inner" data-phase="secondary" d="M391 241 C375 226 347 231 337 248 M386 281 C372 294 349 292 339 281" fill="none" stroke="#F8D78E" stroke-width="5"/>
+    <path id="close-planet" data-phase="secondary" d="M442 242 A10 10 0 1 1 422 242 A10 10 0 1 1 442 242Z" fill="#AA8F7D" stroke="#6D6B76" stroke-width="2"/>
+    <path id="inner-planet" data-phase="secondary" d="M306 184 A17 17 0 1 1 272 184 A17 17 0 1 1 306 184Z" fill="#C87D63" stroke="#835F60" stroke-width="2.5"/>
+    <path id="inner-planet-band" data-phase="secondary" d="M275 180 C284 175 296 178 303 183 M278 191 C286 187 295 191 301 193" fill="none" stroke="#E8AD82" stroke-width="2.5"/>
+    <path id="middle-planet" data-phase="secondary" d="M533 357 A23 23 0 1 1 487 357 A23 23 0 1 1 533 357Z" fill="#699FAD" stroke="#3C7188" stroke-width="2.5"/>
+    <path id="middle-planet-land" data-phase="secondary" d="M493 346 L507 337 L516 343 L512 353 L524 357 L526 369 L512 377 L503 368 L506 358 L495 357Z" fill="#B3C59A" stroke="#B3C59A" stroke-width="1.5"/>
+    <path id="outer-planet" data-phase="secondary" d="M231 125 A29 29 0 1 1 173 125 A29 29 0 1 1 231 125Z" fill="#9D8CAE" stroke="#6C6285" stroke-width="2.5"/>
+    <path id="outer-ring" data-phase="secondary" d="M177 117 C122 123 149 149 205 141 C254 135 267 112 231 112 M175 121 C152 126 161 136 188 135 M228 119 C245 117 245 123 230 128" fill="none" stroke="#C3A790" stroke-width="5"/>
+    <path id="direction-arrows" data-phase="details" d="M632 307 L642 298 L646 311 M427 130 L439 131 L433 141 M228 267 L232 278 L242 272 M343 207 L354 206 L350 216" fill="none" stroke="#737F95" stroke-width="2.4"/>
+    <path id="sun-callout" data-phase="details" d="M401 237 L459 210 H500" fill="none" stroke="#B68A54" stroke-width="1.6"/>
+    <path id="planet-callout" data-phase="details" d="M535 365 L590 394 H638" fill="none" stroke="#6596A2" stroke-width="1.6"/>
+    <path id="legend-rule" data-phase="details" d="M688 161 V351" fill="none" stroke="#C7C2BC" stroke-width="2"/>
+    <path id="legend-sun" data-phase="details" d="M721 185 A9 9 0 1 1 703 185 A9 9 0 1 1 721 185Z" fill="#E9B65D" stroke="#BC7B3E" stroke-width="2"/>
+    <path id="legend-orbits" data-phase="details" d="M721 239 A9 6 0 1 1 703 239 A9 6 0 1 1 721 239Z" fill="none" stroke="#8995A8" stroke-width="2"/>
+    <path id="legend-planet" data-phase="details" d="M721 293 A9 9 0 1 1 703 293 A9 9 0 1 1 721 293Z" fill="#699FAD" stroke="#3C7188" stroke-width="2"/>
+    <path id="sun-label" data-phase="details" d="M746 179 H736 V185 H746 V192 H736 M752 179 V192 H762 V179 M769 192 V179 L779 192 V179" fill="none" stroke="#9B713F" stroke-width="1.8"/>
+    <path id="orbit-label" data-phase="details" d="M736 233 H746 V246 H736Z M752 246 V233 H762 V239 H752 M757 239 L763 246 M769 233 V246 H779 V240 H769 M769 233 H778 V239 H769 M786 233 V246 M795 233 H807 M801 233 V246" fill="none" stroke="#78879C" stroke-width="1.8"/>
+    <path id="planet-label" data-phase="details" d="M736 300 V287 H745 V293 H736 M751 287 V300 H759 M764 300 L769 287 L774 300 M766 296 H772 M780 300 V287 L789 300 V287 M804 287 H796 V300 H804 M796 293 H802 M810 287 H822 M816 287 V300" fill="none" stroke="#477E92" stroke-width="1.8"/>
+    <path id="star-accent" data-phase="details" d="M551 81 V97 M543 89 H559 M115 394 V407 M109 400 H121 M608 432 V444 M602 438 H614" fill="none" stroke="#B0A18B" stroke-width="2"/>
+    <path id="scale-caption" data-phase="details" d="M270 482 V470 L278 482 V470 M285 470 H293 V482 H285Z M300 470 H310 M305 470 V482 M326 470 H336 M331 470 V482 M343 470 H351 V482 H343Z M376 470 H366 V476 H376 V482 H366 M393 470 H383 V482 H393 M400 482 L405 470 L410 482 M402 478 H408 M418 470 V482 H427 M443 470 H434 V482 H443 M434 476 H441" fill="none" stroke="#7A8190" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+{
+  "status": "exported",
+  "format": "png",
+  "output_file": "animation.png",
+  "source_html_sha256": "3bf8fcc7de48ec7ce31b1a5c301b2f5270cf4229831a9309ce30c705bceca20f",
+  "playback_rate": 1.5,
+  "timeline_duration": 6.0,
+  "effective_duration": 4.0,
+  "created_at": "2026-11-11T01:13:32.101624+00:00",
+  "validation": {
+    "embedded_resources": "passed",
+    "browser_capture": "passed",
+    "offline": true
+  },
+  "width": 640,
+  "height": 498,
+  "background": "transparent",
+  "time": 6.0,
+  "frame_count": 1,
+  "browser": "145.0.7632.6",
+  "output_sha256": "7fce736a531e6b9314d740d49164e0a854bf981c021f182e82a7220d1c863854",
+  "bytes": 63425
+}

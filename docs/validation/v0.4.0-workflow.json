@@ -1,0 +1,294 @@
+{
+  "date": "2026-11-11",
+  "scenario": "Copy an existing v0.3 project, change playback to 2x, export GIF/PNG/HTML and package without altering artwork",
+  "status": "passed",
+  "preservation": {
+    "original_all_files_unchanged": true,
+    "original_file_count": 21,
+    "source": {
+      "original": "c8f63aab7c0d908d450cf084b5fcd7025a2779701fb40c257cfdfe10ca1ebb44",
+      "copy": "c8f63aab7c0d908d450cf084b5fcd7025a2779701fb40c257cfdfe10ca1ebb44"
+    },
+    "scene": {
+      "original": "330ba46db48eef9b5a8c7f1386e24093846629e6bf9df9a30143f3b09c7a9fe9",
+      "copy": "330ba46db48eef9b5a8c7f1386e24093846629e6bf9df9a30143f3b09c7a9fe9"
+    },
+    "layers_unchanged": true,
+    "duration_unchanged": true,
+    "fill_start_unchanged": true,
+    "doodle_unchanged": true,
+    "original_revision": 1,
+    "new_revision": 2,
+    "original_version": "0.3.0",
+    "new_version": "0.4.0",
+    "original_playback_rate": 1.5,
+    "new_playback_rate": 2.0,
+    "canonical_html_sha256": "4ceb3cb0b547026c42b534c1728804f9e4fabb83f7eae5f462f67d2f24f415de",
+    "export_html_sha256": "4ceb3cb0b547026c42b534c1728804f9e4fabb83f7eae5f462f67d2f24f415de",
+    "archived_revision": {
+      "project_path": "project.json",
+      "revision": 1,
+      "playback_rate": 1.5,
+      "html_sha256": "e8789c8e357a26d93668f7d545c36d530b58a0f877b695324e7bf10b74110d9e"
+    }
+  },
+  "offline_playback": {
+    "status": "passed",
+    "html_sha256": "4ceb3cb0b547026c42b534c1728804f9e4fabb83f7eae5f462f67d2f24f415de",
+    "checks": 15,
+    "browser": {
+      "name": "chromium",
+      "version": "145.0.7632.6",
+      "offline": true,
+      "url_scheme": "file"
+    },
+    "transparency_observation": {
+      "status": "passed",
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scope": "Margins only; requires visual mask review."
+    }
+  },
+  "browser_downloads": {
+    "checks": {
+      "gif_download_restores_paused_state": "passed",
+      "gif_cancel_restores_playing_state": "passed",
+      "saved_html_opens_idle_with_preferences": "passed",
+      "cli_gif_dimensions_timing_matte": "passed",
+      "browser_gif_dimensions_timing_matte": "passed",
+      "cli_png_alpha_white_window": "passed",
+      "browser_png_alpha_white_window": "passed"
+    },
+    "network_requests": [],
+    "browser_errors": [],
+    "browser": "145.0.7632.6",
+    "initial": {
+      "status": "idle",
+      "time": 0,
+      "duration": 10,
+      "playbackRate": 2,
+      "effectiveDuration": 5,
+      "exporting": false
+    },
+    "settings": "240 × 160 px · 15 fps · 5.8 seconds including the final hold",
+    "download_restore": {
+      "before": {
+        "status": "paused",
+        "time": 3.25,
+        "duration": 10,
+        "playbackRate": 2,
+        "effectiveDuration": 5,
+        "exporting": false
+      },
+      "after": {
+        "status": "paused",
+        "time": 3.25,
+        "duration": 10,
+        "playbackRate": 2,
+        "effectiveDuration": 5,
+        "exporting": false
+      },
+      "status": "GIF saved: 240 × 160 px, 15 fps at 2×, #E8F0F8 background."
+    },
+    "cancel_restore": {
+      "before": {
+        "status": "playing",
+        "time": 2.103200000047684,
+        "duration": 10,
+        "playbackRate": 2,
+        "effectiveDuration": 5,
+        "exporting": false
+      },
+      "after": {
+        "status": "playing",
+        "time": 2.2148000000715258,
+        "duration": 10,
+        "playbackRate": 2,
+        "effectiveDuration": 5,
+        "exporting": false
+      },
+      "status": "GIF export canceled."
+    },
+    "saved_html": {
+      "state": {
+        "status": "idle",
+        "time": 0,
+        "duration": 10,
+        "playbackRate": 2,
+        "effectiveDuration": 5,
+        "exporting": false
+      },
+      "width": "240",
+      "fps": "15",
+      "background": "#e8f0f8"
+    },
+    "cli_gif": {
+      "size": [
+        240,
+        160
+      ],
+      "frames": 75,
+      "duration_ms": 5800,
+      "final_hold_ms": 800,
+      "loop": 0,
+      "corner_colors": [
+        [
+          232,
+          240,
+          248
+        ]
+      ],
+      "final_window_rgb": [
+        255,
+        255,
+        255
+      ]
+    },
+    "browser_gif": {
+      "size": [
+        240,
+        160
+      ],
+      "frames": 76,
+      "duration_ms": 5800,
+      "final_hold_ms": 800,
+      "loop": 0,
+      "corner_colors": [
+        [
+          232,
+          240,
+          248
+        ]
+      ],
+      "final_window_rgb": [
+        255,
+        255,
+        255
+      ]
+    },
+    "cli_png": {
+      "size": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "window_rgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    "browser_png": {
+      "size": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "window_rgba": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    "source_final_raster_comparison": {
+      "source_size": [
+        960,
+        640
+      ],
+      "final_size": [
+        960,
+        640
+      ],
+      "difference_bbox": null,
+      "channel_extrema": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "package": {
+    "zip": "tracegif-forward-v04-project.zip",
+    "sha256": "f2f219d7845ea70291dacffbb8518cc0ca7fd530ec1d5566db41944f8eaac8a9",
+    "bytes": 374873,
+    "testzip_bad_member": null,
+    "member_count": 23,
+    "relevant_members": {
+      "project.json": {
+        "member": "project.json",
+        "matches_disk": true
+      },
+      "scene.svg": {
+        "member": "scene.svg",
+        "matches_disk": true
+      },
+      "assets/source.svg": {
+        "member": "assets/source.svg",
+        "matches_disk": true
+      },
+      "animation.html": {
+        "member": "animation.html",
+        "matches_disk": true
+      },
+      "exports/animation.html": {
+        "member": "exports/animation.html",
+        "matches_disk": true
+      },
+      "exports/animation.gif": {
+        "member": "exports/animation.gif",
+        "matches_disk": true
+      },
+      "exports/animation.png": {
+        "member": "exports/animation.png",
+        "matches_disk": true
+      },
+      "verification/report.json": {
+        "member": "verification/report.json",
+        "matches_disk": true
+      },
+      "preview/actual-source-middle-final.png": {
+        "member": "preview/actual-source-middle-final.png",
+        "matches_disk": true
+      }
+    }
+  }
+}

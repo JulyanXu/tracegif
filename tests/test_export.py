@@ -14,7 +14,7 @@ from pathlib import Path
 from PIL import Image, ImageSequence
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "skills/typebit-line-animation/scripts"))
+sys.path.insert(0, str(ROOT / "skills/tracegif/scripts"))
 from typebitlib.core import TypeBitError, prepare_project, render_project
 from typebitlib.export import export_project
 

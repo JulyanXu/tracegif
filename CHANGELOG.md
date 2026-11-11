@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — 2026-11-11
+
+- Rename the project to **TraceGIF**, with a `tracegif` Skill, `tracegif.py` command, renamed release assets and migration notes. Preserve old project fields, command aliases and browser API compatibility.
+- Add offline GIF settings for width, frame rate and background; retain choices in downloaded HTML and show output estimates and resource-limit feedback.
+- Keep exact matte, white and black colors in resized GIF exports; make the control panel usable on short viewports and preserve native keyboard behavior for settings.
+- Expand the original gallery from three to seven cases: architecture, travel, education and event invitations. Preserve native landscape/portrait proportions in actual captured comparisons.
+- Audit and tighten project packaging and verification evidence so incomplete or stale deliverables are not presented as checked output.
+
 ## 0.3.0 — 2026-11-10
 
 - Add **Save GIF** to standalone HTML: full animation at the selected speed, offline encoding, progress, cancellation and playback-state restoration.

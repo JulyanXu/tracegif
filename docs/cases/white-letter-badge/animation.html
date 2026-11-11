@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="generator" content="TypeBit 0.3.0"><title>White Letter Badge</title><style>/* TypeBit 0.3.0 — MIT. Backgrounds are deliberately transparent. */
+<meta name="generator" content="TraceGIF 0.4.0"><title>White Letter Badge</title><style>/* TraceGIF 0.4.0 — MIT. Backgrounds are deliberately transparent. */
 :root {
   color-scheme: light;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -64,6 +64,9 @@ body {
   gap: 8px;
   align-items: center;
   width: min(900px, calc(100vw - 24px));
+  max-height: calc(100dvh - max(16px, env(safe-area-inset-bottom)) - 8px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 10px;
   border: 1px solid rgba(15, 23, 42, 0.16);
   border-radius: 16px;
@@ -91,7 +94,7 @@ body > #typebit-control {
 }
 
 #typebit-control { min-width: 80px; font-weight: 650; }
-#typebit-controls label { display: flex; align-items: center; gap: 6px; min-width: 0; white-space: nowrap; }
+#typebit-controls > label { display: flex; align-items: center; gap: 6px; min-width: 0; white-space: nowrap; }
 #typebit-controls select { min-width: 68px; padding-right: 4px; }
 #typebit-progress { width: 100%; min-width: 0; margin: 0; accent-color: #475569; cursor: pointer; }
 #typebit-time { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
@@ -99,6 +102,14 @@ body > #typebit-control {
 #typebit-export-status:empty { display: none; }
 #typebit-cancel-export { grid-column: 1 / -1; justify-self: start; }
 #typebit-cancel-export[hidden] { display: none; }
+#typebit-gif-options { grid-column: 1 / -1; min-width: 0; border-top: 1px solid #e2e8f0; padding-top: 7px; }
+#typebit-gif-options summary { cursor: pointer; width: fit-content; padding: 2px 0; color: #475569; }
+.typebit-gif-fields { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); gap: 8px; padding-top: 8px; }
+.typebit-gif-fields label { display: flex; flex-direction: column; align-items: start; gap: 4px; min-width: 0; }
+.typebit-gif-fields select { width: 100%; max-width: 100%; }
+.typebit-gif-fields input[type="color"] { width: 100%; height: 38px; padding: 4px; border: 1px solid #d6dce5; border-radius: 9px; background: white; cursor: pointer; }
+.typebit-gif-fields p, #typebit-gif-estimate { grid-column: 1 / -1; margin: 0; color: #475569; font-size: 12px; overflow-wrap: anywhere; }
+#typebit-gif-estimate[data-error="true"] { color: #9f1239; }
 #typebit-controls button:hover,
 body > #typebit-control:hover { background: #f1f5f9; }
 #typebit-controls button:active { background: #e2e8f0; }
@@ -114,7 +125,7 @@ body > #typebit-control { position: fixed; left: 50%; bottom: 20px; transform: t
   #typebit-controls { grid-template-columns: auto auto minmax(0, 1fr) auto auto auto; }
   #typebit-control { grid-column: 1; grid-row: 1; }
   #typebit-replay { grid-column: 2; grid-row: 1; }
-  #typebit-controls label { grid-column: 3; grid-row: 1; justify-content: center; }
+  #typebit-controls > label { grid-column: 3; grid-row: 1; justify-content: center; }
   #typebit-download-html { grid-column: 4; grid-row: 1; }
   #typebit-download-png { grid-column: 5; grid-row: 1; }
   #typebit-download-gif { grid-column: 6; grid-row: 1; }
@@ -124,7 +135,7 @@ body > #typebit-control { position: fixed; left: 50%; bottom: 20px; transform: t
 
 @media (max-width: 700px) {
   #typebit-controls { grid-template-columns: auto auto minmax(0, 1fr); }
-  #typebit-controls label { justify-content: end; }
+  #typebit-controls > label { justify-content: end; }
   #typebit-progress { grid-column: 1 / 3; }
   #typebit-time { grid-column: 3; }
   #typebit-download-html { grid-column: 1; grid-row: 3; }
@@ -133,8 +144,10 @@ body > #typebit-control { position: fixed; left: 50%; bottom: 20px; transform: t
 }
 
 @media (max-width: 360px) {
-  #typebit-controls label { font-size: 0; gap: 0; }
+  #typebit-controls > label { font-size: 0; gap: 0; }
   #typebit-controls select { font-size: 13px; }
+  .typebit-gif-fields { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .typebit-gif-fields label:first-child { grid-column: 1 / -1; }
 }
 
 @media print {
@@ -172,7 +185,14 @@ body > #typebit-control { position: fixed; left: 50%; bottom: 20px; transform: t
 <output id="typebit-time" aria-live="off">0:00</output>
 <button id="typebit-download-html" type="button" title="Save offline HTML with the selected speed">Save HTML</button>
 <button id="typebit-download-png" type="button" title="Save the current frame with transparency">Save PNG</button>
-<button id="typebit-download-gif" type="button" title="Save the full animation as a white-background GIF at the selected speed">Save GIF</button>
+<button id="typebit-download-gif" type="button" title="Save the full animation as a GIF using the selected speed and settings">Save GIF</button>
+<details id="typebit-gif-options"><summary>GIF settings</summary><div class="typebit-gif-fields">
+<label for="typebit-gif-width">Width <select id="typebit-gif-width"><option value="auto">Auto (up to 480 px)</option><option value="240">240 px</option><option value="480">480 px</option><option value="720">720 px</option><option value="960">960 px</option></select></label>
+<label for="typebit-gif-fps">Frames / sec <select id="typebit-gif-fps"><option value="5">5</option><option value="10" selected>10</option><option value="15">15</option><option value="20">20</option></select></label>
+<label for="typebit-gif-background">Background <input id="typebit-gif-background" type="color" value="#ffffff"></label>
+<p>Full animation at the selected speed. GIF uses a solid background.</p>
+<output id="typebit-gif-estimate" aria-live="polite"></output>
+</div></details>
 <button id="typebit-cancel-export" type="button" hidden>Cancel GIF</button>
 <output id="typebit-export-status" aria-live="polite"></output>
 </div>
@@ -1032,7 +1052,7 @@ var src_default = GIFEncoder;
 
   global.gifenc = Object.freeze({ GIFEncoder: exports.GIFEncoder, quantize: exports.quantize, applyPalette: exports.applyPalette });
 })(window);
-</script><script>/* TypeBit 0.3.0 — MIT. Native, self-contained SVG playback. */
+</script><script>/* TraceGIF 0.4.0 — MIT. Native, self-contained SVG playback. */
 (() => {
   "use strict";
 
@@ -1048,11 +1068,15 @@ var src_default = GIFEncoder;
   const htmlControl = document.getElementById("typebit-download-html");
   const pngControl = document.getElementById("typebit-download-png");
   const gifControl = document.getElementById("typebit-download-gif");
+  const gifWidthControl = document.getElementById("typebit-gif-width");
+  const gifFpsControl = document.getElementById("typebit-gif-fps");
+  const gifBackgroundControl = document.getElementById("typebit-gif-background");
+  const gifEstimate = document.getElementById("typebit-gif-estimate");
   const cancelExportControl = document.getElementById("typebit-cancel-export");
   const exportStatus = document.getElementById("typebit-export-status");
   const configNode = document.getElementById("typebit-config");
   if (!svg || !art || !traces || !control || !configNode) {
-    throw new Error("TypeBit: the exported player is missing a required element.");
+    throw new Error("TraceGIF: the exported player is missing a required element.");
   }
   // Save source markup before runtime dash styles or resolved CSS URLs are added.
   const pristineDocument = document.documentElement.cloneNode(true);
@@ -1166,6 +1190,7 @@ var src_default = GIFEncoder;
   }
 
   function syncSpeedControl() {
+    updateGifEstimate();
     if (!speedControl) return;
     const value = String(playbackRate);
     if (!Array.from(speedControl.options).some(option => option.value === value)) {
@@ -1259,7 +1284,7 @@ var src_default = GIFEncoder;
   function seek(seconds) {
     if (exportJob) return getState();
     const value = Number(seconds);
-    if (!Number.isFinite(value)) throw new TypeError("TypeBit.seek expects a finite number of seconds.");
+    if (!Number.isFinite(value)) throw new TypeError("TraceGIF.seek expects a finite number of seconds.");
     cancelFrame();
     time = clamp(value, 0, duration);
     status = time === 0 ? "idle" : time === duration ? "completed" : "paused";
@@ -1296,8 +1321,8 @@ var src_default = GIFEncoder;
   }
 
   function filename(extension) {
-    const stem = (document.title || "typebit-animation").replace(/[<>:"/\\|?*\u0000-\u001f]/g, "-").replace(/[. ]+$/g, "").slice(0, 100);
-    return `${stem || "typebit-animation"}.${extension}`;
+    const stem = (document.title || "tracegif-animation").replace(/[<>:"/\\|?*\u0000-\u001f]/g, "-").replace(/[. ]+$/g, "").slice(0, 100);
+    return `${stem || "tracegif-animation"}.${extension}`;
   }
 
   function downloadBlob(blob, name) {
@@ -1334,6 +1359,14 @@ var src_default = GIFEncoder;
     if (copiedProgress) copiedProgress.setAttribute("value", "0");
     const copiedTime = copy.querySelector("#typebit-time");
     if (copiedTime) copiedTime.textContent = `0:00 / ${formatTime(duration)}`;
+    // Preserve export preferences in the copy, without changing its artwork or project.
+    for (const original of [gifWidthControl, gifFpsControl]) {
+      const copied = original && copy.querySelector(`#${original.id}`);
+      if (!copied) continue;
+      for (const option of copied.options) option.toggleAttribute("selected", option.value === original.value);
+    }
+    const copiedBackground = copy.querySelector("#typebit-gif-background");
+    if (copiedBackground && gifBackgroundControl) copiedBackground.setAttribute("value", gifBackgroundControl.value);
     // Preview surfaces are never baked into the portable artwork.
     [copy, copy.querySelector("body"), copy.querySelector("#typebit-stage"), copiedScene].forEach(node => {
       node.style.background = "transparent";
@@ -1378,7 +1411,7 @@ var src_default = GIFEncoder;
         for (const rule of sheet.cssRules) {
           if (rule.type === CSSRule.FONT_FACE_RULE) fontRules.push(rule.cssText);
         }
-      } catch (_) { /* A portable TypeBit export has only inline styles. */ }
+      } catch (_) { /* A portable TraceGIF export has only inline styles. */ }
     }
     if (fontRules.length) {
       const style = document.createElementNS("http://www.w3.org/2000/svg", "style");
@@ -1427,20 +1460,45 @@ var src_default = GIFEncoder;
     if (exportStatus) exportStatus.textContent = "Canceling GIF…";
   }
 
+  function gifSettings() {
+    const selectedWidth = gifWidthControl ? gifWidthControl.value : "auto";
+    const width = selectedWidth === "auto" ? Math.max(1, Math.min(480, Math.ceil(viewBox.width))) : Number(selectedWidth);
+    const fps = gifFpsControl ? Number(gifFpsControl.value) : 10;
+    const background = gifBackgroundControl ? gifBackgroundControl.value : "#ffffff";
+    if (!Number.isInteger(width) || width < 1 || width > 1920 || !Number.isInteger(fps) || fps < 1 || fps > 30 || !/^#[0-9a-f]{6}$/i.test(background)) {
+      throw new Error("Choose a GIF width from 1 to 1920 pixels, 1–30 frames per second, and a solid background color.");
+    }
+    const height = Math.max(1, Math.round(width * viewBox.height / viewBox.width));
+    const steps = Math.max(1, Math.ceil(duration / playbackRate * fps));
+    if (steps + 1 > 600 || width * height * (steps + 1) > 100000000 || height > 4096) {
+      throw new Error("GIF exceeds 600 frames or 100 million frame pixels (maximum height 4096). Reduce width or frames per second, increase playback speed, or ask your Agent for a smaller GIF.");
+    }
+    return {width, height, fps, background, steps};
+  }
+
+  function updateGifEstimate() {
+    if (!gifEstimate) return;
+    try {
+      const {width, height, fps} = gifSettings();
+      gifEstimate.textContent = `${width} × ${height} px · ${fps} fps · ${(duration / playbackRate + 0.8).toFixed(1)} seconds including the final hold`;
+      gifEstimate.dataset.error = "false";
+    } catch (error) {
+      gifEstimate.textContent = error.message;
+      gifEstimate.dataset.error = "true";
+    }
+  }
+
   async function downloadGif() {
     const encoder = window.gifenc;
     if (!encoder || typeof encoder.GIFEncoder !== "function") {
       throw new Error("This HTML is missing its GIF encoder. Ask your Agent to render it again.");
     }
     const rate = playbackRate;
-    const width = Math.max(1, Math.min(480, Math.ceil(viewBox.width)));
-    const height = Math.max(1, Math.round(width * viewBox.height / viewBox.width));
-    const steps = Math.max(1, Math.ceil(duration / rate * 10));
-    if (steps + 1 > 600 || width * height * (steps + 1) > 100000000 || height > 4096) {
-      throw new Error("GIF exceeds 600 frames or 100 million frame pixels (maximum height 4096). Increase playback speed, or ask your Agent for a smaller GIF.");
-    }
+    const {width, height, fps, background, steps} = gifSettings();
+    const backgroundLabel = background.toLowerCase() === "#ffffff" ? "white" : background.toUpperCase();
     const saved = getState();
     const focus = document.activeElement;
+    const savedScroll = controls ? controls.scrollTop : 0;
     const disabled = Array.from(controls ? controls.querySelectorAll("button,input,select") : [control])
       .map(element => [element, element === gifControl ? false : element.disabled]);
     const oldBusy = controls && controls.getAttribute("aria-busy");
@@ -1460,10 +1518,14 @@ var src_default = GIFEncoder;
       if (job.cancelled) throw new DOMException("GIF export canceled.", "AbortError");
     };
     try {
-      if (exportStatus) exportStatus.textContent = "Exporting GIF… 0% (white background)";
+      if (exportStatus) exportStatus.textContent = `Exporting GIF… 0% (${backgroundLabel} background)`;
+      if (controls) controls.scrollTop = controls.scrollHeight;
       if (document.fonts) await document.fonts.ready;
       assertActive();
       const gif = encoder.GIFEncoder();
+      const backgroundRgb = [1, 3, 5].map(offset => Number.parseInt(background.slice(offset, offset + 2), 16));
+      // Keep the chosen matte, pure white details and black stable across palettes.
+      const fixedColors = [backgroundRgb, [255, 255, 255], [0, 0, 0]];
       for (let index = 0; index <= steps; index++) {
         // Give the browser time to paint progress and accept Cancel between frames.
         await new Promise(resolve => setTimeout(resolve, 0));
@@ -1471,20 +1533,35 @@ var src_default = GIFEncoder;
         time = duration * index / steps;
         status = "paused";
         render();
-        const canvas = await captureCanvas(width, height, "#FFFFFF");
+        const canvas = await captureCanvas(width, height, background);
         assertActive();
         const rgba = canvas.getContext("2d").getImageData(0, 0, width, height).data;
-        const palette = encoder.quantize(rgba, 256);
+        const palette = encoder.quantize(rgba, 253);
+        for (const color of fixedColors) {
+          if (!palette.some(entry => entry.every((channel, index) => channel === color[index]))) palette.push(color);
+        }
         const pixels = encoder.applyPalette(rgba, palette);
+        const exactColors = fixedColors.map(color => ({
+          rgb: (color[0] << 16) | (color[1] << 8) | color[2],
+          index: palette.findIndex(entry => entry.every((channel, index) => channel === color[index]))
+        }));
+        // The encoder's RGB565 lookup can share a cache bucket with a nearby shade.
+        // Correct exact solid colors after palette mapping so white details stay white.
+        for (let pixel = 0, offset = 0; pixel < pixels.length; pixel++, offset += 4) {
+          const rgb = (rgba[offset] << 16) | (rgba[offset + 1] << 8) | rgba[offset + 2];
+          if (rgb === exactColors[0].rgb) pixels[pixel] = exactColors[0].index;
+          else if (rgb === exactColors[1].rgb) pixels[pixel] = exactColors[1].index;
+          else if (rgb === exactColors[2].rgb) pixels[pixel] = exactColors[2].index;
+        }
         const start = Math.round(index * duration / rate / steps * 100) * 10;
         const end = Math.round((index + 1) * duration / rate / steps * 100) * 10;
         gif.writeFrame(pixels, width, height, {palette, delay: index === steps ? 800 : end - start, repeat: 0, dispose: 2});
-        if (exportStatus) exportStatus.textContent = `Exporting GIF… ${Math.round((index + 1) / (steps + 1) * 100)}% (white background)`;
+        if (exportStatus) exportStatus.textContent = `Exporting GIF… ${Math.round((index + 1) / (steps + 1) * 100)}% (${backgroundLabel} background)`;
       }
       assertActive();
       gif.finish();
       downloadBlob(new Blob([gif.bytes()], {type: "image/gif"}), filename("gif"));
-      return `GIF saved at ${rate}× with a white background.`;
+      return `GIF saved: ${width} × ${height} px, ${fps} fps at ${rate}×, ${backgroundLabel} background.`;
     } finally {
       exportJob = null;
       disabled.forEach(([element, wasDisabled]) => { element.disabled = wasDisabled; });
@@ -1502,6 +1579,7 @@ var src_default = GIFEncoder;
       syncSpeedControl();
       render();
       if (saved.status === "playing") play();
+      if (controls) controls.scrollTop = savedScroll;
       if (focus instanceof HTMLElement && focus.isConnected && !focus.disabled) focus.focus({preventScroll: true});
     }
   }
@@ -1536,7 +1614,7 @@ var src_default = GIFEncoder;
       return;
     }
     if (event.defaultPrevented || event.repeat || event.ctrlKey || event.metaKey || event.altKey || editableTarget(event.target)) return;
-    if ((event.code === "Space" || event.key === " ") && event.target instanceof Element && event.target.closest("button")) return;
+    if ((event.code === "Space" || event.key === " ") && event.target instanceof Element && event.target.closest("button,summary")) return;
     if (event.key === "ArrowRight") {
       event.preventDefault();
       play();
@@ -1553,12 +1631,16 @@ var src_default = GIFEncoder;
   control.addEventListener("click", () => status === "playing" ? pause() : play());
   if (replayControl) replayControl.addEventListener("click", restart);
   if (speedControl) speedControl.addEventListener("change", () => setPlaybackRate(Number(speedControl.value)));
+  for (const setting of [gifWidthControl, gifFpsControl, gifBackgroundControl]) {
+    if (setting) setting.addEventListener("input", updateGifEstimate);
+    if (setting) setting.addEventListener("change", updateGifEstimate);
+  }
   if (progressControl) progressControl.addEventListener("input", () => seek(Number(progressControl.value)));
   bindDownload(htmlControl, downloadHtml, "HTML saved with the selected speed. It waits for Play.");
   bindDownload(pngControl, downloadPng, "Current frame saved as a transparent PNG.");
   bindDownload(gifControl, downloadGif, "GIF saved with a white background.");
   if (cancelExportControl) cancelExportControl.addEventListener("click", cancelGif);
-  window.typebit = Object.freeze({
+  window.tracegif = window.typebit = Object.freeze({
     play,
     pause,
     restart,

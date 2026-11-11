@@ -1,4 +1,0 @@
-interface:
-  display_name: "TypeBit Line Animation"
-  short_description: "Turn images into offline SVG line animations"
-  default_prompt: "Use $typebit-line-animation to create and verify an offline line animation from my image."

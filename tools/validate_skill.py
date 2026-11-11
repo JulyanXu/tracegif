@@ -4,7 +4,7 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills" / "typebit-line-animation"
+SKILL = ROOT / "skills" / "tracegif"
 
 
 def main():
@@ -17,7 +17,8 @@ def main():
         raise ValueError("Skill name must match its folder.")
     if not re.search(r"^description:\s*\S", match[1], re.M):
         raise ValueError("A nonempty discovery description is required.")
-    for relative in ["scripts/typebit.py", "requirements.txt", "assets/player.js", "assets/player.css"]:
+    for relative in ["scripts/tracegif.py", "scripts/typebit.py", "requirements.txt", "assets/player.js", "assets/player.css",
+                     "assets/vendor/gifenc.js", "assets/vendor/gifenc.LICENSE.md", "THIRD_PARTY_NOTICES.md"]:
         if not (SKILL / relative).is_file():
             raise ValueError(f"Missing bundled resource: {relative}")
     for destination in re.findall(r"\]\(([^)]+)\)", text):

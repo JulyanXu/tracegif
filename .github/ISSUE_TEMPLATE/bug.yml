@@ -1,12 +1,12 @@
 name: Bug report
-description: Report a reproducible TypeBit problem.
+description: Report a reproducible TraceGIF problem.
 title: "[Bug] "
 body:
   - type: textarea
     id: environment
     attributes:
       label: Environment
-      description: OS, Python version, Agent, TypeBit version, and doctor output. Remove private paths.
+      description: OS, Python version, Agent, TraceGIF version, and doctor output. Remove private paths.
     validations:
       required: true
   - type: textarea

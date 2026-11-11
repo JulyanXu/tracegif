@@ -1,0 +1,4 @@
+interface:
+  display_name: "TraceGIF — Line Animation & GIF"
+  short_description: "Create line-drawing animations, GIFs and offline HTML"
+  default_prompt: "Use $tracegif to turn my image into a line animation, export GIF and offline HTML, and verify the result."

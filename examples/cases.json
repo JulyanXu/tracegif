@@ -50,7 +50,86 @@
       "playback_rate": 1.5,
       "matte": "#F4F0E8",
       "prompt": "Animate this transparent badge PNG and use the supplied aligned contours. Keep the white TB lettering opaque, draw it after the frame, and preserve the original PNG pixels at the end.",
-      "revision_prompt": "Keep all white letter pixels and export a transparent final PNG plus a cream-background GIF."
+      "revision_prompt": "Keep all white letter pixels and export a transparent final PNG plus a cream-background GIF.",
+      "pixel_probes": [
+        {
+          "name": "white-letter-interior",
+          "xy": [
+            267,
+            245
+          ],
+          "rgba": [
+            255,
+            255,
+            255,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "courtyard-house",
+      "title": "Courtyard House",
+      "title_zh": "庭院住宅展示",
+      "use_case": "Architectural identity reveal for a property presentation or a studio portfolio",
+      "use_case_zh": "用于房产提案、住宅介绍与建筑作品集的立面展示",
+      "source": "source/courtyard-house.svg",
+      "kind": "svg",
+      "method": "Native SVG facade geometry: building volumes and roof, then openings and landscaping, then material details.",
+      "limitations": "A fictional original house illustration; not a construction drawing, measured plan or real property listing.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F8F5EB",
+      "prompt": "Introduce this courtyard home by drawing its building volumes and roof, then windows and the entrance, then garden and facade details. Preserve the original palette and landscape proportions. Deliver offline HTML, GIF and transparent PNG.",
+      "revision_prompt": "Let the entrance arch appear earlier and slow the roof drawing. Keep the existing house geometry."
+    },
+    {
+      "slug": "city-route",
+      "title": "City Route",
+      "title_zh": "城市漫游路线",
+      "use_case": "Day-trip itinerary reveal for a travel proposal or a visitor guide",
+      "use_case_zh": "用于旅行提案、城市漫游与游客指南的路线演示",
+      "source": "source/city-route.svg",
+      "kind": "svg",
+      "method": "Native SVG folded-map illustration: map and river, streets and landmarks, itinerary route, then numbered stops and compass.",
+      "limitations": "A fictional illustrative map with invented landmarks; not geographic or turn-by-turn navigation data.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F8F6ED",
+      "prompt": "Build this itinerary map from the land and river to the landmarks, then reveal the red walking route and its four stops. Keep the numbered markers and compass legible. Export an offline HTML and a cream-background GIF.",
+      "revision_prompt": "Draw the red walking route later and spend more time on the four numbered stops."
+    },
+    {
+      "slug": "orbit-lesson",
+      "title": "Orbit Lesson",
+      "title_zh": "轨道课堂示意",
+      "use_case": "Illustrative orbit diagram for a classroom slide or an educational explainer",
+      "use_case_zh": "用于课堂讲解与科普说明的轨道示意图",
+      "source": "source/orbit-lesson.svg",
+      "kind": "svg",
+      "method": "Native SVG schematic: orbital paths and central star, then stylized planets, arrows and hand-authored path labels.",
+      "limitations": "Illustrative only and visibly labeled NOT TO SCALE. Planet sizes, distances and positions are invented; this is not a physical simulation or astronomical ephemeris.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F6F7FB",
+      "prompt": "Draw the orbital guides and central star first, then the stylized planets, direction arrows and explanatory labels. Keep the NOT TO SCALE caption. Deliver offline HTML, GIF and transparent PNG for a lesson slide.",
+      "revision_prompt": "Keep the orbit lines subtle, reveal the planets one by one, and delay the scale disclaimer until the end."
+    },
+    {
+      "slug": "celebration-card",
+      "title": "Celebration Card",
+      "title_zh": "庆典邀请卡",
+      "use_case": "Portrait event invitation for a celebration announcement or a newsletter",
+      "use_case_zh": "用于活动预告、庆典邀请与邮件通讯的竖版邀请卡",
+      "source": "source/celebration-card.svg",
+      "kind": "svg",
+      "method": "Native SVG invitation: arched card and ribbon, balloons and decorative strokes, then original JOIN US lettering and date paths.",
+      "limitations": "A fictional invitation with a demonstration date. All lettering is original monoline path geometry, not an external typeface.",
+      "duration": 6,
+      "playback_rate": 1.5,
+      "matte": "#F6EDF0",
+      "prompt": "Reveal this portrait invitation: draw the arched card, then balloons and ribbon, then the JOIN US lettering and date. Preserve the portrait aspect ratio and the warm rose-and-gold palette. Deliver HTML, GIF and PNG.",
+      "revision_prompt": "Show JOIN US after both balloons and use 0.75x playback for a slower invitation reveal."
     }
   ]
 }

@@ -8,25 +8,35 @@
   "duration": 6,
   "playback_rate": 1.5,
   "matte": "#F4F0E8",
-  "html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+  "html_sha256": "f3c63b7eb3450dbdad32b4fb7801e19ac8317b0ab2b40c14e2a5d80e5cef0976",
   "project_zip": "white-letter-badge-project.zip",
-  "project_zip_sha256": "8a6b7098d2bec5b419e7b0beb3057b9e213a9eecef924bde5a7afd0adc8f4d43",
+  "project_zip_sha256": "37f7f12fccbe95d33512be716a45c42bab0877974ce48a65f4aade56b5f51770",
   "automated_status": "passed",
   "checks_passed": 15,
+  "view_box": [
+    0.0,
+    0.0,
+    640.0,
+    480.0
+  ],
+  "preview_dimensions": {
+    "width": 480,
+    "height": 360
+  },
   "visual_review": {
     "status": "reviewed",
-    "html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+    "html_sha256": "f3c63b7eb3450dbdad32b4fb7801e19ac8317b0ab2b40c14e2a5d80e5cef0976",
     "notes": [
-      "Octagonal badge, original TB letter paths, enclosed counters and gold accents match the supplied PNG and authored SVG. White letter interiors remain opaque white and exterior alpha is zero. Final PNG bytes match the original PNG exactly; this controlled example uses supplied original SVG contours, not automatic tracing or background removal.",
-      "Inspected actual offline Chromium source/drawing/final preview and opening/middle/final captures on light, dark and checkerboard backgrounds. Opening is empty with no added blue strokes; exterior is transparent in PNG/HTML.",
-      "Inspected decoded GIF opening, middle and final frames: 480x360, 41 frames, 4800 ms total including final hold, with the declared solid matte. GIF is not transparent.",
-      "Dark original outline colors have lower contrast on the dark test surface; the palette is preserved and the supplied light matte is the recommended display surface."
+      "TB lettering, enclosed counters and gold accents match the original PNG and supplied contours. Opaque white letter interiors and exterior alpha are preserved; source and final comparison panels are pixel-identical. This controlled fixture uses known authored contours, not automatic tracing or background removal.",
+      "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+      "Inspected decoded GIF opening, drawing and final frames: 480x360, 41 stored frames, 4800 ms including final hold. The declared #F4F0E8 GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+      "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
     ]
   },
   "assets": {
     "animation.html": {
       "file": "animation.html",
-      "sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01"
+      "sha256": "f3c63b7eb3450dbdad32b4fb7801e19ac8317b0ab2b40c14e2a5d80e5cef0976"
     },
     "animation.gif": {
       "file": "animation.gif",
@@ -42,18 +52,81 @@
     },
     "report.json": {
       "file": "report.json",
-      "sha256": "a42108220a5e7faa7a764edbe3563318e3962cd9549cf288657b4d9771b48acf"
+      "sha256": "ea847f8412e0d2c24d370d7ab184566baf0dac8ee9292f76b5641eaf203589f1"
+    }
+  },
+  "input_provenance": {
+    "schema_version": 1,
+    "authored_inputs": {
+      "source": {
+        "file": "source/white-letter-badge.png",
+        "sha256": "bc3334628b387ee2e1174a640d40e039b674739244814e15b0146cc702fa6427"
+      },
+      "contours": {
+        "file": "source/white-letter-badge.svg",
+        "sha256": "a5160068e8c08884d36fe2ac43e59550cb95b503c337cb43c70b6a4c824c2470"
+      },
+      "source_svg": {
+        "file": "source/white-letter-badge.svg",
+        "sha256": "a5160068e8c08884d36fe2ac43e59550cb95b503c337cb43c70b6a4c824c2470"
+      }
+    },
+    "prepared_inputs": {
+      "source": {
+        "file": "assets/source.png",
+        "sha256": "bc3334628b387ee2e1174a640d40e039b674739244814e15b0146cc702fa6427"
+      },
+      "scene": {
+        "file": "scene.svg",
+        "sha256": "065647f0fa8bee71c3c7953bdc74de00d7e8177b973270fb6704946d576007d8"
+      },
+      "contours": {
+        "file": "contours.svg",
+        "sha256": "0b5db5617fb7007dccda1883f66956199573fc61040bc91571e4f8b4a2daee9a"
+      }
+    },
+    "raster_provenance": {
+      "schema_version": 1,
+      "method": "Chromium SVG render",
+      "browser": "145.0.7632.6",
+      "source_svg": {
+        "file": "white-letter-badge.svg",
+        "sha256": "a5160068e8c08884d36fe2ac43e59550cb95b503c337cb43c70b6a4c824c2470"
+      },
+      "output_png": {
+        "file": "white-letter-badge.png",
+        "sha256": "bc3334628b387ee2e1174a640d40e039b674739244814e15b0146cc702fa6427"
+      }
     }
   },
   "raster_checks": {
     "original_rgba_preserved": true,
-    "transparent_corner_alpha": 0,
-    "white_letter_rgba": [
-      255,
-      255,
-      255,
-      255
+    "source_dimensions": [
+      640,
+      480
     ],
-    "no_background_removal": true
+    "transparent_corner_alpha": 0,
+    "pixel_probes": [
+      {
+        "name": "white-letter-interior",
+        "xy": [
+          267,
+          245
+        ],
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "observed_rgba": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "passed": true
+      }
+    ]
   }
 }

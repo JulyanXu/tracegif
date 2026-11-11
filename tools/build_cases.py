@@ -1,4 +1,4 @@
-"""Rebuild original TypeBit case studies from sources and actual offline captures.
+"""Rebuild original TraceGIF case studies from sources and actual offline captures.
 
 This helper never claims to perform a visual review. An Agent or human reviews
 the resulting frames and may then bind review notes through the normal project
@@ -10,6 +10,7 @@ import argparse
 import base64
 import io
 import json
+import math
 import re
 import shutil
 import sys
@@ -19,9 +20,9 @@ from PIL import Image, ImageDraw, ImageFont
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "skills/typebit-line-animation/scripts"))
+sys.path.insert(0, str(ROOT / "skills/tracegif/scripts"))
 from typebitlib import __version__
-from typebitlib.core import configure_project, package_project, prepare_project, render_project, sha256
+from typebitlib.core import configure_project, package_project, prepare_project, render_project, sanitize_svg, sha256
 from typebitlib.export import export_project
 from typebitlib.verify import verify_html
 
@@ -35,12 +36,27 @@ def case_directory(root: Path, slug: str) -> Path:
     return directory
 
 
+def frame_dimensions(view_box: list, width: int = 480) -> dict:
+    """Use the artwork's actual aspect ratio for every captured panel."""
+    if len(view_box) != 4 or any(not math.isfinite(float(value)) for value in view_box):
+        raise ValueError("Artwork viewBox must contain four finite numbers.")
+    if view_box[2] <= 0 or view_box[3] <= 0 or not isinstance(width, int) or not 1 <= width <= 4096:
+        raise ValueError("Artwork dimensions must be positive and capture width must be 1–4096 pixels.")
+    height = max(1, round(width * view_box[3] / view_box[2]))
+    if height > 4096:
+        raise ValueError("The artwork aspect ratio produces a capture taller than 4096 pixels.")
+    return {"width": width, "height": height}
+
+
 def make_raster_source(browser, svg: Path, output: Path) -> None:
     """Render authored native artwork to PNG, not a generated replacement image."""
-    context = browser.new_context(offline=True, viewport={"width": 640, "height": 480}, device_scale_factor=1)
+    _, view_box, _ = sanitize_svg(svg.read_text(encoding="utf-8"))
+    dimensions = frame_dimensions(view_box, width=round(view_box[2]))
+    context = browser.new_context(offline=True, viewport=dimensions, device_scale_factor=1)
     try:
         page = context.new_page()
         page.goto(svg.resolve().as_uri())
+        page.evaluate("() => {document.documentElement.style.width='100%';document.documentElement.style.height='100%'}")
         page.screenshot(path=str(output), omit_background=True)
         provenance = {"schema_version": 1, "method": "Chromium SVG render",
                       "browser": browser.version,
@@ -104,7 +120,9 @@ def record_case_inputs(project: Path, inputs: dict, raster: dict | None) -> None
 
 
 def capture_preview(browser, source: Path, project: Path, media: Path, case: dict) -> None:
-    context = browser.new_context(offline=True, viewport={"width": 480, "height": 360}, device_scale_factor=1)
+    settings = json.loads((project / "project.json").read_text(encoding="utf-8"))
+    dimensions = frame_dimensions(settings["view_box"])
+    context = browser.new_context(offline=True, viewport=dimensions, device_scale_factor=1)
     try:
         page = context.new_page()
         mime = "image/svg+xml" if source.suffix.lower() == ".svg" else "image/png"
@@ -123,17 +141,32 @@ def capture_preview(browser, source: Path, project: Path, media: Path, case: dic
             page.evaluate("time => typebit.seek(time)", at)
             page.evaluate("() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))")
             panels.append((label, page.screenshot()))
-        sheet = Image.new("RGB", (1488, 426), case["matte"])
+        sheet = Image.new("RGB", (dimensions["width"] * 3 + 48, dimensions["height"] + 66), case["matte"])
         draw = ImageDraw.Draw(sheet)
         font = ImageFont.load_default(size=18)
         for index, (label, png) in enumerate(panels):
-            left = 12 + index * 492
+            left = 12 + index * (dimensions["width"] + 12)
             draw.text((left + 14, 19), label, fill="#34433e", font=font)
             with Image.open(io.BytesIO(png)) as frame:
                 sheet.paste(frame.convert("RGB"), (left, 54))
         sheet.save(media / "preview.png")
     finally:
         context.close()
+
+
+def raster_preservation_checks(project: Path, manifest: dict, case: dict) -> dict:
+    with Image.open(project / manifest["source"]["path"]) as original, Image.open(project / "assets/subject.png") as subject:
+        original_rgba, subject_rgba = original.convert("RGBA"), subject.convert("RGBA")
+        checks = {"original_rgba_preserved": original_rgba.size == subject_rgba.size
+                  and original_rgba.tobytes() == subject_rgba.tobytes(),
+                  "source_dimensions": list(original_rgba.size),
+                  "transparent_corner_alpha": original_rgba.getpixel((0, 0))[3], "pixel_probes": []}
+        for probe in case.get("pixel_probes", []):
+            observed = list(subject_rgba.getpixel(tuple(probe["xy"])))
+            checks["pixel_probes"].append({**probe, "observed_rgba": observed, "passed": observed == probe["rgba"]})
+        if not checks["original_rgba_preserved"] or any(not probe["passed"] for probe in checks["pixel_probes"]):
+            raise ValueError("Raster case failed original-pixel preservation or a configured pixel probe.")
+        return checks
 
 
 def refresh_delivery(project: Path, media: Path, case: dict, build_root: Path) -> dict:
@@ -154,23 +187,15 @@ def refresh_delivery(project: Path, media: Path, case: dict, build_root: Path) -
                   "project_zip_sha256": package["sha256"],
                   "automated_status": report["automated_status"],
                   "checks_passed": sum(check["status"] == "passed" for check in report["checks"]),
+                  "view_box": manifest["view_box"], "preview_dimensions": frame_dimensions(manifest["view_box"]),
                   "visual_review": manifest["visual_review"],
                   "assets": {name: {"file": name, "sha256": sha256(media / name)}
                              for name in ("animation.html", "animation.gif", "final.png", "preview.png", "report.json")}})
     input_record = project / "case-inputs.json"
     if input_record.is_file():
         entry["input_provenance"] = json.loads(input_record.read_text(encoding="utf-8"))
-    source_rgba = Image.open(project / manifest["source"]["path"]).convert("RGBA") if case["kind"] != "svg" else None
-    if source_rgba is not None:
-        with Image.open(project / "assets/subject.png") as subject:
-            entry["raster_checks"] = {
-                "original_rgba_preserved": source_rgba.tobytes() == subject.convert("RGBA").tobytes(),
-                "transparent_corner_alpha": source_rgba.getpixel((0, 0))[3],
-                "white_letter_rgba": list(source_rgba.getpixel((267, 245))),
-                "no_background_removal": True,
-            }
-        if not entry["raster_checks"]["original_rgba_preserved"] or entry["raster_checks"]["white_letter_rgba"] != [255, 255, 255, 255]:
-            raise ValueError("Controlled raster case failed original-pixel or white-letter preservation.")
+    if case["kind"] != "svg":
+        entry["raster_checks"] = raster_preservation_checks(project, manifest, case)
     (media / "case.json").write_text(json.dumps(entry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return entry
 
@@ -217,7 +242,7 @@ def build_cases(build_root: Path, media_root: Path, refresh_raster: bool = False
         shutil.copyfile(ROOT / "LICENSE", project / "LICENSE")
         (project / "CASE.md").write_text(
             f'# {case["title"]}\n\n{case["use_case"]}.\n\n{case["method"]}\n\n'
-            f'{case["limitations"]}\n\nOriginal artwork created for TypeBit, MIT licensed. No third-party brand, font or user-uploaded image.\n\n'
+            f'{case["limitations"]}\n\nOriginal artwork created for TraceGIF, MIT licensed. No third-party brand, font or user-uploaded image.\n\n'
             f'Timeline: {case["duration"]} seconds; default speed: {case["playback_rate"]}x. GIF matte: {case["matte"]}.\n\n'
             f'Request: {case["prompt"]}\n\nRevision example: {case["revision_prompt"]}\n', encoding="utf-8")
         render_project(project)

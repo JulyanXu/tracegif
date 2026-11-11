@@ -2,11 +2,11 @@
   "status": "exported",
   "format": "png",
   "output_file": "animation.png",
-  "source_html_sha256": "68292b65eb2a686f75a1dcc00f5323368c8a8526e5ed3df965c6f09a3803fa01",
+  "source_html_sha256": "f3c63b7eb3450dbdad32b4fb7801e19ac8317b0ab2b40c14e2a5d80e5cef0976",
   "playback_rate": 1.5,
   "timeline_duration": 6.0,
   "effective_duration": 4.0,
-  "created_at": "2026-11-10T10:01:33.782152+00:00",
+  "created_at": "2026-11-11T01:13:05.741983+00:00",
   "validation": {
     "embedded_resources": "passed",
     "browser_capture": "passed",

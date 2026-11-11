@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "skills/typebit-line-animation/scripts"))
+sys.path.insert(0, str(ROOT / "skills/tracegif/scripts"))
 from tools.build_release import build_case_bundle, build_release
 from typebitlib import __version__
 
@@ -126,8 +126,8 @@ class CaseReleaseTests(unittest.TestCase):
                 if source.is_file():
                     archive.write(source, source.relative_to(project).as_posix())
         self.assertEqual(build_release(project, output, __version__, self.root)["status"], "built")
-        with zipfile.ZipFile(output / "typebit-example-project.zip") as archive:
-            self.assertEqual(archive.read("exports/animation.gif"), (output / "typebit-example.gif").read_bytes())
+        with zipfile.ZipFile(output / "tracegif-example-project.zip") as archive:
+            self.assertEqual(archive.read("exports/animation.gif"), (output / "tracegif-example.gif").read_bytes())
 
     def test_sample_report_and_sidecar_changes_require_repackaging(self):
         for relative, extra in [("verification/report.json", {"visual_review": {"status": "reviewed"}}),

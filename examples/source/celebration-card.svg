@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="760" viewBox="0 0 600 760">
+  <title>Join Us — an original celebration invitation</title>
+  <desc>Original TraceGIF demonstration artwork, MIT licensed. Fictional invitation with hand-authored monoline JOIN US lettering and 08.24 date. No external fonts or brand assets.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path id="invitation-paper" data-phase="main" d="M92 654 V247 C92 132 185 66 300 66 C415 66 508 132 508 247 V654Z" fill="#FFF6E6" stroke="#5C6678" stroke-width="3"/>
+    <path id="invitation-inset" data-phase="main" d="M109 637 V248 C109 143 196 84 300 84 C404 84 491 143 491 248 V637Z" fill="none" stroke="#C6A26C" stroke-width="2"/>
+    <path id="ribbon-left" data-phase="main" d="M93 574 L61 591 L73 606 L64 623 L109 600" fill="#C9777E" stroke="#A75D6A" stroke-width="2.5"/>
+    <path id="ribbon-right" data-phase="main" d="M507 574 L539 591 L527 606 L536 623 L491 600" fill="#C9777E" stroke="#A75D6A" stroke-width="2.5"/>
+    <path id="ribbon-front" data-phase="main" d="M92 567 C211 590 389 590 508 567 V601 C389 625 211 625 92 601Z" fill="#D99598" stroke="#A75D6A" stroke-width="2.5"/>
+    <path id="balloon-left" data-phase="secondary" d="M220 210 C189 209 166 177 170 149 C173 122 205 109 229 128 C253 150 250 184 220 210Z" fill="#D99198" stroke="#A66575" stroke-width="2.5"/>
+    <path id="balloon-right" data-phase="secondary" d="M371 211 C345 189 344 158 366 140 C389 122 418 136 423 160 C429 188 405 213 371 211Z" fill="#E4BD76" stroke="#B0905D" stroke-width="2.5"/>
+    <path id="balloon-knots" data-phase="secondary" d="M220 209 L214 219 L226 218Z M372 211 L367 222 L380 219Z" fill="#B88678" stroke="#A27870" stroke-width="1.6"/>
+    <path id="balloon-strings" data-phase="secondary" d="M220 219 C198 248 241 265 224 286 M374 222 C396 246 356 267 374 290" fill="none" stroke="#A78C82" stroke-width="2"/>
+    <path id="balloon-highlights" data-phase="secondary" d="M187 140 C180 152 183 169 191 177 M400 148 C410 154 414 165 411 176" fill="none" stroke="#F8DFBD" stroke-width="4"/>
+    <path id="sparkle-centre" data-phase="secondary" d="M300 157 L307 178 L328 185 L307 192 L300 213 L293 192 L272 185 L293 178Z" fill="#D3AD69" stroke="#AE8A50" stroke-width="2"/>
+    <path id="join-j" data-phase="details" d="M188 323 H223 V371 C223 399 185 399 185 374" fill="none" stroke="#56677A" stroke-width="10"/>
+    <path id="join-o" data-phase="details" d="M270 323 C248 323 246 343 246 357 C246 375 249 392 270 392 C291 392 294 375 294 357 C294 340 291 323 270 323Z" fill="none" stroke="#56677A" stroke-width="10"/>
+    <path id="join-i" data-phase="details" d="M319 323 H345 M332 323 V392 M319 392 H345" fill="none" stroke="#56677A" stroke-width="10"/>
+    <path id="join-n" data-phase="details" d="M373 392 V323 L418 392 V323" fill="none" stroke="#56677A" stroke-width="10"/>
+    <path id="us-u" data-phase="details" d="M238 428 V467 C238 499 278 499 278 467 V428" fill="none" stroke="#B9737A" stroke-width="10"/>
+    <path id="us-s" data-phase="details" d="M359 435 C343 418 315 427 317 443 C318 457 353 454 357 471 C361 490 328 501 311 483" fill="none" stroke="#B9737A" stroke-width="10"/>
+    <path id="title-flourishes" data-phase="details" d="M169 445 C146 436 142 458 164 465 M431 445 C454 436 458 458 436 465 M274 525 H326" fill="none" stroke="#C6A26C" stroke-width="2.5"/>
+    <path transform="translate(0 12)" id="date-zero" data-phase="details" d="M246 574 C239 574 237 582 237 588 C237 596 239 603 246 603 C253 603 255 596 255 588 C255 582 253 574 246 574Z" fill="none" stroke="#FFF6E6" stroke-width="2.7"/>
+    <path transform="translate(0 12)" id="date-eight" data-phase="details" d="M275 588 C258 579 280 568 284 579 C287 585 275 588 275 588 C256 598 281 611 286 599 C290 591 275 588 275 588Z" fill="none" stroke="#FFF6E6" stroke-width="2.7"/>
+    <path transform="translate(0 12)" id="date-dot" data-phase="details" d="M301 591 A2 2 0 1 1 297 591 A2 2 0 1 1 301 591Z" fill="#FFF6E6" stroke="#FFF6E6" stroke-width="1"/>
+    <path transform="translate(0 12)" id="date-two" data-phase="details" d="M315 581 C315 569 335 572 332 582 C330 588 317 594 315 603 H335" fill="none" stroke="#FFF6E6" stroke-width="2.7"/>
+    <path transform="translate(0 12)" id="date-four" data-phase="details" d="M359 573 L344 594 H364 M359 573 V603" fill="none" stroke="#FFF6E6" stroke-width="2.7"/>
+    <path id="confetti-rose" data-phase="details" d="M146 244 L153 253 M444 232 L450 242 M265 127 L270 138 M402 275 L410 270" fill="none" stroke="#CD8792" stroke-width="4"/>
+    <path id="confetti-gold" data-phase="details" d="M160 287 L168 280 M437 288 L446 294 M332 128 L337 117 M264 264 L271 274 M326 259 L335 252" fill="none" stroke="#C7A366" stroke-width="4"/>
+    <path id="confetti-dots" data-phase="details" d="M291 238 A3 3 0 1 1 285 238 A3 3 0 1 1 291 238Z M347 222 A3 3 0 1 1 341 222 A3 3 0 1 1 347 222Z M149 204 A3 3 0 1 1 143 204 A3 3 0 1 1 149 204Z M451 189 A3 3 0 1 1 445 189 A3 3 0 1 1 451 189Z" fill="#84978D" stroke="#84978D" stroke-width="1"/>
+  </g>
+</svg>

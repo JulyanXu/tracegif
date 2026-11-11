@@ -11,7 +11,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills" / "typebit-line-animation"
+SKILL = ROOT / "skills" / "tracegif"
 
 
 def sha256(path: Path) -> str:
@@ -40,7 +40,7 @@ def build_case_bundle(root: Path, output: Path) -> None:
     release_manifest = {**manifest, "artifact_type": "public-case-release", "cases": []}
     seen = set()
     with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED) as bundle:
-        bundle.writestr("README.txt", "TypeBit public cases\nOpen each animation.html offline. GIFs have a solid background; PNGs preserve transparency.\nThe project ZIPs contain original MIT artwork, editable layers, and browser reports.\nAll paths in manifest.json are relative to this archive's root.\n")
+        bundle.writestr("README.txt", "TraceGIF public cases\nOpen each animation.html offline. GIFs have a solid background; PNGs preserve transparency.\nThe project ZIPs contain original MIT artwork, editable layers, and browser reports.\nAll paths in manifest.json are relative to this archive's root.\n")
         for case in cases:
             slug = case["slug"]
             if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug) or slug in seen:
@@ -87,7 +87,7 @@ def build_release(project: Path, output: Path, version: str, cases_root: Path | 
     version_source = (SKILL / "scripts" / "typebitlib" / "__init__.py").read_text(encoding="utf-8")
     declared = re.search(r'__version__\s*=\s*[\"\']([^\"\']+)', version_source)
     if not declared or declared[1] != version:
-        raise ValueError("Release tag version must match the bundled TypeBit version.")
+        raise ValueError("Release tag version must match the bundled TraceGIF version.")
     project, output = project.resolve(), output.resolve()
     html = project / "animation.html"
     evidence = project / "verification"
@@ -108,8 +108,8 @@ def build_release(project: Path, output: Path, version: str, cases_root: Path | 
         export_report = json.loads(sidecar.read_text(encoding="utf-8"))
         if export_report.get("source_html_sha256") != report["html_sha256"] or export_report.get("output_sha256") != sha256(exported):
             raise ValueError(f"The {extension.upper()} example export is stale. Re-run export and package.")
-        export_files.extend([(exported, f"typebit-example.{extension}"),
-                             (sidecar, f"typebit-example.{extension}.export.json")])
+        export_files.extend([(exported, f"tracegif-example.{extension}"),
+                             (sidecar, f"tracegif-example.{extension}.export.json")])
     with zipfile.ZipFile(project_zip) as archive:
         # Require canonical package members, not another revision's same-named
         # file. Re-exporting or reviewing without repackaging must fail before
@@ -124,34 +124,34 @@ def build_release(project: Path, output: Path, version: str, cases_root: Path | 
             if packaged != source.read_bytes():
                 raise ValueError(f"Editable project package is stale: {relative}. Re-run package.")
     output.mkdir(parents=True, exist_ok=True)
-    skill_files = [(p, f"typebit-line-animation/{p.relative_to(SKILL).as_posix()}")
+    skill_files = [(p, f"tracegif/{p.relative_to(SKILL).as_posix()}")
                    for p in SKILL.rglob("*") if p.is_file()
                    and not {"__pycache__", ".venv", ".git"}.intersection(p.parts)
                    and p.suffix not in {".pyc", ".pyo"}]
     if not (SKILL / "LICENSE").is_file():
-        skill_files.append((ROOT / "LICENSE", "typebit-line-animation/LICENSE"))
+        skill_files.append((ROOT / "LICENSE", "tracegif/LICENSE"))
     names = []
-    name = f"typebit-line-animation-{version}.zip"
+    name = f"tracegif-{version}.zip"
     zip_files(output / name, skill_files)
     names.append(name)
-    for source, name in [(html, "typebit-example.html"), (project_zip, "typebit-example-project.zip")]:
+    for source, name in [(html, "tracegif-example.html"), (project_zip, "tracegif-example-project.zip")]:
         shutil.copyfile(source, output / name)
         names.append(name)
     for source, name in export_files:
         shutil.copyfile(source, output / name)
         names.append(name)
     evidence_files = [(p, p.relative_to(evidence).as_posix()) for p in evidence.rglob("*") if p.is_file()]
-    name = "typebit-example-verification.zip"
+    name = "tracegif-example-verification.zip"
     zip_files(output / name, evidence_files)
     names.append(name)
     preview = evidence / "light-final.png"
     if preview.is_file():
-        shutil.copyfile(preview, output / "typebit-example-preview.png")
-        names.append("typebit-example-preview.png")
-    name = f"typebit-cases-{version}.zip"
+        shutil.copyfile(preview, output / "tracegif-example-preview.png")
+        names.append("tracegif-example-preview.png")
+    name = f"tracegif-cases-{version}.zip"
     build_case_bundle(cases_root or project.parent / "cases", output / name)
     names.append(name)
-    manifest = {"version": version, "skill": "typebit-line-animation", "html_sha256": sha256(html),
+    manifest = {"version": version, "skill": "tracegif", "html_sha256": sha256(html),
                 "automated_status": report["automated_status"], "visual_review": report.get("visual_review", {}),
                 "files": [{"name": name, "sha256": sha256(output / name)} for name in sorted(names)]}
     (output / "release-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -164,7 +164,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project", type=Path, default=ROOT / "build" / "example")
     parser.add_argument("--output", type=Path, default=ROOT / "dist")
-    parser.add_argument("--version", default="0.3.0")
+    parser.add_argument("--version", default="0.4.0")
     parser.add_argument("--cases-root", type=Path, help="Public case build directory containing manifest.json")
     args = parser.parse_args()
     try:

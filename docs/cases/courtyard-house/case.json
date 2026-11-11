@@ -1,0 +1,77 @@
+{
+  "slug": "courtyard-house",
+  "title": "Courtyard House",
+  "title_zh": "庭院住宅展示",
+  "kind": "svg",
+  "method": "Native SVG facade geometry: building volumes and roof, then openings and landscaping, then material details.",
+  "limitations": "A fictional original house illustration; not a construction drawing, measured plan or real property listing.",
+  "duration": 6,
+  "playback_rate": 1.5,
+  "matte": "#F8F5EB",
+  "html_sha256": "92e3cebfe681bc0bc610e70a85537b769ea08e5f218980b873f4bf7f1075003e",
+  "project_zip": "courtyard-house-project.zip",
+  "project_zip_sha256": "e394a9c632d9308814ba4e50b7c5d84c87198f7f987ec52b524feee1acdda25b",
+  "automated_status": "passed",
+  "checks_passed": 15,
+  "view_box": [
+    0.0,
+    0.0,
+    800.0,
+    520.0
+  ],
+  "preview_dimensions": {
+    "width": 480,
+    "height": 312
+  },
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "92e3cebfe681bc0bc610e70a85537b769ea08e5f218980b873f4bf7f1075003e",
+    "notes": [
+      "Roof, house volumes, arched openings, garden wall and vegetation match source geometry, order and warm palette. Source and final comparison panels are pixel-identical. The house is a fictional architectural illustration, not a measured plan or real property listing.",
+      "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+      "Inspected decoded GIF opening, drawing and final frames: 480x312, 41 stored frames, 4800 ms including final hold. The declared #F8F5EB GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+      "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
+    ]
+  },
+  "assets": {
+    "animation.html": {
+      "file": "animation.html",
+      "sha256": "92e3cebfe681bc0bc610e70a85537b769ea08e5f218980b873f4bf7f1075003e"
+    },
+    "animation.gif": {
+      "file": "animation.gif",
+      "sha256": "9d968961e157b99fac54f91c6efa699577a3e14eb2850be09d7fadf775db05c9"
+    },
+    "final.png": {
+      "file": "final.png",
+      "sha256": "678818602997dabc05b379907f0951c1a0ed499da1aaff26f2216278f6d316fe"
+    },
+    "preview.png": {
+      "file": "preview.png",
+      "sha256": "06e652909dad02d4d8fb294f8204479a4f3c80cdf8fe78f934a68e6a93d29ca3"
+    },
+    "report.json": {
+      "file": "report.json",
+      "sha256": "367e9c65d258f45dddc964d736cf28a8ed6a1e6596b39663df36152c2321aafc"
+    }
+  },
+  "input_provenance": {
+    "schema_version": 1,
+    "authored_inputs": {
+      "source": {
+        "file": "source/courtyard-house.svg",
+        "sha256": "9549730828a3d11bc29715338f4f5a1f2d521d51b6946646d4261562158f06d7"
+      }
+    },
+    "prepared_inputs": {
+      "source": {
+        "file": "assets/source.svg",
+        "sha256": "9549730828a3d11bc29715338f4f5a1f2d521d51b6946646d4261562158f06d7"
+      },
+      "scene": {
+        "file": "scene.svg",
+        "sha256": "c8ca00c85b8cf42feea8826c8c1d4c446d1e7bd02ead708944c52bbebb6cc013"
+      }
+    }
+  }
+}

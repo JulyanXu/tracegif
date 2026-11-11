@@ -1,0 +1,77 @@
+{
+  "slug": "city-route",
+  "title": "City Route",
+  "title_zh": "城市漫游路线",
+  "kind": "svg",
+  "method": "Native SVG folded-map illustration: map and river, streets and landmarks, itinerary route, then numbered stops and compass.",
+  "limitations": "A fictional illustrative map with invented landmarks; not geographic or turn-by-turn navigation data.",
+  "duration": 6,
+  "playback_rate": 1.5,
+  "matte": "#F8F6ED",
+  "html_sha256": "3bf8fcc7de48ec7ce31b1a5c301b2f5270cf4229831a9309ce30c705bceca20f",
+  "project_zip": "city-route-project.zip",
+  "project_zip_sha256": "e8ac37e2fdbd0c1b1c81205730d617c7137893ed2c7e0c76089328e01a8c989a",
+  "automated_status": "passed",
+  "checks_passed": 15,
+  "view_box": [
+    0.0,
+    0.0,
+    720.0,
+    560.0
+  ],
+  "preview_dimensions": {
+    "width": 480,
+    "height": 373
+  },
+  "visual_review": {
+    "status": "reviewed",
+    "html_sha256": "3bf8fcc7de48ec7ce31b1a5c301b2f5270cf4229831a9309ce30c705bceca20f",
+    "notes": [
+      "Folded-map shape, river, landmarks, red walking route, four numbered stops and compass match the authored source. Comparison panels show only tiny subpixel edge differences at the rounded 480x373 preview size (mean absolute channel error below 0.35/255). This is a fictional itinerary, not navigation data.",
+      "Inspected actual offline Chromium source/drawing/final preview plus opening/middle/final on light, dark and checkerboard backgrounds. Opening is blank without added blue decoration; exterior transparency and source-colored interior areas are preserved.",
+      "Inspected decoded GIF opening, drawing and final frames: 480x373, 40 stored frames, 4800 ms including final hold. The declared #F8F6ED GIF matte is opaque, while HTML and PNG retain exterior alpha.",
+      "Original outline colors are retained. Dark source outlines have lower contrast on dark test surfaces; the supplied light matte provides the intended presentation contrast."
+    ]
+  },
+  "assets": {
+    "animation.html": {
+      "file": "animation.html",
+      "sha256": "3bf8fcc7de48ec7ce31b1a5c301b2f5270cf4229831a9309ce30c705bceca20f"
+    },
+    "animation.gif": {
+      "file": "animation.gif",
+      "sha256": "e890d9da6bd245748db4543fc34ad9789189eec1504603e311fa66e74eca73f6"
+    },
+    "final.png": {
+      "file": "final.png",
+      "sha256": "7fce736a531e6b9314d740d49164e0a854bf981c021f182e82a7220d1c863854"
+    },
+    "preview.png": {
+      "file": "preview.png",
+      "sha256": "3bc8debc78591a4b5e7342bc4964b811070f8f53b27803b1b77d4ce9d56d8f34"
+    },
+    "report.json": {
+      "file": "report.json",
+      "sha256": "c29b8355192872c3fbd03ef5c3bb73b624a3c9476d16ccadc1f938485de73b71"
+    }
+  },
+  "input_provenance": {
+    "schema_version": 1,
+    "authored_inputs": {
+      "source": {
+        "file": "source/city-route.svg",
+        "sha256": "e838cd2074a48035bab11188b8ae871f82354513d9be7e298f7fe5ac5cf1075d"
+      }
+    },
+    "prepared_inputs": {
+      "source": {
+        "file": "assets/source.svg",
+        "sha256": "e838cd2074a48035bab11188b8ae871f82354513d9be7e298f7fe5ac5cf1075d"
+      },
+      "scene": {
+        "file": "scene.svg",
+        "sha256": "6bea1cd52b8820fe1b957cf53fe66627527eacd749889186fd6b15b669c968de"
+      }
+    }
+  }
+}

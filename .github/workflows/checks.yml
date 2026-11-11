@@ -23,9 +23,9 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: skills/typebit-line-animation/requirements.txt
+          cache-dependency-path: skills/tracegif/requirements.txt
       - name: Install locked dependencies
-        run: python -m pip install -r skills/typebit-line-animation/requirements.txt
+        run: python -m pip install -r skills/tracegif/requirements.txt
       - name: Install browser and Linux system libraries
         if: runner.os == 'Linux'
         run: python -m playwright install --with-deps chromium
@@ -37,19 +37,19 @@ jobs:
       - name: Run tests
         run: python -m unittest discover -s tests -v
       - name: Create sample project
-        run: python skills/typebit-line-animation/scripts/typebit.py prepare examples/source/typebit-mark.svg --project build/example
+        run: python skills/tracegif/scripts/tracegif.py prepare examples/source/typebit-mark.svg --project build/example
       - name: Configure playback speed
-        run: python skills/typebit-line-animation/scripts/typebit.py configure build/example --speed 1.5
+        run: python skills/tracegif/scripts/tracegif.py configure build/example --speed 1.5
       - name: Render portable HTML
-        run: python skills/typebit-line-animation/scripts/typebit.py render build/example
+        run: python skills/tracegif/scripts/tracegif.py render build/example
       - name: Verify actual offline browser behavior
-        run: python skills/typebit-line-animation/scripts/typebit.py verify build/example/animation.html
+        run: python skills/tracegif/scripts/tracegif.py verify build/example/animation.html
       - name: Export transparent PNG
-        run: python skills/typebit-line-animation/scripts/typebit.py export build/example --format png --width 480
+        run: python skills/tracegif/scripts/tracegif.py export build/example --format png --width 480
       - name: Export animated GIF
-        run: python skills/typebit-line-animation/scripts/typebit.py export build/example --format gif --width 480 --fps 8
+        run: python skills/tracegif/scripts/tracegif.py export build/example --format gif --width 480 --fps 8
       - name: Package editable source
-        run: python skills/typebit-line-animation/scripts/typebit.py package build/example
+        run: python skills/tracegif/scripts/tracegif.py package build/example
       - name: Build verified public cases
         if: runner.os == 'Linux'
         run: python tools/build_cases.py --build-root build/cases --media-root build/cases/media

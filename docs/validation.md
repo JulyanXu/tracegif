@@ -1,4 +1,21 @@
-# Validation snapshots — 2026-11-10
+# Validation snapshots
+
+## v0.4.0 — 2026-11-11
+
+The renamed TraceGIF runtime passed **101 local automated tests** in Windows, Python 3.12.3, Playwright 1.58.0 and Chromium 145.0.7632.6. These include real browser GIF downloads at selected sizes, frame rates and matte colors; exact white/black/matte retention; settings persistence in saved HTML; short-screen controls; and new/legacy command portability.
+
+The audit added regression coverage for stale or missing export evidence, protected package destinations, atomic package replacement, empty/opaque masks, and keeping prior verification captures with their report on retries. The source/drawing/final comparison capture now tests landscape, square and portrait proportions in an actual browser.
+
+All **seven original cases** were rebuilt with 0.4.0. Their browser checks, source comparisons, GIF timings, dimensions and visual reviews are bound to each current HTML in the [case records](cases/manifest.json). The new scenarios are a courtyard house, a fictional city route, an illustrative orbital lesson and a portrait invitation. GIF previews are actual captures, not simulated video.
+
+- [v0.4.0 sample verification](validation/v0.4.0-svg-verification.json)
+- [Independent upgrade and export workflow](validation/v0.4.0-workflow.json)
+- [Migration notes and compatibility limits](migration.md)
+- [Tagged release checks](https://github.com/JulyanXu/tracegif/actions/workflows/release.yml)
+
+The installable folder and legacy entrypoints were exercised outside the repository. Archived v0.1.0, v0.2.0 and v0.3.0 projects were rendered with 0.4.0 while retaining source bytes and layer schedules. An extracted delivery ZIP lacks its private snapshot: retain that original ZIP before revision, as documented in the migration guide.
+
+中文：TraceGIF v0.4.0 在本机通过 101 项自动测试，并重新生成七个案例。检查覆盖 GIF 参数、白色细节、短屏幕操作、工程包完整性、无效蒙版和验证记录归档；横版、方版、竖版比例通过真实浏览器对照。旧版本工程与旧命令入口已验证兼容。各案例视觉复核记录绑定其具体 HTML，不能替代对其他素材的检查。
 
 ## v0.3.0
 
@@ -6,10 +23,10 @@ All **83 local automated tests** passed in the reference environment.
 
 The offline HTML now contains its own licensed GIF encoder. Seven focused tests exercise real Chromium downloads, decode the GIF bytes, check colors and selected-speed timing, and confirm cancellation, encoder-error recovery, playback-state restoration and GIF export from a downloaded HTML copy. These run in offline browser contexts and reject external resource requests.
 
-Three [original public cases](cases/README.md) each passed **15 offline playback/resource checks**. An Agent inspected the source/drawing/final strips, the three validation backgrounds and decoded GIF phases; the review notes and HTML hashes are recorded in each case's report. The controlled raster badge retains its original RGBA pixels, including white letters and transparent margins. The 480 × 360 case GIFs last 4.8 seconds including the final hold.
+Three [original public cases](https://github.com/JulyanXu/tracegif/blob/v0.3.0/docs/cases/README.md) each passed **15 offline playback/resource checks**. An Agent inspected the source/drawing/final strips, the three validation backgrounds and decoded GIF phases; the review notes and HTML hashes are recorded in each case's report. The controlled raster badge retains its original RGBA pixels, including white letters and transparent margins. The 480 × 360 case GIFs last 4.8 seconds including the final hold.
 
 - [v0.3.0 SVG browser report](validation/v0.3.0-svg-verification.json)
-- [Public case records and exact artifact hashes](cases/manifest.json)
+- [v0.3.0 case records and exact artifact hashes](https://github.com/JulyanXu/tracegif/blob/v0.3.0/docs/cases/manifest.json)
 - [Release and artifact checks](../tests/test_release.py)
 
 The reference environment remains Windows, Python 3.12.3, Playwright 1.58.0 and Chromium 145.0.7632.6. The [release workflow](https://github.com/JulyanXu/typebit/actions/workflows/release.yml) reruns the suite on Windows, macOS and Linux before publishing. Its fresh case build records automated checks separately from visual review; CI does not inherit or claim an Agent's visual inspection of another build.

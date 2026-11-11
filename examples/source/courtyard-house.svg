@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <title>Courtyard House — an original architectural illustration</title>
+  <desc>Original TraceGIF demonstration artwork, MIT licensed. A fictional house, not a measured architectural drawing. Native paths, no fonts.</desc>
+  <g stroke="#3E554C" stroke-linecap="round" stroke-linejoin="round">
+    <path id="house-front" data-phase="main" d="M230 193 L395 107 L560 193 V394 H230Z" fill="#F3E2C7" stroke-width="3.5"/>
+    <path id="roof" data-phase="main" d="M208 195 L395 91 L582 195 L568 211 L395 117 L222 211Z" fill="#B86B4C" stroke-width="3.5"/>
+    <path id="left-wing" data-phase="main" d="M124 271 H282 V394 H124Z" fill="#E8CEAA" stroke-width="3.2"/>
+    <path id="wing-roof" data-phase="main" d="M112 259 H293 V279 H112Z" fill="#BA7153" stroke-width="3"/>
+    <path id="garden-wall" data-phase="main" d="M560 302 H686 V394 H560Z" fill="#E7D5B5" stroke-width="3.2"/>
+    <path id="garden-wall-cap" data-phase="main" d="M554 293 H692 V306 H554Z" fill="#C9A882" stroke-width="2.5"/>
+    <path id="door-arch" data-phase="secondary" d="M355 394 V310 C355 261 433 261 433 310 V394Z" fill="#526D5A" stroke-width="3"/>
+    <path id="door-inset" data-phase="secondary" d="M369 386 V311 C369 280 419 280 419 311 V386 M394 287 V386" fill="none" stroke="#9CAE8E" stroke-width="2"/>
+    <path id="upper-window-left" data-phase="secondary" d="M278 245 V205 C278 172 330 172 330 205 V245Z" fill="#85A49B" stroke-width="3"/>
+    <path id="upper-window-right" data-phase="secondary" d="M460 245 V205 C460 172 512 172 512 205 V245Z" fill="#85A49B" stroke-width="3"/>
+    <path id="upper-mullions" data-phase="secondary" d="M304 181 V245 M279 210 H329 M486 181 V245 M461 210 H511" fill="none" stroke="#F8EDD9" stroke-width="3"/>
+    <path id="wing-window" data-phase="secondary" d="M156 303 H249 V355 H156Z M187 304 V354 M218 304 V354" fill="#89A79D" stroke-width="3"/>
+    <path id="garden-gate" data-phase="secondary" d="M594 394 V335 C594 316 652 316 652 335 V394Z" fill="#A47B53" stroke-width="3"/>
+    <path id="gate-slats" data-phase="secondary" d="M607 330 V391 M622 325 V391 M638 329 V391" fill="none" stroke="#E4C89A" stroke-width="2"/>
+    <path id="entry-steps" data-phase="secondary" d="M342 394 H447 V407 H342Z M330 407 H459 V419 H330Z" fill="#CFB48F" stroke-width="2.5"/>
+    <path id="ground" data-phase="secondary" d="M82 420 H316 M472 420 H719 M113 432 H234 M531 432 H668" fill="none" stroke="#7E8D6B" stroke-width="2.5"/>
+    <path id="tree-canopy" data-phase="secondary" d="M93 343 C49 340 48 296 72 279 C49 250 75 216 102 223 C108 190 148 191 159 220 C195 207 219 240 204 269 C230 299 209 338 177 338 C158 367 117 364 93 343Z" fill="#7E9971" stroke-width="2.8"/>
+    <path id="tree-trunk" data-phase="secondary" d="M139 410 L139 278 M139 328 L101 298 M139 303 L170 270 M139 351 L175 317" fill="none" stroke="#4D6350" stroke-width="5"/>
+    <path id="sun" data-phase="details" d="M685 117 A33 33 0 1 1 619 117 A33 33 0 1 1 685 117Z" fill="#DDAA52" stroke="#BD8D3F" stroke-width="2"/>
+    <path id="sun-halo" data-phase="details" d="M631 68 L625 54 M677 70 L685 58 M707 103 L722 99 M704 145 L719 152" fill="none" stroke="#C49C51" stroke-width="2"/>
+    <path id="gable-vent" data-phase="details" d="M409 158 A14 14 0 1 1 381 158 A14 14 0 1 1 409 158Z M382 158 H408" fill="#C3A382" stroke-width="2.2"/>
+    <path id="window-sills" data-phase="details" d="M271 248 H337 M453 248 H519 M149 359 H256" fill="none" stroke="#AF8A67" stroke-width="4"/>
+    <path id="wall-joints" data-phase="details" d="M244 278 H275 M241 289 H258 M522 276 H546 M532 288 H550 M576 367 H589 M665 349 H678" fill="none" stroke="#CCB18A" stroke-width="2"/>
+    <path id="door-handle" data-phase="details" d="M407 337 V349" fill="none" stroke="#EBC57B" stroke-width="4"/>
+    <path id="planter-left" data-phase="details" d="M282 368 H320 L315 401 H287Z" fill="#B86B4C" stroke-width="2.5"/>
+    <path id="planter-leaves" data-phase="details" d="M301 368 C280 359 276 343 279 335 C295 337 303 348 301 368Z M302 368 C302 345 313 333 327 329 C331 349 319 362 302 368Z" fill="#65845D" stroke-width="2"/>
+    <path id="courtyard-herbs" data-phase="details" d="M486 398 C478 377 479 365 485 351 C499 362 497 380 486 398Z M487 398 C500 378 511 374 523 374 C520 389 506 399 487 398Z M485 399 C470 391 460 384 455 372 C473 371 481 383 485 399Z" fill="#8CA276" stroke-width="2"/>
+  </g>
+</svg>

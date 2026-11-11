@@ -2,11 +2,11 @@
   "status": "exported",
   "format": "gif",
   "output_file": "animation.gif",
-  "source_html_sha256": "4bb628e608354a8cd99e5c8d2ce93f7a89ab6ce5852a156c6d147e3e54195a87",
+  "source_html_sha256": "7ee220c8166f27df1d33bced752538fcab0887b6140c17d429794a82002c28d3",
   "playback_rate": 1.5,
   "timeline_duration": 6.0,
   "effective_duration": 4.0,
-  "created_at": "2026-11-10T10:01:04.504310+00:00",
+  "created_at": "2026-11-11T01:12:40.540527+00:00",
   "validation": {
     "embedded_resources": "passed",
     "browser_capture": "passed",

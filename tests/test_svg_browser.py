@@ -1,7 +1,7 @@
 """Real-browser regression tests for imported SVG fidelity.
 
 These checks use source SVG pixels as the reference, rather than comparing two
-TypeBit exports. Local runs can skip if Chromium is unavailable; CI installs it.
+TraceGIF exports. Local runs can skip if Chromium is unavailable; CI installs it.
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ from pathlib import Path
 from PIL import Image, ImageChops
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "skills/typebit-line-animation/scripts"))
+sys.path.insert(0, str(ROOT / "skills/tracegif/scripts"))
 from typebitlib.core import prepare_project, render_project
 
 

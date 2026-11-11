@@ -10,8 +10,9 @@ from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "skills" / "typebit-line-animation" / "scripts"))
+sys.path.insert(0, str(ROOT / "skills" / "tracegif" / "scripts"))
 from typebitlib.verify import external_resources, verify_html
+from typebitlib.core import TypeBitError
 
 
 class ResourceAuditTests(unittest.TestCase):
@@ -70,6 +71,37 @@ class ResourceAuditTests(unittest.TestCase):
             html.write_text('<script src="https://example.invalid/player.js"></script>', encoding="utf-8")
             result = verify_html(html)
             self.assertEqual(result["automated_status"], "failed")
+
+    def test_failed_retry_archives_prior_evidence_instead_of_leaving_stale_screenshots(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            output = root / "verification"
+            output.mkdir()
+            previous = {"schema_version": 1, "html_sha256": "previous", "automated_status": "passed",
+                        "checks": [], "screenshots": [{"file": "light-final.png"}]}
+            (output / "report.json").write_text(json.dumps(previous), encoding="utf-8")
+            (output / "report.md").write_text("Previous report", encoding="utf-8")
+            (output / "light-final.png").write_bytes(b"previous screenshot")
+            result = verify_html(root / "missing.html", output)
+            self.assertEqual(result["automated_status"], "failed")
+            self.assertEqual(result["screenshots"], [])
+            self.assertFalse((output / "light-final.png").exists())
+            history = list((output / "previous-runs").iterdir())
+            self.assertEqual(len(history), 1)
+            self.assertEqual(json.loads((history[0] / "report.json").read_text())["html_sha256"], "previous")
+            self.assertEqual((history[0] / "light-final.png").read_bytes(), b"previous screenshot")
+
+    def test_verification_refuses_to_overwrite_input_or_unrelated_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            collision = root / "report.json"
+            collision.write_bytes(b"user source")
+            with self.assertRaises(TypeBitError):
+                verify_html(collision, root)
+            self.assertEqual(collision.read_bytes(), b"user source")
+            with self.assertRaises(TypeBitError):
+                verify_html(root / "missing.html", root)
+            self.assertEqual(collision.read_bytes(), b"user source")
 
 
 if __name__ == "__main__":
