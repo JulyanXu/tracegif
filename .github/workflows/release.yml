@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Download the exact tested Linux build
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: evidence-ubuntu-24.04
           path: build
