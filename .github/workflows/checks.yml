@@ -55,7 +55,7 @@ jobs:
         run: python tools/build_cases.py --build-root build/cases --media-root build/cases/media
       - name: Preserve verification evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: evidence-${{ matrix.os }}
           path: |
